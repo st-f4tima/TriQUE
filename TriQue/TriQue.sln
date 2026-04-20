@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.5.11709.299 stable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriQue", "TriQue.csproj", "{F3987299-7D63-91FE-2126-CADAD0269A33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3987299-7D63-91FE-2126-CADAD0269A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3987299-7D63-91FE-2126-CADAD0269A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3987299-7D63-91FE-2126-CADAD0269A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3987299-7D63-91FE-2126-CADAD0269A33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48FDDE06-C90A-46E1-94B3-44B9EA1F867E}
+	EndGlobalSection
+EndGlobal
