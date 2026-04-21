@@ -1,22 +1,31 @@
 ﻿using System;
 using Microsoft.Data.Sqlite;
 using System.IO;
+using Microsoft.Extensions.Configuration;
 
 namespace TriQue.Data
 {
     internal class DatabaseInitializer
     {
+        private readonly string _connectionString;
+
+        public  DatabaseInitializer()
+        {
+            var conn = AppConfig.Configuration.GetConnectionString("Default");
+
+            string fullPath = Path.GetFullPath(conn, AppContext.BaseDirectory);
+
+            string? folder = Path.GetDirectoryName(fullPath);
+            if (!string.IsNullOrWhiteSpace(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+
+            _connectionString = $"Data Source={fullPath}";
+        }
         public void Initialize()
         {
-            string projectRoot = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\"));
-            string dbFolder = Path.Combine(projectRoot, "Data", "Database");
-
-            Directory.CreateDirectory(dbFolder);
-
-            string dbPath = Path.Combine(dbFolder, "triqueDB.db");
-            string connectionString = $"Data Source={dbPath}";
-
-            using (var conn = new SqliteConnection(connectionString))
+            using (var conn = new SqliteConnection(_connectionString))
             {
                 conn.Open();
 

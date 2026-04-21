@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 
@@ -10,17 +11,17 @@ namespace TriQue.Data
 
         public DatabaseHelper()
         {
-            string projectRoot = Path.GetFullPath(
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..")
-            );
+            var conn = AppConfig.Configuration.GetConnectionString("Default");
 
-            string dbFolder = Path.Combine(projectRoot, "Data", "Database");
+            string fullPath = Path.GetFullPath(conn, AppContext.BaseDirectory);
 
-            Directory.CreateDirectory(dbFolder);
+            string? folder = Path.GetDirectoryName(fullPath);
+            if (!string.IsNullOrWhiteSpace(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
 
-            string dbPath = Path.Combine(dbFolder, "triqueDB.db");
-
-            _connectionString = $"Data Source={dbPath}";
+            _connectionString = $"Data Source={fullPath}";
         }
 
         public SqliteConnection GetConnection()
@@ -29,7 +30,7 @@ namespace TriQue.Data
         }
 
         // INSERT / UPDATE / DELETE queries
-        public void ExecuteNonQuery(string query, SqliteParameter[] parameters)
+        public void ExecuteNonQuery(string query, params SqliteParameter[] parameters)
         {
             using (var conn = GetConnection())
             {
@@ -38,17 +39,14 @@ namespace TriQue.Data
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = query;
-
-                    if (parameters != null)
-                        cmd.Parameters.AddRange(parameters);
-
+                    cmd.Parameters.AddRange(parameters);
                     cmd.ExecuteNonQuery();
                 }
             }
         }
 
         // returns single value
-        public object ExecuteScalar(string query, SqliteParameter[] parameters)
+        public object? ExecuteScalar(string query, params SqliteParameter[] parameters)
         {
             using (var conn = GetConnection())
             {
@@ -57,9 +55,7 @@ namespace TriQue.Data
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = query;
-
-                    if (parameters != null)
-                        cmd.Parameters.AddRange(parameters);
+                    cmd.Parameters.AddRange(parameters);
 
                     return cmd.ExecuteScalar();
                 }
@@ -67,16 +63,14 @@ namespace TriQue.Data
         }
 
         // SELECT queries
-        public SqliteDataReader ExecuteReader(string query, SqliteParameter[] parameters)
+        public SqliteDataReader ExecuteReader(string query, params SqliteParameter[] parameters)
         {
             var conn = GetConnection();
             conn.Open();
 
             var cmd = conn.CreateCommand();
             cmd.CommandText = query;
-
-            if (parameters != null)
-                cmd.Parameters.AddRange(parameters);
+            cmd.Parameters.AddRange(parameters);
 
             return cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
         }
