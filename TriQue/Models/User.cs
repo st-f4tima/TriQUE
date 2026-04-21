@@ -5,7 +5,7 @@ namespace TriQue.Models
 {
     public abstract class User
     {
-        public required int UserID { get; set; }
+        public int UserID { get; set; }
         public required string Username { get; set; }
         public required string PasswordHash { get; set; }
         public required string FirstName { get; set; }

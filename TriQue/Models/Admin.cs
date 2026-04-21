@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using TriQue.Enums;
 
 namespace TriQue.Models
 {
-    internal class Admin
+    public class Admin : User
     {
+        public required AdminLevel Level { get; set; }
+
     }
 }

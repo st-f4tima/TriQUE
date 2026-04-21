@@ -6,5 +6,6 @@ namespace TriQue.Services
 {
     internal class AuthenticationService
     {
+
     }
 }

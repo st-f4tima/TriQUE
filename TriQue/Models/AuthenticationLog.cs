@@ -1,10 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TriQue.Models
 {
-    internal class AuthenticationLog
+    public class AuthenticationLog
     {
+        public int LogID { get; set; }
+        public required int UserID { get; set; }
+        public DateTime LoginTime { get; set; } = DateTime.Now;
+        public DateTime? LogoutTime { get; set; }
+        public string? LogoutOutcome { get; set; }
     }
 }
