@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TriQue.Models
 {
-    internal class AuthLog
+    internal class AuthenticationLog
     {
     }
 }

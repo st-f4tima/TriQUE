@@ -1,3 +1,6 @@
+using TriQue.Data;
+
+
 namespace TriQue
 {
     internal static class Program
@@ -8,6 +11,8 @@ namespace TriQue
         [STAThread]
         static void Main()
         {
+            var db = new DatabaseInitializer();
+            db.Initialize();
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
