@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TriQue.Enums
+﻿namespace TriQue.Enums
 {
-    internal class UserRole
+    public enum UserRole
     {
+        Driver,
+        Admin
     }
 }
