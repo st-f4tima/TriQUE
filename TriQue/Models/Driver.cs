@@ -6,9 +6,9 @@ namespace TriQue.Models
     public class Driver : User
     {
         public int DriverID { get; set; }
-        public required int GroupID { get; set; }
-        public required string BodyNumber { get; set; }
-        public required DriverStatus Status { get; set; } = DriverStatus.Waiting;
+        public int GroupID { get; set; }
+        public string BodyNumber { get; set; } = string.Empty;
+        public DriverStatus Status { get; set; } = DriverStatus.Waiting;
 
     }
 }

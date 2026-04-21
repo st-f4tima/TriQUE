@@ -5,7 +5,7 @@ namespace TriQue.Models
 {
     public class Admin : User
     {
-        public required AdminLevel Level { get; set; }
+        public AdminLevel Level { get; set; }
 
     }
 }

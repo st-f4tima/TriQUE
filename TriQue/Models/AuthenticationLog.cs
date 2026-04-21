@@ -5,9 +5,9 @@ namespace TriQue.Models
     public class AuthenticationLog
     {
         public int LogID { get; set; }
-        public required int UserID { get; set; }
+        public int UserID { get; set; }
         public DateTime LoginTime { get; set; } = DateTime.Now;
-        public DateTime? LogoutTime { get; set; }
-        public string? LogoutOutcome { get; set; }
+        public DateTime LogoutTime { get; set; }
+        public string LogoutOutcome { get; set; } = string.Empty;
     }
 }
