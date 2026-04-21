@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TriQue.Enums
+﻿namespace TriQue.Enums
 {
-    internal class DriverStatus
+    public enum DriverStatus
     {
+        Waiting, 
+        OnTrip,
+        Finished
     }
 }
