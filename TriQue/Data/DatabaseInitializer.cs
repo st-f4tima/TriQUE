@@ -35,40 +35,40 @@ namespace TriQue.Data
                 cmd.CommandText =
                 @"
                 CREATE TABLE IF NOT EXISTS UserRole (
-                    roleID INTEGER PRIMARY KEY,
-                    roleName TEXT NOT NULL
+                    RoleID INTEGER PRIMARY KEY,
+                    RoleName TEXT NOT NULL
                 );
 
                 CREATE TABLE IF NOT EXISTS AdminLevel (
-                    levelID INTEGER PRIMARY KEY,
-                    levelName TEXT NOT NULL
+                    LevelID INTEGER PRIMARY KEY,
+                    LevelName TEXT NOT NULL
                 );
 
                 CREATE TABLE IF NOT EXISTS DriverStatus (
-                    statusID INTEGER PRIMARY KEY,
-                    statusName TEXT NOT NULL
+                    StatusID INTEGER PRIMARY KEY,
+                    StatusName TEXT NOT NULL
                 );
 
                 CREATE TABLE IF NOT EXISTS User (
-                    userID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    username TEXT NOT NULL,
-                    passwordHash TEXT NOT NULL,
-                    firstName TEXT NOT NULL,
-                    lastName TEXT NOT NULL,
-                    phoneNumber TEXT NOT NULL,
-                    roleID INTEGER NOT NULL,
-                    failedAttempts INTEGER NOT NULL DEFAULT 0,
-                    lockoutUntil DATETIME,
-                    FOREIGN KEY (roleID) REFERENCES UserRole(roleID)
+                    UserID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Username TEXT NOT NULL,
+                    PasswordHash TEXT NOT NULL,
+                    FirstName TEXT NOT NULL,
+                    LastName TEXT NOT NULL,
+                    PhoneNumber TEXT NOT NULL,
+                    RoleID INTEGER NOT NULL,
+                    FailedAttempts INTEGER NOT NULL DEFAULT 0,
+                    LockoutUntil DATETIME,
+                    FOREIGN KEY (RoleID) REFERENCES UserRole(RoleID)
                 );
 
                 CREATE TABLE IF NOT EXISTS AuthenticationLog (
-                    logID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    userID INTEGER NOT NULL,
-                    loginTime DATETIME,
-                    logoutTime DATETIME,
-                    logoutOutcome TEXT NOT NULL,
-                    FOREIGN KEY (userID) REFERENCES User(userID)
+                    LogID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    UserID INTEGER NOT NULL,
+                    LoginTime DATETIME,
+                    LogoutTime DATETIME,
+                    LogoutOutcome TEXT NOT NULL,
+                    FOREIGN KEY (UserID) REFERENCES User(UserID)
                 );
                 ";
 
@@ -76,22 +76,22 @@ namespace TriQue.Data
 
                 cmd.CommandText =
                 @"
-                INSERT OR IGNORE INTO UserRole (roleID, roleName) VALUES
+                INSERT OR IGNORE INTO UserRole (RoleID, RoleName) VALUES
                     (1, 'Driver'),
                     (2, 'Admin');
 
-                INSERT OR IGNORE INTO AdminLevel (levelID, levelName) VALUES
+                INSERT OR IGNORE INTO AdminLevel (LevelID, LevelName) VALUES
                     (1, 'SuperAdmin'),
                     (2, 'TodaOfficer'),
                     (3, 'Staff');
 
-                INSERT OR IGNORE INTO DriverStatus (statusID, statusName) VALUES
+                INSERT OR IGNORE INTO DriverStatus (StatusID, StatusName) VALUES
                     (1, 'Waiting'),
                     (2, 'OnTrip'),
                     (3, 'Finished');
 
                 INSERT OR IGNORE INTO User 
-                (username, passwordHash, firstName, lastName, phoneNumber, roleID, failedAttempts, lockoutUntil)
+                (Username, PasswordHash, FirstName, LastName, PhoneNumber, RoleID, FailedAttempts, LockoutUntil)
                 VALUES
                     ('admin1', 'hashed_admin_pass', 'Juan', 'Dela Cruz', '09123456789', 2, 0, NULL),
                     ('driver1', 'hashed_driver_pass', 'Pedro', 'Santos', '09987654321', 1, 0, NULL),

@@ -1,10 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using TriQue.Enums;
 
 namespace TriQue.Models
 {
-    internal class Driver
+    public class Driver : User
     {
+        public int DriverID { get; set; }
+        public int GroupID { get; set; }
+        public string BodyNumber { get; set; } = string.Empty;
+        public DriverStatus Status { get; set; } = DriverStatus.Waiting;
+
     }
 }
