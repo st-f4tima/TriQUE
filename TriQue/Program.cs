@@ -12,8 +12,10 @@ namespace TriQue
         [STAThread]
         static void Main()
         {
-            var db = new DatabaseInitializer();
-            db.Initialize();
+            var databaseHelper = new DatabaseHelper();
+            var dbInitializer = new DatabaseInitializer(databaseHelper);
+
+            dbInitializer.Initialize();
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();

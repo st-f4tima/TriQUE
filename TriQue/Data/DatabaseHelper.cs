@@ -11,7 +11,9 @@ namespace TriQue.Data
 
         public DatabaseHelper()
         {
-            var conn = AppConfig.Configuration.GetConnectionString("Default");
+
+            var conn = AppConfig.Configuration.GetConnectionString("Default")
+               ?? throw new Exception("Connection string 'Default' not found in appsettings.json");
 
             string fullPath = Path.GetFullPath(conn, AppContext.BaseDirectory);
 
@@ -24,42 +26,36 @@ namespace TriQue.Data
             _connectionString = $"Data Source={fullPath}";
         }
 
+        public string GetConnectionString() => _connectionString;
+
         public SqliteConnection GetConnection()
         {
             return new SqliteConnection(_connectionString);
         }
 
-        // INSERT / UPDATE / DELETE queries
+        // INSERT / DELETE / UPDATE queries
         public void ExecuteNonQuery(string query, params SqliteParameter[] parameters)
         {
-            using (var conn = GetConnection())
-            {
-                conn.Open();
+            using var conn = GetConnection();
+            conn.Open();
 
-                using (var cmd = conn.CreateCommand())
-                {
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddRange(parameters);
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = query;
+            cmd.Parameters.AddRange(parameters);
+            cmd.ExecuteNonQuery();
         }
 
-        // returns single value
+        // returns one data query result
         public object? ExecuteScalar(string query, params SqliteParameter[] parameters)
         {
-            using (var conn = GetConnection())
-            {
-                conn.Open();
+            using var conn = GetConnection();
+            conn.Open();
 
-                using (var cmd = conn.CreateCommand())
-                {
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddRange(parameters);
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = query;
+            cmd.Parameters.AddRange(parameters);
 
-                    return cmd.ExecuteScalar();
-                }
-            }
+            return cmd.ExecuteScalar();
         }
 
         // SELECT queries
