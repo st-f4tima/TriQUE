@@ -11,7 +11,9 @@ namespace TriQue.Data
 
         public DatabaseHelper()
         {
-            var conn = AppConfig.Configuration.GetConnectionString("Default");
+
+            var conn = AppConfig.Configuration.GetConnectionString("Default")
+               ?? throw new Exception("Connection string 'Default' not found in appsettings.json");
 
             string fullPath = Path.GetFullPath(conn, AppContext.BaseDirectory);
 
@@ -24,12 +26,14 @@ namespace TriQue.Data
             _connectionString = $"Data Source={fullPath}";
         }
 
+        public string GetConnectionString() => _connectionString;
+
         public SqliteConnection GetConnection()
         {
             return new SqliteConnection(_connectionString);
         }
 
-        // Insert / detete / update
+        // INSERT / DELETE / UPDATE queries
         public void ExecuteNonQuery(string query, params SqliteParameter[] parameters)
         {
             using var conn = GetConnection();
@@ -41,7 +45,7 @@ namespace TriQue.Data
             cmd.ExecuteNonQuery();
         }
 
-        // Returns one
+        // returns one data query result
         public object? ExecuteScalar(string query, params SqliteParameter[] parameters)
         {
             using var conn = GetConnection();

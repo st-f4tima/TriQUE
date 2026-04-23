@@ -186,7 +186,7 @@
             guna2Button1.Size = new Size(314, 56);
             guna2Button1.TabIndex = 1;
             guna2Button1.Text = "Login";
-            guna2Button1.Click += guna2Button1_Click_1;
+            //guna2Button1.Click += guna2Button1_Click_1;
             // 
             // pictureBox1
             // 

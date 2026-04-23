@@ -1,5 +1,5 @@
-﻿using Microsoft.Data.Sqlite;
-
+﻿using System;
+using Microsoft.Data.Sqlite;
 using TriQue.Models;
 
 namespace TriQue.Data.Repositories
@@ -13,7 +13,7 @@ namespace TriQue.Data.Repositories
             _dbHelper = new DatabaseHelper();
         }
 
-        public User GetByUsername(string username)
+        public User? GetByUsername(string username)
         {
             string query = @"
                 SELECT UserID, Username, PasswordHash, RoleID
@@ -28,12 +28,11 @@ namespace TriQue.Data.Repositories
             if (!reader.Read()) return null;
 
             int roleId = Convert.ToInt32(reader["RoleID"]);
-
             User user = roleId == 2 ? new Admin() : new Driver();
 
             user.UserID = Convert.ToInt32(reader["UserID"]);
-            user.Username = reader["Username"].ToString();
-            user.PasswordHash = reader["PasswordHash"].ToString();
+            user.Username = reader["Username"].ToString() ?? "";
+            user.PasswordHash = reader["PasswordHash"].ToString() ?? "";
 
             return user;
         }
@@ -71,25 +70,33 @@ namespace TriQue.Data.Repositories
             string query = @"
                 UPDATE User
                 SET FailedAttempts = 0,
-                    LockoutUntil = NULL
+                    LockoutUntil = @lock
                 WHERE UserID = @id";
 
             _dbHelper.ExecuteNonQuery(query,
-                new SqliteParameter("@lock", DateTime.Now.AddMinutes(minutes)),
+                new SqliteParameter("@lock", DateTime.Now.AddMinutes(minutes).ToString("yyyy-MM-dd HH:mm:ss")),
                 new SqliteParameter("@id", userID));
         }
 
         public bool IsLocked(int userID)
         {
+            var lockoutUntil = GetLockoutUntil(userID);
+            return lockoutUntil.HasValue && lockoutUntil.Value > DateTime.Now;
+        }
+
+        public DateTime? GetLockoutUntil(int userID)
+        {
             string query = "SELECT LockoutUntil FROM User WHERE UserID = @id";
             var result = _dbHelper.ExecuteScalar(query, new SqliteParameter("@id", userID));
 
             if (result == null || result == DBNull.Value)
-            {
-                return false;
-            }
+                return null;
 
-            return Convert.ToDateTime(result) > DateTime.Now;
+            // SQLite stores datetime as string — parse it safely
+            if (DateTime.TryParse(result.ToString(), out DateTime dt))
+                return dt;
+
+            return null;
         }
 
         public void InsertAuthLog(int userID, string outcome)
@@ -100,7 +107,7 @@ namespace TriQue.Data.Repositories
 
             _dbHelper.ExecuteNonQuery(query,
                 new SqliteParameter("@id", userID),
-                new SqliteParameter("@time", DateTime.Now),
+                new SqliteParameter("@time", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
                 new SqliteParameter("@outcome", outcome));
         }
     }

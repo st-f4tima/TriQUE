@@ -7,15 +7,15 @@ namespace TriQue.Data
 {
     internal class DatabaseInitializer
     {
-        private readonly DatabaseHelper _db;
+        private readonly DatabaseHelper _dbHelper;
 
         public DatabaseInitializer(DatabaseHelper db)
         {
-            _db = db;
+            _dbHelper = db;
         }
         public void Initialize()
         {
-            using var conn = _db.GetConnection();
+            using var conn = _dbHelper.GetConnection();
             conn.Open();
 
             var cmd = conn.CreateCommand();
@@ -185,9 +185,9 @@ namespace TriQue.Data
                 (31, 'driver29', 'hash31', 'Driver29', 'Test', '09300000029', 1),
                 (32, 'driver30', 'hash32', 'Driver30', 'Test', '09300000030', 1);
 
-            INSERT OR IGNORE INTO Admin (AdminID, LevelID) VALUES
-                (1, 1),
-                (2, 2);
+            INSERT OR IGNORE INTO Admin (AdminID, UserID, LevelID) VALUES
+                (1, 1, 1),
+                (2, 2, 2);
 
 
             INSERT OR IGNORE INTO DriverGroup (GroupID, GroupName, RotationDay) VALUES
