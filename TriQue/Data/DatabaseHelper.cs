@@ -29,37 +29,27 @@ namespace TriQue.Data
             return new SqliteConnection(_connectionString);
         }
 
-        // INSERT / UPDATE / DELETE queries
         public void ExecuteNonQuery(string query, params SqliteParameter[] parameters)
         {
-            using (var conn = GetConnection())
-            {
-                conn.Open();
+            using var conn = GetConnection();
+            conn.Open();
 
-                using (var cmd = conn.CreateCommand())
-                {
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddRange(parameters);
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = query;
+            cmd.Parameters.AddRange(parameters);
+            cmd.ExecuteNonQuery();
         }
 
-        // returns single value
         public object? ExecuteScalar(string query, params SqliteParameter[] parameters)
         {
-            using (var conn = GetConnection())
-            {
-                conn.Open();
+            using var conn = GetConnection();
+            conn.Open();
 
-                using (var cmd = conn.CreateCommand())
-                {
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddRange(parameters);
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = query;
+            cmd.Parameters.AddRange(parameters);
 
-                    return cmd.ExecuteScalar();
-                }
-            }
+            return cmd.ExecuteScalar();
         }
 
         // SELECT queries

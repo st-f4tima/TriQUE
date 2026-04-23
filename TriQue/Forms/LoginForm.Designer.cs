@@ -75,7 +75,7 @@
             label2.ForeColor = Color.FromArgb(91, 91, 91);
             label2.Location = new Point(52, 363);
             label2.Name = "label2";
-            label2.Size = new Size(94, 20);
+            label2.Size = new Size(91, 20);
             label2.TabIndex = 6;
             label2.Text = "Password";
             label2.Click += label2_Click;
@@ -101,11 +101,11 @@
             // textBoxPassword
             // 
             textBoxPassword.BorderStyle = BorderStyle.None;
-            textBoxPassword.Font = new Font("Roboto", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxPassword.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxPassword.ForeColor = Color.FromArgb(91, 91, 91);
             textBoxPassword.Location = new Point(3, 3);
             textBoxPassword.Name = "textBoxPassword";
-            textBoxPassword.Size = new Size(281, 21);
+            textBoxPassword.Size = new Size(281, 20);
             textBoxPassword.TabIndex = 5;
             textBoxPassword.UseSystemPasswordChar = true;
             textBoxPassword.TextChanged += textBoxPassword_TextChanged;
@@ -142,22 +142,22 @@
             // textBox1
             // 
             textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Roboto", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.ForeColor = Color.FromArgb(91, 91, 91);
             textBox1.Location = new Point(3, 3);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(281, 21);
+            textBox1.Size = new Size(281, 20);
             textBox1.TabIndex = 5;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // checkBoxShowPassword
             // 
             checkBoxShowPassword.AutoSize = true;
-            checkBoxShowPassword.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxShowPassword.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             checkBoxShowPassword.ForeColor = Color.FromArgb(91, 91, 91);
             checkBoxShowPassword.Location = new Point(55, 418);
             checkBoxShowPassword.Name = "checkBoxShowPassword";
-            checkBoxShowPassword.Size = new Size(134, 19);
+            checkBoxShowPassword.Size = new Size(138, 20);
             checkBoxShowPassword.TabIndex = 2;
             checkBoxShowPassword.Text = "Show Password";
             checkBoxShowPassword.UseVisualStyleBackColor = true;
@@ -172,12 +172,12 @@
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2Button1.FillColor = Color.FromArgb(55, 91, 231);
-            guna2Button1.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2Button1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
             guna2Button1.HoverState.BorderColor = Color.FromArgb(0, 50, 125);
             guna2Button1.HoverState.CustomBorderColor = Color.FromArgb(0, 50, 125);
             guna2Button1.HoverState.FillColor = Color.FromArgb(0, 50, 125);
-            guna2Button1.HoverState.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2Button1.HoverState.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.HoverState.ForeColor = Color.White;
             guna2Button1.Location = new Point(57, 486);
             guna2Button1.Name = "guna2Button1";
@@ -186,6 +186,7 @@
             guna2Button1.Size = new Size(314, 56);
             guna2Button1.TabIndex = 1;
             guna2Button1.Text = "Login";
+            guna2Button1.Click += guna2Button1_Click_1;
             // 
             // pictureBox1
             // 
@@ -221,7 +222,7 @@
             ClientSize = new Size(1100, 650);
             Controls.Add(ExitBtn);
             Controls.Add(panel1);
-            Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(91, 91, 91);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);

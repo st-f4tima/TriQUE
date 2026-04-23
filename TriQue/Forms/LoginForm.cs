@@ -385,5 +385,10 @@ namespace TriQue.Forms
         {
             Application.Exit();
         }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
