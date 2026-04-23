@@ -29,6 +29,7 @@ namespace TriQue.Data
             return new SqliteConnection(_connectionString);
         }
 
+        // Insert / detete / update
         public void ExecuteNonQuery(string query, params SqliteParameter[] parameters)
         {
             using var conn = GetConnection();
@@ -40,6 +41,7 @@ namespace TriQue.Data
             cmd.ExecuteNonQuery();
         }
 
+        // Returns one
         public object? ExecuteScalar(string query, params SqliteParameter[] parameters)
         {
             using var conn = GetConnection();
