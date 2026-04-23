@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             label2 = new Label();
             panel3 = new Panel();
@@ -45,6 +46,7 @@
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             pictureBox1 = new PictureBox();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
+            ExitBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -61,7 +63,7 @@
             panel1.Controls.Add(checkBoxShowPassword);
             panel1.Controls.Add(guna2Button1);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(263, -1);
+            panel1.Location = new Point(341, -1);
             panel1.Name = "panel1";
             panel1.Size = new Size(431, 652);
             panel1.TabIndex = 0;
@@ -164,7 +166,7 @@
             // guna2Button1
             // 
             guna2Button1.BorderRadius = 15;
-            guna2Button1.CustomizableEdges = customizableEdges3;
+            guna2Button1.CustomizableEdges = customizableEdges1;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -180,7 +182,7 @@
             guna2Button1.Location = new Point(57, 486);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.PressedColor = Color.FromArgb(0, 50, 125);
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.Size = new Size(314, 56);
             guna2Button1.TabIndex = 1;
             guna2Button1.Text = "Login";
@@ -195,18 +197,35 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // Form1
+            // ExitBtn
+            // 
+            ExitBtn.CheckedState.ImageSize = new Size(42, 42);
+            ExitBtn.HoverState.ImageSize = new Size(43, 43);
+            ExitBtn.Image = (Image)resources.GetObject("ExitBtn.Image");
+            ExitBtn.ImageOffset = new Point(0, 0);
+            ExitBtn.ImageRotate = 0F;
+            ExitBtn.ImageSize = new Size(40, 40);
+            ExitBtn.Location = new Point(37, 570);
+            ExitBtn.Name = "ExitBtn";
+            ExitBtn.PressedState.ImageSize = new Size(43, 43);
+            ExitBtn.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            ExitBtn.Size = new Size(42, 42);
+            ExitBtn.TabIndex = 1;
+            ExitBtn.Click += ExitBtn_Click;
+            // 
+            // LoginForm
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(950, 650);
+            ClientSize = new Size(1100, 650);
+            Controls.Add(ExitBtn);
             Controls.Add(panel1);
             Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(91, 91, 91);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
-            Name = "Form1";
+            Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             panel1.ResumeLayout(false);
@@ -234,5 +253,6 @@
         private Panel panel5;
         private TextBox textBoxPassword;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
+        private Guna.UI2.WinForms.Guna2ImageButton ExitBtn;
     }
 }

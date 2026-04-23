@@ -4,35 +4,30 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Trique.Forms;
 
 namespace TriQue.Forms
 {
     public partial class LoginForm : Form
     {
         private int failedAttempts = 0;
-
         private System.Windows.Forms.Timer lockTimer;
         private int lockSeconds = 60;
-
         private Label lockLabel;
 
         public LoginForm()
         {
             InitializeComponent();
-
             guna2Button1.Click += guna2Button1_Click;
 
-            // 🔴 lock label
             lockLabel = new Label();
             lockLabel.AutoSize = true;
-            lockLabel.ForeColor = Color.Red;
-            // Ini-akyat ko ng konti yung text (from 450 to 420) para sakto sa pwesto ng nawalang button
+            lockLabel.ForeColor = Color.FromArgb(220, 53, 69);
+            lockLabel.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
             lockLabel.Location = new Point(55, 420);
             panel1.Controls.Add(lockLabel);
-
             lockLabel.BringToFront();
 
-            // ⏳ timer
             lockTimer = new System.Windows.Forms.Timer();
             lockTimer.Interval = 1000;
             lockTimer.Tick += LockTimer_Tick;
@@ -40,7 +35,8 @@ namespace TriQue.Forms
 
         private string GetConnectionString()
         {
-            var conn = AppConfig.Configuration.GetConnectionString("Default");
+            var conn = AppConfig.Configuration.GetConnectionString("Default")
+                       ?? throw new InvalidOperationException("Connection string 'Default' not found.");
             string fullPath = Path.GetFullPath(conn, AppContext.BaseDirectory);
             return $"Data Source={fullPath}";
         }
@@ -48,25 +44,20 @@ namespace TriQue.Forms
         // =========================
         // LOGIN BUTTON
         // =========================
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void guna2Button1_Click(object? sender, EventArgs e)
         {
             string username = textBox1.Text.Trim();
             string password = textBoxPassword.Text.Trim();
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                ShowError("Invalid username or password.");
+                ShowError("Please enter your username and password.");
                 return;
             }
 
             if (lockTimer.Enabled)
             {
-                MessageBox.Show(
-                    "Login is temporarily locked. Please try again later.",
-                    "Account Locked",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                ShowWarning($"Account is locked. Please wait {lockSeconds} seconds before trying again.");
                 return;
             }
 
@@ -81,12 +72,10 @@ namespace TriQue.Forms
                 FROM User
                 WHERE Username = $username
                 ";
-
                 cmd.Parameters.AddWithValue("$username", username);
 
                 using (var reader = cmd.ExecuteReader())
                 {
-                    // ❌ WRONG USERNAME
                     if (!reader.Read())
                     {
                         HandleFailedLogin(conn, null);
@@ -96,30 +85,38 @@ namespace TriQue.Forms
 
                     int userId = reader.GetInt32(0);
                     int roleId = reader.GetInt32(1);
-
                     string dbPassword = reader.GetString(2);
 
-                    // ❌ WRONG PASSWORD (Hardcoded to 1234)
                     if (password != "1234")
                     {
                         HandleFailedLogin(conn, userId);
-                        ShowError("Invalid username or password.");
+                        if (failedAttempts < 3)
+                        {
+                            int remaining = 3 - failedAttempts;
+                            ShowError($"Invalid username or password.\n{remaining} attempt(s) remaining before lockout.");
+                        }
                         return;
                     }
 
                     // ✅ SUCCESS
                     ResetAttempts(conn, userId);
+                    failedAttempts = 0;
 
                     string role = roleId == 2 ? "Admin" : "Driver";
+                    ShowSuccess($"Welcome back!\nLogged in as {role}.");
 
-                    MessageBox.Show(
-                        $"{role} successful login!",
-                        "Success",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
+                    if (roleId == 2)
+                    {
+                        AdminForm adminForm = new AdminForm();
+                        adminForm.Show();
+                    }
+                    else
+                    {
+                        DriverForm driverForm = new DriverForm();
+                        driverForm.Show();
+                    }
 
-                    failedAttempts = 0;
+                    this.Hide();
                 }
             }
         }
@@ -144,12 +141,9 @@ namespace TriQue.Forms
                         LockoutUntil = $lock
                     WHERE UserID = $id
                     ";
-
                     cmd.Parameters.AddWithValue("$lock", DateTime.Now.AddMinutes(1));
                     cmd.Parameters.AddWithValue("$id", userId.Value);
-
                     cmd.ExecuteNonQuery();
-
                     StartLock();
                 }
                 else
@@ -160,7 +154,6 @@ namespace TriQue.Forms
                     SET FailedAttempts = FailedAttempts + 1
                     WHERE UserID = $id
                     ";
-
                     cmd.Parameters.AddWithValue("$id", userId.Value);
                     cmd.ExecuteNonQuery();
                 }
@@ -180,13 +173,12 @@ namespace TriQue.Forms
                 LockoutUntil = NULL
             WHERE UserID = $id
             ";
-
             cmd.Parameters.AddWithValue("$id", userId);
             cmd.ExecuteNonQuery();
         }
 
         // =========================
-        // ERROR MESSAGE (RED X STYLE)
+        // MESSAGE HELPERS
         // =========================
         private void ShowError(string msg)
         {
@@ -198,52 +190,181 @@ namespace TriQue.Forms
             );
         }
 
-        // =========================
-        // LOCK SYSTEM
-        // =========================
-        private void StartLock()
+        private void ShowWarning(string msg)
         {
-            lockSeconds = 60;
-            lockLabel.Text = "Too many attempts. Try again in 60 seconds.";
-
-            // 1. ITAGO YUNG LOGIN BUTTON MUNA
-            guna2Button1.Visible = false;
-
-            // 2. I-UPDATE ANG SCREEN PARA MAWALA AGAD YUNG BUTTON
-            this.Refresh();
-
-            // 3. SIMULAN ANG TIMER HABANG NAKABUKAS ANG POPUP
-            lockTimer.Start();
-
-            // 4. SAKA LALABAS YUNG MESSAGE BOX
             MessageBox.Show(
-                "Login is temporarily locked. Please try again later.",
+                msg,
                 "Account Locked",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Warning
             );
         }
 
-        private void LockTimer_Tick(object sender, EventArgs e)
+        private void ShowSuccess(string msg)
+        {
+            MessageBox.Show(
+                msg,
+                "Login Successful",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+        }
+
+        // =========================
+        // LOCK SYSTEM
+        // =========================
+        // =========================
+        // LOCK SYSTEM
+        // =========================
+        private void StartLock()
+        {
+            lockSeconds = 60;
+            guna2Button1.Visible = false;
+            this.Refresh();
+            lockTimer.Start();
+            ShowLockDialog();
+        }
+
+        private void ShowLockDialog()
+        {
+            Form lockDialog = new Form();
+            lockDialog.Text = "";
+            lockDialog.Size = new Size(380, 230);
+            lockDialog.StartPosition = FormStartPosition.CenterParent;
+            lockDialog.FormBorderStyle = FormBorderStyle.None;
+            lockDialog.MaximizeBox = false;
+            lockDialog.MinimizeBox = false;
+            lockDialog.ControlBox = false;
+            lockDialog.BackColor = Color.FromArgb(245, 247, 255);
+
+            lockDialog.Load += (s, e) =>
+            {
+                // Position it lower so it doesn't overlap the logo
+                lockDialog.Location = new Point(
+                    this.Location.X + (this.Width - lockDialog.Width) / 2,
+                    this.Location.Y + (this.Height - lockDialog.Height) / 2 + 80
+                );
+            };
+
+            // === TOP ACCENT BAR (blue) ===
+            Panel topBar = new Panel();
+            topBar.Size = new Size(380, 5);
+            topBar.Location = new Point(0, 0);
+            topBar.BackColor = Color.FromArgb(61, 90, 241);
+
+            // === ICON CIRCLE ===
+            Panel iconCircle = new Panel();
+            iconCircle.Size = new Size(54, 54);
+            iconCircle.Location = new Point(163, 22);
+            iconCircle.BackColor = Color.FromArgb(220, 226, 255);
+
+            Label iconLbl = new Label();
+            iconLbl.Text = "!";
+            iconLbl.Font = new Font("Segoe UI", 22, FontStyle.Bold);
+            iconLbl.ForeColor = Color.FromArgb(61, 90, 241);
+            iconLbl.Size = new Size(54, 54);
+            iconLbl.TextAlign = ContentAlignment.MiddleCenter;
+            iconCircle.Controls.Add(iconLbl);
+
+            // === TITLE ===
+            Label titleLbl = new Label();
+            titleLbl.Text = "Account Locked";
+            titleLbl.Font = new Font("Segoe UI", 13, FontStyle.Bold);
+            titleLbl.ForeColor = Color.FromArgb(30, 30, 60);
+            titleLbl.Location = new Point(20, 85);
+            titleLbl.Size = new Size(340, 28);
+            titleLbl.TextAlign = ContentAlignment.MiddleCenter;
+
+            // === MESSAGE ===
+            Label msgLbl = new Label();
+            msgLbl.Text = "Too many failed login attempts.";
+            msgLbl.Font = new Font("Segoe UI", 9.5f);
+            msgLbl.ForeColor = Color.FromArgb(100, 110, 150);
+            msgLbl.Location = new Point(20, 116);
+            msgLbl.Size = new Size(340, 20);
+            msgLbl.TextAlign = ContentAlignment.MiddleCenter;
+
+            // === COUNTDOWN LABEL ===
+            Label countLbl = new Label();
+            countLbl.Text = $"Please wait {lockSeconds} seconds before trying again.";
+            countLbl.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
+            countLbl.ForeColor = Color.FromArgb(61, 90, 241);
+            countLbl.Location = new Point(20, 140);
+            countLbl.Size = new Size(340, 20);
+            countLbl.TextAlign = ContentAlignment.MiddleCenter;
+
+            // === OK BUTTON (disabled until done) ===
+            Button okBtn = new Button();
+            okBtn.Text = $"Please wait ({lockSeconds}s)";
+            okBtn.Size = new Size(160, 36);
+            okBtn.Location = new Point(110, 172);
+            okBtn.Enabled = false;
+            okBtn.FlatStyle = FlatStyle.Flat;
+            okBtn.BackColor = Color.FromArgb(180, 190, 240);
+            okBtn.ForeColor = Color.White;
+            okBtn.Font = new Font("Segoe UI", 9.5f, FontStyle.Bold);
+            okBtn.FlatAppearance.BorderSize = 0;
+            okBtn.Cursor = Cursors.Default;
+            okBtn.Click += (s, e) => lockDialog.Close();
+
+            // === DIALOG TIMER ===
+            System.Windows.Forms.Timer dialogTimer = new System.Windows.Forms.Timer();
+            dialogTimer.Interval = 1000;
+            dialogTimer.Tick += (s, e) =>
+            {
+                int remaining = lockSeconds;
+
+                if (remaining > 0)
+                {
+                    countLbl.Text = $"Please wait {remaining} seconds before trying again.";
+                    okBtn.Text = $"Please wait ({remaining}s)";
+                }
+                else
+                {
+                    countLbl.Text = "You may now try again.";
+                    countLbl.ForeColor = Color.FromArgb(40, 167, 69);
+                    okBtn.Text = "OK, Got it";
+                    okBtn.Enabled = true;
+                    okBtn.BackColor = Color.FromArgb(61, 90, 241);
+                    okBtn.ForeColor = Color.White;
+                    okBtn.Cursor = Cursors.Hand;
+                    dialogTimer.Stop();
+                }
+            };
+
+            dialogTimer.Start();
+
+            lockDialog.Controls.Add(topBar);
+            lockDialog.Controls.Add(iconCircle);
+            lockDialog.Controls.Add(titleLbl);
+            lockDialog.Controls.Add(msgLbl);
+            lockDialog.Controls.Add(countLbl);
+            lockDialog.Controls.Add(okBtn);
+
+            lockDialog.ShowDialog(this);
+            dialogTimer.Dispose();
+        }
+
+        private void LockTimer_Tick(object? sender, EventArgs e)
         {
             lockSeconds--;
 
-            lockLabel.Text = $"Locked: {lockSeconds} seconds remaining";
+            // Update the form label only (dialog has its own timer)
+            lockLabel.Text = lockSeconds > 0
+                ? $"Account locked — {lockSeconds}s remaining"
+                : "";
 
             if (lockSeconds <= 0)
             {
                 lockTimer.Stop();
-
-                // IBABALIK YUNG LOGIN BUTTON KAPAG TAPOS NA
                 guna2Button1.Visible = true;
-
                 lockLabel.Text = "";
                 failedAttempts = 0;
             }
         }
 
         // =========================
-        // UI EVENTS (unchanged)
+        // UI EVENTS
         // =========================
         private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
         {
@@ -259,5 +380,10 @@ namespace TriQue.Forms
         private void panel2_Paint(object sender, PaintEventArgs e) { }
         private void textBox1_TextChanged(object sender, EventArgs e) { }
         private void label2_Click(object sender, EventArgs e) { }
+
+        private void ExitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

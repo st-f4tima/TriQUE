@@ -867,4 +867,27 @@
   <metadata name="guna2AnimateWindow1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="ExitBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPYSURBVHhe7Zu9
+        i1NbFMVnHpb6BEERX2GlCIqlioLMqywEReFC7l7nhmFawUIsRFFHwdc+tRULLURt1D9BRMUPRCz8aiwV
+        LUQUPweVHW5gZmXfmZzJ2ZM7Yxb8YEj2PuuclWRyc3IyNFQqz/ONAC4BeAPgO4BffeBNCOGWiBzMsmxp
+        e27uAiAAvhkT6ifvRCTjuSZX+cjXbfFtforIfp5zUpVPezauExMi8i/PO5nK1zyb1o3H4+Pjf/Hck0if
+        ZoZhCl6LyHF9HXdJQ0ROAfhojPUrhLCV555EbJSYCQBnYh49EdkE4AePpWFybRKxkQcicpp9pxOA2zwG
+        gPNcl0SGkQcTeZ6vY+8qhRCu8hh6G9clERt5EUI4zN5VWpABiMgF9q7SggwgZgGDAAYBRAUwLKIfZXAR
+        wLHoD1Fs5MU0C+hQTAAhhKNU+3R0dHQl11WKjbyoWoClmAD0UyPXRoVgNLtQtQBLevXI/QD+5zqVUdfm
+        eaPRWMX1HTIaXYgJoCiKDQC+TOr/nOf5eq5TsQ8xcwhGkwsxAag0BL2EVqoWr2Ifg+lDMBpciA2gW7FP
+        BdUhGMUu9DkAvRJ9YYbAhV70OwDFDIGLvKhDAEpHCFzgRV0CUKaEwHd60U0AIrJd9//KnaSOMRLzrCiK
+        FbUJIMuyZQDec58nrTnxjV7MFICI7OCeOeBDbQJoNptrHXeoTUIIj2oTgEpETs5VCCLyVf/n1CoAlYis
+        EZG9xvcGJuzTDbr4EMLOliHf6UW3AcSKfbrgWwhhVy8DzIqaBDB18bMYYNbUIIDOxUcO0BN9DsBevMoo
+        diE2gJGRkUUAtin6N9/fFvsYVC9eZTS4EBPA2NjYEhF5MKn/XpZli7lOxT7E9ItXGU0uxAQA4Aj3AzjE
+        dSqjrs3Mi1cZjS5EBnCZ+/UkC9epaO+wxZT3+ZnEzV7EBKC13A/gCtepANyYXBe1eJVh5IJXAFmWLReR
+        awA+AXgSfZ7IMHLBK4CeZRi5MAhgEMAggEEA7F2lQQCDAP7wAADc4X4ROcd1ScRGXnQbQFEUm62jsnoU
+        hmuTiI0cucsbmkQDwH9Vh6UBbOG5J5FhVDta+/dDQ8M89yRisxryo7V/7yU9f2OY1gX9kmQfzzmpym9j
+        2bjvhBDe6hckPN/k0lPcbN5H9Oc7N0MIBwD8zXN1kW5A6iEiYzJJ6fZtsC9qNpv/ALjPk05JrQMoNQxg
+        D4Dr1kZjAnwuZT2kr7/yBLZuOKYK4yz7zAtpGABCr2GIyG4ee96phzAexvx0bl4oIoyXIrKa+xeU2mGU
+        +/OvykCeATgxZ+/ns9RvjZmx1jI3jN8AAAAASUVORK5CYII=
+</value>
+  </data>
 </root>
