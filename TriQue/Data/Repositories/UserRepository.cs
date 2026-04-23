@@ -95,7 +95,7 @@ namespace TriQue.Data.Repositories
         public void InsertAuthLog(int userID, string outcome)
         {
             string query = @"
-                INSERT INTO AuthenticationLog (UserID, LoginTime, LogoutOutcome)
+                INSERT INTO AuthenticationLog (UserID, LoginTime, AuthOutcome)
                 VALUES (@id, @time, @outcome)";
 
             _dbHelper.ExecuteNonQuery(query,

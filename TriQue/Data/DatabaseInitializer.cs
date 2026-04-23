@@ -70,7 +70,7 @@ namespace TriQue.Data
                 UserID INTEGER NOT NULL,
                 LoginTime DATETIME NOT NULL,
                 LogoutTime DATETIME,
-                LogoutOutcome TEXT NOT NULL,
+                AuthOutcome TEXT NOT NULL,
                 FOREIGN KEY (UserID) REFERENCES User(UserID)
             );
 
@@ -274,7 +274,7 @@ namespace TriQue.Data
                 (5, 5, 21, 1, '2026-04-23 08:10:00'),
                 (6, 6, 26, 1, '2026-04-23 08:15:00');
 
-            INSERT OR IGNORE INTO AuthenticationLog (LogID, UserID, LoginTime, LogoutTime, LogoutOutcome) VALUES
+            INSERT OR IGNORE INTO AuthenticationLog (LogID, UserID, LoginTime, LogoutTime, AuthOutcome) VALUES
                 (1, 1, '2026-04-23 07:00:00', '2026-04-23 12:00:00', 'Success'),
                 (2, 3, '2026-04-23 07:10:00', '2026-04-23 08:00:00', 'Success'),
                 (3, 4, '2026-04-23 08:00:00', '2026-04-23 09:00:00', 'Success'),

@@ -8,6 +8,6 @@ namespace TriQue.Models
         public int UserID { get; set; }
         public DateTime LoginTime { get; set; } = DateTime.Now;
         public DateTime LogoutTime { get; set; }
-        public string LogoutOutcome { get; set; } = string.Empty;
+        public string AuthOutcome { get; set; } = string.Empty;
     }
 }
