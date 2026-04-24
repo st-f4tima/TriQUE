@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Data.Sqlite;
+using TriQue.Data.Database;
 using TriQue.Models;
 
 namespace TriQue.Data.Repositories
