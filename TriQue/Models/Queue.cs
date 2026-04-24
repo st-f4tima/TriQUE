@@ -17,7 +17,7 @@ namespace TriQue.Models
 
         public void RemoveToQueue()
         {
-            CurrentSize--;
+            if (CurrentSize > 0) CurrentSize--;
         }
     }
 }

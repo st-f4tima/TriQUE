@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TriQue.Enums;
 
 namespace TriQue.Models
 {
@@ -8,7 +9,7 @@ namespace TriQue.Models
     {
         public int GroupID { get; set; }
         public string GroupName { get; set; } = string.Empty;
-        public int RotationDay { get; set; }
+        public RotationDay GroupRotationDay { get; set; }
 
     }
 }
