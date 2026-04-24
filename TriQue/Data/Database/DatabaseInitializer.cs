@@ -3,7 +3,7 @@ using Microsoft.Data.Sqlite;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace TriQue.Data
+namespace TriQue.Data.Database
 {
     internal class DatabaseInitializer
     {
