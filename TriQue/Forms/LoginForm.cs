@@ -65,9 +65,7 @@ namespace TriQue.Forms
 
             var user = _auth.GetCurrentUser();
 
-            Form nextForm = user is Admin
-                ? new AdminForm()
-                : new DriverForm();
+            Form nextForm = user.GetView();
 
             nextForm.Show();
             this.Hide();

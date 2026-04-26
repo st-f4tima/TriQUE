@@ -1,5 +1,7 @@
 ﻿using System;
+using Trique.Forms;
 using TriQue.Enums;
+using TriQue.Forms;
 
 namespace TriQue.Models
 {
@@ -7,6 +9,10 @@ namespace TriQue.Models
     {
         public int AdminID { get; set; }
         public AdminLevel Level { get; set; }
+        public override Form GetView()
+        {
+            return new AdminForm();
+        }
 
     }
 }
