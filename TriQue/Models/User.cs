@@ -16,5 +16,6 @@ namespace TriQue.Models
         public DateTime? LockoutUntil { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";
+        public abstract Form GetView();
     }
 }
