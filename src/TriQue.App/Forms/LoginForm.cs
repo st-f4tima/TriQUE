@@ -137,5 +137,10 @@ namespace TriQue.Forms
         {
             Application.Exit();
         }
+
+        private void ExitBtn_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
