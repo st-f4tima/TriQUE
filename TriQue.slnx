@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="TriQue.App/TriQue.App.csproj" />
-  <Project Path="TriQue.Tests/TriQue.Tests.csproj" Id="e8397402-5abf-4531-9b27-2b9687b9b347" />
+  <Project Path="src/TriQue.App/TriQue.App.csproj" />
+  <Project Path="src/TriQue.Tests/TriQue.Tests.csproj" />
 </Solution>
