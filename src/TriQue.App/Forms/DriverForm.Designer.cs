@@ -37,10 +37,10 @@ namespace TriQue.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            components = new Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DriverForm));
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(DriverForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -127,28 +127,28 @@ namespace TriQue.Forms
             guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
             timer1 = new System.Windows.Forms.Timer(components);
             guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((ISupportInitialize)pictureBox1).BeginInit();
             guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((ISupportInitialize)pictureBox10).BeginInit();
             guna2Panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((ISupportInitialize)pictureBox2).BeginInit();
             guna2Panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((ISupportInitialize)pictureBox3).BeginInit();
             guna2Panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((ISupportInitialize)pictureBox4).BeginInit();
             guna2Panel8.SuspendLayout();
             guna2Panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((ISupportInitialize)pictureBox5).BeginInit();
             guna2Panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((ISupportInitialize)pictureBox6).BeginInit();
             guna2Panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
+            ((ISupportInitialize)webView21).BeginInit();
             guna2Panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((ISupportInitialize)pictureBox7).BeginInit();
             guna2Panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((ISupportInitialize)pictureBox8).BeginInit();
             guna2Panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((ISupportInitialize)pictureBox9).BeginInit();
             SuspendLayout();
             // 
             // guna2Panel1
@@ -170,14 +170,14 @@ namespace TriQue.Forms
             // guna2ImageButton4
             // 
             guna2ImageButton4.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton4.HoverState.ImageSize = new Size(42, 42);
+            guna2ImageButton4.HoverState.ImageSize = new Size(34, 34);
             guna2ImageButton4.Image = (Image)resources.GetObject("guna2ImageButton4.Image");
             guna2ImageButton4.ImageOffset = new Point(0, 0);
             guna2ImageButton4.ImageRotate = 0F;
             guna2ImageButton4.ImageSize = new Size(32, 32);
             guna2ImageButton4.Location = new Point(7, 537);
             guna2ImageButton4.Name = "guna2ImageButton4";
-            guna2ImageButton4.PressedState.ImageSize = new Size(64, 64);
+            guna2ImageButton4.PressedState.ImageSize = new Size(36, 36);
             guna2ImageButton4.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2ImageButton4.Size = new Size(82, 82);
             guna2ImageButton4.TabIndex = 4;
@@ -186,44 +186,46 @@ namespace TriQue.Forms
             // guna2ImageButton3
             // 
             guna2ImageButton3.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton3.HoverState.ImageSize = new Size(45, 45);
+            guna2ImageButton3.HoverState.ImageSize = new Size(34, 34);
             guna2ImageButton3.Image = (Image)resources.GetObject("guna2ImageButton3.Image");
             guna2ImageButton3.ImageOffset = new Point(0, 0);
             guna2ImageButton3.ImageRotate = 0F;
             guna2ImageButton3.ImageSize = new Size(32, 32);
             guna2ImageButton3.Location = new Point(7, 311);
             guna2ImageButton3.Name = "guna2ImageButton3";
-            guna2ImageButton3.PressedState.ImageSize = new Size(64, 64);
+            guna2ImageButton3.PressedState.ImageSize = new Size(36, 36);
             guna2ImageButton3.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2ImageButton3.Size = new Size(82, 82);
             guna2ImageButton3.TabIndex = 3;
+            guna2ImageButton3.Click += guna2ImageButton3_Click;
             // 
             // guna2ImageButton2
             // 
             guna2ImageButton2.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton2.HoverState.ImageSize = new Size(42, 42);
+            guna2ImageButton2.HoverState.ImageSize = new Size(34, 34);
             guna2ImageButton2.Image = (Image)resources.GetObject("guna2ImageButton2.Image");
             guna2ImageButton2.ImageOffset = new Point(0, 0);
             guna2ImageButton2.ImageRotate = 0F;
             guna2ImageButton2.ImageSize = new Size(32, 32);
             guna2ImageButton2.Location = new Point(7, 223);
             guna2ImageButton2.Name = "guna2ImageButton2";
-            guna2ImageButton2.PressedState.ImageSize = new Size(64, 64);
+            guna2ImageButton2.PressedState.ImageSize = new Size(36, 36);
             guna2ImageButton2.ShadowDecoration.CustomizableEdges = customizableEdges3;
             guna2ImageButton2.Size = new Size(82, 82);
             guna2ImageButton2.TabIndex = 2;
+            guna2ImageButton2.Click += guna2ImageButton2_Click;
             // 
             // guna2ImageButton1
             // 
             guna2ImageButton1.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.HoverState.ImageSize = new Size(42, 42);
+            guna2ImageButton1.HoverState.ImageSize = new Size(34, 34);
             guna2ImageButton1.Image = (Image)resources.GetObject("guna2ImageButton1.Image");
             guna2ImageButton1.ImageOffset = new Point(0, 0);
             guna2ImageButton1.ImageRotate = 0F;
             guna2ImageButton1.ImageSize = new Size(32, 32);
             guna2ImageButton1.Location = new Point(7, 135);
             guna2ImageButton1.Name = "guna2ImageButton1";
-            guna2ImageButton1.PressedState.ImageSize = new Size(64, 64);
+            guna2ImageButton1.PressedState.ImageSize = new Size(36, 36);
             guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2ImageButton1.Size = new Size(82, 82);
             guna2ImageButton1.TabIndex = 1;
@@ -829,7 +831,7 @@ namespace TriQue.Forms
             guna2ImageButton5.TabIndex = 16;
             guna2ImageButton5.Click += guna2ImageButton5_Click;
             // 
-            // Form1
+            // DriverForm
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -854,43 +856,43 @@ namespace TriQue.Forms
             Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
-            Name = "Form1";
+            Name = "DriverForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
             guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((ISupportInitialize)pictureBox1).EndInit();
             guna2Panel2.ResumeLayout(false);
             guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((ISupportInitialize)pictureBox10).EndInit();
             guna2Panel3.ResumeLayout(false);
             guna2Panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((ISupportInitialize)pictureBox2).EndInit();
             guna2Panel4.ResumeLayout(false);
             guna2Panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((ISupportInitialize)pictureBox3).EndInit();
             guna2Panel5.ResumeLayout(false);
             guna2Panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((ISupportInitialize)pictureBox4).EndInit();
             guna2Panel8.ResumeLayout(false);
             guna2Panel8.PerformLayout();
             guna2Panel6.ResumeLayout(false);
             guna2Panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((ISupportInitialize)pictureBox5).EndInit();
             guna2Panel7.ResumeLayout(false);
             guna2Panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((ISupportInitialize)pictureBox6).EndInit();
             guna2Panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
+            ((ISupportInitialize)webView21).EndInit();
             guna2Panel10.ResumeLayout(false);
             guna2Panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((ISupportInitialize)pictureBox7).EndInit();
             guna2Panel11.ResumeLayout(false);
             guna2Panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((ISupportInitialize)pictureBox8).EndInit();
             guna2Panel12.ResumeLayout(false);
             guna2Panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((ISupportInitialize)pictureBox9).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

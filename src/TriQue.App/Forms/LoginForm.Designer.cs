@@ -186,7 +186,6 @@
             guna2Button1.Size = new Size(314, 56);
             guna2Button1.TabIndex = 1;
             guna2Button1.Text = "Login";
-            //guna2Button1.Click += guna2Button1_Click_1;
             // 
             // pictureBox1
             // 
@@ -200,19 +199,19 @@
             // 
             // ExitBtn
             // 
-            ExitBtn.CheckedState.ImageSize = new Size(42, 42);
-            ExitBtn.HoverState.ImageSize = new Size(43, 43);
+            ExitBtn.CheckedState.ImageSize = new Size(64, 64);
+            ExitBtn.HoverState.ImageSize = new Size(21, 21);
             ExitBtn.Image = (Image)resources.GetObject("ExitBtn.Image");
             ExitBtn.ImageOffset = new Point(0, 0);
             ExitBtn.ImageRotate = 0F;
-            ExitBtn.ImageSize = new Size(40, 40);
-            ExitBtn.Location = new Point(37, 570);
+            ExitBtn.ImageSize = new Size(19, 19);
+            ExitBtn.Location = new Point(1048, 12);
             ExitBtn.Name = "ExitBtn";
-            ExitBtn.PressedState.ImageSize = new Size(43, 43);
+            ExitBtn.PressedState.ImageSize = new Size(21, 21);
             ExitBtn.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            ExitBtn.Size = new Size(42, 42);
+            ExitBtn.Size = new Size(40, 40);
             ExitBtn.TabIndex = 1;
-            ExitBtn.Click += ExitBtn_Click;
+            ExitBtn.Click += ExitBtn_Click_1;
             // 
             // LoginForm
             // 
