@@ -33,7 +33,7 @@ namespace TriQue.Services
             if (_repo.IsLocked(user.UserID))
             {
                 message = "Account is locked. Try again later.";
-                _repo.InsertAuthLog(user.UserID, "LOCKED ATTEMPT");
+                _repo.InsertAuthLog(user.UserID, "Locked Attempt");
                 return false;
             }
 
@@ -47,12 +47,12 @@ namespace TriQue.Services
                 if (attempts >= MAX_ATTEMPTS)
                 {
                     _repo.LockUser(user.UserID, LOCK_MINUTES);
-                    _repo.InsertAuthLog(user.UserID, "LOCKED");
+                    _repo.InsertAuthLog(user.UserID, "Locked");
                     message = $"Account locked. Try again in {LOCK_MINUTES} minute(s).";
                 }
                 else
                 {
-                    _repo.InsertAuthLog(user.UserID, "FAILED");
+                    _repo.InsertAuthLog(user.UserID, "Failed");
                     message = $"Invalid username or password. {remaining} attempt(s) remaining before lockout.";
                 }
 
@@ -62,7 +62,7 @@ namespace TriQue.Services
             // success
             _repo.ResetAttempts(user.UserID);
             _currentUser = user;
-            _repo.InsertAuthLog(user.UserID, "SUCCESS");
+            _repo.InsertAuthLog(user.UserID, "Success");
 
             message = "Login successful!";
             return true;
