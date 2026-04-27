@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace TriQue.Data.Database
 {
-    internal class DatabaseInitializer
+    public class DatabaseInitializer
     {
         private readonly DatabaseHelper _dbHelper;
 
