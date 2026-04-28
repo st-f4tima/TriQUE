@@ -1,6 +1,8 @@
-﻿using System;
-using Microsoft.Data.Sqlite;
+﻿using Microsoft.Data.Sqlite;
+using System;
+using System.Data;
 using TriQue.Data.Database;
+using TriQue.Enums;
 using TriQue.Models;
 
 namespace TriQue.Data.Repositories
@@ -14,6 +16,34 @@ namespace TriQue.Data.Repositories
             _dbHelper = new DatabaseHelper();
         }
 
+        public User? GetById(int userID)
+        {
+            string query = @"
+                SELECT UserID, Username, PasswordHash, FirstName, LastName, PhoneNumber, RoleID
+                FROM User
+                WHERE UserID = @id
+                LIMIT 1";
+
+            var param = new[] { new SqliteParameter("@id", userID) };
+
+            using var reader = _dbHelper.ExecuteReader(query, param);
+
+            if (!reader.Read()) return null;
+
+            int roleId = Convert.ToInt32(reader["RoleID"]);
+
+            User user = roleId == 2 ? new Admin() : new Driver();
+
+            user.UserID = Convert.ToInt32(reader["UserID"]);
+            user.Username = reader["Username"].ToString() ?? "";
+            user.PasswordHash = reader["PasswordHash"].ToString() ?? "";
+            user.FirstName = reader["FirstName"].ToString() ?? "";
+            user.LastName = reader["LastName"].ToString() ?? "";
+            user.PhoneNumber = reader["PhoneNumber"].ToString() ?? "";
+            user.Role = (UserRole)roleId;
+
+            return user;
+        }
         public User? GetByUsername(string username)
         {
             string query = @"
@@ -93,7 +123,6 @@ namespace TriQue.Data.Repositories
             if (result == null || result == DBNull.Value)
                 return null;
 
-            // SQLite stores datetime as string — parse it safely
             if (DateTime.TryParse(result.ToString(), out DateTime dt))
                 return dt;
 

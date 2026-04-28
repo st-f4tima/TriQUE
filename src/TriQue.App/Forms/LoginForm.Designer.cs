@@ -177,20 +177,20 @@
             guna2Button1.HoverState.FillColor = Color.FromArgb(0, 50, 125);
             guna2Button1.HoverState.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.HoverState.ForeColor = Color.White;
-            guna2Button1.Location = new Point(57, 486);
+            guna2Button1.Location = new Point(52, 486);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.PressedColor = Color.FromArgb(0, 50, 125);
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button1.Size = new Size(314, 56);
+            guna2Button1.Size = new Size(329, 56);
             guna2Button1.TabIndex = 1;
             guna2Button1.Text = "Login";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(90, 88);
+            pictureBox1.Location = new Point(109, 133);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(262, 134);
+            pictureBox1.Size = new Size(227, 104);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;

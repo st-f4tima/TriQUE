@@ -11,9 +11,9 @@ namespace TriQue.Models
         public int DriverID { get; set; }
         public int RouteID { get; set; }
         public double ActualEarnings { get; set; } = 0;
-        public double EarningGoal { get; set; } = 500; // i actually dont know
+        public double GoalEarning { get; set; } = 500; // i actually dont know
         public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime? EndTime { get; set; }
         public DriverStatus Status { get; set; }
     }
 }
