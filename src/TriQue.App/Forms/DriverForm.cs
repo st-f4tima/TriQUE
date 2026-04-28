@@ -61,12 +61,7 @@ namespace TriQue.Forms
 
         }
 
-        private void guna2ImageButton4_Click(object sender, EventArgs e)
-        {
-            LoginForm login = new LoginForm();
-            login.Show();
-            this.Close();
-        }
+
 
         private void guna2ImageButton5_Click(object sender, EventArgs e)
         {
@@ -98,24 +93,6 @@ namespace TriQue.Forms
 
         }
 
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ImageButton2_Click(object sender, EventArgs e)
-        {
-            DriverViewQueue viewQueue = new DriverViewQueue(this);
-            viewQueue.Show();
-            this.Hide();
-        }
-
-        private void guna2ImageButton3_Click(object sender, EventArgs e)
-        {
-            DriverSettings settings = new DriverSettings(this);
-            settings.Show();
-            this.Hide();
-        }
 
         private Form DriverViewQueue;
 
@@ -123,6 +100,32 @@ namespace TriQue.Forms
         {
             InitializeComponent();
             DriverViewQueue = form;
+        }
+
+        private void DashBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ViewQueueBtn_Click(object sender, EventArgs e)
+        {
+            DriverViewQueue viewQueue = new DriverViewQueue(this);
+            viewQueue.Show();
+            this.Hide();
+        }
+
+        private void SettinsBtn_Click(object sender, EventArgs e)
+        {
+            DriverSettings settings = new DriverSettings(this);
+            settings.Show();
+            this.Hide();
+        }
+
+        private void ExitBtn_Click(object sender, EventArgs e)
+        {
+            LoginForm login = new LoginForm();
+            login.Show();
+            this.Close();
         }
     }
 }
