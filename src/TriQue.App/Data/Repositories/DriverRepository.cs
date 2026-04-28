@@ -14,7 +14,7 @@ namespace TriQue.Data.Repositories
             _dbHelper = new DatabaseHelper();
         }
 
-        public Driver? GetByUserId(int userID)
+        public Driver? GetByUserID(int userID)
         {
             string query = @"
                 SELECT DriverID, UserID, GroupID, StatusID, BodyNumber

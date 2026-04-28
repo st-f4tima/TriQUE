@@ -16,7 +16,7 @@ namespace TriQue.Data.Repositories
         }
 
         // list of trips
-        public List<Trip> GetByDriverId(int driverID)
+        public List<Trip> GetByDriverID(int driverID)
         {
             var trips = new List<Trip>();
 

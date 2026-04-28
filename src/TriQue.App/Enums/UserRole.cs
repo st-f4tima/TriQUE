@@ -2,7 +2,7 @@
 {
     public enum UserRole
     {
-        Driver,
-        Admin
+        Driver = 1,
+        Admin = 2
     }
 }
