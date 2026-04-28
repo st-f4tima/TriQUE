@@ -14,16 +14,16 @@ namespace TriQue.Data.Repositories
             _dbHelper = new DatabaseHelper();
         }
 
-        public Driver? GetByUserId(int userId)
+        public Driver? GetByUserId(int userID)
         {
             string query = @"
                 SELECT DriverID, UserID, GroupID, StatusID, BodyNumber
                 FROM Driver
-                WHERE UserID = @id
+                WHERE UserID = @userID
                 LIMIT 1";
 
             using var reader = _dbHelper.ExecuteReader(query,
-                new SqliteParameter("@id", userId));
+                new SqliteParameter("@userID", userID));
 
             if (!reader.Read()) return null;
 
