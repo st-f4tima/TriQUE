@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 
 namespace TriQue.Models
 {
@@ -13,5 +14,8 @@ namespace TriQue.Models
 
         public double ActualEarnings { get; set; }
         public double GoalEarnings { get; set; }
+        public double FastestTrip { get; set; }
+        public double SlowestTrip { get; set; }
+        public DataTable QueueHistory { get; set; }
     }
 }

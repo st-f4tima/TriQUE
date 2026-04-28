@@ -59,6 +59,9 @@ namespace TriQue.Forms
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -98,9 +101,7 @@ namespace TriQue.Forms
             textBox9 = new TextBox();
             textBox8 = new TextBox();
             guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            textBox17 = new TextBox();
-            textBox16 = new TextBox();
-            textBox14 = new TextBox();
+            guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             textBox12 = new TextBox();
             textBox10 = new TextBox();
@@ -137,6 +138,7 @@ namespace TriQue.Forms
             guna2Panel5.SuspendLayout();
             ((ISupportInitialize)pictureBox4).BeginInit();
             guna2Panel8.SuspendLayout();
+            ((ISupportInitialize)guna2DataGridView1).BeginInit();
             guna2Panel6.SuspendLayout();
             ((ISupportInitialize)pictureBox5).BeginInit();
             guna2Panel7.SuspendLayout();
@@ -247,15 +249,14 @@ namespace TriQue.Forms
             // 
             textBox1.BackColor = Color.White;
             textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox1.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox1.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox1.Location = new Point(116, 20);
+            textBox1.Location = new Point(116, 25);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(337, 40);
+            textBox1.Size = new Size(337, 31);
             textBox1.TabIndex = 1;
             textBox1.Text = "Welcome Back, Juan!";
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // guna2Button1
             // 
@@ -266,7 +267,7 @@ namespace TriQue.Forms
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2Button1.FillColor = Color.FromArgb(55, 91, 231);
-            guna2Button1.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2Button1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
             guna2Button1.Location = new Point(479, 20);
             guna2Button1.Margin = new Padding(4, 3, 4, 3);
@@ -304,11 +305,11 @@ namespace TriQue.Forms
             // textBox23
             // 
             textBox23.BorderStyle = BorderStyle.None;
-            textBox23.Font = new Font("Roboto", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox23.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox23.ForeColor = Color.FromArgb(84, 84, 84);
             textBox23.Location = new Point(30, 16);
             textBox23.Name = "textBox23";
-            textBox23.Size = new Size(195, 19);
+            textBox23.Size = new Size(195, 17);
             textBox23.TabIndex = 9;
             textBox23.Text = "On Route - BSU Alangilan ";
             textBox23.TextAlign = HorizontalAlignment.Center;
@@ -334,11 +335,11 @@ namespace TriQue.Forms
             // textBox5
             // 
             textBox5.BorderStyle = BorderStyle.None;
-            textBox5.Font = new Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox5.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox5.ForeColor = Color.FromArgb(84, 84, 84);
             textBox5.Location = new Point(117, 35);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(104, 40);
+            textBox5.Size = new Size(104, 38);
             textBox5.TabIndex = 0;
             textBox5.Text = "₱ 450";
             textBox5.TextChanged += textBox5_TextChanged;
@@ -346,11 +347,11 @@ namespace TriQue.Forms
             // textBox4
             // 
             textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox4.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox4.ForeColor = Color.FromArgb(84, 84, 84);
             textBox4.Location = new Point(54, 13);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(122, 16);
+            textBox4.Size = new Size(122, 15);
             textBox4.TabIndex = 3;
             textBox4.Text = "Today’s Earnings";
             // 
@@ -367,11 +368,11 @@ namespace TriQue.Forms
             // textBox3
             // 
             textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox3.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox3.ForeColor = Color.FromArgb(84, 84, 84);
             textBox3.Location = new Point(31, 99);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(85, 16);
+            textBox3.Size = new Size(85, 15);
             textBox3.TabIndex = 1;
             textBox3.Text = "Goal: ₱ 650";
             // 
@@ -405,22 +406,22 @@ namespace TriQue.Forms
             // textBox7
             // 
             textBox7.BorderStyle = BorderStyle.None;
-            textBox7.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox7.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox7.ForeColor = Color.FromArgb(55, 91, 231);
             textBox7.Location = new Point(10, 83);
             textBox7.Name = "textBox7";
-            textBox7.Size = new Size(147, 16);
+            textBox7.Size = new Size(147, 15);
             textBox7.TabIndex = 4;
             textBox7.Text = "Total Trips Completed";
             // 
             // textBox6
             // 
             textBox6.BorderStyle = BorderStyle.None;
-            textBox6.Font = new Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox6.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox6.ForeColor = Color.FromArgb(84, 84, 84);
             textBox6.Location = new Point(52, 39);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(64, 40);
+            textBox6.Size = new Size(64, 38);
             textBox6.TabIndex = 1;
             textBox6.Text = "178";
             // 
@@ -462,11 +463,11 @@ namespace TriQue.Forms
             // textBox9
             // 
             textBox9.BorderStyle = BorderStyle.None;
-            textBox9.Font = new Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox9.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox9.ForeColor = Color.FromArgb(84, 84, 84);
             textBox9.Location = new Point(51, 39);
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(64, 40);
+            textBox9.Size = new Size(64, 38);
             textBox9.TabIndex = 6;
             textBox9.Text = "178";
             textBox9.TextChanged += textBox9_TextChanged;
@@ -474,11 +475,11 @@ namespace TriQue.Forms
             // textBox8
             // 
             textBox8.BorderStyle = BorderStyle.None;
-            textBox8.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox8.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox8.ForeColor = Color.FromArgb(55, 91, 231);
             textBox8.Location = new Point(26, 83);
             textBox8.Name = "textBox8";
-            textBox8.Size = new Size(117, 16);
+            textBox8.Size = new Size(117, 15);
             textBox8.TabIndex = 5;
             textBox8.Text = "Total Trips Today";
             // 
@@ -487,49 +488,65 @@ namespace TriQue.Forms
             guna2Panel8.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel8.BorderRadius = 15;
             guna2Panel8.BorderThickness = 1;
-            guna2Panel8.Controls.Add(textBox17);
-            guna2Panel8.Controls.Add(textBox16);
-            guna2Panel8.Controls.Add(textBox14);
+            guna2Panel8.Controls.Add(guna2DataGridView1);
             guna2Panel8.CustomizableEdges = customizableEdges19;
             guna2Panel8.Location = new Point(116, 483);
             guna2Panel8.Name = "guna2Panel8";
             guna2Panel8.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2Panel8.Size = new Size(349, 119);
+            guna2Panel8.Size = new Size(349, 106);
             guna2Panel8.TabIndex = 9;
             // 
-            // textBox17
+            // guna2DataGridView1
             // 
-            textBox17.BorderStyle = BorderStyle.None;
-            textBox17.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox17.Location = new Point(245, 11);
-            textBox17.Name = "textBox17";
-            textBox17.Size = new Size(51, 21);
-            textBox17.TabIndex = 3;
-            textBox17.Text = "Date";
-            textBox17.TextAlign = HorizontalAlignment.Center;
-            // 
-            // textBox16
-            // 
-            textBox16.BorderStyle = BorderStyle.None;
-            textBox16.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox16.Location = new Point(128, 11);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(56, 21);
-            textBox16.TabIndex = 2;
-            textBox16.Text = "Route";
-            textBox16.TextAlign = HorizontalAlignment.Center;
-            textBox16.TextChanged += textBox16_TextChanged;
-            // 
-            // textBox14
-            // 
-            textBox14.BorderStyle = BorderStyle.None;
-            textBox14.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox14.Location = new Point(16, 11);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(43, 21);
-            textBox14.TabIndex = 0;
-            textBox14.Text = "Rank";
-            textBox14.TextAlign = HorizontalAlignment.Center;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(41, 75, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            guna2DataGridView1.ColumnHeadersHeight = 30;
+            guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            guna2DataGridView1.GridColor = Color.White;
+            guna2DataGridView1.Location = new Point(10, 11);
+            guna2DataGridView1.Name = "guna2DataGridView1";
+            guna2DataGridView1.RowHeadersVisible = false;
+            guna2DataGridView1.RowHeadersWidth = 40;
+            guna2DataGridView1.RowTemplate.Height = 25;
+            guna2DataGridView1.Size = new Size(327, 87);
+            guna2DataGridView1.TabIndex = 0;
+            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
+            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            guna2DataGridView1.ThemeStyle.BackColor = Color.White;
+            guna2DataGridView1.ThemeStyle.GridColor = Color.White;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 8F);
+            guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 30;
+            guna2DataGridView1.ThemeStyle.ReadOnly = false;
+            guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
+            guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(64, 64, 64);
+            guna2DataGridView1.ThemeStyle.RowsStyle.Height = 25;
+            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // guna2Panel6
             // 
@@ -549,11 +566,11 @@ namespace TriQue.Forms
             // textBox12
             // 
             textBox12.BorderStyle = BorderStyle.None;
-            textBox12.Font = new Font("Roboto", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox12.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox12.ForeColor = Color.FromArgb(84, 84, 84);
             textBox12.Location = new Point(36, 46);
             textBox12.Name = "textBox12";
-            textBox12.Size = new Size(94, 37);
+            textBox12.Size = new Size(94, 34);
             textBox12.TabIndex = 6;
             textBox12.Text = "8 min";
             textBox12.TextAlign = HorizontalAlignment.Center;
@@ -561,11 +578,11 @@ namespace TriQue.Forms
             // textBox10
             // 
             textBox10.BorderStyle = BorderStyle.None;
-            textBox10.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox10.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox10.ForeColor = Color.FromArgb(55, 91, 231);
             textBox10.Location = new Point(10, 83);
             textBox10.Name = "textBox10";
-            textBox10.Size = new Size(147, 16);
+            textBox10.Size = new Size(147, 15);
             textBox10.TabIndex = 5;
             textBox10.Text = "Fastest Trip";
             textBox10.TextAlign = HorizontalAlignment.Center;
@@ -598,11 +615,11 @@ namespace TriQue.Forms
             // textBox13
             // 
             textBox13.BorderStyle = BorderStyle.None;
-            textBox13.Font = new Font("Roboto", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox13.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox13.ForeColor = Color.FromArgb(84, 84, 84);
             textBox13.Location = new Point(35, 46);
             textBox13.Name = "textBox13";
-            textBox13.Size = new Size(94, 37);
+            textBox13.Size = new Size(94, 34);
             textBox13.TabIndex = 7;
             textBox13.Text = "8 min";
             textBox13.TextAlign = HorizontalAlignment.Center;
@@ -610,11 +627,11 @@ namespace TriQue.Forms
             // textBox11
             // 
             textBox11.BorderStyle = BorderStyle.None;
-            textBox11.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox11.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox11.ForeColor = Color.FromArgb(55, 91, 231);
             textBox11.Location = new Point(9, 83);
             textBox11.Name = "textBox11";
-            textBox11.Size = new Size(147, 16);
+            textBox11.Size = new Size(147, 15);
             textBox11.TabIndex = 6;
             textBox11.Text = "Lowest Trip";
             textBox11.TextAlign = HorizontalAlignment.Center;
@@ -673,11 +690,11 @@ namespace TriQue.Forms
             // textBox20
             // 
             textBox20.BorderStyle = BorderStyle.None;
-            textBox20.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox20.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox20.ForeColor = Color.FromArgb(215, 108, 68);
             textBox20.Location = new Point(10, 50);
             textBox20.Name = "textBox20";
-            textBox20.Size = new Size(151, 33);
+            textBox20.Size = new Size(151, 31);
             textBox20.TabIndex = 8;
             textBox20.Text = "Moderate";
             textBox20.TextAlign = HorizontalAlignment.Center;
@@ -685,11 +702,11 @@ namespace TriQue.Forms
             // textBox15
             // 
             textBox15.BorderStyle = BorderStyle.None;
-            textBox15.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox15.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox15.ForeColor = Color.FromArgb(55, 91, 231);
             textBox15.Location = new Point(9, 84);
             textBox15.Name = "textBox15";
-            textBox15.Size = new Size(147, 16);
+            textBox15.Size = new Size(147, 15);
             textBox15.TabIndex = 6;
             textBox15.Text = "Traffic Condition";
             textBox15.TextAlign = HorizontalAlignment.Center;
@@ -723,11 +740,11 @@ namespace TriQue.Forms
             // textBox21
             // 
             textBox21.BorderStyle = BorderStyle.None;
-            textBox21.Font = new Font("Roboto", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox21.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox21.ForeColor = Color.FromArgb(84, 84, 84);
             textBox21.Location = new Point(38, 46);
             textBox21.Name = "textBox21";
-            textBox21.Size = new Size(94, 37);
+            textBox21.Size = new Size(94, 34);
             textBox21.TabIndex = 8;
             textBox21.Text = "4 min";
             textBox21.TextAlign = HorizontalAlignment.Center;
@@ -735,11 +752,11 @@ namespace TriQue.Forms
             // textBox18
             // 
             textBox18.BorderStyle = BorderStyle.None;
-            textBox18.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox18.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox18.ForeColor = Color.FromArgb(55, 91, 231);
             textBox18.Location = new Point(13, 85);
             textBox18.Name = "textBox18";
-            textBox18.Size = new Size(147, 16);
+            textBox18.Size = new Size(147, 15);
             textBox18.TabIndex = 7;
             textBox18.Text = "Total Duration";
             textBox18.TextAlign = HorizontalAlignment.Center;
@@ -772,11 +789,11 @@ namespace TriQue.Forms
             // textBox22
             // 
             textBox22.BorderStyle = BorderStyle.None;
-            textBox22.Font = new Font("Roboto", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox22.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox22.ForeColor = Color.FromArgb(84, 84, 84);
             textBox22.Location = new Point(38, 45);
             textBox22.Name = "textBox22";
-            textBox22.Size = new Size(94, 37);
+            textBox22.Size = new Size(94, 34);
             textBox22.TabIndex = 9;
             textBox22.Text = "30km";
             textBox22.TextAlign = HorizontalAlignment.Center;
@@ -784,11 +801,11 @@ namespace TriQue.Forms
             // textBox19
             // 
             textBox19.BorderStyle = BorderStyle.None;
-            textBox19.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox19.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox19.ForeColor = Color.FromArgb(55, 91, 231);
             textBox19.Location = new Point(12, 83);
             textBox19.Name = "textBox19";
-            textBox19.Size = new Size(147, 16);
+            textBox19.Size = new Size(147, 15);
             textBox19.TabIndex = 8;
             textBox19.Text = "Total Distance";
             textBox19.TextAlign = HorizontalAlignment.Center;
@@ -807,12 +824,12 @@ namespace TriQue.Forms
             // 
             textBox2.BackColor = Color.White;
             textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox2.Font = new Font("Microsoft Sans Serif", 9.2F, FontStyle.Bold);
             textBox2.ForeColor = Color.FromArgb(91, 91, 91);
             textBox2.Location = new Point(116, 456);
             textBox2.Margin = new Padding(4, 3, 4, 3);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(337, 21);
+            textBox2.Size = new Size(337, 18);
             textBox2.TabIndex = 15;
             textBox2.Text = "Queue History";
             // 
@@ -854,7 +871,7 @@ namespace TriQue.Forms
             Controls.Add(guna2Button1);
             Controls.Add(textBox1);
             Controls.Add(guna2Panel1);
-            Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
@@ -880,7 +897,7 @@ namespace TriQue.Forms
             guna2Panel5.PerformLayout();
             ((ISupportInitialize)pictureBox4).EndInit();
             guna2Panel8.ResumeLayout(false);
-            guna2Panel8.PerformLayout();
+            ((ISupportInitialize)guna2DataGridView1).EndInit();
             guna2Panel6.ResumeLayout(false);
             guna2Panel6.PerformLayout();
             ((ISupportInitialize)pictureBox5).EndInit();
@@ -941,9 +958,6 @@ namespace TriQue.Forms
         private TextBox textBox10;
         private TextBox textBox11;
         private TextBox textBox12;
-        private TextBox textBox17;
-        private TextBox textBox16;
-        private TextBox textBox14;
         private TextBox textBox13;
         private PictureBox pictureBox5;
         private PictureBox pictureBox7;
@@ -958,5 +972,6 @@ namespace TriQue.Forms
         private TextBox textBox21;
         private TextBox textBox22;
         private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
     }
 }

@@ -9,12 +9,14 @@ namespace TriQue.Services
         private readonly UserRepository _userRepo;
         private readonly DriverRepository _driverRepo;
         private readonly TripRepository _tripRepo;
+        private readonly QueueRepository _queueRepo;
 
         public DriverDashboardService()
         {
             _userRepo = new UserRepository();
             _driverRepo = new DriverRepository();
             _tripRepo = new TripRepository();
+            _queueRepo = new QueueRepository();
         }
 
         public DriverDashboardData GetDashboard(int userID)
@@ -27,6 +29,11 @@ namespace TriQue.Services
             var todayTrips = _tripRepo.GetTodayTrips(driver.DriverID);
             var earnings = _tripRepo.GetEarningsProgress(driver.DriverID);
 
+            var stats = _tripRepo.GetTripSpeedStats(driver.DriverID);
+            var queueHistory = _queueRepo.GetQueueHistory(driver.DriverID);
+
+
+
             return new DriverDashboardData
             {
                 User = user,
@@ -35,7 +42,10 @@ namespace TriQue.Services
                 CompletedTrips = completedTrips,
                 TodayTrips = todayTrips,
                 ActualEarnings = earnings.actual,
-                GoalEarnings = earnings.goal
+                GoalEarnings = earnings.goal,
+                FastestTrip = stats.fastest,
+                SlowestTrip = stats.slowest,
+                QueueHistory = queueHistory
             };
 
         }
