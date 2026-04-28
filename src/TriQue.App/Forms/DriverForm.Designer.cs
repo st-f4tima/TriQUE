@@ -249,7 +249,7 @@ namespace TriQue.Forms
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox1.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox1.Location = new Point(116, 42);
+            textBox1.Location = new Point(116, 20);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(337, 40);
@@ -268,7 +268,7 @@ namespace TriQue.Forms
             guna2Button1.FillColor = Color.FromArgb(55, 91, 231);
             guna2Button1.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(479, 42);
+            guna2Button1.Location = new Point(479, 20);
             guna2Button1.Margin = new Padding(4, 3, 4, 3);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges8;
@@ -278,13 +278,13 @@ namespace TriQue.Forms
             // 
             // guna2Panel2
             // 
-            guna2Panel2.BorderColor = Color.Black;
+            guna2Panel2.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel2.BorderRadius = 15;
             guna2Panel2.BorderThickness = 1;
             guna2Panel2.Controls.Add(pictureBox10);
             guna2Panel2.Controls.Add(textBox23);
             guna2Panel2.CustomizableEdges = customizableEdges9;
-            guna2Panel2.Location = new Point(792, 42);
+            guna2Panel2.Location = new Point(792, 20);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2Panel2.Size = new Size(232, 47);
@@ -305,6 +305,7 @@ namespace TriQue.Forms
             // 
             textBox23.BorderStyle = BorderStyle.None;
             textBox23.Font = new Font("Roboto", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox23.ForeColor = Color.FromArgb(84, 84, 84);
             textBox23.Location = new Point(30, 16);
             textBox23.Name = "textBox23";
             textBox23.Size = new Size(195, 19);
@@ -314,7 +315,7 @@ namespace TriQue.Forms
             // 
             // guna2Panel3
             // 
-            guna2Panel3.BorderColor = Color.Black;
+            guna2Panel3.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel3.BorderRadius = 15;
             guna2Panel3.BorderThickness = 1;
             guna2Panel3.Controls.Add(textBox5);
@@ -323,7 +324,7 @@ namespace TriQue.Forms
             guna2Panel3.Controls.Add(textBox3);
             guna2Panel3.Controls.Add(progressBar1);
             guna2Panel3.CustomizableEdges = customizableEdges13;
-            guna2Panel3.Location = new Point(116, 103);
+            guna2Panel3.Location = new Point(116, 81);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2Panel3.Size = new Size(349, 119);
@@ -388,14 +389,14 @@ namespace TriQue.Forms
             // 
             // guna2Panel4
             // 
-            guna2Panel4.BorderColor = Color.Black;
+            guna2Panel4.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel4.BorderRadius = 15;
             guna2Panel4.BorderThickness = 1;
             guna2Panel4.Controls.Add(textBox7);
             guna2Panel4.Controls.Add(textBox6);
             guna2Panel4.Controls.Add(pictureBox3);
             guna2Panel4.CustomizableEdges = customizableEdges15;
-            guna2Panel4.Location = new Point(116, 243);
+            guna2Panel4.Location = new Point(116, 221);
             guna2Panel4.Name = "guna2Panel4";
             guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2Panel4.Size = new Size(168, 106);
@@ -435,14 +436,14 @@ namespace TriQue.Forms
             // 
             // guna2Panel5
             // 
-            guna2Panel5.BorderColor = Color.Black;
+            guna2Panel5.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel5.BorderRadius = 15;
             guna2Panel5.BorderThickness = 1;
             guna2Panel5.Controls.Add(pictureBox4);
             guna2Panel5.Controls.Add(textBox9);
             guna2Panel5.Controls.Add(textBox8);
             guna2Panel5.CustomizableEdges = customizableEdges17;
-            guna2Panel5.Location = new Point(297, 243);
+            guna2Panel5.Location = new Point(297, 221);
             guna2Panel5.Name = "guna2Panel5";
             guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2Panel5.Size = new Size(168, 106);
@@ -483,14 +484,14 @@ namespace TriQue.Forms
             // 
             // guna2Panel8
             // 
-            guna2Panel8.BorderColor = Color.Black;
+            guna2Panel8.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel8.BorderRadius = 15;
             guna2Panel8.BorderThickness = 1;
             guna2Panel8.Controls.Add(textBox17);
             guna2Panel8.Controls.Add(textBox16);
             guna2Panel8.Controls.Add(textBox14);
             guna2Panel8.CustomizableEdges = customizableEdges19;
-            guna2Panel8.Location = new Point(116, 505);
+            guna2Panel8.Location = new Point(116, 483);
             guna2Panel8.Name = "guna2Panel8";
             guna2Panel8.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2Panel8.Size = new Size(349, 119);
@@ -532,14 +533,14 @@ namespace TriQue.Forms
             // 
             // guna2Panel6
             // 
-            guna2Panel6.BorderColor = Color.Black;
+            guna2Panel6.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel6.BorderRadius = 15;
             guna2Panel6.BorderThickness = 1;
             guna2Panel6.Controls.Add(textBox12);
             guna2Panel6.Controls.Add(textBox10);
             guna2Panel6.Controls.Add(pictureBox5);
             guna2Panel6.CustomizableEdges = customizableEdges21;
-            guna2Panel6.Location = new Point(116, 364);
+            guna2Panel6.Location = new Point(116, 342);
             guna2Panel6.Name = "guna2Panel6";
             guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges22;
             guna2Panel6.Size = new Size(168, 106);
@@ -581,14 +582,14 @@ namespace TriQue.Forms
             // 
             // guna2Panel7
             // 
-            guna2Panel7.BorderColor = Color.Black;
+            guna2Panel7.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel7.BorderRadius = 15;
             guna2Panel7.BorderThickness = 1;
             guna2Panel7.Controls.Add(textBox13);
             guna2Panel7.Controls.Add(textBox11);
             guna2Panel7.Controls.Add(pictureBox6);
             guna2Panel7.CustomizableEdges = customizableEdges23;
-            guna2Panel7.Location = new Point(297, 364);
+            guna2Panel7.Location = new Point(297, 342);
             guna2Panel7.Name = "guna2Panel7";
             guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges24;
             guna2Panel7.Size = new Size(168, 106);
@@ -630,12 +631,12 @@ namespace TriQue.Forms
             // 
             // guna2Panel9
             // 
-            guna2Panel9.BorderColor = Color.Black;
+            guna2Panel9.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel9.BorderRadius = 15;
             guna2Panel9.BorderThickness = 1;
             guna2Panel9.Controls.Add(webView21);
             guna2Panel9.CustomizableEdges = customizableEdges25;
-            guna2Panel9.Location = new Point(479, 104);
+            guna2Panel9.Location = new Point(479, 82);
             guna2Panel9.Name = "guna2Panel9";
             guna2Panel9.ShadowDecoration.CustomizableEdges = customizableEdges26;
             guna2Panel9.Size = new Size(601, 366);
@@ -655,14 +656,14 @@ namespace TriQue.Forms
             // 
             // guna2Panel10
             // 
-            guna2Panel10.BorderColor = Color.Black;
+            guna2Panel10.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel10.BorderRadius = 15;
             guna2Panel10.BorderThickness = 1;
             guna2Panel10.Controls.Add(textBox20);
             guna2Panel10.Controls.Add(textBox15);
             guna2Panel10.Controls.Add(pictureBox7);
             guna2Panel10.CustomizableEdges = customizableEdges27;
-            guna2Panel10.Location = new Point(502, 504);
+            guna2Panel10.Location = new Point(502, 482);
             guna2Panel10.Name = "guna2Panel10";
             guna2Panel10.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2Panel10.Size = new Size(168, 106);
@@ -706,14 +707,14 @@ namespace TriQue.Forms
             // 
             // guna2Panel11
             // 
-            guna2Panel11.BorderColor = Color.Black;
+            guna2Panel11.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel11.BorderRadius = 15;
             guna2Panel11.BorderThickness = 1;
             guna2Panel11.Controls.Add(textBox21);
             guna2Panel11.Controls.Add(textBox18);
             guna2Panel11.Controls.Add(pictureBox8);
             guna2Panel11.CustomizableEdges = customizableEdges29;
-            guna2Panel11.Location = new Point(696, 503);
+            guna2Panel11.Location = new Point(696, 481);
             guna2Panel11.Name = "guna2Panel11";
             guna2Panel11.ShadowDecoration.CustomizableEdges = customizableEdges30;
             guna2Panel11.Size = new Size(168, 106);
@@ -755,14 +756,14 @@ namespace TriQue.Forms
             // 
             // guna2Panel12
             // 
-            guna2Panel12.BorderColor = Color.Black;
+            guna2Panel12.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel12.BorderRadius = 15;
             guna2Panel12.BorderThickness = 1;
             guna2Panel12.Controls.Add(textBox22);
             guna2Panel12.Controls.Add(textBox19);
             guna2Panel12.Controls.Add(pictureBox9);
             guna2Panel12.CustomizableEdges = customizableEdges31;
-            guna2Panel12.Location = new Point(889, 505);
+            guna2Panel12.Location = new Point(889, 483);
             guna2Panel12.Name = "guna2Panel12";
             guna2Panel12.ShadowDecoration.CustomizableEdges = customizableEdges32;
             guna2Panel12.Size = new Size(168, 106);
@@ -808,7 +809,7 @@ namespace TriQue.Forms
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox2.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox2.Location = new Point(116, 478);
+            textBox2.Location = new Point(116, 456);
             textBox2.Margin = new Padding(4, 3, 4, 3);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(337, 21);
@@ -823,7 +824,7 @@ namespace TriQue.Forms
             guna2ImageButton5.ImageOffset = new Point(0, 0);
             guna2ImageButton5.ImageRotate = 0F;
             guna2ImageButton5.ImageSize = new Size(40, 40);
-            guna2ImageButton5.Location = new Point(1029, 37);
+            guna2ImageButton5.Location = new Point(1029, 15);
             guna2ImageButton5.Name = "guna2ImageButton5";
             guna2ImageButton5.PressedState.ImageSize = new Size(64, 64);
             guna2ImageButton5.ShadowDecoration.CustomizableEdges = customizableEdges33;
@@ -836,7 +837,7 @@ namespace TriQue.Forms
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1100, 650);
+            ClientSize = new Size(1102, 623);
             Controls.Add(guna2ImageButton5);
             Controls.Add(textBox2);
             Controls.Add(guna2Panel12);
@@ -854,11 +855,15 @@ namespace TriQue.Forms
             Controls.Add(textBox1);
             Controls.Add(guna2Panel1);
             Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "DriverForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "TriQue";
             Load += Form1_Load;
             guna2Panel1.ResumeLayout(false);
             ((ISupportInitialize)pictureBox1).EndInit();

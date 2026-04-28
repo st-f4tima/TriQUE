@@ -237,7 +237,7 @@
             // 
             // guna2CustomGradientPanel1
             // 
-            guna2CustomGradientPanel1.BorderColor = Color.Black;
+            guna2CustomGradientPanel1.BorderColor = Color.FromArgb(84, 84, 84);
             guna2CustomGradientPanel1.BorderRadius = 15;
             guna2CustomGradientPanel1.BorderThickness = 1;
             guna2CustomGradientPanel1.Controls.Add(guna2Panel5);
@@ -361,7 +361,7 @@
             // 
             // guna2CustomGradientPanel2
             // 
-            guna2CustomGradientPanel2.BorderColor = Color.Black;
+            guna2CustomGradientPanel2.BorderColor = Color.FromArgb(84, 84, 84);
             guna2CustomGradientPanel2.BorderRadius = 15;
             guna2CustomGradientPanel2.BorderThickness = 1;
             guna2CustomGradientPanel2.Controls.Add(textBox1);
@@ -392,7 +392,7 @@
             // guna2CustomGradientPanel3
             // 
             guna2CustomGradientPanel3.BackColor = Color.Transparent;
-            guna2CustomGradientPanel3.BorderColor = Color.Black;
+            guna2CustomGradientPanel3.BorderColor = Color.FromArgb(84, 84, 84);
             guna2CustomGradientPanel3.BorderRadius = 15;
             guna2CustomGradientPanel3.BorderThickness = 1;
             guna2CustomGradientPanel3.Controls.Add(guna2Panel4);
@@ -410,7 +410,7 @@
             // guna2Panel4
             // 
             guna2Panel4.BackColor = Color.White;
-            guna2Panel4.BorderColor = Color.Black;
+            guna2Panel4.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel4.BorderRadius = 15;
             guna2Panel4.BorderThickness = 1;
             guna2Panel4.Controls.Add(textBox9);
@@ -459,7 +459,7 @@
             // guna2Panel3
             // 
             guna2Panel3.BackColor = Color.White;
-            guna2Panel3.BorderColor = Color.Black;
+            guna2Panel3.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel3.BorderRadius = 15;
             guna2Panel3.BorderThickness = 1;
             guna2Panel3.Controls.Add(textBox7);
@@ -508,7 +508,7 @@
             // guna2Panel2
             // 
             guna2Panel2.BackColor = Color.White;
-            guna2Panel2.BorderColor = Color.Black;
+            guna2Panel2.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel2.BorderRadius = 15;
             guna2Panel2.BorderThickness = 1;
             guna2Panel2.Controls.Add(textBox8);
@@ -557,7 +557,7 @@
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.White;
-            guna2Panel1.BorderColor = Color.Black;
+            guna2Panel1.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel1.BorderRadius = 15;
             guna2Panel1.BorderThickness = 1;
             guna2Panel1.Controls.Add(textBox6);
@@ -608,18 +608,22 @@
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1100, 650);
+            ClientSize = new Size(1102, 623);
             Controls.Add(guna2CustomGradientPanel2);
             Controls.Add(guna2CustomGradientPanel1);
             Controls.Add(guna2TextBox1);
             Controls.Add(panel1);
             Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ButtonHighlight;
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "DriverSettings";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "x";
+            Text = "TriQue";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             guna2CustomGradientPanel1.ResumeLayout(false);

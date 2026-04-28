@@ -32,7 +32,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             label2 = new Label();
             panel3 = new Panel();
@@ -46,7 +45,6 @@
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             pictureBox1 = new PictureBox();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
-            ExitBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -197,37 +195,24 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // ExitBtn
-            // 
-            ExitBtn.CheckedState.ImageSize = new Size(64, 64);
-            ExitBtn.HoverState.ImageSize = new Size(21, 21);
-            ExitBtn.Image = (Image)resources.GetObject("ExitBtn.Image");
-            ExitBtn.ImageOffset = new Point(0, 0);
-            ExitBtn.ImageRotate = 0F;
-            ExitBtn.ImageSize = new Size(19, 19);
-            ExitBtn.Location = new Point(1048, 12);
-            ExitBtn.Name = "ExitBtn";
-            ExitBtn.PressedState.ImageSize = new Size(21, 21);
-            ExitBtn.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            ExitBtn.Size = new Size(40, 40);
-            ExitBtn.TabIndex = 1;
-            ExitBtn.Click += ExitBtn_Click_1;
-            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1100, 650);
-            Controls.Add(ExitBtn);
             Controls.Add(panel1);
             Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(91, 91, 91);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Trique";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
@@ -253,6 +238,5 @@
         private Panel panel5;
         private TextBox textBoxPassword;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
-        private Guna.UI2.WinForms.Guna2ImageButton ExitBtn;
     }
 }
