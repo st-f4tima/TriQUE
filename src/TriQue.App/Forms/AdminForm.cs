@@ -1,3 +1,4 @@
+using Guna.Charts.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -5,7 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Guna.Charts.WinForms;
+using TriQue.Forms;
 
 namespace Trique.Forms
 {
@@ -96,7 +97,38 @@ namespace Trique.Forms
 
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            LoginForm adminForm = new LoginForm();
+            adminForm.Show();
+            this.Hide();
+        }
+
+        private void SettingsBtn_Click(object sender, EventArgs e)
+        {
+            AdminSettings adminForm = new AdminSettings();
+            adminForm.Show();
+            this.Hide();
+        }
+
+        private void GenerateReportBtn_Click(object sender, EventArgs e)
+        {
+            AdminGenerateReport adminForm = new AdminGenerateReport();
+            adminForm.Show();
+            this.Hide();
+
+        }
+
+        private void ManageUserBtn_Click(object sender, EventArgs e)
+        {
+            AdminManageUsers adminForm = new AdminManageUsers();
+            adminForm.Show();
+            this.Hide();
+        }
+
+        private void ViewQueue_Click(object sender, EventArgs e)
+        {
+            AdminViewQueue adminForm = new AdminViewQueue();
+            adminForm.Show();
+            this.Hide();
         }
     }
 }

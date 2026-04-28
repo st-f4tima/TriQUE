@@ -59,33 +59,31 @@
             Logo = new PictureBox();
             guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            ScrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
-            RefreshBtn = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
             textBox4 = new TextBox();
+            textBox1 = new TextBox();
+            pictureBox2 = new PictureBox();
+            guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             textBox5 = new TextBox();
+            textBox2 = new TextBox();
+            pictureBox3 = new PictureBox();
+            guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             textBox6 = new TextBox();
+            textBox3 = new TextBox();
+            pictureBox4 = new PictureBox();
+            guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            RefreshBtn = new Guna.UI2.WinForms.Guna2Button();
+            StartBtn = new Guna.UI2.WinForms.Guna2Button();
+            pictureBox1 = new PictureBox();
             guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             guna2Panel1.SuspendLayout();
-            guna2Panel2.SuspendLayout();
-            guna2Panel3.SuspendLayout();
-            guna2Panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -204,7 +202,7 @@
             guna2TextBox1.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2TextBox1.ForeColor = Color.FromArgb(55, 91, 231);
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(140, 77);
+            guna2TextBox1.Location = new Point(133, 67);
             guna2TextBox1.Margin = new Padding(4, 5, 4, 5);
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PlaceholderText = "";
@@ -215,179 +213,18 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.BorderColor = Color.Black;
+            guna2Panel1.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel1.BorderRadius = 15;
             guna2Panel1.BorderThickness = 1;
             guna2Panel1.Controls.Add(textBox4);
             guna2Panel1.Controls.Add(textBox1);
             guna2Panel1.Controls.Add(pictureBox2);
             guna2Panel1.CustomizableEdges = customizableEdges8;
-            guna2Panel1.Location = new Point(140, 126);
+            guna2Panel1.Location = new Point(140, 114);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges9;
             guna2Panel1.Size = new Size(282, 72);
             guna2Panel1.TabIndex = 3;
-            // 
-            // guna2Panel2
-            // 
-            guna2Panel2.BorderColor = Color.Black;
-            guna2Panel2.BorderRadius = 15;
-            guna2Panel2.BorderThickness = 1;
-            guna2Panel2.Controls.Add(textBox5);
-            guna2Panel2.Controls.Add(textBox2);
-            guna2Panel2.Controls.Add(pictureBox3);
-            guna2Panel2.CustomizableEdges = customizableEdges10;
-            guna2Panel2.Location = new Point(457, 126);
-            guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            guna2Panel2.Size = new Size(282, 72);
-            guna2Panel2.TabIndex = 4;
-            // 
-            // guna2Panel3
-            // 
-            guna2Panel3.BorderColor = Color.Black;
-            guna2Panel3.BorderRadius = 15;
-            guna2Panel3.BorderThickness = 1;
-            guna2Panel3.Controls.Add(textBox6);
-            guna2Panel3.Controls.Add(textBox3);
-            guna2Panel3.Controls.Add(pictureBox4);
-            guna2Panel3.CustomizableEdges = customizableEdges12;
-            guna2Panel3.Location = new Point(771, 126);
-            guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            guna2Panel3.Size = new Size(282, 72);
-            guna2Panel3.TabIndex = 5;
-            // 
-            // guna2Panel4
-            // 
-            guna2Panel4.BorderColor = Color.Black;
-            guna2Panel4.BorderThickness = 1;
-            guna2Panel4.Controls.Add(ScrollBar);
-            guna2Panel4.CustomizableEdges = customizableEdges14;
-            guna2Panel4.Location = new Point(140, 248);
-            guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            guna2Panel4.Size = new Size(913, 305);
-            guna2Panel4.TabIndex = 6;
-            // 
-            // ScrollBar
-            // 
-            ScrollBar.InUpdate = false;
-            ScrollBar.LargeChange = 10;
-            ScrollBar.Location = new Point(887, 25);
-            ScrollBar.Name = "ScrollBar";
-            ScrollBar.ScrollbarSize = 12;
-            ScrollBar.Size = new Size(12, 251);
-            ScrollBar.TabIndex = 0;
-            ScrollBar.Scroll += guna2vScrollBar1_Scroll;
-            // 
-            // RefreshBtn
-            // 
-            RefreshBtn.BorderRadius = 15;
-            RefreshBtn.CustomizableEdges = customizableEdges16;
-            RefreshBtn.DisabledState.BorderColor = Color.DarkGray;
-            RefreshBtn.DisabledState.CustomBorderColor = Color.DarkGray;
-            RefreshBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            RefreshBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            RefreshBtn.FillColor = Color.FromArgb(55, 91, 231);
-            RefreshBtn.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            RefreshBtn.ForeColor = Color.White;
-            RefreshBtn.Location = new Point(132, 565);
-            RefreshBtn.Name = "RefreshBtn";
-            RefreshBtn.ShadowDecoration.CustomizableEdges = customizableEdges17;
-            RefreshBtn.Size = new Size(191, 45);
-            RefreshBtn.TabIndex = 7;
-            RefreshBtn.Text = "Refresh Queue";
-            RefreshBtn.TextAlign = HorizontalAlignment.Right;
-            // 
-            // guna2Button2
-            // 
-            guna2Button2.BorderRadius = 15;
-            guna2Button2.CustomizableEdges = customizableEdges18;
-            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button2.FillColor = Color.FromArgb(91, 91, 91);
-            guna2Button2.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2Button2.ForeColor = Color.White;
-            guna2Button2.Location = new Point(348, 565);
-            guna2Button2.Name = "guna2Button2";
-            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges19;
-            guna2Button2.Size = new Size(145, 45);
-            guna2Button2.TabIndex = 8;
-            guna2Button2.Text = "Start";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.FromArgb(55, 91, 231);
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(154, 577);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(22, 22);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(17, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(22, 23);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 9;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(16, 3);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(25, 23);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 2;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(16, 3);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(34, 23);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 9;
-            pictureBox4.TabStop = false;
-            // 
-            // textBox1
-            // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.ForeColor = Color.FromArgb(84, 84, 84);
-            textBox1.Location = new Point(45, 5);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(69, 21);
-            textBox1.TabIndex = 9;
-            textBox1.Text = "STATUS";
-            // 
-            // textBox2
-            // 
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.ForeColor = Color.FromArgb(84, 84, 84);
-            textBox2.Location = new Point(47, 5);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(69, 21);
-            textBox2.TabIndex = 10;
-            textBox2.Text = "ROUTE";
-            // 
-            // textBox3
-            // 
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.ForeColor = Color.FromArgb(84, 84, 84);
-            textBox3.Location = new Point(56, 5);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(85, 21);
-            textBox3.TabIndex = 10;
-            textBox3.Text = "RANKING";
             // 
             // textBox4
             // 
@@ -401,6 +238,41 @@
             textBox4.Text = "WAITING";
             textBox4.TextAlign = HorizontalAlignment.Center;
             // 
+            // textBox1
+            // 
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.ForeColor = Color.FromArgb(84, 84, 84);
+            textBox1.Location = new Point(45, 5);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(69, 21);
+            textBox1.TabIndex = 9;
+            textBox1.Text = "STATUS";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(17, 3);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(22, 23);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            // 
+            // guna2Panel2
+            // 
+            guna2Panel2.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel2.BorderRadius = 15;
+            guna2Panel2.BorderThickness = 1;
+            guna2Panel2.Controls.Add(textBox5);
+            guna2Panel2.Controls.Add(textBox2);
+            guna2Panel2.Controls.Add(pictureBox3);
+            guna2Panel2.CustomizableEdges = customizableEdges10;
+            guna2Panel2.Location = new Point(457, 114);
+            guna2Panel2.Name = "guna2Panel2";
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            guna2Panel2.Size = new Size(282, 72);
+            guna2Panel2.TabIndex = 4;
+            // 
             // textBox5
             // 
             textBox5.BorderStyle = BorderStyle.None;
@@ -413,6 +285,41 @@
             textBox5.Text = "BSU - Alangilan";
             textBox5.TextAlign = HorizontalAlignment.Center;
             // 
+            // textBox2
+            // 
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.ForeColor = Color.FromArgb(84, 84, 84);
+            textBox2.Location = new Point(47, 5);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(69, 21);
+            textBox2.TabIndex = 10;
+            textBox2.Text = "ROUTE";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(16, 3);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(25, 23);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 2;
+            pictureBox3.TabStop = false;
+            // 
+            // guna2Panel3
+            // 
+            guna2Panel3.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel3.BorderRadius = 15;
+            guna2Panel3.BorderThickness = 1;
+            guna2Panel3.Controls.Add(textBox6);
+            guna2Panel3.Controls.Add(textBox3);
+            guna2Panel3.Controls.Add(pictureBox4);
+            guna2Panel3.CustomizableEdges = customizableEdges12;
+            guna2Panel3.Location = new Point(771, 114);
+            guna2Panel3.Name = "guna2Panel3";
+            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            guna2Panel3.Size = new Size(282, 72);
+            guna2Panel3.TabIndex = 5;
+            // 
             // textBox6
             // 
             textBox6.BorderStyle = BorderStyle.None;
@@ -424,6 +331,85 @@
             textBox6.TabIndex = 9;
             textBox6.Text = "8th";
             textBox6.TextAlign = HorizontalAlignment.Center;
+            // 
+            // textBox3
+            // 
+            textBox3.BorderStyle = BorderStyle.None;
+            textBox3.ForeColor = Color.FromArgb(84, 84, 84);
+            textBox3.Location = new Point(56, 5);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(85, 21);
+            textBox3.TabIndex = 10;
+            textBox3.Text = "RANKING";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(16, 3);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(34, 23);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 9;
+            pictureBox4.TabStop = false;
+            // 
+            // guna2Panel4
+            // 
+            guna2Panel4.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel4.BorderThickness = 1;
+            guna2Panel4.CustomizableEdges = customizableEdges14;
+            guna2Panel4.Location = new Point(140, 236);
+            guna2Panel4.Name = "guna2Panel4";
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            guna2Panel4.Size = new Size(913, 305);
+            guna2Panel4.TabIndex = 6;
+            // 
+            // RefreshBtn
+            // 
+            RefreshBtn.BorderRadius = 15;
+            RefreshBtn.CustomizableEdges = customizableEdges16;
+            RefreshBtn.DisabledState.BorderColor = Color.DarkGray;
+            RefreshBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            RefreshBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            RefreshBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            RefreshBtn.FillColor = Color.FromArgb(55, 91, 231);
+            RefreshBtn.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            RefreshBtn.ForeColor = Color.White;
+            RefreshBtn.Location = new Point(132, 553);
+            RefreshBtn.Name = "RefreshBtn";
+            RefreshBtn.ShadowDecoration.CustomizableEdges = customizableEdges17;
+            RefreshBtn.Size = new Size(191, 45);
+            RefreshBtn.TabIndex = 7;
+            RefreshBtn.Text = "Refresh Queue";
+            RefreshBtn.TextAlign = HorizontalAlignment.Right;
+            // 
+            // StartBtn
+            // 
+            StartBtn.BorderRadius = 15;
+            StartBtn.CustomizableEdges = customizableEdges18;
+            StartBtn.DisabledState.BorderColor = Color.DarkGray;
+            StartBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            StartBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            StartBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            StartBtn.FillColor = Color.FromArgb(91, 91, 91);
+            StartBtn.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            StartBtn.ForeColor = Color.White;
+            StartBtn.Location = new Point(348, 553);
+            StartBtn.Name = "StartBtn";
+            StartBtn.ShadowDecoration.CustomizableEdges = customizableEdges19;
+            StartBtn.Size = new Size(145, 45);
+            StartBtn.TabIndex = 8;
+            StartBtn.Text = "Start";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(55, 91, 231);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(154, 565);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(22, 22);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // guna2TextBox2
             // 
@@ -439,7 +425,7 @@
             guna2TextBox2.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2TextBox2.ForeColor = Color.FromArgb(91, 91, 91);
             guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(140, 214);
+            guna2TextBox2.Location = new Point(131, 205);
             guna2TextBox2.Margin = new Padding(4, 5, 4, 5);
             guna2TextBox2.Name = "guna2TextBox2";
             guna2TextBox2.PlaceholderText = "";
@@ -453,10 +439,10 @@
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1100, 650);
+            ClientSize = new Size(1102, 623);
             Controls.Add(guna2TextBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(guna2Button2);
+            Controls.Add(StartBtn);
             Controls.Add(RefreshBtn);
             Controls.Add(guna2Panel4);
             Controls.Add(guna2Panel3);
@@ -465,24 +451,27 @@
             Controls.Add(guna2TextBox1);
             Controls.Add(panel1);
             Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "DriverViewQueue";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "TriQue";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             guna2Panel1.ResumeLayout(false);
             guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             guna2Panel2.ResumeLayout(false);
             guna2Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             guna2Panel3.ResumeLayout(false);
             guna2Panel3.PerformLayout();
-            guna2Panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -502,7 +491,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2VScrollBar ScrollBar;
         private Guna.UI2.WinForms.Guna2Button RefreshBtn;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button StartBtn;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private TextBox textBox4;
