@@ -93,7 +93,6 @@ namespace TriQue.Data.Repositories
             if (result == null || result == DBNull.Value)
                 return null;
 
-            // SQLite stores datetime as string — parse it safely
             if (DateTime.TryParse(result.ToString(), out DateTime dt))
                 return dt;
 

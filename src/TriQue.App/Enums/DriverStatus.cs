@@ -2,8 +2,8 @@
 {
     public enum DriverStatus
     {
-        Waiting, 
-        OnTrip,
-        Finished
+        Waiting = 1, 
+        OnTrip = 2,
+        Finished = 3
     }
 }
