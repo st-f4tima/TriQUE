@@ -80,7 +80,7 @@
             Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
             Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
             Navbar = new Panel();
-            guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            ManageUsersBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             ViewQueue = new Guna.UI2.WinForms.Guna2ImageButton();
             DashboardBtn = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -135,7 +135,7 @@
             // Navbar
             // 
             Navbar.BackColor = Color.FromArgb(215, 215, 215);
-            Navbar.Controls.Add(guna2ImageButton1);
+            Navbar.Controls.Add(ManageUsersBtn);
             Navbar.Controls.Add(guna2ImageButton4);
             Navbar.Controls.Add(ViewQueue);
             Navbar.Controls.Add(DashboardBtn);
@@ -148,20 +148,21 @@
             Navbar.Size = new Size(96, 660);
             Navbar.TabIndex = 0;
             // 
-            // guna2ImageButton1
+            // ManageUsersBtn
             // 
-            guna2ImageButton1.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.HoverState.ImageSize = new Size(37, 37);
-            guna2ImageButton1.Image = (Image)resources.GetObject("guna2ImageButton1.Image");
-            guna2ImageButton1.ImageOffset = new Point(0, 0);
-            guna2ImageButton1.ImageRotate = 0F;
-            guna2ImageButton1.ImageSize = new Size(42, 42);
-            guna2ImageButton1.Location = new Point(7, 244);
-            guna2ImageButton1.Name = "guna2ImageButton1";
-            guna2ImageButton1.PressedState.ImageSize = new Size(34, 34);
-            guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            guna2ImageButton1.Size = new Size(82, 82);
-            guna2ImageButton1.TabIndex = 7;
+            ManageUsersBtn.CheckedState.ImageSize = new Size(64, 64);
+            ManageUsersBtn.HoverState.ImageSize = new Size(37, 37);
+            ManageUsersBtn.Image = (Image)resources.GetObject("ManageUsersBtn.Image");
+            ManageUsersBtn.ImageOffset = new Point(0, 0);
+            ManageUsersBtn.ImageRotate = 0F;
+            ManageUsersBtn.ImageSize = new Size(42, 42);
+            ManageUsersBtn.Location = new Point(7, 244);
+            ManageUsersBtn.Name = "ManageUsersBtn";
+            ManageUsersBtn.PressedState.ImageSize = new Size(34, 34);
+            ManageUsersBtn.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            ManageUsersBtn.Size = new Size(82, 82);
+            ManageUsersBtn.TabIndex = 7;
+            ManageUsersBtn.Click += ManageUsersBtn_Click;
             // 
             // guna2ImageButton4
             // 
@@ -171,7 +172,7 @@
             guna2ImageButton4.ImageOffset = new Point(0, 0);
             guna2ImageButton4.ImageRotate = 0F;
             guna2ImageButton4.ImageSize = new Size(36, 36);
-            guna2ImageButton4.Location = new Point(10, 553);
+            guna2ImageButton4.Location = new Point(10, 549);
             guna2ImageButton4.Name = "guna2ImageButton4";
             guna2ImageButton4.PressedState.ImageSize = new Size(34, 34);
             guna2ImageButton4.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -193,6 +194,7 @@
             ViewQueue.ShadowDecoration.CustomizableEdges = customizableEdges3;
             ViewQueue.Size = new Size(82, 82);
             ViewQueue.TabIndex = 2;
+            ViewQueue.Click += ViewQueue_Click;
             // 
             // DashboardBtn
             // 
@@ -208,6 +210,7 @@
             DashboardBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
             DashboardBtn.Size = new Size(82, 82);
             DashboardBtn.TabIndex = 1;
+            DashboardBtn.Click += DashboardBtn_Click;
             // 
             // SettingsBtn
             // 
@@ -223,6 +226,7 @@
             SettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges5;
             SettingsBtn.Size = new Size(82, 82);
             SettingsBtn.TabIndex = 5;
+            SettingsBtn.Click += SettingsBtn_Click;
             // 
             // Logo
             // 
@@ -254,7 +258,7 @@
             WelcomeTxt.BorderStyle = BorderStyle.None;
             WelcomeTxt.Font = new Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             WelcomeTxt.ForeColor = Color.FromArgb(91, 91, 91);
-            WelcomeTxt.Location = new Point(134, 89);
+            WelcomeTxt.Location = new Point(134, 73);
             WelcomeTxt.Name = "WelcomeTxt";
             WelcomeTxt.Size = new Size(339, 40);
             WelcomeTxt.TabIndex = 1;
@@ -265,7 +269,7 @@
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox1.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox1.Location = new Point(134, 45);
+            textBox1.Location = new Point(134, 29);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(110, 25);
             textBox1.TabIndex = 2;
@@ -273,7 +277,7 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.BorderColor = Color.Black;
+            guna2Panel1.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel1.BorderRadius = 15;
             guna2Panel1.BorderThickness = 1;
             guna2Panel1.Controls.Add(textBox8);
@@ -281,7 +285,7 @@
             guna2Panel1.Controls.Add(pictureBox1);
             guna2Panel1.CustomBorderColor = Color.Black;
             guna2Panel1.CustomizableEdges = customizableEdges7;
-            guna2Panel1.Location = new Point(134, 154);
+            guna2Panel1.Location = new Point(134, 138);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2Panel1.Size = new Size(148, 103);
@@ -324,7 +328,7 @@
             // 
             // guna2Panel2
             // 
-            guna2Panel2.BorderColor = Color.Black;
+            guna2Panel2.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel2.BorderRadius = 15;
             guna2Panel2.BorderThickness = 1;
             guna2Panel2.Controls.Add(textBox7);
@@ -333,7 +337,7 @@
             guna2Panel2.Controls.Add(pictureBox2);
             guna2Panel2.CustomBorderColor = Color.Black;
             guna2Panel2.CustomizableEdges = customizableEdges9;
-            guna2Panel2.Location = new Point(299, 154);
+            guna2Panel2.Location = new Point(299, 138);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2Panel2.Size = new Size(148, 103);
@@ -390,7 +394,7 @@
             // 
             // guna2Panel3
             // 
-            guna2Panel3.BorderColor = Color.Black;
+            guna2Panel3.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel3.BorderRadius = 15;
             guna2Panel3.BorderThickness = 1;
             guna2Panel3.Controls.Add(textBox10);
@@ -398,7 +402,7 @@
             guna2Panel3.Controls.Add(pictureBox3);
             guna2Panel3.CustomBorderColor = Color.Black;
             guna2Panel3.CustomizableEdges = customizableEdges11;
-            guna2Panel3.Location = new Point(465, 154);
+            guna2Panel3.Location = new Point(465, 138);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2Panel3.Size = new Size(148, 103);
@@ -442,7 +446,7 @@
             // 
             // guna2Panel4
             // 
-            guna2Panel4.BorderColor = Color.Black;
+            guna2Panel4.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel4.BorderRadius = 15;
             guna2Panel4.BorderThickness = 1;
             guna2Panel4.Controls.Add(textBox12);
@@ -450,7 +454,7 @@
             guna2Panel4.Controls.Add(pictureBox4);
             guna2Panel4.CustomBorderColor = Color.Black;
             guna2Panel4.CustomizableEdges = customizableEdges13;
-            guna2Panel4.Location = new Point(632, 154);
+            guna2Panel4.Location = new Point(632, 138);
             guna2Panel4.Name = "guna2Panel4";
             guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2Panel4.Size = new Size(148, 103);
@@ -494,7 +498,7 @@
             // 
             // guna2Panel5
             // 
-            guna2Panel5.BorderColor = Color.Black;
+            guna2Panel5.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel5.BorderRadius = 15;
             guna2Panel5.BorderThickness = 1;
             guna2Panel5.Controls.Add(textBox14);
@@ -502,7 +506,7 @@
             guna2Panel5.Controls.Add(pictureBox5);
             guna2Panel5.CustomBorderColor = Color.Black;
             guna2Panel5.CustomizableEdges = customizableEdges15;
-            guna2Panel5.Location = new Point(800, 154);
+            guna2Panel5.Location = new Point(800, 138);
             guna2Panel5.Name = "guna2Panel5";
             guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2Panel5.Size = new Size(148, 103);
@@ -549,7 +553,7 @@
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox2.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox2.Location = new Point(134, 293);
+            textBox2.Location = new Point(134, 277);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(358, 25);
             textBox2.TabIndex = 5;
@@ -560,7 +564,7 @@
             textBox3.BorderStyle = BorderStyle.None;
             textBox3.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox3.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox3.Location = new Point(527, 293);
+            textBox3.Location = new Point(527, 277);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(358, 25);
             textBox3.TabIndex = 6;
@@ -568,12 +572,12 @@
             // 
             // PieChart
             // 
-            PieChart.BorderColor = Color.Black;
+            PieChart.BorderColor = Color.FromArgb(84, 84, 84);
             PieChart.BorderRadius = 15;
             PieChart.BorderThickness = 1;
             PieChart.Controls.Add(guna2Chart1);
             PieChart.CustomizableEdges = customizableEdges17;
-            PieChart.Location = new Point(134, 330);
+            PieChart.Location = new Point(134, 314);
             PieChart.Name = "PieChart";
             PieChart.ShadowDecoration.CustomizableEdges = customizableEdges18;
             PieChart.Size = new Size(358, 285);
@@ -615,12 +619,12 @@
             // 
             // guna2Panel6
             // 
-            guna2Panel6.BorderColor = Color.Black;
+            guna2Panel6.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel6.BorderRadius = 15;
             guna2Panel6.BorderThickness = 1;
             guna2Panel6.Controls.Add(guna2Chart2);
             guna2Panel6.CustomizableEdges = customizableEdges19;
-            guna2Panel6.Location = new Point(527, 330);
+            guna2Panel6.Location = new Point(527, 314);
             guna2Panel6.Name = "guna2Panel6";
             guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2Panel6.Size = new Size(421, 285);
@@ -665,7 +669,7 @@
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1100, 650);
+            ClientSize = new Size(1102, 623);
             Controls.Add(guna2Panel6);
             Controls.Add(PieChart);
             Controls.Add(textBox3);
@@ -679,11 +683,15 @@
             Controls.Add(WelcomeTxt);
             Controls.Add(Navbar);
             Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "AdminForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AdminForm";
+            Text = "TriQue";
             Load += AdminForm_Load;
             Navbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
@@ -746,6 +754,6 @@
         private TextBox textBox13;
         private TextBox textBox14;
         private Guna.Charts.WinForms.GunaChart guna2Chart1;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2ImageButton ManageUsersBtn;
     }
 }
