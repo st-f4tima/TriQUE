@@ -17,6 +17,7 @@ namespace TriQue.Forms
         private DriverDashboardService _dashboardService;
         private DriverDashboardData _data;
         private QueueRepository _queueRepo;
+        private RouteService _routeService;
         private int _userID;
 
         public DriverForm(int userID)
@@ -25,6 +26,7 @@ namespace TriQue.Forms
             _userID = userID;
             _dashboardService = new DriverDashboardService();
             _queueRepo = new QueueRepository();
+            _routeService = new RouteService();
             LoadDashboard();
         }
 
@@ -104,7 +106,11 @@ namespace TriQue.Forms
             var route = _dashboardService.GetDriverRouteByDriverID(driver.DriverID);
             if (route == null) return;
 
-     
+            var result = await _routeService.GetTrafficAndDuration(
+                route.StartLat, route.StartLng,
+                route.EndLat, route.EndLng
+            );
+
             var coords = new[]
             {
                 new[] { route.StartLng, route.StartLat },  
@@ -113,6 +119,23 @@ namespace TriQue.Forms
 
             string json = System.Text.Json.JsonSerializer.Serialize(coords);
             await webView21.CoreWebView2.ExecuteScriptAsync($"drawRoute({json});");
+
+            // display
+            textBox20.Text = $"{result.trafficCondition}";
+            if (result.trafficCondition == "Light")
+            {
+                textBox20.ForeColor = Color.Green;
+            }
+            else if (result.trafficCondition == "Moderate")
+            {
+                textBox20.ForeColor = Color.Orange;
+            }
+            else if (result.trafficCondition == "Heavy")
+            {
+                textBox20.ForeColor = Color.Red;
+            }
+
+            textBox21.Text = $"{result.durationMin} min";
         }
 
         private void guna2Panel2_Paint(object sender, PaintEventArgs e) { }
