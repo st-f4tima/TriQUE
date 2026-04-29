@@ -65,5 +65,20 @@ namespace TriQue.Data.Repositories
                 GoalEarnings = Convert.ToDouble(reader["GoalEarnings"])
             };
         }
+
+        public void UpdateStatus(int driverId, int statusId)
+        {
+            string query = @"
+                UPDATE Driver
+                SET StatusID = $statusId
+                WHERE DriverID = $driverId;
+            ";
+
+            _dbHelper.ExecuteNonQuery(
+                query,
+                new SqliteParameter("$statusId", statusId),
+                new SqliteParameter("$driverId", driverId)
+            );
+        }
     }
 }

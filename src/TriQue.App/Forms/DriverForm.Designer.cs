@@ -847,7 +847,6 @@ namespace TriQue.Forms
             guna2ImageButton5.ShadowDecoration.CustomizableEdges = customizableEdges33;
             guna2ImageButton5.Size = new Size(60, 60);
             guna2ImageButton5.TabIndex = 16;
-            //guna2ImageButton5.Click += guna2ImageButton5_Click;
             // 
             // DriverForm
             // 
