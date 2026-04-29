@@ -1,11 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using Trique.Forms;
-using TriQue.Data;
-using TriQue.Data.Repositories;
-using TriQue.Models;
-using TriQue.Services;
+﻿using TriQue.Services;
 
 namespace TriQue.Forms
 {
@@ -128,11 +121,6 @@ namespace TriQue.Forms
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void textBoxPassword_TextChanged(object sender, EventArgs e) { }
-        private void panel1_Paint(object sender, PaintEventArgs e) { }
-        private void panel2_Paint(object sender, PaintEventArgs e) { }
-        private void textBox1_TextChanged(object sender, EventArgs e) { }
-        private void label2_Click(object sender, EventArgs e) { }
         private void ExitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();

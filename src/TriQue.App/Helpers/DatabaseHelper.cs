@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 
-namespace TriQue.Data.Database
+namespace TriQue.Helpers
 {
     public class DatabaseHelper
     {

@@ -8,7 +8,13 @@ namespace TriQue.Models
     {
         public int RouteID { get; set; }
         public string RouteName { get; set; } = string.Empty;
-        public int AssignedGroupID { get; set; }
+        public int AssignedGroup { get; set; }
+
+        public double StartLat { get; set; }
+        public double StartLng { get; set; }
+        public double EndLat { get; set; }
+        public double EndLng { get; set; }
+        public double DistanceKm { get; set; }
 
     }
 }

@@ -28,7 +28,7 @@ namespace TriQue.Services
             return _tripRepo.GetTodayTrips(driverID);
         }
 
-        public (double actual, double goal) GetEarnings(int driverID)
+        public double GetActualEarnings(int driverID)
         {
             return _tripRepo.GetEarningsProgress(driverID);
         }

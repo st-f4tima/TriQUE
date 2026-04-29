@@ -2,6 +2,7 @@
 using Microsoft.Data.Sqlite;
 using System.IO;
 using Microsoft.Extensions.Configuration;
+using TriQue.Helpers;
 
 namespace TriQue.Data.Database
 {
@@ -48,6 +49,11 @@ namespace TriQue.Data.Database
                 RouteID INTEGER PRIMARY KEY AUTOINCREMENT,
                 AssignedGroup INTEGER NOT NULL,
                 RouteName TEXT NOT NULL,
+                StartLat REAL,
+                StartLng REAL,
+                EndLat REAL,
+                EndLng REAL,
+                DistanceKm REAL,
                 FOREIGN KEY (AssignedGroup) REFERENCES DriverGroup(GroupID)
             );
 
@@ -81,6 +87,7 @@ namespace TriQue.Data.Database
                 GroupID INTEGER NOT NULL,
                 StatusID INTEGER NOT NULL,
                 BodyNumber TEXT NOT NULL,
+                GoalEarnings REAL DEFAULT 650,
                 FOREIGN KEY (UserID) REFERENCES User(UserID),
                 FOREIGN KEY (GroupID) REFERENCES DriverGroup(GroupID),
                 FOREIGN KEY (StatusID) REFERENCES DriverStatus(StatusID)
@@ -107,7 +114,6 @@ namespace TriQue.Data.Database
                 RouteID INTEGER NOT NULL,
                 StatusID INTEGER NOT NULL,
                 ActualEarnings REAL NOT NULL,
-                GoalEarning REAL NOT NULL,
                 StartTime DATETIME NOT NULL,
                 EndTime DATETIME,
                 FOREIGN KEY (RouteID) REFERENCES Route(RouteID),
@@ -154,7 +160,7 @@ namespace TriQue.Data.Database
                 (2, 'admin2', 'hash2', 'Luis', 'Torres', '09222222222', 2),
 
                 -- DRIVERS (30)
-                (3, 'driver1', 'hash3', 'Driver1', 'Test', '09300000001', 1),
+                (3, 'driver1', 'hash3', 'Lemon', 'Juice', '09300000001', 1),
                 (4, 'driver2', 'hash4', 'Driver2', 'Test', '09300000002', 1),
                 (5, 'driver3', 'hash5', 'Driver3', 'Test', '09300000003', 1),
                 (6, 'driver4', 'hash6', 'Driver4', 'Test', '09300000004', 1),
@@ -243,13 +249,13 @@ namespace TriQue.Data.Database
                 (29, 31, 6, 1, 'TN-029'),
                 (30, 32, 6, 1, 'TN-030');
 
-            INSERT OR IGNORE INTO Route (RouteID, AssignedGroup, RouteName) VALUES
-                (101, 1, 'Route A'),
-                (102, 2, 'Route B'),
-                (103, 3, 'Route C'),
-                (104, 4, 'Route D'),
-                (105, 5, 'Route E'),
-                (106, 6, 'Route F');
+            INSERT OR IGNORE INTO Route (RouteID, AssignedGroup, RouteName, StartLat, StartLng, EndLat, EndLng, DistanceKm) VALUES
+                (101, 1, 'Provincial Capitol',  13.79277, 121.07137, 13.76527, 121.06423, 4.8),
+                (102, 2, 'Grand Terminal',      13.79277, 121.07137, 13.79058, 121.06161, 2.4),
+                (103, 3, 'SM Batangas',         13.79277, 121.07137, 13.75546, 121.06842, 7.5),
+                (104, 4, 'WalterMart',          13.79277, 121.07137, 13.76397, 121.05640, 5.3),
+                (105, 5, 'Brgy. Tulo',          13.79277, 121.07137, 13.75460, 121.12638, 11),
+                (106, 6, 'BSU Alangilan',       13.79277, 121.07137, 13.78414, 121.07439, 2.8);
 
             INSERT OR IGNORE INTO Queue (QueueID, RouteID) VALUES
                 (1, 101),
@@ -259,15 +265,22 @@ namespace TriQue.Data.Database
                 (5, 105),
                 (6, 106);
 
-            INSERT OR IGNORE INTO Trip (TripID, DriverID, RouteID, StatusID, ActualEarnings, GoalEarning, StartTime, EndTime) VALUES
-                (1, 1, 101, 2, 120, 500, '2026-04-23 08:00:00', '2026-04-23 08:30:00'),
-                (2, 6, 102, 2, 150, 500, '2026-04-23 08:10:00', '2026-04-23 08:45:00'),
-                (3, 11, 103, 1, 0, 500, '2026-04-23 09:00:00', NULL),
-                (4, 16, 104, 3, 200, 500, '2026-04-23 07:00:00', '2026-04-23 07:40:00');
+            INSERT OR IGNORE INTO Trip (TripID, DriverID, RouteID, StatusID, ActualEarnings, StartTime, EndTime) VALUES
+                (1, 1, 106, 3, 120, '2026-04-29 08:00:00', '2026-04-29 08:30:00'),
+                (5, 1, 106, 3, 180, '2026-04-23 10:00:00', '2026-04-23 10:40:00'),
+                (6, 1, 106, 3, 220, '2026-04-23 12:00:00', '2026-04-23 12:50:00'),
+                (7, 1, 106, 3, 0, '2026-04-23 14:00:00', NULL),
+
+                (2, 6, 102, 2, 150, '2026-04-23 08:10:00', '2026-04-23 08:45:00'),
+                (3, 11, 103, 1, 0, '2026-04-23 09:00:00', NULL),
+                (4, 16, 104, 3, 200, '2026-04-23 07:00:00', '2026-04-23 07:40:00');
 
 
             INSERT OR IGNORE INTO QueueEntry (EntryID, QueueID, DriverID, Position, JoinedAt) VALUES
-                (1, 1, 1, 1, '2026-04-23 07:50:00'),
+                (7, 1, 1, 2, '2026-04-23 09:50:00'),
+                (8, 2, 1, 1, '2026-04-23 11:50:00'),
+                (9, 3, 1, 3, '2026-04-23 13:50:00'),
+
                 (2, 2, 6, 1, '2026-04-23 07:55:00'),
                 (3, 3, 11, 1, '2026-04-23 08:00:00'),
                 (4, 4, 16, 1, '2026-04-23 08:05:00'),

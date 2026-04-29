@@ -1,8 +1,8 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
-using System.Data;
-using TriQue.Data.Database;
+using System.Collections.Generic;
 using TriQue.Enums;
+using TriQue.Helpers;
 using TriQue.Models;
 
 namespace TriQue.Data.Repositories
@@ -23,7 +23,7 @@ namespace TriQue.Data.Repositories
 
             string query = @"
                 SELECT TripID, DriverID, RouteID, StatusID,
-                       ActualEarnings, GoalEarning, StartTime, EndTime
+                       ActualEarnings, StartTime, EndTime
                 FROM Trip
                 WHERE DriverID = @driverID";
 
@@ -41,7 +41,6 @@ namespace TriQue.Data.Repositories
                     RouteID = Convert.ToInt32(reader["RouteID"]),
                     Status = (DriverStatus)Convert.ToInt32(reader["StatusID"]),
                     ActualEarnings = Convert.ToDouble(reader["ActualEarnings"]),
-                    GoalEarning = Convert.ToDouble(reader["GoalEarning"]),
                     StartTime = Convert.ToDateTime(reader["StartTime"]),
                     EndTime = reader["EndTime"] == DBNull.Value
                         ? null
@@ -53,12 +52,10 @@ namespace TriQue.Data.Repositories
         }
 
         // progress bar (earnings)
-        public (double actual, double goal) GetEarningsProgress(int driverID)
+        public double GetEarningsProgress(int driverID)
         {
             string query = @"
-                SELECT 
-                    IFNULL(SUM(ActualEarnings), 0),
-                    IFNULL(SUM(GoalEarning), 0)
+                SELECT IFNULL(SUM(ActualEarnings), 0)
                 FROM Trip
                 WHERE DriverID = @driverID";
 
@@ -68,13 +65,9 @@ namespace TriQue.Data.Repositories
             );
 
             if (!reader.Read())
-                return (0, 0);
+                return 0;
 
-            return (
-                Convert.ToDouble(reader[0]),
-                Convert.ToDouble(reader[1])
-            );
-
+            return Convert.ToDouble(reader[0]);
         }
 
         // all completed trips
@@ -90,7 +83,6 @@ namespace TriQue.Data.Repositories
                 query,
                 new SqliteParameter("@driverID", driverID)
             ));
-
         }
 
         // today trips
@@ -109,7 +101,6 @@ namespace TriQue.Data.Repositories
                 new SqliteParameter("@driverID", driverID),
                 new SqliteParameter("@today", today)
             ));
-
         }
 
         // fastest and slowest trips
@@ -139,35 +130,5 @@ namespace TriQue.Data.Repositories
 
             return (fastest, slowest);
         }
-
-        public DataTable GetTripGrid(int driverID)
-        {
-            string query = @"
-                SELECT 
-                    qe.Position AS Position,
-                    r.RouteName AS Route,
-                    t.StartTime AS Date
-                FROM Trip t
-                JOIN Route r ON t.RouteID = r.RouteID
-                JOIN QueueEntry qe ON qe.DriverID = t.DriverID
-                WHERE t.DriverID = @driverID
-                ORDER BY t.StartTime DESC";
-
-            using var conn = _dbHelper.GetConnection();
-            conn.Open();
-
-            using var cmd = new SqliteCommand(query, conn);
-            cmd.Parameters.AddWithValue("@driverID", driverID);
-
-            using var reader = cmd.ExecuteReader();
-
-            DataTable dt = new DataTable();
-            dt.Load(reader); // ✅ THIS replaces DataAdapter
-
-            return dt;
-        }
-
     }
 }
-
-    

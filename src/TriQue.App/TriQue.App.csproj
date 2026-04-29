@@ -12,11 +12,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".env" />
     <None Remove="appsettings.json" />
+    <None Remove="Assets\map.html" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include=".env">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\map.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

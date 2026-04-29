@@ -17,6 +17,7 @@ namespace TriQue.Forms
         private DriverDashboardService _dashboardService;
         private DriverDashboardData _data;
         private QueueRepository _queueRepo;
+        private RouteService _routeService;
         private int _userID;
 
         public DriverForm(int userID)
@@ -25,6 +26,7 @@ namespace TriQue.Forms
             _userID = userID;
             _dashboardService = new DriverDashboardService();
             _queueRepo = new QueueRepository();
+            _routeService = new RouteService();
             LoadDashboard();
         }
 
@@ -36,86 +38,115 @@ namespace TriQue.Forms
 
         private void DisplayData()
         {
-            // first name
+            if (_data == null || _data.User == null || _data.Driver == null)
+                return;
+
+            // name
             textBox1.Text = $"Welcome Back, {_data.User.FirstName}!";
 
-            // actual earnings
-
+            // earnings
             textBox5.Text = _data.ActualEarnings.ToString("₱ 0");
 
-            // goal earnings
-            textBox3.Text = $"Goal: {_data.GoalEarnings.ToString("₱ 0")}";
+            // goal 
+            textBox3.Text = $"Goal: {_data.Driver.GoalEarnings.ToString("₱ 0")}";
 
             // progress bar
-            int goal = (int)_data.GoalEarnings;
+            int goal = (int)_data.Driver.GoalEarnings;
             int actual = (int)_data.ActualEarnings;
 
             progressBar1.Minimum = 0;
             progressBar1.Maximum = goal > 0 ? goal : 1;
-            progressBar1.Value = Math.Min(actual, goal);
+            progressBar1.Value = Math.Min(actual, progressBar1.Maximum);
 
-            // total completed trips
+            // stats
             textBox6.Text = _data.CompletedTrips.ToString();
-
-            // total trips today
             textBox9.Text = _data.TodayTrips.ToString();
-
-            // fastest trip
             textBox12.Text = $"{_data.FastestTrip:0} min";
-
-            // slowest trip
             textBox13.Text = $"{_data.SlowestTrip:0} min";
 
-            guna2DataGridView1.DataSource = _queueRepo.GetQueueHistory(_data.Driver.DriverID);
+            var driver = _data.Driver.DriverID;
 
-        }
+            // route name
+            textBox23.Text = $"On Route - {_data.RouteName}";
 
+            // total distance
+            textBox22.Text = $"{_data.TotalDistance} km";
 
-        //private void textBox1_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
+            guna2DataGridView1.DataSource =
+                _queueRepo.GetQueueHistory(_data.Driver.DriverID);
         }
 
         private async void Form1_Load(object sender, EventArgs e)
         {
             await webView21.EnsureCoreWebView2Async();
 
-            string html = @"
-    <html>
-    <body style='margin:0'>
-        <iframe 
-            src='https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3874.8815970302435!2d121.070066!3d13.7860105!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1776747251447!5m2!1sen!2sph'
-            width='100%' 
-            height='100%' 
-            style='border:0;' 
-            allowfullscreen='' 
-            loading='lazy'>
-        </iframe>
-    </body>
-    </html>";
+            string key = Environment.GetEnvironmentVariable("TOMTOM_API_KEY");
 
-            webView21.NavigateToString(html);
+            await webView21.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(
+                $"window.tomtomKey = '{key}';"
+            );
+
+            string path = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "Assets", "map.html"
+            );
+
+            webView21.Source = new Uri(path);
+            webView21.NavigationCompleted += async (s, args) =>
+            {
+                await LoadRouteToMap();
+            };
         }
 
-        private void guna2Panel10_Paint(object sender, PaintEventArgs e)
+        private async Task LoadRouteToMap()
         {
+            var driver = _dashboardService.GetDriver(_userID);
+            if (driver == null) return;
 
+            var route = _dashboardService.GetDriverRouteByDriverID(driver.DriverID);
+            if (route == null) return;
+
+            var result = await _routeService.GetTrafficAndDuration(
+                route.StartLat, route.StartLng,
+                route.EndLat, route.EndLng
+            );
+
+            var coords = new[]
+            {
+                new[] { route.StartLng, route.StartLat },  
+                new[] { route.EndLng,   route.EndLat   }   
+            };
+
+            string json = System.Text.Json.JsonSerializer.Serialize(coords);
+            await webView21.CoreWebView2.ExecuteScriptAsync($"drawRoute({json});");
+
+            // display
+            textBox20.Text = $"{result.trafficCondition}";
+            if (result.trafficCondition == "Light")
+            {
+                textBox20.ForeColor = Color.Green;
+            }
+            else if (result.trafficCondition == "Moderate")
+            {
+                textBox20.ForeColor = Color.Orange;
+            }
+            else if (result.trafficCondition == "Heavy")
+            {
+                textBox20.ForeColor = Color.Red;
+            }
+
+            textBox21.Text = $"{result.durationMin} min";
         }
 
-        private void webView21_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e) { }
+        private void guna2Panel10_Paint(object sender, PaintEventArgs e) { }
+        private void webView21_Click(object sender, EventArgs e) { }
+        private void pictureBox1_Click(object sender, EventArgs e) { }
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e) { }
+        private void textBox5_TextChanged(object sender, EventArgs e) { }
+        private void textBox9_TextChanged(object sender, EventArgs e) { }
+        private void textBox16_TextChanged(object sender, EventArgs e) { }
+        private void textBox15_TextChanged(object sender, EventArgs e) { }
 
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
@@ -124,40 +155,7 @@ namespace TriQue.Forms
             this.Close();
         }
 
-        private void guna2ImageButton5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox16_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox15_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void guna2ImageButton1_Click(object sender, EventArgs e) { }
 
         private void guna2ImageButton2_Click(object sender, EventArgs e)
         {
