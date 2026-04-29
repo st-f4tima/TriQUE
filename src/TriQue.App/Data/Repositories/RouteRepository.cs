@@ -21,7 +21,7 @@ namespace TriQue.Data.Repositories
 
             using var cmd = conn.CreateCommand();
             cmd.CommandText = @"
-                SELECT RouteID, AssignedGroup, RouteName, StartLat, StartLng, EndLat, EndLng
+                SELECT RouteID, AssignedGroup, RouteName, StartLat, StartLng, EndLat, EndLng, DistanceKm
                 FROM Route
                 WHERE RouteID = $routeId;
             ";
@@ -40,7 +40,8 @@ namespace TriQue.Data.Repositories
                     StartLat = reader.IsDBNull(3) ? 0 : reader.GetDouble(3),
                     StartLng = reader.IsDBNull(4) ? 0 : reader.GetDouble(4),
                     EndLat = reader.IsDBNull(5) ? 0 : reader.GetDouble(5),
-                    EndLng = reader.IsDBNull(6) ? 0 : reader.GetDouble(6)
+                    EndLng = reader.IsDBNull(6) ? 0 : reader.GetDouble(6),
+                    DistanceKm = reader.IsDBNull(7) ? 0 : reader.GetDouble(7)
                 };
             }
 
@@ -50,7 +51,7 @@ namespace TriQue.Data.Repositories
         public Route? GetRouteByGroupID(int groupID)
         {
             string query = @"
-                SELECT RouteID, AssignedGroup, RouteName, StartLat, StartLng, EndLat, EndLng
+                SELECT RouteID, AssignedGroup, RouteName, StartLat, StartLng, EndLat, EndLng, DistanceKm
                 FROM Route
                 WHERE AssignedGroup = @groupID
                 LIMIT 1;
@@ -74,7 +75,8 @@ namespace TriQue.Data.Repositories
                 StartLat = reader.IsDBNull(3) ? 0 : reader.GetDouble(3),
                 StartLng = reader.IsDBNull(4) ? 0 : reader.GetDouble(4),
                 EndLat = reader.IsDBNull(5) ? 0 : reader.GetDouble(5),
-                EndLng = reader.IsDBNull(6) ? 0 : reader.GetDouble(6)
+                EndLng = reader.IsDBNull(6) ? 0 : reader.GetDouble(6),
+                DistanceKm = reader.IsDBNull(7) ? 0 : reader.GetDouble(7)
             };
         }
     }

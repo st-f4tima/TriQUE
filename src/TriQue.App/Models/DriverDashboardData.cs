@@ -17,5 +17,7 @@ namespace TriQue.Models
         public double FastestTrip { get; set; }
         public double SlowestTrip { get; set; }
         public DataTable QueueHistory { get; set; }
+        public string RouteName { get; set; } 
+        public double TotalDistance { get; set; }
     }
 }

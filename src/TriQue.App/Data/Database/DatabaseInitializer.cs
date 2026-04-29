@@ -53,6 +53,7 @@ namespace TriQue.Data.Database
                 StartLng REAL,
                 EndLat REAL,
                 EndLng REAL,
+                DistanceKm REAL,
                 FOREIGN KEY (AssignedGroup) REFERENCES DriverGroup(GroupID)
             );
 
@@ -248,13 +249,13 @@ namespace TriQue.Data.Database
                 (29, 31, 6, 1, 'TN-029'),
                 (30, 32, 6, 1, 'TN-030');
 
-            INSERT OR IGNORE INTO Route (RouteID, AssignedGroup, RouteName, StartLat, StartLng, EndLat, EndLng) VALUES
-                (101, 1, 'Provincial Capitol',  13.79277, 121.07137, 13.76527, 121.06423),
-                (102, 2, 'Grand Terminal',      13.79277, 121.07137, 13.79058, 121.06161),
-                (103, 3, 'SM Batangas',         13.79277, 121.07137, 13.75546, 121.06842),
-                (104, 4, 'WalterMart',          13.79277, 121.07137, 13.76397, 121.05640),
-                (105, 5, 'Brgy. Tulo',          13.79277, 121.07137, 13.75460, 121.12638),
-                (106, 6, 'BSU Alangilan',       13.79277, 121.07137, 13.78414, 121.07439);
+            INSERT OR IGNORE INTO Route (RouteID, AssignedGroup, RouteName, StartLat, StartLng, EndLat, EndLng, DistanceKm) VALUES
+                (101, 1, 'Provincial Capitol',  13.79277, 121.07137, 13.76527, 121.06423, 4.8),
+                (102, 2, 'Grand Terminal',      13.79277, 121.07137, 13.79058, 121.06161, 2.4),
+                (103, 3, 'SM Batangas',         13.79277, 121.07137, 13.75546, 121.06842, 7.5),
+                (104, 4, 'WalterMart',          13.79277, 121.07137, 13.76397, 121.05640, 5.3),
+                (105, 5, 'Brgy. Tulo',          13.79277, 121.07137, 13.75460, 121.12638, 11),
+                (106, 6, 'BSU Alangilan',       13.79277, 121.07137, 13.78414, 121.07439, 2.8);
 
             INSERT OR IGNORE INTO Queue (QueueID, RouteID) VALUES
                 (1, 101),

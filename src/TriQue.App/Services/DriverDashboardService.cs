@@ -42,7 +42,7 @@ namespace TriQue.Services
         {
             var user = _userRepo.GetById(userID);
             var driver = _driverRepo.GetByUserID(user.UserID);
-
+            var route = _routeRepo.GetRouteByGroupID(driver.GroupID);
             var trips = _tripRepo.GetByDriverID(driver.DriverID);
             var completedTrips = _tripRepo.GetCompletedTrips(driver.DriverID);
             var todayTrips = _tripRepo.GetTodayTrips(driver.DriverID);
@@ -63,7 +63,9 @@ namespace TriQue.Services
                 ActualEarnings = actualEarnings,
                 FastestTrip = stats.fastest,
                 SlowestTrip = stats.slowest,
-                QueueHistory = queueHistory
+                QueueHistory = queueHistory,
+                RouteName = route.RouteName,
+                TotalDistance = route.DistanceKm
             };
 
         }

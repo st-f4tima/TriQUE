@@ -14,6 +14,7 @@ namespace TriQue.Models
         public double StartLng { get; set; }
         public double EndLat { get; set; }
         public double EndLng { get; set; }
+        public double DistanceKm { get; set; }
 
     }
 }

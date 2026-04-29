@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using TriQue.Data.Repositories;
 using TriQue.Models;
 using TriQue.Services;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TriQue.Forms
 {
@@ -60,6 +61,14 @@ namespace TriQue.Forms
             textBox9.Text = _data.TodayTrips.ToString();
             textBox12.Text = $"{_data.FastestTrip:0} min";
             textBox13.Text = $"{_data.SlowestTrip:0} min";
+
+            var driver = _data.Driver.DriverID;
+
+            // route name
+            textBox23.Text = $"On Route - {_data.RouteName}";
+
+            // total distance
+            textBox22.Text = $"{_data.TotalDistance} km";
 
             guna2DataGridView1.DataSource =
                 _queueRepo.GetQueueHistory(_data.Driver.DriverID);
