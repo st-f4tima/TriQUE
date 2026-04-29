@@ -2,6 +2,7 @@
 using Microsoft.Data.Sqlite;
 using System.IO;
 using Microsoft.Extensions.Configuration;
+using TriQue.Helpers;
 
 namespace TriQue.Data.Database
 {

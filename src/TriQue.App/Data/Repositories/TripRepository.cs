@@ -1,8 +1,8 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
-using TriQue.Data.Database;
 using TriQue.Enums;
+using TriQue.Helpers;
 using TriQue.Models;
 
 namespace TriQue.Data.Repositories

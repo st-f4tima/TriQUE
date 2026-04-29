@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using System.Data;
-using TriQue.Data.Database;
+using TriQue.Helpers;
 
 namespace TriQue.Data.Repositories
 {
