@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.js"></script>
+    <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+    <script>
+        let map;
+        let mapReady = false;
+        let pendingCoords = null;
+
+        if (!window.tomtomKey) {
+            console.warn("Missing window.tomtomKey");
+        }
+
+        window.onload = function () {
+            map = tt.map({
+                key: window.tomtomKey,
+                container: 'map',
+                center: [121.0, 14.6],
+                zoom: 12
+            });
+
+            map.on('load', function () {
+                mapReady = true;
+
+                map.flyTo({
+                    center: [121.0, 14.6],
+                    zoom: 15,
+                    speed: 1.2
+                });
+
+                if (pendingCoords) {
+                    renderRoute(pendingCoords);
+                    pendingCoords = null;
+                }
+            });
+        };
+
+        window.drawRoute = function (coords) {
+
+            if (!mapReady) {
+                pendingCoords = coords;
+                return;
+            }
+
+            renderRoute(coords);
+        };
+
+        async function renderRoute(coords) {
+
+            const startLng = coords[0][0];
+            const startLat = coords[0][1];
+            const endLng = coords[1][0];
+            const endLat = coords[1][1];
+
+            try {
+                const url =
+                    `https://api.tomtom.com/routing/1/calculateRoute/` +
+                    `${startLat},${startLng}:${endLat},${endLng}/json?key=${window.tomtomKey}`;
+
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (!data.routes || data.routes.length === 0) {
+                    return;
+                }
+
+                const points = data.routes[0].legs.flatMap(l => l.points);
+                const lineCoords = points.map(p => [p.longitude, p.latitude]);
+
+                if (map.getLayer("route")) map.removeLayer("route");
+                if (map.getSource("route")) map.removeSource("route");
+
+                map.addSource("route", {
+                    type: "geojson",
+                    data: {
+                        type: "Feature",
+                        geometry: {
+                            type: "LineString",
+                            coordinates: lineCoords
+                        }
+                    }
+                });
+
+                map.addLayer({
+                    id: "route",
+                    type: "line",
+                    source: "route",
+                    paint: {
+                        "line-color": "#0066ff",
+                        "line-width": 5
+                    }
+                });
+
+                const allCoords = [
+                    [startLng, startLat],
+                    ...lineCoords,
+                    [endLng, endLat]
+                ];
+
+                const bounds = allCoords.reduce(
+                    (b, c) => b.extend(c),
+                    new tt.LngLatBounds(allCoords[0], allCoords[0])
+                );
+
+                map.fitBounds(bounds, {
+                    padding: 80,
+                    maxZoom: 16
+                });
+
+            } catch (err) {
+                console.error("renderRoute error:", err);
+            }
+        }
+    </script>
+
+</body>
+</html>

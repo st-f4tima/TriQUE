@@ -65,7 +65,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(431, 652);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+            //panel1.Paint += panel1_Paint;
             // 
             // label2
             // 
@@ -76,7 +76,7 @@
             label2.Size = new Size(91, 20);
             label2.TabIndex = 6;
             label2.Text = "Password";
-            label2.Click += label2_Click;
+            //label2.Click += label2_Click;
             // 
             // panel3
             // 
@@ -106,7 +106,7 @@
             textBoxPassword.Size = new Size(281, 20);
             textBoxPassword.TabIndex = 5;
             textBoxPassword.UseSystemPasswordChar = true;
-            textBoxPassword.TextChanged += textBoxPassword_TextChanged;
+            //textBoxPassword.TextChanged += textBoxPassword_TextChanged;
             // 
             // label1
             // 
@@ -126,7 +126,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(329, 26);
             panel2.TabIndex = 3;
-            panel2.Paint += panel2_Paint;
+            //panel2.Paint += panel2_Paint;
             // 
             // panel4
             // 
@@ -146,7 +146,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(281, 20);
             textBox1.TabIndex = 5;
-            textBox1.TextChanged += textBox1_TextChanged;
+            //textBox1.TextChanged += textBox1_TextChanged;
             // 
             // checkBoxShowPassword
             // 
