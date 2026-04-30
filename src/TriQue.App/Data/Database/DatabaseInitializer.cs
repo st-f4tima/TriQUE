@@ -127,7 +127,6 @@ namespace TriQue.Data.Database
                 DriverID INTEGER NOT NULL,
                 Position INTEGER NOT NULL,
                 JoinedAt DATETIME,
-                UNIQUE (QueueID, Position),
                 FOREIGN KEY (DriverID) REFERENCES Driver(DriverID),
                 FOREIGN KEY (QueueID) REFERENCES Queue(QueueID)
             );
@@ -277,9 +276,11 @@ namespace TriQue.Data.Database
 
 
             INSERT OR IGNORE INTO QueueEntry (EntryID, QueueID, DriverID, Position, JoinedAt) VALUES
-                (7, 1, 1, 2, '2026-04-23 09:50:00'),
-                (8, 2, 1, 1, '2026-04-23 11:50:00'),
-                (9, 3, 1, 3, '2026-04-23 13:50:00'),
+                (1, 1, 1, 1, '2026-04-23 09:40:00'),
+                (7, 1, 2, 2, '2026-04-23 09:50:00'),
+                (10, 1, 3, 3, '2026-04-23 09:55:00'),
+                (11, 1, 4, 4, '2026-04-23 10:00:00'),
+                (12, 1, 5, 5, '2026-04-23 10:05:00'),
 
                 (2, 2, 6, 1, '2026-04-23 07:55:00'),
                 (3, 3, 11, 1, '2026-04-23 08:00:00'),

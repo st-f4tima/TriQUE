@@ -1,49 +1,54 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Trique.Forms;
-using TriQue.Data;
 using TriQue.Data.Repositories;
-using TriQue.Models;
-using TriQue.Services;
 
 namespace TriQue.Forms
 {
     public partial class DriverViewQueue : Form
     {
-        private Form previousForm; // ✅ ONLY ONE
+        private Form previousForm;
+        private QueueRepository _queueRepo;
 
-        public DriverViewQueue()
+        private int _routeId;
+        private int _userID;
+
+        public DriverViewQueue(int routeId, int userID)
         {
             InitializeComponent();
+            _routeId = routeId;
+            _userID = userID;
+            _queueRepo = new QueueRepository();
+
+            displayData();
         }
 
-        // ✅ Constructor for navigation
-        public DriverViewQueue(Form form)
+        private void InitializeContext()
         {
-            InitializeComponent();
-            previousForm = form;
+            _queueRepo = new QueueRepository();
+            displayData();
         }
 
-        private void guna2vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        private void displayData()
         {
+            int queueId = _queueRepo.GetQueueIdByRouteId(_routeId);
 
+            DataGridQueueStatus.DataSource =
+                _queueRepo.GetQueueDrivers(queueId);
         }
 
-        // ✅ Go to Dashboard
         private void DashBtn_Click(object sender, EventArgs e)
         {
-            DriverForm dash = new DriverForm(this);
+            DriverForm dash = new DriverForm(_userID);
             dash.Show();
-            this.Hide();
+            this.Close();
         }
 
-        // ✅ Go to Settings
         private void SettingsBtn_Click(object sender, EventArgs e)
         {
-            DriverSettings settings = new DriverSettings(this);
+            DriverSettings settings = new DriverSettings(_userID);
             settings.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)

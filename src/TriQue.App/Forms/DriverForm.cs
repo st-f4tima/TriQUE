@@ -20,25 +20,21 @@ namespace TriQue.Forms
         private QueueRepository _queueRepo;
         private RouteService _routeService;
         private QueueService _queueService;
+
         private int _userID;
+        private int _routeId;
 
         public DriverForm(int userID)
         {
             InitializeComponent();
-            InitializeServices();
+            InitializeContext();
 
             _userID = userID;
 
             LoadDashboard();
         }
 
-        public DriverForm(Form form)
-        {
-            InitializeComponent();
-            InitializeServices();
-        }
-
-        private void InitializeServices()
+        private void InitializeContext()
         {
             _dashboardService = new DriverDashboardService();
             _queueRepo = new QueueRepository();
@@ -57,6 +53,7 @@ namespace TriQue.Forms
                 var route = _dashboardService.GetDriverRouteByDriverID(driver.DriverID);
                 if (route != null)
                 {
+                    _routeId = route.RouteID;
                     UpdateJoinButtonState(driver.DriverID, route.RouteID);
                 }
             }
@@ -100,7 +97,7 @@ namespace TriQue.Forms
 
 
             // queue history
-            guna2DataGridView1.DataSource =
+            DataGridQueueHistory.DataSource =
                 _queueRepo.GetQueueHistory(_data.Driver.DriverID);
         }
 
@@ -128,12 +125,14 @@ namespace TriQue.Forms
 
         private async Task LoadRouteToMap()
         {
+
             var driver = _dashboardService.GetDriver(_userID);
             if (driver == null) return;
 
             var route = _dashboardService.GetDriverRouteByDriverID(driver.DriverID);
             if (route == null) return;
 
+            _routeId = route.RouteID;
             var result = await _routeService.GetTrafficAndDuration(
                 route.StartLat, route.StartLng,
                 route.EndLat, route.EndLng
@@ -201,16 +200,29 @@ namespace TriQue.Forms
             : Color.FromArgb(55, 91, 231);
         }
 
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e) { }
-        private void guna2Panel10_Paint(object sender, PaintEventArgs e) { }
-        private void webView21_Click(object sender, EventArgs e) { }
-        private void pictureBox1_Click(object sender, EventArgs e) { }
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e) { }
-        private void textBox5_TextChanged(object sender, EventArgs e) { }
-        private void textBox9_TextChanged(object sender, EventArgs e) { }
-        private void textBox16_TextChanged(object sender, EventArgs e) { }
-        private void textBox15_TextChanged(object sender, EventArgs e) { }
+        // view queue navbar button
+        private void guna2ImageButton2_Click(object sender, EventArgs e)
+        {
+            if (_routeId == 0)
+            {
+                MessageBox.Show("Route not loaded yet.");
+                return;
+            }
 
+            DriverViewQueue viewQueue = new DriverViewQueue(_routeId, _userID);
+            viewQueue.Show();
+            this.Hide();
+        }
+
+        // settings navbar button
+        private void guna2ImageButton3_Click(object sender, EventArgs e)
+        {
+            DriverSettings settings = new DriverSettings(_userID);
+            settings.Show();
+            this.Hide();
+        }
+
+        // logout button
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
             LoginForm login = new LoginForm();
@@ -218,28 +230,5 @@ namespace TriQue.Forms
             this.Close();
         }
 
-        private void guna2ImageButton1_Click(object sender, EventArgs e) { }
-
-        private void guna2ImageButton2_Click(object sender, EventArgs e)
-        {
-            DriverViewQueue viewQueue = new DriverViewQueue(this);
-            viewQueue.Show();
-            this.Hide();
-        }
-
-        private void guna2ImageButton3_Click(object sender, EventArgs e)
-        {
-            DriverSettings settings = new DriverSettings(this);
-            settings.Show();
-            this.Hide();
-        }
-
-        //private Form DriverViewQueue;
-
-        //public DriverForm(Form form)
-        //{
-        //    InitializeComponent();
-        //    DriverViewQueue = form;
-        //}
     }
 }

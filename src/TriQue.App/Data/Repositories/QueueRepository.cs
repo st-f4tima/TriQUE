@@ -106,5 +106,33 @@ namespace TriQue.Data.Repositories
 
             return dt;
         }
+
+        public DataTable GetQueueDrivers(int queueId)
+        {
+            string query = @"
+                SELECT 
+                    qe.Position AS Position,
+                    u.FirstName || ' ' || u.LastName AS DriverName,
+                    d.BodyNumber AS BodyNumber,
+                    ds.StatusName AS Status
+                FROM QueueEntry qe
+                INNER JOIN Driver d ON qe.DriverID = d.DriverID
+                INNER JOIN User u ON d.UserID = u.UserID
+                INNER JOIN DriverStatus ds ON d.StatusID = ds.StatusID
+                WHERE qe.QueueID = $queueId
+                ORDER BY qe.Position ASC;
+            ";
+
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
+
+            using var cmd = new SqliteCommand(query, conn);
+            cmd.Parameters.AddWithValue("$queueId", queueId);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+
+            return dt;
+        }
     }
 }
