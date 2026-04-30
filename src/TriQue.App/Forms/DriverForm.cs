@@ -1,25 +1,19 @@
-using Microsoft.VisualBasic.Devices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using TriQue.Data.Repositories;
+using TriQue.Enums;
 using TriQue.Models;
 using TriQue.Services;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TriQue.Forms
 {
     public partial class DriverForm : Form
     {
         private DriverDashboardService _dashboardService;
-        private DriverDashboardData _data;
-        private QueueRepository _queueRepo;
         private RouteService _routeService;
         private QueueService _queueService;
+        private DriverDashboardData _data;
+        private QueueRepository _queueRepo;
+        private TripRepository _tripRepo;
+
 
         private int _userID;
         private int _routeId;
@@ -40,6 +34,7 @@ namespace TriQue.Forms
             _queueRepo = new QueueRepository();
             _routeService = new RouteService();
             _queueService = new QueueService();
+            _tripRepo = new TripRepository();
         }
 
         private void LoadDashboard()
@@ -97,8 +92,7 @@ namespace TriQue.Forms
 
 
             // queue history
-            DataGridQueueHistory.DataSource =
-                _queueRepo.GetQueueHistory(_data.Driver.DriverID);
+            DataGridTripHistory.DataSource = _tripRepo.GetTripHistory(_data.Driver.DriverID);
         }
 
         private async void Form1_Load(object sender, EventArgs e)
@@ -125,7 +119,6 @@ namespace TriQue.Forms
 
         private async Task LoadRouteToMap()
         {
-
             var driver = _dashboardService.GetDriver(_userID);
             if (driver == null) return;
 
@@ -169,36 +162,61 @@ namespace TriQue.Forms
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             var driver = _dashboardService.GetDriver(_userID);
-            if (driver == null)
-            {
-                MessageBox.Show("Driver not found.");
-                return;
-            }
+            if (driver == null) return;
 
             var route = _dashboardService.GetDriverRouteByDriverID(driver.DriverID);
-            if (route == null)
+            if (route == null) return;
+
+            if (driver.Status == DriverStatus.Finished)
             {
-                MessageBox.Show("Route not found.");
-                return;
+                var driverRepo = new DriverRepository();
+                driverRepo.UpdateStatus(driver.DriverID, (int)DriverStatus.Waiting);
             }
 
             var message = _queueService.JoinQueue(driver.DriverID, route.RouteID);
             MessageBox.Show(message);
 
             UpdateJoinButtonState(driver.DriverID, route.RouteID);
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f is DriverViewQueue viewQueue)
+                {
+                    viewQueue.UpdateStartButtonState();
+                    break;
+                }
+            }
         }
 
         private void UpdateJoinButtonState(int driverID, int routeID)
         {
-            bool isInQueue = _queueService.IsDriverInQueue(driverID, routeID);
+            var driver = _dashboardService.GetDriver(_userID);
+            if (driver == null) return;
 
-            guna2Button1.Enabled = !isInQueue;
-            guna2Button1.Text = isInQueue ? "Already in Queue" : "Join Queue";
+            bool alreadyInQueue = _queueService.IsDriverInQueue(driverID, routeID);
 
-            guna2Button1.FillColor = isInQueue
-            ? Color.Gray
-            : Color.FromArgb(55, 91, 231);
+            bool canJoin = !alreadyInQueue && (driver.Status == DriverStatus.Waiting ||
+                            driver.Status == DriverStatus.Finished);
+
+            guna2Button1.Enabled = canJoin;
+            guna2Button1.Text = canJoin ? "Join Queue" : "Unavailable";
+            guna2Button1.FillColor = canJoin
+                ? Color.FromArgb(55, 91, 231)
+                : Color.Gray;
         }
+
+        public void RefreshJoinButton()
+        {
+            var driver = _dashboardService.GetDriver(_userID);
+            if (driver == null) return;
+
+            var route = _dashboardService.GetDriverRouteByDriverID(driver.DriverID);
+            if (route == null) return;
+
+            UpdateJoinButtonState(driver.DriverID, route.RouteID);
+        }
+
+        // navigation
 
         // view queue navbar button
         private void guna2ImageButton2_Click(object sender, EventArgs e)
@@ -229,6 +247,5 @@ namespace TriQue.Forms
             login.Show();
             this.Close();
         }
-
     }
 }

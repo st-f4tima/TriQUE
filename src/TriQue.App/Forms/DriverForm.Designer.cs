@@ -101,7 +101,7 @@ namespace TriQue.Forms
             textBox9 = new TextBox();
             textBox8 = new TextBox();
             guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            DataGridQueueHistory = new Guna.UI2.WinForms.Guna2DataGridView();
+            DataGridTripHistory = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             textBox12 = new TextBox();
             textBox10 = new TextBox();
@@ -138,7 +138,7 @@ namespace TriQue.Forms
             guna2Panel5.SuspendLayout();
             ((ISupportInitialize)pictureBox4).BeginInit();
             guna2Panel8.SuspendLayout();
-            ((ISupportInitialize)DataGridQueueHistory).BeginInit();
+            ((ISupportInitialize)DataGridTripHistory).BeginInit();
             guna2Panel6.SuspendLayout();
             ((ISupportInitialize)pictureBox5).BeginInit();
             guna2Panel7.SuspendLayout();
@@ -482,7 +482,7 @@ namespace TriQue.Forms
             guna2Panel8.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel8.BorderRadius = 15;
             guna2Panel8.BorderThickness = 1;
-            guna2Panel8.Controls.Add(DataGridQueueHistory);
+            guna2Panel8.Controls.Add(DataGridTripHistory);
             guna2Panel8.CustomizableEdges = customizableEdges52;
             guna2Panel8.Location = new Point(116, 483);
             guna2Panel8.Name = "guna2Panel8";
@@ -490,10 +490,10 @@ namespace TriQue.Forms
             guna2Panel8.Size = new Size(349, 106);
             guna2Panel8.TabIndex = 9;
             // 
-            // DataGridQueueHistory
+            // DataGridTripHistory
             // 
             dataGridViewCellStyle4.BackColor = Color.White;
-            DataGridQueueHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            DataGridTripHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
@@ -501,9 +501,9 @@ namespace TriQue.Forms
             dataGridViewCellStyle5.SelectionBackColor = Color.White;
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            DataGridQueueHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            DataGridQueueHistory.ColumnHeadersHeight = 30;
-            DataGridQueueHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            DataGridTripHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            DataGridTripHistory.ColumnHeadersHeight = 30;
+            DataGridTripHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.White;
             dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
@@ -511,36 +511,36 @@ namespace TriQue.Forms
             dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            DataGridQueueHistory.DefaultCellStyle = dataGridViewCellStyle6;
-            DataGridQueueHistory.GridColor = Color.White;
-            DataGridQueueHistory.Location = new Point(10, 11);
-            DataGridQueueHistory.Name = "DataGridQueueHistory";
-            DataGridQueueHistory.RowHeadersVisible = false;
-            DataGridQueueHistory.RowHeadersWidth = 40;
-            DataGridQueueHistory.RowTemplate.Height = 25;
-            DataGridQueueHistory.Size = new Size(327, 87);
-            DataGridQueueHistory.TabIndex = 0;
-            DataGridQueueHistory.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            DataGridQueueHistory.ThemeStyle.AlternatingRowsStyle.Font = null;
-            DataGridQueueHistory.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            DataGridQueueHistory.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            DataGridQueueHistory.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            DataGridQueueHistory.ThemeStyle.BackColor = Color.White;
-            DataGridQueueHistory.ThemeStyle.GridColor = Color.White;
-            DataGridQueueHistory.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            DataGridQueueHistory.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            DataGridQueueHistory.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 8F);
-            DataGridQueueHistory.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            DataGridQueueHistory.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            DataGridQueueHistory.ThemeStyle.HeaderStyle.Height = 30;
-            DataGridQueueHistory.ThemeStyle.ReadOnly = false;
-            DataGridQueueHistory.ThemeStyle.RowsStyle.BackColor = Color.White;
-            DataGridQueueHistory.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            DataGridQueueHistory.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
-            DataGridQueueHistory.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(64, 64, 64);
-            DataGridQueueHistory.ThemeStyle.RowsStyle.Height = 25;
-            DataGridQueueHistory.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            DataGridQueueHistory.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            DataGridTripHistory.DefaultCellStyle = dataGridViewCellStyle6;
+            DataGridTripHistory.GridColor = Color.White;
+            DataGridTripHistory.Location = new Point(10, 11);
+            DataGridTripHistory.Name = "DataGridTripHistory";
+            DataGridTripHistory.RowHeadersVisible = false;
+            DataGridTripHistory.RowHeadersWidth = 40;
+            DataGridTripHistory.RowTemplate.Height = 25;
+            DataGridTripHistory.Size = new Size(327, 87);
+            DataGridTripHistory.TabIndex = 0;
+            DataGridTripHistory.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            DataGridTripHistory.ThemeStyle.AlternatingRowsStyle.Font = null;
+            DataGridTripHistory.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            DataGridTripHistory.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            DataGridTripHistory.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            DataGridTripHistory.ThemeStyle.BackColor = Color.White;
+            DataGridTripHistory.ThemeStyle.GridColor = Color.White;
+            DataGridTripHistory.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            DataGridTripHistory.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            DataGridTripHistory.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 8F);
+            DataGridTripHistory.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            DataGridTripHistory.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            DataGridTripHistory.ThemeStyle.HeaderStyle.Height = 30;
+            DataGridTripHistory.ThemeStyle.ReadOnly = false;
+            DataGridTripHistory.ThemeStyle.RowsStyle.BackColor = Color.White;
+            DataGridTripHistory.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            DataGridTripHistory.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            DataGridTripHistory.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(64, 64, 64);
+            DataGridTripHistory.ThemeStyle.RowsStyle.Height = 25;
+            DataGridTripHistory.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            DataGridTripHistory.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // guna2Panel6
             // 
@@ -822,7 +822,7 @@ namespace TriQue.Forms
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(337, 18);
             textBox2.TabIndex = 15;
-            textBox2.Text = "Queue History";
+            textBox2.Text = "Trip History";
             // 
             // guna2ImageButton5
             // 
@@ -887,7 +887,7 @@ namespace TriQue.Forms
             guna2Panel5.PerformLayout();
             ((ISupportInitialize)pictureBox4).EndInit();
             guna2Panel8.ResumeLayout(false);
-            ((ISupportInitialize)DataGridQueueHistory).EndInit();
+            ((ISupportInitialize)DataGridTripHistory).EndInit();
             guna2Panel6.ResumeLayout(false);
             guna2Panel6.PerformLayout();
             ((ISupportInitialize)pictureBox5).EndInit();
@@ -962,6 +962,6 @@ namespace TriQue.Forms
         private TextBox textBox21;
         private TextBox textBox22;
         private System.Windows.Forms.Timer timer1;
-        private Guna.UI2.WinForms.Guna2DataGridView DataGridQueueHistory;
+        private Guna.UI2.WinForms.Guna2DataGridView DataGridTripHistory;
     }
 }

@@ -77,7 +77,7 @@
             DataGridQueueStatus = new Guna.UI2.WinForms.Guna2DataGridView();
             ScrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             RefreshBtn = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            StartTipBtn = new Guna.UI2.WinForms.Guna2Button();
             pictureBox1 = new PictureBox();
             guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             panel1.SuspendLayout();
@@ -288,7 +288,7 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(207, 23);
             textBox5.TabIndex = 12;
-            textBox5.Text = "BSU - Alangilan";
+            textBox5.Text = "-";
             // 
             // textBox2
             // 
@@ -334,7 +334,7 @@
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(201, 31);
             textBox6.TabIndex = 9;
-            textBox6.Text = "8th";
+            textBox6.Text = "-";
             // 
             // textBox3
             // 
@@ -450,23 +450,24 @@
             RefreshBtn.Text = "Refresh Queue";
             RefreshBtn.TextAlign = HorizontalAlignment.Right;
             // 
-            // guna2Button2
+            // StartTipBtn
             // 
-            guna2Button2.BorderRadius = 15;
-            guna2Button2.CustomizableEdges = customizableEdges18;
-            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button2.FillColor = Color.FromArgb(91, 91, 91);
-            guna2Button2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2Button2.ForeColor = Color.White;
-            guna2Button2.Location = new Point(339, 547);
-            guna2Button2.Name = "guna2Button2";
-            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges19;
-            guna2Button2.Size = new Size(145, 45);
-            guna2Button2.TabIndex = 8;
-            guna2Button2.Text = "Start";
+            StartTipBtn.BorderRadius = 15;
+            StartTipBtn.CustomizableEdges = customizableEdges18;
+            StartTipBtn.DisabledState.BorderColor = Color.DarkGray;
+            StartTipBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            StartTipBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            StartTipBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            StartTipBtn.FillColor = Color.FromArgb(55, 91, 231);
+            StartTipBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            StartTipBtn.ForeColor = Color.White;
+            StartTipBtn.Location = new Point(339, 547);
+            StartTipBtn.Name = "StartTipBtn";
+            StartTipBtn.ShadowDecoration.CustomizableEdges = customizableEdges19;
+            StartTipBtn.Size = new Size(145, 45);
+            StartTipBtn.TabIndex = 8;
+            StartTipBtn.Text = "Start";
+            StartTipBtn.Click += guna2Button2_Click_1;
             // 
             // pictureBox1
             // 
@@ -506,11 +507,11 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = SystemColors.Window;
             ClientSize = new Size(1102, 623);
             Controls.Add(guna2TextBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(guna2Button2);
+            Controls.Add(StartTipBtn);
             Controls.Add(RefreshBtn);
             Controls.Add(guna2Panel4);
             Controls.Add(guna2Panel3);
@@ -561,7 +562,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2VScrollBar ScrollBar;
         private Guna.UI2.WinForms.Guna2Button RefreshBtn;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button StartTipBtn;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private TextBox textBox4;

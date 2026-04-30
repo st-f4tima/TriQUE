@@ -10,7 +10,6 @@ namespace TriQue.Services
         private readonly QueueRepository _queueRepo;
         private readonly DriverRepository _driverRepo;
 
-
         public QueueService()
         {
             _queueRepo = new QueueRepository();

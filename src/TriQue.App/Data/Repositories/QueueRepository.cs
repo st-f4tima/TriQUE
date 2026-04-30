@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Data;
 using TriQue.Helpers;
 
@@ -24,11 +25,74 @@ namespace TriQue.Data.Repositories
 
             var result = _dbHelper.ExecuteScalar(
                 query,
-                new SqliteParameter("$routeId", routeId)
+                new Microsoft.Data.Sqlite.SqliteParameter("$routeId", routeId)
             );
 
             if (result == null)
                 throw new Exception("Queue not found for this route.");
+
+            return Convert.ToInt32(result);
+        }
+
+        // driver view queue status (top)
+        public DataRow? GetQueueDriver(int queueId, int driverId)
+        {
+            string query = @"
+                SELECT 
+                    qe.Position,
+                    r.RouteName,
+                    ds.StatusName AS Status
+                FROM QueueEntry qe
+                INNER JOIN Queue q ON qe.QueueID = q.QueueID
+                INNER JOIN Route r ON q.RouteID = r.RouteID
+                INNER JOIN Driver d ON qe.DriverID = d.DriverID
+                INNER JOIN DriverStatus ds ON d.StatusID = ds.StatusID
+                WHERE qe.QueueID = $queueId
+                AND qe.DriverID = $driverId
+                -- BUG FIX: don't show position if driver is Finished
+                AND d.StatusID != 3
+                LIMIT 1;
+            ";
+
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("$queueId", queueId);
+            cmd.Parameters.AddWithValue("$driverId", driverId);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            return dt.Rows.Count > 0 ? dt.Rows[0] : null;
+        }
+
+        public void AddQueueEntry(int queueId, int driverId, int position)
+        {
+            string query = @"
+                INSERT INTO QueueEntry (QueueID, DriverID, Position, JoinedAt)
+                VALUES ($queueId, $driverId, $position, datetime('now'));
+            ";
+
+            _dbHelper.ExecuteNonQuery(
+                query,
+                new Microsoft.Data.Sqlite.SqliteParameter("$queueId", queueId),
+                new Microsoft.Data.Sqlite.SqliteParameter("$driverId", driverId),
+                new Microsoft.Data.Sqlite.SqliteParameter("$position", position)
+            );
+        }
+
+        public int GetNextPosition(int queueId)
+        {
+            string query = @"
+                SELECT IFNULL(MAX(Position), 0) + 1
+                FROM QueueEntry
+                WHERE QueueID = $queueId;
+            ";
+
+            var result = _dbHelper.ExecuteScalar(
+                query,
+                new Microsoft.Data.Sqlite.SqliteParameter("$queueId", queueId)
+            );
 
             return Convert.ToInt32(result);
         }
@@ -43,45 +107,25 @@ namespace TriQue.Data.Repositories
 
             var result = _dbHelper.ExecuteScalar(
                 query,
-                new SqliteParameter("$queueId", queueId),
-                new SqliteParameter("$driverId", driverId)
+                new Microsoft.Data.Sqlite.SqliteParameter("$queueId", queueId),
+                new Microsoft.Data.Sqlite.SqliteParameter("$driverId", driverId)
             );
 
             return Convert.ToInt32(result) > 0;
         }
 
-
-        public int GetNextPosition(int queueId)
+        public void RemoveDriverFromQueue(int driverID, int queueID)
         {
             string query = @"
-                SELECT IFNULL(MAX(Position), 0) + 1
-                FROM QueueEntry
-                WHERE QueueID = $queueId;
+                DELETE FROM QueueEntry
+                WHERE DriverID = $driverID AND QueueID = $queueID;
             ";
-
-            var result = _dbHelper.ExecuteScalar(
-                query,
-                new SqliteParameter("$queueId", queueId)
-            );
-
-            return Convert.ToInt32(result);
+            _dbHelper.ExecuteNonQuery(query,
+                new SqliteParameter("$driverID", driverID),
+                new SqliteParameter("$queueID", queueID));
         }
 
-        public void AddQueueEntry(int queueId, int driverId, int position)
-        {
-            string query = @"
-                INSERT INTO QueueEntry (QueueID, DriverID, Position, JoinedAt)
-                VALUES ($queueId, $driverId, $position, datetime('now'));
-            ";
-
-            _dbHelper.ExecuteNonQuery(
-                query,
-                new SqliteParameter("$queueId", queueId),
-                new SqliteParameter("$driverId", driverId),
-                new SqliteParameter("$position", position)
-            );
-        }
-
+        // driver dashboard datagrid
         public DataTable GetQueueHistory(int driverID)
         {
             string query = @"
@@ -92,21 +136,22 @@ namespace TriQue.Data.Repositories
                 FROM QueueEntry qe
                 JOIN Queue q ON qe.QueueID = q.QueueID
                 JOIN Route r ON q.RouteID = r.RouteID
-                WHERE qe.DriverID = @driverID
-                ORDER BY qe.JoinedAt DESC";
+                WHERE qe.DriverID = $driverID
+                ORDER BY qe.JoinedAt DESC;
+                 ";
 
             using var conn = _dbHelper.GetConnection();
             conn.Open();
-
-            using var cmd = new SqliteCommand(query, conn);
-            cmd.Parameters.AddWithValue("@driverID", driverID);
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("$driverID", driverID);
 
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
-
             return dt;
         }
 
+        // driver view queue status datagrid
         public DataTable GetQueueDrivers(int queueId)
         {
             string query = @"
@@ -120,49 +165,19 @@ namespace TriQue.Data.Repositories
                 INNER JOIN User u ON d.UserID = u.UserID
                 INNER JOIN DriverStatus ds ON d.StatusID = ds.StatusID
                 WHERE qe.QueueID = $queueId
+                AND d.StatusID != 3
                 ORDER BY qe.Position ASC;
             ";
 
             using var conn = _dbHelper.GetConnection();
             conn.Open();
-
-            using var cmd = new SqliteCommand(query, conn);
+            using var cmd = conn.CreateCommand();
+            cmd.CommandText = query;
             cmd.Parameters.AddWithValue("$queueId", queueId);
 
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
-
             return dt;
-        }
-
-        public DataRow GetQueueDriver(int queueId, int driverId)
-        {
-            string query = @"
-                SELECT 
-                    qe.Position,
-                    r.RouteName,
-                    ds.StatusName AS Status
-                FROM QueueEntry qe
-                INNER JOIN Queue q ON qe.QueueID = q.QueueID
-                INNER JOIN Route r ON q.RouteID = r.RouteID
-                INNER JOIN Driver d ON qe.DriverID = d.DriverID
-                INNER JOIN DriverStatus ds ON d.StatusID = ds.StatusID
-                WHERE qe.QueueID = $queueId
-                AND qe.DriverID = $driverId
-                LIMIT 1;
-            ";
-
-            using var conn = _dbHelper.GetConnection();
-            conn.Open();
-
-            using var cmd = new SqliteCommand(query, conn);
-            cmd.Parameters.AddWithValue("$queueId", queueId);
-            cmd.Parameters.AddWithValue("$driverId", driverId);
-
-            DataTable dt = new DataTable();
-            dt.Load(cmd.ExecuteReader());
-
-            return dt.Rows.Count > 0 ? dt.Rows[0] : null;
         }
     }
 }
