@@ -60,13 +60,13 @@ namespace TriQue.Forms
                 return;
 
             // name
-            textBox1.Text = $"Welcome Back, {_data.User.FirstName}!";
+            lblWelcomeMessage.Text = $"Welcome Back, {_data.User.FirstName}!";
 
             // earnings
-            textBox5.Text = _data.ActualEarnings.ToString("₱ 0");
+            lblTodayEarningValue.Text = _data.ActualEarnings.ToString("₱ 0");
 
             // goal 
-            textBox3.Text = $"Goal: {_data.Driver.GoalEarnings.ToString("₱ 0")}";
+            lblEarningsGoal.Text = $"Goal: {_data.Driver.GoalEarnings.ToString("₱ 0")}";
 
             // progress bar
             int goal = (int)_data.Driver.GoalEarnings;
@@ -77,18 +77,18 @@ namespace TriQue.Forms
             progressBar1.Value = Math.Min(actual, progressBar1.Maximum);
 
             // stats
-            textBox6.Text = _data.CompletedTrips.ToString();
-            textBox9.Text = _data.TodayTrips.ToString();
-            textBox12.Text = $"{_data.FastestTrip:0} min";
-            textBox13.Text = $"{_data.SlowestTrip:0} min";
+            lblTotalTripsValue.Text = _data.CompletedTrips.ToString();
+            lblTripsTodayValue.Text = _data.TodayTrips.ToString();
+            lblFastestTripValue.Text = $"{_data.FastestTrip:0} min";
+            lblLowestTripValue.Text = $"{_data.SlowestTrip:0} min";
 
             var driver = _data.Driver.DriverID;
 
             // route name
-            textBox23.Text = $"On Route - {_data.RouteName}";
+            lblRouteStatus.Text = $"On Route - {_data.RouteName}";
 
             // total distance
-            textBox22.Text = $"{_data.TotalDistance} km";
+            lblTotalDistanceValue.Text = $"{_data.TotalDistance} km";
 
 
             // queue history
@@ -141,25 +141,25 @@ namespace TriQue.Forms
             await webView21.CoreWebView2.ExecuteScriptAsync($"drawRoute({json});");
 
             // display
-            textBox20.Text = $"{result.trafficCondition}";
+            lblTrafficStatus.Text = $"{result.trafficCondition}";
             if (result.trafficCondition == "Light")
             {
-                textBox20.ForeColor = Color.Green;
+                lblTrafficStatus.ForeColor = Color.Green;
             }
             else if (result.trafficCondition == "Moderate")
             {
-                textBox20.ForeColor = Color.Orange;
+                lblTrafficStatus.ForeColor = Color.Orange;
             }
             else if (result.trafficCondition == "Heavy")
             {
-                textBox20.ForeColor = Color.Red;
+                lblTrafficStatus.ForeColor = Color.Red;
             }
 
-            textBox21.Text = $"{result.durationMin} min";
+            lblTotalDurationValue.Text = $"{result.durationMin} min";
         }
 
         // join queue button
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void btnJoinQueue_Click(object sender, EventArgs e)
         {
             var driver = _dashboardService.GetDriver(_userID);
             if (driver == null) return;
@@ -198,9 +198,9 @@ namespace TriQue.Forms
             bool canJoin = !alreadyInQueue && (driver.Status == DriverStatus.Waiting ||
                             driver.Status == DriverStatus.Finished);
 
-            guna2Button1.Enabled = canJoin;
-            guna2Button1.Text = canJoin ? "Join Queue" : "Unavailable";
-            guna2Button1.FillColor = canJoin
+            btnJoinQueue.Enabled = canJoin;
+            btnJoinQueue.Text = canJoin ? "Join Queue" : "Unavailable";
+            btnJoinQueue.FillColor = canJoin
                 ? Color.FromArgb(55, 91, 231)
                 : Color.Gray;
         }
@@ -247,5 +247,6 @@ namespace TriQue.Forms
             login.Show();
             this.Close();
         }
+
     }
 }

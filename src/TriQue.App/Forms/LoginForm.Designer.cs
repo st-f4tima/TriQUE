@@ -32,7 +32,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            panel1 = new Panel();
+            LoginPanel = new Panel();
             label2 = new Label();
             panel3 = new Panel();
             panel5 = new Panel();
@@ -45,44 +45,42 @@
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             pictureBox1 = new PictureBox();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
-            panel1.SuspendLayout();
+            LoginPanel.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // LoginPanel
             // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(panel3);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(checkBoxShowPassword);
-            panel1.Controls.Add(guna2Button1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(341, -1);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(431, 652);
-            panel1.TabIndex = 0;
-            //panel1.Paint += panel1_Paint;
+            LoginPanel.BackColor = Color.White;
+            LoginPanel.Controls.Add(label2);
+            LoginPanel.Controls.Add(panel3);
+            LoginPanel.Controls.Add(label1);
+            LoginPanel.Controls.Add(panel2);
+            LoginPanel.Controls.Add(checkBoxShowPassword);
+            LoginPanel.Controls.Add(guna2Button1);
+            LoginPanel.Controls.Add(pictureBox1);
+            LoginPanel.Location = new Point(364, -1);
+            LoginPanel.Name = "LoginPanel";
+            LoginPanel.Size = new Size(431, 652);
+            LoginPanel.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.FromArgb(91, 91, 91);
-            label2.Location = new Point(52, 363);
+            label2.Location = new Point(75, 363);
             label2.Name = "label2";
             label2.Size = new Size(91, 20);
             label2.TabIndex = 6;
             label2.Text = "Password";
-            //label2.Click += label2_Click;
             // 
             // panel3
             // 
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(textBoxPassword);
-            panel3.Location = new Point(52, 384);
+            panel3.Location = new Point(75, 384);
             panel3.Name = "panel3";
             panel3.Size = new Size(329, 26);
             panel3.TabIndex = 5;
@@ -101,18 +99,17 @@
             textBoxPassword.BorderStyle = BorderStyle.None;
             textBoxPassword.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxPassword.ForeColor = Color.FromArgb(91, 91, 91);
-            textBoxPassword.Location = new Point(3, 3);
+            textBoxPassword.Location = new Point(26, 3);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.Size = new Size(281, 20);
             textBoxPassword.TabIndex = 5;
             textBoxPassword.UseSystemPasswordChar = true;
-            //textBoxPassword.TextChanged += textBoxPassword_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.FromArgb(91, 91, 91);
-            label1.Location = new Point(52, 267);
+            label1.Location = new Point(75, 267);
             label1.Name = "label1";
             label1.Size = new Size(94, 20);
             label1.TabIndex = 4;
@@ -122,11 +119,10 @@
             // 
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(textBox1);
-            panel2.Location = new Point(52, 288);
+            panel2.Location = new Point(75, 288);
             panel2.Name = "panel2";
             panel2.Size = new Size(329, 26);
             panel2.TabIndex = 3;
-            //panel2.Paint += panel2_Paint;
             // 
             // panel4
             // 
@@ -142,18 +138,17 @@
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox1.Location = new Point(3, 3);
+            textBox1.Location = new Point(26, 3);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(281, 20);
             textBox1.TabIndex = 5;
-            //textBox1.TextChanged += textBox1_TextChanged;
             // 
             // checkBoxShowPassword
             // 
             checkBoxShowPassword.AutoSize = true;
             checkBoxShowPassword.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             checkBoxShowPassword.ForeColor = Color.FromArgb(91, 91, 91);
-            checkBoxShowPassword.Location = new Point(55, 418);
+            checkBoxShowPassword.Location = new Point(78, 418);
             checkBoxShowPassword.Name = "checkBoxShowPassword";
             checkBoxShowPassword.Size = new Size(138, 20);
             checkBoxShowPassword.TabIndex = 2;
@@ -177,7 +172,7 @@
             guna2Button1.HoverState.FillColor = Color.FromArgb(0, 50, 125);
             guna2Button1.HoverState.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.HoverState.ForeColor = Color.White;
-            guna2Button1.Location = new Point(52, 486);
+            guna2Button1.Location = new Point(75, 486);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.PressedColor = Color.FromArgb(0, 50, 125);
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -188,7 +183,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(109, 133);
+            pictureBox1.Location = new Point(132, 133);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(227, 104);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -200,8 +195,8 @@
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1100, 650);
-            Controls.Add(panel1);
+            ClientSize = new Size(1182, 653);
+            Controls.Add(LoginPanel);
             Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(91, 91, 91);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -213,8 +208,8 @@
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trique";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            LoginPanel.ResumeLayout(false);
+            LoginPanel.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel2.ResumeLayout(false);
@@ -225,7 +220,7 @@
 
         #endregion
 
-        private Panel panel1;
+        private Panel LoginPanel;
         private PictureBox pictureBox1;
         private CheckBox checkBoxShowPassword;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;

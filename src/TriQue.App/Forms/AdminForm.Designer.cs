@@ -79,74 +79,70 @@
             Guna.Charts.WinForms.ChartFont chartFont15 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
             Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
-            Navbar = new Panel();
+            NavbarPanel = new Panel();
             ManageUsersBtn = new Guna.UI2.WinForms.Guna2ImageButton();
-            guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
+            LogoutBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             ViewQueue = new Guna.UI2.WinForms.Guna2ImageButton();
             DashboardBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             SettingsBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             Logo = new PictureBox();
             GenerateReportBtn = new Guna.UI2.WinForms.Guna2ImageButton();
-            WelcomeTxt = new TextBox();
-            textBox1 = new TextBox();
-            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            textBox8 = new TextBox();
-            textBox4 = new TextBox();
+            lblWelcomeMessage = new TextBox();
+            TrafficRoutePanel = new Guna.UI2.WinForms.Guna2Panel();
             pictureBox1 = new PictureBox();
-            guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            textBox7 = new TextBox();
-            textBox6 = new TextBox();
-            textBox5 = new TextBox();
+            CongestionDurationPanel = new Guna.UI2.WinForms.Guna2Panel();
             pictureBox2 = new PictureBox();
-            guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            textBox10 = new TextBox();
-            textBox9 = new TextBox();
+            TotalTripsTodayPanel = new Guna.UI2.WinForms.Guna2Panel();
             pictureBox3 = new PictureBox();
-            guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            textBox12 = new TextBox();
-            textBox11 = new TextBox();
+            HighestTripsPanel = new Guna.UI2.WinForms.Guna2Panel();
             pictureBox4 = new PictureBox();
-            guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            textBox14 = new TextBox();
-            textBox13 = new TextBox();
+            LowestTripsPanel = new Guna.UI2.WinForms.Guna2Panel();
             pictureBox5 = new PictureBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            PieChart = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Chart1 = new Guna.Charts.WinForms.GunaChart();
-            guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Chart2 = new Guna.Charts.WinForms.GunaChart();
-            Navbar.SuspendLayout();
+            PieChartPanel = new Guna.UI2.WinForms.Guna2Panel();
+            PieChart = new Guna.Charts.WinForms.GunaChart();
+            BarGraphPanel = new Guna.UI2.WinForms.Guna2Panel();
+            BarGraph = new Guna.Charts.WinForms.GunaChart();
+            lblTrafficProneRoute = new Label();
+            lblPeakCongestionDuration = new Label();
+            lblTotalTripsToday = new Label();
+            lblHighestTrips = new Label();
+            lblLowestTrips = new Label();
+            TrafficProneRouteValue = new Label();
+            PeakCongestionDurationValue = new Label();
+            TotalTripsValue = new Label();
+            HighestTripsValue = new Label();
+            LowestTripsValue = new Label();
+            NavbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
-            guna2Panel1.SuspendLayout();
+            TrafficRoutePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            guna2Panel2.SuspendLayout();
+            CongestionDurationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            guna2Panel3.SuspendLayout();
+            TotalTripsTodayPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            guna2Panel4.SuspendLayout();
+            HighestTripsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            guna2Panel5.SuspendLayout();
+            LowestTripsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            PieChart.SuspendLayout();
-            guna2Panel6.SuspendLayout();
+            PieChartPanel.SuspendLayout();
+            BarGraphPanel.SuspendLayout();
             SuspendLayout();
             // 
-            // Navbar
+            // NavbarPanel
             // 
-            Navbar.BackColor = Color.FromArgb(215, 215, 215);
-            Navbar.Controls.Add(ManageUsersBtn);
-            Navbar.Controls.Add(guna2ImageButton4);
-            Navbar.Controls.Add(ViewQueue);
-            Navbar.Controls.Add(DashboardBtn);
-            Navbar.Controls.Add(SettingsBtn);
-            Navbar.Controls.Add(Logo);
-            Navbar.Controls.Add(GenerateReportBtn);
-            Navbar.Location = new Point(0, -9);
-            Navbar.Margin = new Padding(4, 3, 4, 3);
-            Navbar.Name = "Navbar";
-            Navbar.Size = new Size(96, 660);
-            Navbar.TabIndex = 0;
+            NavbarPanel.BackColor = Color.FromArgb(215, 215, 215);
+            NavbarPanel.Controls.Add(ManageUsersBtn);
+            NavbarPanel.Controls.Add(LogoutBtn);
+            NavbarPanel.Controls.Add(ViewQueue);
+            NavbarPanel.Controls.Add(DashboardBtn);
+            NavbarPanel.Controls.Add(SettingsBtn);
+            NavbarPanel.Controls.Add(Logo);
+            NavbarPanel.Controls.Add(GenerateReportBtn);
+            NavbarPanel.Location = new Point(0, -9);
+            NavbarPanel.Margin = new Padding(4, 3, 4, 3);
+            NavbarPanel.Name = "NavbarPanel";
+            NavbarPanel.Size = new Size(96, 660);
+            NavbarPanel.TabIndex = 0;
             // 
             // ManageUsersBtn
             // 
@@ -164,21 +160,21 @@
             ManageUsersBtn.TabIndex = 7;
             ManageUsersBtn.Click += ManageUsersBtn_Click;
             // 
-            // guna2ImageButton4
+            // LogoutBtn
             // 
-            guna2ImageButton4.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton4.HoverState.ImageSize = new Size(37, 37);
-            guna2ImageButton4.Image = (Image)resources.GetObject("guna2ImageButton4.Image");
-            guna2ImageButton4.ImageOffset = new Point(0, 0);
-            guna2ImageButton4.ImageRotate = 0F;
-            guna2ImageButton4.ImageSize = new Size(36, 36);
-            guna2ImageButton4.Location = new Point(10, 549);
-            guna2ImageButton4.Name = "guna2ImageButton4";
-            guna2ImageButton4.PressedState.ImageSize = new Size(34, 34);
-            guna2ImageButton4.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2ImageButton4.Size = new Size(82, 82);
-            guna2ImageButton4.TabIndex = 6;
-            guna2ImageButton4.Click += guna2ImageButton4_Click;
+            LogoutBtn.CheckedState.ImageSize = new Size(64, 64);
+            LogoutBtn.HoverState.ImageSize = new Size(37, 37);
+            LogoutBtn.Image = (Image)resources.GetObject("LogoutBtn.Image");
+            LogoutBtn.ImageOffset = new Point(0, 0);
+            LogoutBtn.ImageRotate = 0F;
+            LogoutBtn.ImageSize = new Size(36, 36);
+            LogoutBtn.Location = new Point(10, 549);
+            LogoutBtn.Name = "LogoutBtn";
+            LogoutBtn.PressedState.ImageSize = new Size(34, 34);
+            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            LogoutBtn.Size = new Size(82, 82);
+            LogoutBtn.TabIndex = 6;
+            LogoutBtn.Click += guna2ImageButton4_Click;
             // 
             // ViewQueue
             // 
@@ -253,67 +249,32 @@
             GenerateReportBtn.Size = new Size(82, 82);
             GenerateReportBtn.TabIndex = 4;
             // 
-            // WelcomeTxt
+            // lblWelcomeMessage
             // 
-            WelcomeTxt.BorderStyle = BorderStyle.None;
-            WelcomeTxt.Font = new Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            WelcomeTxt.ForeColor = Color.FromArgb(91, 91, 91);
-            WelcomeTxt.Location = new Point(134, 73);
-            WelcomeTxt.Name = "WelcomeTxt";
-            WelcomeTxt.Size = new Size(339, 40);
-            WelcomeTxt.TabIndex = 1;
-            WelcomeTxt.Text = "Welcome Back, Juan!";
+            lblWelcomeMessage.BorderStyle = BorderStyle.None;
+            lblWelcomeMessage.Font = new Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWelcomeMessage.ForeColor = Color.FromArgb(91, 91, 91);
+            lblWelcomeMessage.Location = new Point(133, 68);
+            lblWelcomeMessage.Name = "lblWelcomeMessage";
+            lblWelcomeMessage.Size = new Size(339, 40);
+            lblWelcomeMessage.TabIndex = 1;
+            lblWelcomeMessage.Text = "Welcome Back, Juan!";
             // 
-            // textBox1
+            // TrafficRoutePanel
             // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox1.Location = new Point(134, 29);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(110, 25);
-            textBox1.TabIndex = 2;
-            textBox1.Text = "Dashboard";
-            // 
-            // guna2Panel1
-            // 
-            guna2Panel1.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel1.BorderRadius = 15;
-            guna2Panel1.BorderThickness = 1;
-            guna2Panel1.Controls.Add(textBox8);
-            guna2Panel1.Controls.Add(textBox4);
-            guna2Panel1.Controls.Add(pictureBox1);
-            guna2Panel1.CustomBorderColor = Color.Black;
-            guna2Panel1.CustomizableEdges = customizableEdges7;
-            guna2Panel1.Location = new Point(134, 138);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel1.Size = new Size(148, 103);
-            guna2Panel1.TabIndex = 3;
-            // 
-            // textBox8
-            // 
-            textBox8.BorderStyle = BorderStyle.None;
-            textBox8.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox8.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox8.Location = new Point(7, 51);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(135, 21);
-            textBox8.TabIndex = 14;
-            textBox8.Text = "BSU Alangilan ";
-            textBox8.TextAlign = HorizontalAlignment.Center;
-            // 
-            // textBox4
-            // 
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox4.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox4.Location = new Point(7, 83);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(135, 16);
-            textBox4.TabIndex = 10;
-            textBox4.Text = "Traffic-Prone Route";
-            textBox4.TextAlign = HorizontalAlignment.Center;
+            TrafficRoutePanel.BorderColor = Color.FromArgb(84, 84, 84);
+            TrafficRoutePanel.BorderRadius = 15;
+            TrafficRoutePanel.BorderThickness = 1;
+            TrafficRoutePanel.Controls.Add(TrafficProneRouteValue);
+            TrafficRoutePanel.Controls.Add(lblTrafficProneRoute);
+            TrafficRoutePanel.Controls.Add(pictureBox1);
+            TrafficRoutePanel.CustomBorderColor = Color.Black;
+            TrafficRoutePanel.CustomizableEdges = customizableEdges7;
+            TrafficRoutePanel.Location = new Point(132, 138);
+            TrafficRoutePanel.Name = "TrafficRoutePanel";
+            TrafficRoutePanel.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            TrafficRoutePanel.Size = new Size(185, 145);
+            TrafficRoutePanel.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -321,65 +282,26 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(13, 6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(26, 36);
+            pictureBox1.Size = new Size(38, 36);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // guna2Panel2
+            // CongestionDurationPanel
             // 
-            guna2Panel2.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel2.BorderRadius = 15;
-            guna2Panel2.BorderThickness = 1;
-            guna2Panel2.Controls.Add(textBox7);
-            guna2Panel2.Controls.Add(textBox6);
-            guna2Panel2.Controls.Add(textBox5);
-            guna2Panel2.Controls.Add(pictureBox2);
-            guna2Panel2.CustomBorderColor = Color.Black;
-            guna2Panel2.CustomizableEdges = customizableEdges9;
-            guna2Panel2.Location = new Point(299, 138);
-            guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2Panel2.Size = new Size(148, 103);
-            guna2Panel2.TabIndex = 4;
-            // 
-            // textBox7
-            // 
-            textBox7.BorderStyle = BorderStyle.None;
-            textBox7.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox7.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox7.Location = new Point(7, 44);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(135, 16);
-            textBox7.TabIndex = 13;
-            textBox7.Text = "9:00 am - 11: 00 am";
-            textBox7.TextAlign = HorizontalAlignment.Center;
-            // 
-            // textBox6
-            // 
-            textBox6.BorderStyle = BorderStyle.None;
-            textBox6.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox6.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox6.Location = new Point(8, 84);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(135, 16);
-            textBox6.TabIndex = 12;
-            textBox6.Text = "Duration";
-            textBox6.TextAlign = HorizontalAlignment.Center;
-            textBox6.TextChanged += textBox6_TextChanged;
-            // 
-            // textBox5
-            // 
-            textBox5.BorderStyle = BorderStyle.None;
-            textBox5.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox5.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox5.Location = new Point(8, 67);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(135, 16);
-            textBox5.TabIndex = 11;
-            textBox5.Text = "Peak Congestion";
-            textBox5.TextAlign = HorizontalAlignment.Center;
-            textBox5.TextChanged += textBox5_TextChanged;
+            CongestionDurationPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            CongestionDurationPanel.BorderRadius = 15;
+            CongestionDurationPanel.BorderThickness = 1;
+            CongestionDurationPanel.Controls.Add(PeakCongestionDurationValue);
+            CongestionDurationPanel.Controls.Add(lblPeakCongestionDuration);
+            CongestionDurationPanel.Controls.Add(pictureBox2);
+            CongestionDurationPanel.CustomBorderColor = Color.Black;
+            CongestionDurationPanel.CustomizableEdges = customizableEdges9;
+            CongestionDurationPanel.Location = new Point(339, 138);
+            CongestionDurationPanel.Name = "CongestionDurationPanel";
+            CongestionDurationPanel.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            CongestionDurationPanel.Size = new Size(185, 145);
+            CongestionDurationPanel.TabIndex = 4;
             // 
             // pictureBox2
             // 
@@ -387,51 +309,26 @@
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(12, 6);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(23, 36);
+            pictureBox2.Size = new Size(32, 36);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
-            // guna2Panel3
+            // TotalTripsTodayPanel
             // 
-            guna2Panel3.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel3.BorderRadius = 15;
-            guna2Panel3.BorderThickness = 1;
-            guna2Panel3.Controls.Add(textBox10);
-            guna2Panel3.Controls.Add(textBox9);
-            guna2Panel3.Controls.Add(pictureBox3);
-            guna2Panel3.CustomBorderColor = Color.Black;
-            guna2Panel3.CustomizableEdges = customizableEdges11;
-            guna2Panel3.Location = new Point(465, 138);
-            guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2Panel3.Size = new Size(148, 103);
-            guna2Panel3.TabIndex = 4;
-            // 
-            // textBox10
-            // 
-            textBox10.BorderStyle = BorderStyle.None;
-            textBox10.Font = new Font("Roboto", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox10.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox10.Location = new Point(6, 44);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(135, 28);
-            textBox10.TabIndex = 15;
-            textBox10.Text = "145";
-            textBox10.TextAlign = HorizontalAlignment.Center;
-            // 
-            // textBox9
-            // 
-            textBox9.BorderStyle = BorderStyle.None;
-            textBox9.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox9.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox9.Location = new Point(15, 83);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(119, 16);
-            textBox9.TabIndex = 11;
-            textBox9.Text = "Total Trips Today";
-            textBox9.TextAlign = HorizontalAlignment.Center;
-            textBox9.TextChanged += textBox9_TextChanged;
+            TotalTripsTodayPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            TotalTripsTodayPanel.BorderRadius = 15;
+            TotalTripsTodayPanel.BorderThickness = 1;
+            TotalTripsTodayPanel.Controls.Add(TotalTripsValue);
+            TotalTripsTodayPanel.Controls.Add(lblTotalTripsToday);
+            TotalTripsTodayPanel.Controls.Add(pictureBox3);
+            TotalTripsTodayPanel.CustomBorderColor = Color.Black;
+            TotalTripsTodayPanel.CustomizableEdges = customizableEdges11;
+            TotalTripsTodayPanel.Location = new Point(548, 138);
+            TotalTripsTodayPanel.Name = "TotalTripsTodayPanel";
+            TotalTripsTodayPanel.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            TotalTripsTodayPanel.Size = new Size(185, 145);
+            TotalTripsTodayPanel.TabIndex = 4;
             // 
             // pictureBox3
             // 
@@ -439,50 +336,26 @@
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(11, 1);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(26, 43);
+            pictureBox3.Size = new Size(30, 43);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 2;
             pictureBox3.TabStop = false;
             // 
-            // guna2Panel4
+            // HighestTripsPanel
             // 
-            guna2Panel4.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel4.BorderRadius = 15;
-            guna2Panel4.BorderThickness = 1;
-            guna2Panel4.Controls.Add(textBox12);
-            guna2Panel4.Controls.Add(textBox11);
-            guna2Panel4.Controls.Add(pictureBox4);
-            guna2Panel4.CustomBorderColor = Color.Black;
-            guna2Panel4.CustomizableEdges = customizableEdges13;
-            guna2Panel4.Location = new Point(632, 138);
-            guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2Panel4.Size = new Size(148, 103);
-            guna2Panel4.TabIndex = 4;
-            // 
-            // textBox12
-            // 
-            textBox12.BorderStyle = BorderStyle.None;
-            textBox12.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox12.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox12.Location = new Point(8, 52);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(135, 21);
-            textBox12.TabIndex = 15;
-            textBox12.Text = "BSU Alangilan ";
-            textBox12.TextAlign = HorizontalAlignment.Center;
-            // 
-            // textBox11
-            // 
-            textBox11.BorderStyle = BorderStyle.None;
-            textBox11.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox11.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox11.Location = new Point(21, 83);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(105, 16);
-            textBox11.TabIndex = 12;
-            textBox11.Text = "Highest Trips";
-            textBox11.TextAlign = HorizontalAlignment.Center;
+            HighestTripsPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            HighestTripsPanel.BorderRadius = 15;
+            HighestTripsPanel.BorderThickness = 1;
+            HighestTripsPanel.Controls.Add(HighestTripsValue);
+            HighestTripsPanel.Controls.Add(lblHighestTrips);
+            HighestTripsPanel.Controls.Add(pictureBox4);
+            HighestTripsPanel.CustomBorderColor = Color.Black;
+            HighestTripsPanel.CustomizableEdges = customizableEdges13;
+            HighestTripsPanel.Location = new Point(755, 139);
+            HighestTripsPanel.Name = "HighestTripsPanel";
+            HighestTripsPanel.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            HighestTripsPanel.Size = new Size(185, 145);
+            HighestTripsPanel.TabIndex = 4;
             // 
             // pictureBox4
             // 
@@ -490,51 +363,27 @@
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(13, 4);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(27, 41);
+            pictureBox4.Size = new Size(30, 41);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 2;
             pictureBox4.TabStop = false;
             pictureBox4.Click += pictureBox4_Click;
             // 
-            // guna2Panel5
+            // LowestTripsPanel
             // 
-            guna2Panel5.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel5.BorderRadius = 15;
-            guna2Panel5.BorderThickness = 1;
-            guna2Panel5.Controls.Add(textBox14);
-            guna2Panel5.Controls.Add(textBox13);
-            guna2Panel5.Controls.Add(pictureBox5);
-            guna2Panel5.CustomBorderColor = Color.Black;
-            guna2Panel5.CustomizableEdges = customizableEdges15;
-            guna2Panel5.Location = new Point(800, 138);
-            guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2Panel5.Size = new Size(148, 103);
-            guna2Panel5.TabIndex = 4;
-            // 
-            // textBox14
-            // 
-            textBox14.BorderStyle = BorderStyle.None;
-            textBox14.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox14.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox14.Location = new Point(7, 53);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(135, 21);
-            textBox14.TabIndex = 16;
-            textBox14.Text = "Bayan";
-            textBox14.TextAlign = HorizontalAlignment.Center;
-            // 
-            // textBox13
-            // 
-            textBox13.BorderStyle = BorderStyle.None;
-            textBox13.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox13.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox13.Location = new Point(29, 82);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(94, 16);
-            textBox13.TabIndex = 13;
-            textBox13.Text = "Lowest Trips";
-            textBox13.TextAlign = HorizontalAlignment.Center;
+            LowestTripsPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            LowestTripsPanel.BorderRadius = 15;
+            LowestTripsPanel.BorderThickness = 1;
+            LowestTripsPanel.Controls.Add(LowestTripsValue);
+            LowestTripsPanel.Controls.Add(lblLowestTrips);
+            LowestTripsPanel.Controls.Add(pictureBox5);
+            LowestTripsPanel.CustomBorderColor = Color.Black;
+            LowestTripsPanel.CustomizableEdges = customizableEdges15;
+            LowestTripsPanel.Location = new Point(960, 139);
+            LowestTripsPanel.Name = "LowestTripsPanel";
+            LowestTripsPanel.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            LowestTripsPanel.Size = new Size(185, 145);
+            LowestTripsPanel.TabIndex = 4;
             // 
             // pictureBox5
             // 
@@ -542,146 +391,234 @@
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(12, 8);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(27, 36);
+            pictureBox5.Size = new Size(30, 36);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 10;
             pictureBox5.TabStop = false;
             pictureBox5.Click += pictureBox5_Click;
             // 
-            // textBox2
+            // PieChartPanel
             // 
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox2.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox2.Location = new Point(134, 277);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(358, 25);
-            textBox2.TabIndex = 5;
-            textBox2.Text = "Driver Status Distribution For Today";
-            // 
-            // textBox3
-            // 
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox3.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox3.Location = new Point(527, 277);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(358, 25);
-            textBox3.TabIndex = 6;
-            textBox3.Text = " Total Drivers Per Route";
+            PieChartPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            PieChartPanel.BorderRadius = 15;
+            PieChartPanel.BorderThickness = 1;
+            PieChartPanel.Controls.Add(PieChart);
+            PieChartPanel.CustomizableEdges = customizableEdges17;
+            PieChartPanel.Location = new Point(134, 328);
+            PieChartPanel.Name = "PieChartPanel";
+            PieChartPanel.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            PieChartPanel.Size = new Size(433, 285);
+            PieChartPanel.TabIndex = 8;
             // 
             // PieChart
             // 
-            PieChart.BorderColor = Color.FromArgb(84, 84, 84);
-            PieChart.BorderRadius = 15;
-            PieChart.BorderThickness = 1;
-            PieChart.Controls.Add(guna2Chart1);
-            PieChart.CustomizableEdges = customizableEdges17;
-            PieChart.Location = new Point(134, 314);
-            PieChart.Name = "PieChart";
-            PieChart.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            PieChart.Size = new Size(358, 285);
-            PieChart.TabIndex = 8;
-            // 
-            // guna2Chart1
-            // 
             chartFont1.FontName = "Arial";
-            guna2Chart1.Legend.LabelFont = chartFont1;
-            guna2Chart1.Location = new Point(13, 11);
-            guna2Chart1.Name = "guna2Chart1";
-            guna2Chart1.Size = new Size(332, 263);
-            guna2Chart1.TabIndex = 8;
+            PieChart.Legend.LabelFont = chartFont1;
+            PieChart.Location = new Point(16, 11);
+            PieChart.Name = "PieChart";
+            PieChart.Size = new Size(402, 263);
+            PieChart.TabIndex = 8;
             chartFont2.FontName = "Arial";
             chartFont2.Size = 12;
             chartFont2.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            guna2Chart1.Title.Font = chartFont2;
+            PieChart.Title.Font = chartFont2;
             chartFont3.FontName = "Arial";
-            guna2Chart1.Tooltips.BodyFont = chartFont3;
+            PieChart.Tooltips.BodyFont = chartFont3;
             chartFont4.FontName = "Arial";
             chartFont4.Size = 9;
             chartFont4.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            guna2Chart1.Tooltips.TitleFont = chartFont4;
-            guna2Chart1.XAxes.GridLines = grid1;
+            PieChart.Tooltips.TitleFont = chartFont4;
+            PieChart.XAxes.GridLines = grid1;
             chartFont5.FontName = "Arial";
             tick1.Font = chartFont5;
-            guna2Chart1.XAxes.Ticks = tick1;
-            guna2Chart1.YAxes.GridLines = grid2;
+            PieChart.XAxes.Ticks = tick1;
+            PieChart.YAxes.GridLines = grid2;
             chartFont6.FontName = "Arial";
             tick2.Font = chartFont6;
-            guna2Chart1.YAxes.Ticks = tick2;
-            guna2Chart1.ZAxes.GridLines = grid3;
+            PieChart.YAxes.Ticks = tick2;
+            PieChart.ZAxes.GridLines = grid3;
             chartFont7.FontName = "Arial";
             pointLabel1.Font = chartFont7;
-            guna2Chart1.ZAxes.PointLabels = pointLabel1;
+            PieChart.ZAxes.PointLabels = pointLabel1;
             chartFont8.FontName = "Arial";
             tick3.Font = chartFont8;
-            guna2Chart1.ZAxes.Ticks = tick3;
+            PieChart.ZAxes.Ticks = tick3;
             // 
-            // guna2Panel6
+            // BarGraphPanel
             // 
-            guna2Panel6.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel6.BorderRadius = 15;
-            guna2Panel6.BorderThickness = 1;
-            guna2Panel6.Controls.Add(guna2Chart2);
-            guna2Panel6.CustomizableEdges = customizableEdges19;
-            guna2Panel6.Location = new Point(527, 314);
-            guna2Panel6.Name = "guna2Panel6";
-            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2Panel6.Size = new Size(421, 285);
-            guna2Panel6.TabIndex = 9;
+            BarGraphPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            BarGraphPanel.BorderRadius = 15;
+            BarGraphPanel.BorderThickness = 1;
+            BarGraphPanel.Controls.Add(BarGraph);
+            BarGraphPanel.CustomizableEdges = customizableEdges19;
+            BarGraphPanel.Location = new Point(608, 328);
+            BarGraphPanel.Name = "BarGraphPanel";
+            BarGraphPanel.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            BarGraphPanel.Size = new Size(538, 285);
+            BarGraphPanel.TabIndex = 9;
             // 
-            // guna2Chart2
+            // BarGraph
             // 
             chartFont9.FontName = "Arial";
-            guna2Chart2.Legend.LabelFont = chartFont9;
-            guna2Chart2.Location = new Point(15, 11);
-            guna2Chart2.Name = "guna2Chart2";
-            guna2Chart2.Size = new Size(391, 263);
-            guna2Chart2.TabIndex = 7;
+            BarGraph.Legend.LabelFont = chartFont9;
+            BarGraph.Location = new Point(16, 11);
+            BarGraph.Name = "BarGraph";
+            BarGraph.Size = new Size(509, 263);
+            BarGraph.TabIndex = 7;
             chartFont10.FontName = "Arial";
             chartFont10.Size = 12;
             chartFont10.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            guna2Chart2.Title.Font = chartFont10;
+            BarGraph.Title.Font = chartFont10;
             chartFont11.FontName = "Arial";
-            guna2Chart2.Tooltips.BodyFont = chartFont11;
+            BarGraph.Tooltips.BodyFont = chartFont11;
             chartFont12.FontName = "Arial";
             chartFont12.Size = 9;
             chartFont12.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
-            guna2Chart2.Tooltips.TitleFont = chartFont12;
-            guna2Chart2.XAxes.GridLines = grid4;
+            BarGraph.Tooltips.TitleFont = chartFont12;
+            BarGraph.XAxes.GridLines = grid4;
             chartFont13.FontName = "Arial";
             tick4.Font = chartFont13;
-            guna2Chart2.XAxes.Ticks = tick4;
-            guna2Chart2.YAxes.GridLines = grid5;
+            BarGraph.XAxes.Ticks = tick4;
+            BarGraph.YAxes.GridLines = grid5;
             chartFont14.FontName = "Arial";
             tick5.Font = chartFont14;
-            guna2Chart2.YAxes.Ticks = tick5;
-            guna2Chart2.ZAxes.GridLines = grid6;
+            BarGraph.YAxes.Ticks = tick5;
+            BarGraph.ZAxes.GridLines = grid6;
             chartFont15.FontName = "Arial";
             pointLabel2.Font = chartFont15;
-            guna2Chart2.ZAxes.PointLabels = pointLabel2;
+            BarGraph.ZAxes.PointLabels = pointLabel2;
             chartFont16.FontName = "Arial";
             tick6.Font = chartFont16;
-            guna2Chart2.ZAxes.Ticks = tick6;
+            BarGraph.ZAxes.Ticks = tick6;
+            // 
+            // lblTrafficProneRoute
+            // 
+            lblTrafficProneRoute.AutoSize = true;
+            lblTrafficProneRoute.ForeColor = Color.FromArgb(55, 91, 231);
+            lblTrafficProneRoute.Location = new Point(7, 109);
+            lblTrafficProneRoute.Name = "lblTrafficProneRoute";
+            lblTrafficProneRoute.Size = new Size(172, 20);
+            lblTrafficProneRoute.TabIndex = 1;
+            lblTrafficProneRoute.Text = "Traffic-Prone Route";
+            lblTrafficProneRoute.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblPeakCongestionDuration
+            // 
+            lblPeakCongestionDuration.AutoSize = true;
+            lblPeakCongestionDuration.ForeColor = Color.FromArgb(55, 91, 231);
+            lblPeakCongestionDuration.Location = new Point(14, 99);
+            lblPeakCongestionDuration.Name = "lblPeakCongestionDuration";
+            lblPeakCongestionDuration.Size = new Size(158, 40);
+            lblPeakCongestionDuration.TabIndex = 2;
+            lblPeakCongestionDuration.Text = "Peak Congestion \r\nDuration";
+            lblPeakCongestionDuration.TextAlign = ContentAlignment.MiddleCenter;
+            lblPeakCongestionDuration.Click += label2_Click;
+            // 
+            // lblTotalTripsToday
+            // 
+            lblTotalTripsToday.AutoSize = true;
+            lblTotalTripsToday.ForeColor = Color.FromArgb(55, 91, 231);
+            lblTotalTripsToday.Location = new Point(16, 109);
+            lblTotalTripsToday.Name = "lblTotalTripsToday";
+            lblTotalTripsToday.Size = new Size(156, 20);
+            lblTotalTripsToday.TabIndex = 3;
+            lblTotalTripsToday.Text = "Total Trips Today";
+            lblTotalTripsToday.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblHighestTrips
+            // 
+            lblHighestTrips.AutoSize = true;
+            lblHighestTrips.ForeColor = Color.FromArgb(55, 91, 231);
+            lblHighestTrips.Location = new Point(32, 108);
+            lblHighestTrips.Name = "lblHighestTrips";
+            lblHighestTrips.Size = new Size(123, 20);
+            lblHighestTrips.TabIndex = 3;
+            lblHighestTrips.Text = "Highest Trips";
+            lblHighestTrips.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblLowestTrips
+            // 
+            lblLowestTrips.AutoSize = true;
+            lblLowestTrips.ForeColor = Color.FromArgb(55, 91, 231);
+            lblLowestTrips.Location = new Point(34, 108);
+            lblLowestTrips.Name = "lblLowestTrips";
+            lblLowestTrips.Size = new Size(119, 20);
+            lblLowestTrips.TabIndex = 11;
+            lblLowestTrips.Text = "Lowest Trips";
+            lblLowestTrips.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // TrafficProneRouteValue
+            // 
+            TrafficProneRouteValue.AutoSize = true;
+            TrafficProneRouteValue.ForeColor = Color.FromArgb(84, 84, 84);
+            TrafficProneRouteValue.Location = new Point(21, 68);
+            TrafficProneRouteValue.Name = "TrafficProneRouteValue";
+            TrafficProneRouteValue.Size = new Size(143, 20);
+            TrafficProneRouteValue.TabIndex = 2;
+            TrafficProneRouteValue.Text = "BSU - Alangilan ";
+            TrafficProneRouteValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // PeakCongestionDurationValue
+            // 
+            PeakCongestionDurationValue.AutoSize = true;
+            PeakCongestionDurationValue.ForeColor = Color.FromArgb(84, 84, 84);
+            PeakCongestionDurationValue.Location = new Point(3, 68);
+            PeakCongestionDurationValue.Name = "PeakCongestionDurationValue";
+            PeakCongestionDurationValue.Size = new Size(179, 20);
+            PeakCongestionDurationValue.TabIndex = 10;
+            PeakCongestionDurationValue.Text = "9:00 am - 11: 00 am";
+            PeakCongestionDurationValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // TotalTripsValue
+            // 
+            TotalTripsValue.AutoSize = true;
+            TotalTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
+            TotalTripsValue.Location = new Point(18, 68);
+            TotalTripsValue.Name = "TotalTripsValue";
+            TotalTripsValue.Size = new Size(143, 20);
+            TotalTripsValue.TabIndex = 10;
+            TotalTripsValue.Text = "BSU - Alangilan ";
+            TotalTripsValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // HighestTripsValue
+            // 
+            HighestTripsValue.AutoSize = true;
+            HighestTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
+            HighestTripsValue.Location = new Point(23, 67);
+            HighestTripsValue.Name = "HighestTripsValue";
+            HighestTripsValue.Size = new Size(143, 20);
+            HighestTripsValue.TabIndex = 4;
+            HighestTripsValue.Text = "BSU - Alangilan ";
+            HighestTripsValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // LowestTripsValue
+            // 
+            LowestTripsValue.AutoSize = true;
+            LowestTripsValue.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LowestTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
+            LowestTripsValue.Location = new Point(61, 57);
+            LowestTripsValue.Name = "LowestTripsValue";
+            LowestTripsValue.Size = new Size(66, 34);
+            LowestTripsValue.TabIndex = 12;
+            LowestTripsValue.Text = "178";
+            LowestTripsValue.TextAlign = ContentAlignment.MiddleCenter;
+            LowestTripsValue.Click += LowestTripsValue_Click;
             // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1102, 623);
-            Controls.Add(guna2Panel6);
-            Controls.Add(PieChart);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(guna2Panel5);
-            Controls.Add(guna2Panel4);
-            Controls.Add(guna2Panel3);
-            Controls.Add(guna2Panel2);
-            Controls.Add(guna2Panel1);
-            Controls.Add(textBox1);
-            Controls.Add(WelcomeTxt);
-            Controls.Add(Navbar);
+            ClientSize = new Size(1182, 653);
+            Controls.Add(BarGraphPanel);
+            Controls.Add(PieChartPanel);
+            Controls.Add(LowestTripsPanel);
+            Controls.Add(HighestTripsPanel);
+            Controls.Add(TotalTripsTodayPanel);
+            Controls.Add(CongestionDurationPanel);
+            Controls.Add(TrafficRoutePanel);
+            Controls.Add(lblWelcomeMessage);
+            Controls.Add(NavbarPanel);
             Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -693,67 +630,63 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TriQue";
             Load += AdminForm_Load;
-            Navbar.ResumeLayout(false);
+            NavbarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
-            guna2Panel1.ResumeLayout(false);
-            guna2Panel1.PerformLayout();
+            TrafficRoutePanel.ResumeLayout(false);
+            TrafficRoutePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            guna2Panel2.ResumeLayout(false);
-            guna2Panel2.PerformLayout();
+            CongestionDurationPanel.ResumeLayout(false);
+            CongestionDurationPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            guna2Panel3.ResumeLayout(false);
-            guna2Panel3.PerformLayout();
+            TotalTripsTodayPanel.ResumeLayout(false);
+            TotalTripsTodayPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            guna2Panel4.ResumeLayout(false);
-            guna2Panel4.PerformLayout();
+            HighestTripsPanel.ResumeLayout(false);
+            HighestTripsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            guna2Panel5.ResumeLayout(false);
-            guna2Panel5.PerformLayout();
+            LowestTripsPanel.ResumeLayout(false);
+            LowestTripsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            PieChart.ResumeLayout(false);
-            guna2Panel6.ResumeLayout(false);
+            PieChartPanel.ResumeLayout(false);
+            BarGraphPanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Panel Navbar;
+        private Panel NavbarPanel;
         private PictureBox Logo;
         private Guna.UI2.WinForms.Guna2ImageButton ViewQueue;
         private Guna.UI2.WinForms.Guna2ImageButton DashboardBtn;
         private Guna.UI2.WinForms.Guna2ImageButton GenerateReportBtn;
         private Guna.UI2.WinForms.Guna2ImageButton SettingsBtn;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
-        private TextBox WelcomeTxt;
-        private TextBox textBox1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Guna.UI2.WinForms.Guna2Panel PieChart;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
-        private Guna.Charts.WinForms.GunaChart guna2Chart2;
+        private Guna.UI2.WinForms.Guna2ImageButton LogoutBtn;
+        private TextBox lblWelcomeMessage;
+        private Guna.UI2.WinForms.Guna2Panel TrafficRoutePanel;
+        private Guna.UI2.WinForms.Guna2Panel CongestionDurationPanel;
+        private Guna.UI2.WinForms.Guna2Panel TotalTripsTodayPanel;
+        private Guna.UI2.WinForms.Guna2Panel HighestTripsPanel;
+        private Guna.UI2.WinForms.Guna2Panel LowestTripsPanel;
+        private Guna.UI2.WinForms.Guna2Panel PieChartPanel;
+        private Guna.UI2.WinForms.Guna2Panel BarGraphPanel;
+        private Guna.Charts.WinForms.GunaChart BarGraph;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private TextBox textBox8;
-        private TextBox textBox7;
-        private TextBox textBox10;
-        private TextBox textBox9;
-        private TextBox textBox12;
-        private TextBox textBox11;
-        private TextBox textBox13;
-        private TextBox textBox14;
-        private Guna.Charts.WinForms.GunaChart guna2Chart1;
+        private Guna.Charts.WinForms.GunaChart PieChart;
         private Guna.UI2.WinForms.Guna2ImageButton ManageUsersBtn;
+        private Label lblTrafficProneRoute;
+        private Label lblPeakCongestionDuration;
+        private Label lblTotalTripsToday;
+        private Label lblHighestTrips;
+        private Label lblLowestTrips;
+        private Label TrafficProneRouteValue;
+        private Label PeakCongestionDurationValue;
+        private Label TotalTripsValue;
+        private Label HighestTripsValue;
+        private Label LowestTripsValue;
     }
 }
