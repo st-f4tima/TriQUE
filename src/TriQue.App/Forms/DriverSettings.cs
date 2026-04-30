@@ -10,38 +10,36 @@ namespace TriQue.Forms
 {
     public partial class DriverSettings : Form
     {
-        private Form previousForm; // ✅ ONE reference only
+        private Form previousForm;
+        private int _userID;
 
-        public DriverSettings()
+        public DriverSettings(int userID)
         {
             InitializeComponent();
+            _userID = userID;
         }
 
-        // ✅ Constructor for navigation
-        public DriverSettings(Form form)
-        {
-            InitializeComponent();
-            previousForm = form;
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        // ✅ Go to Dashboard (DriverForm)
         private void DashBtn_Click(object sender, EventArgs e)
         {
-            DriverForm dash = new DriverForm(this);
+            DriverForm dash = new DriverForm(_userID);
             dash.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void ViewQueueBtn_Click(object sender, EventArgs e)
         {
-            DriverViewQueue viewQueue = new DriverViewQueue(this);
+            var dashboard = new DriverDashboardService();
+            var driver = dashboard.GetDriver(_userID);
+
+            if (driver == null) return;
+
+            var route = dashboard.GetDriverRouteByDriverID(driver.DriverID);
+
+            if (route == null) return;
+
+            DriverViewQueue viewQueue = new DriverViewQueue(route.RouteID, _userID);
             viewQueue.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
