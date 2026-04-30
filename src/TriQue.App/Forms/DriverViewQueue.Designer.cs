@@ -236,14 +236,13 @@
             // textBox4
             // 
             textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox4.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox4.ForeColor = Color.FromArgb(255, 189, 89);
-            textBox4.Location = new Point(82, 32);
+            textBox4.Location = new Point(45, 32);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(126, 31);
+            textBox4.Size = new Size(126, 27);
             textBox4.TabIndex = 11;
             textBox4.Text = "WAITING";
-            textBox4.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox1
             // 
@@ -283,14 +282,13 @@
             // textBox5
             // 
             textBox5.BorderStyle = BorderStyle.None;
-            textBox5.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox5.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox5.Location = new Point(47, 32);
+            textBox5.Location = new Point(47, 31);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(201, 31);
+            textBox5.Size = new Size(207, 23);
             textBox5.TabIndex = 12;
             textBox5.Text = "BSU - Alangilan";
-            textBox5.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox2
             // 
@@ -332,12 +330,11 @@
             textBox6.BorderStyle = BorderStyle.None;
             textBox6.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox6.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox6.Location = new Point(42, 32);
+            textBox6.Location = new Point(55, 31);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(201, 31);
             textBox6.TabIndex = 9;
             textBox6.Text = "8th";
-            textBox6.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox3
             // 
@@ -402,7 +399,6 @@
             DataGridQueueStatus.RowTemplate.Height = 25;
             DataGridQueueStatus.Size = new Size(890, 277);
             DataGridQueueStatus.TabIndex = 1;
-            DataGridQueueStatus.EnableHeadersVisualStyles = false;
             DataGridQueueStatus.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             DataGridQueueStatus.ThemeStyle.AlternatingRowsStyle.Font = null;
             DataGridQueueStatus.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;

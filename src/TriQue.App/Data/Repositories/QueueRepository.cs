@@ -134,5 +134,35 @@ namespace TriQue.Data.Repositories
 
             return dt;
         }
+
+        public DataRow GetQueueDriver(int queueId, int driverId)
+        {
+            string query = @"
+                SELECT 
+                    qe.Position,
+                    r.RouteName,
+                    ds.StatusName AS Status
+                FROM QueueEntry qe
+                INNER JOIN Queue q ON qe.QueueID = q.QueueID
+                INNER JOIN Route r ON q.RouteID = r.RouteID
+                INNER JOIN Driver d ON qe.DriverID = d.DriverID
+                INNER JOIN DriverStatus ds ON d.StatusID = ds.StatusID
+                WHERE qe.QueueID = $queueId
+                AND qe.DriverID = $driverId
+                LIMIT 1;
+            ";
+
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
+
+            using var cmd = new SqliteCommand(query, conn);
+            cmd.Parameters.AddWithValue("$queueId", queueId);
+            cmd.Parameters.AddWithValue("$driverId", driverId);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+
+            return dt.Rows.Count > 0 ? dt.Rows[0] : null;
+        }
     }
 }
