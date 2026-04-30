@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,22 +19,47 @@ namespace TriQue.Forms
         private DriverDashboardData _data;
         private QueueRepository _queueRepo;
         private RouteService _routeService;
+        private QueueService _queueService;
         private int _userID;
 
         public DriverForm(int userID)
         {
             InitializeComponent();
+            InitializeServices();
+
             _userID = userID;
+
+            LoadDashboard();
+        }
+
+        public DriverForm(Form form)
+        {
+            InitializeComponent();
+            InitializeServices();
+        }
+
+        private void InitializeServices()
+        {
             _dashboardService = new DriverDashboardService();
             _queueRepo = new QueueRepository();
             _routeService = new RouteService();
-            LoadDashboard();
+            _queueService = new QueueService();
         }
 
         private void LoadDashboard()
         {
             _data = _dashboardService.GetDashboard(_userID);
             DisplayData();
+
+            var driver = _dashboardService.GetDriver(_userID);
+            if (driver != null)
+            {
+                var route = _dashboardService.GetDriverRouteByDriverID(driver.DriverID);
+                if (route != null)
+                {
+                    UpdateJoinButtonState(driver.DriverID, route.RouteID);
+                }
+            }
         }
 
         private void DisplayData()
@@ -72,6 +98,8 @@ namespace TriQue.Forms
             // total distance
             textBox22.Text = $"{_data.TotalDistance} km";
 
+
+            // queue history
             guna2DataGridView1.DataSource =
                 _queueRepo.GetQueueHistory(_data.Driver.DriverID);
         }
@@ -113,8 +141,8 @@ namespace TriQue.Forms
 
             var coords = new[]
             {
-                new[] { route.StartLng, route.StartLat },  
-                new[] { route.EndLng,   route.EndLat   }   
+                new[] { route.StartLng, route.StartLat },
+                new[] { route.EndLng,   route.EndLat   }
             };
 
             string json = System.Text.Json.JsonSerializer.Serialize(coords);
@@ -136,6 +164,41 @@ namespace TriQue.Forms
             }
 
             textBox21.Text = $"{result.durationMin} min";
+        }
+
+        // join queue button
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            var driver = _dashboardService.GetDriver(_userID);
+            if (driver == null)
+            {
+                MessageBox.Show("Driver not found.");
+                return;
+            }
+
+            var route = _dashboardService.GetDriverRouteByDriverID(driver.DriverID);
+            if (route == null)
+            {
+                MessageBox.Show("Route not found.");
+                return;
+            }
+
+            var message = _queueService.JoinQueue(driver.DriverID, route.RouteID);
+            MessageBox.Show(message);
+
+            UpdateJoinButtonState(driver.DriverID, route.RouteID);
+        }
+
+        private void UpdateJoinButtonState(int driverID, int routeID)
+        {
+            bool isInQueue = _queueService.IsDriverInQueue(driverID, routeID);
+
+            guna2Button1.Enabled = !isInQueue;
+            guna2Button1.Text = isInQueue ? "Already in Queue" : "Join Queue";
+
+            guna2Button1.FillColor = isInQueue
+            ? Color.Gray
+            : Color.FromArgb(55, 91, 231);
         }
 
         private void guna2Panel2_Paint(object sender, PaintEventArgs e) { }
@@ -171,12 +234,12 @@ namespace TriQue.Forms
             this.Hide();
         }
 
-        private Form DriverViewQueue;
+        //private Form DriverViewQueue;
 
-        public DriverForm(Form form)
-        {
-            InitializeComponent();
-            DriverViewQueue = form;
-        }
+        //public DriverForm(Form form)
+        //{
+        //    InitializeComponent();
+        //    DriverViewQueue = form;
+        //}
     }
 }

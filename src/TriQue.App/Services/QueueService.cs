@@ -17,18 +17,25 @@ namespace TriQue.Services
             _driverRepo = new DriverRepository();
         }
 
-        public void JoinQueue(int driverID, int routeID)
+        public bool IsDriverInQueue(int driverID, int routeID)
+        {
+            int queueID = _queueRepo.GetQueueIdByRouteId(routeID);
+            return _queueRepo.IsDriverAlreadyInQueue(queueID, driverID);
+        }
+
+        public string JoinQueue(int driverID, int routeID)
         {
             int queueID = _queueRepo.GetQueueIdByRouteId(routeID);
 
             bool alreadyJoined = _queueRepo.IsDriverAlreadyInQueue(queueID, driverID);
             if (alreadyJoined)
-                return;
+                return "Already in queue.";
 
             int position = _queueRepo.GetNextPosition(queueID);
             _queueRepo.AddQueueEntry(queueID, driverID, position);
-            _driverRepo.UpdateStatus(driverID, 1); // Waiting
+            _driverRepo.UpdateStatus(driverID, 1);
 
+            return $"Joined queue. Position: #{position}";
         }
     }
 

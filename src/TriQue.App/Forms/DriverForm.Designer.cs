@@ -276,6 +276,7 @@ namespace TriQue.Forms
             guna2Button1.Size = new Size(306, 47);
             guna2Button1.TabIndex = 2;
             guna2Button1.Text = "Join Queue";
+            guna2Button1.Click += guna2Button1_Click;
             // 
             // guna2Panel2
             // 
@@ -307,12 +308,11 @@ namespace TriQue.Forms
             textBox23.BorderStyle = BorderStyle.None;
             textBox23.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox23.ForeColor = Color.FromArgb(84, 84, 84);
-            textBox23.Location = new Point(30, 16);
+            textBox23.Location = new Point(33, 16);
             textBox23.Name = "textBox23";
             textBox23.Size = new Size(195, 17);
             textBox23.TabIndex = 9;
-            textBox23.Text = "On Route - BSU Alangilan ";
-            textBox23.TextAlign = HorizontalAlignment.Center;
+            textBox23.Text = "On Route - ";
             // 
             // guna2Panel3
             // 
@@ -691,12 +691,12 @@ namespace TriQue.Forms
             // 
             textBox20.BorderStyle = BorderStyle.None;
             textBox20.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox20.ForeColor = Color.FromArgb(215, 108, 68);
-            textBox20.Location = new Point(10, 50);
+            textBox20.ForeColor = Color.FromArgb(84, 84, 84);
+            textBox20.Location = new Point(9, 45);
             textBox20.Name = "textBox20";
             textBox20.Size = new Size(151, 31);
             textBox20.TabIndex = 8;
-            textBox20.Text = "Moderate";
+            textBox20.Text = "Loading...";
             textBox20.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox15
@@ -740,13 +740,13 @@ namespace TriQue.Forms
             // textBox21
             // 
             textBox21.BorderStyle = BorderStyle.None;
-            textBox21.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox21.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox21.ForeColor = Color.FromArgb(84, 84, 84);
-            textBox21.Location = new Point(38, 46);
+            textBox21.Location = new Point(11, 49);
             textBox21.Name = "textBox21";
-            textBox21.Size = new Size(94, 34);
+            textBox21.Size = new Size(149, 31);
             textBox21.TabIndex = 8;
-            textBox21.Text = "4 min";
+            textBox21.Text = "Loading...";
             textBox21.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox18
@@ -789,13 +789,13 @@ namespace TriQue.Forms
             // textBox22
             // 
             textBox22.BorderStyle = BorderStyle.None;
-            textBox22.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox22.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox22.ForeColor = Color.FromArgb(84, 84, 84);
-            textBox22.Location = new Point(38, 45);
+            textBox22.Location = new Point(15, 47);
             textBox22.Name = "textBox22";
-            textBox22.Size = new Size(94, 34);
+            textBox22.Size = new Size(130, 31);
             textBox22.TabIndex = 9;
-            textBox22.Text = "30km";
+            textBox22.Text = "Loading...";
             textBox22.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox19
