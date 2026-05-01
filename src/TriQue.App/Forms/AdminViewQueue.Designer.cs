@@ -28,99 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges103 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges104 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminViewQueue));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges97 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges98 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges99 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges100 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges101 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges102 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges107 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges108 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges105 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges106 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges111 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges112 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges109 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges110 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges115 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges116 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges113 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges114 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges119 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges120 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges117 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges118 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges123 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges124 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges121 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges122 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges127 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges128 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges125 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges126 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            NavBarPanel = new Guna.UI2.WinForms.Guna2Panel();
             LogoutBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             SettingsBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             GenerateReportBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             ManageUserBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             ViewQueueBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             DashBtn = new Guna.UI2.WinForms.Guna2ImageButton();
-            pictureBox1 = new PictureBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            Logo = new PictureBox();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            pictureBox3 = new PictureBox();
+            RouteDPic = new PictureBox();
             btnRouteD = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            pictureBox2 = new PictureBox();
+            RouteAPic = new PictureBox();
             btnRouteA = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            pictureBox5 = new PictureBox();
+            RouteBPic = new PictureBox();
             btnRouteB = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            pictureBox4 = new PictureBox();
+            RouteEPic = new PictureBox();
             btnRouteE = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            pictureBox6 = new PictureBox();
+            RouteCPic = new PictureBox();
             btnRouteC = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            pictureBox7 = new PictureBox();
+            RouteFPic = new PictureBox();
             btnRouteF = new Guna.UI2.WinForms.Guna2Button();
-            guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            lblViewQueueDescription = new Label();
+            lblViewQueueTitle = new Label();
+            NavBarPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             guna2Panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RouteDPic).BeginInit();
             guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RouteAPic).BeginInit();
             guna2Panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RouteBPic).BeginInit();
             guna2Panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RouteEPic).BeginInit();
             guna2Panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RouteCPic).BeginInit();
             guna2Panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RouteFPic).BeginInit();
             SuspendLayout();
             // 
-            // guna2Panel1
+            // NavBarPanel
             // 
-            guna2Panel1.BackColor = Color.FromArgb(215, 215, 215);
-            guna2Panel1.Controls.Add(LogoutBtn);
-            guna2Panel1.Controls.Add(SettingsBtn);
-            guna2Panel1.Controls.Add(GenerateReportBtn);
-            guna2Panel1.Controls.Add(ManageUserBtn);
-            guna2Panel1.Controls.Add(ViewQueueBtn);
-            guna2Panel1.Controls.Add(DashBtn);
-            guna2Panel1.Controls.Add(pictureBox1);
-            guna2Panel1.CustomizableEdges = customizableEdges7;
-            guna2Panel1.Location = new Point(0, -9);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel1.Size = new Size(96, 660);
-            guna2Panel1.TabIndex = 0;
+            NavBarPanel.BackColor = Color.FromArgb(215, 215, 215);
+            NavBarPanel.Controls.Add(LogoutBtn);
+            NavBarPanel.Controls.Add(SettingsBtn);
+            NavBarPanel.Controls.Add(GenerateReportBtn);
+            NavBarPanel.Controls.Add(ManageUserBtn);
+            NavBarPanel.Controls.Add(ViewQueueBtn);
+            NavBarPanel.Controls.Add(DashBtn);
+            NavBarPanel.Controls.Add(Logo);
+            NavBarPanel.CustomizableEdges = customizableEdges103;
+            NavBarPanel.Location = new Point(0, -9);
+            NavBarPanel.Name = "NavBarPanel";
+            NavBarPanel.ShadowDecoration.CustomizableEdges = customizableEdges104;
+            NavBarPanel.Size = new Size(96, 660);
+            NavBarPanel.TabIndex = 0;
             // 
             // LogoutBtn
             // 
@@ -133,7 +133,7 @@
             LogoutBtn.Location = new Point(10, 548);
             LogoutBtn.Name = "LogoutBtn";
             LogoutBtn.PressedState.ImageSize = new Size(32, 32);
-            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges97;
             LogoutBtn.Size = new Size(82, 82);
             LogoutBtn.TabIndex = 6;
             LogoutBtn.Click += LogoutBtn_Click;
@@ -149,7 +149,7 @@
             SettingsBtn.Location = new Point(7, 370);
             SettingsBtn.Name = "SettingsBtn";
             SettingsBtn.PressedState.ImageSize = new Size(32, 32);
-            SettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            SettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges98;
             SettingsBtn.Size = new Size(82, 82);
             SettingsBtn.TabIndex = 5;
             SettingsBtn.Click += SettingsBtn_Click;
@@ -165,7 +165,7 @@
             GenerateReportBtn.Location = new Point(10, 307);
             GenerateReportBtn.Name = "GenerateReportBtn";
             GenerateReportBtn.PressedState.ImageSize = new Size(32, 32);
-            GenerateReportBtn.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            GenerateReportBtn.ShadowDecoration.CustomizableEdges = customizableEdges99;
             GenerateReportBtn.Size = new Size(82, 82);
             GenerateReportBtn.TabIndex = 4;
             GenerateReportBtn.Click += GenerateReportBtn_Click;
@@ -181,7 +181,7 @@
             ManageUserBtn.Location = new Point(7, 244);
             ManageUserBtn.Name = "ManageUserBtn";
             ManageUserBtn.PressedState.ImageSize = new Size(44, 44);
-            ManageUserBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            ManageUserBtn.ShadowDecoration.CustomizableEdges = customizableEdges100;
             ManageUserBtn.Size = new Size(82, 82);
             ManageUserBtn.TabIndex = 3;
             ManageUserBtn.Click += ManageUserBtn_Click;
@@ -197,7 +197,7 @@
             ViewQueueBtn.Location = new Point(7, 184);
             ViewQueueBtn.Name = "ViewQueueBtn";
             ViewQueueBtn.PressedState.ImageSize = new Size(32, 32);
-            ViewQueueBtn.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            ViewQueueBtn.ShadowDecoration.CustomizableEdges = customizableEdges101;
             ViewQueueBtn.Size = new Size(82, 82);
             ViewQueueBtn.TabIndex = 2;
             // 
@@ -212,74 +212,51 @@
             DashBtn.Location = new Point(7, 123);
             DashBtn.Name = "DashBtn";
             DashBtn.PressedState.ImageSize = new Size(32, 32);
-            DashBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            DashBtn.ShadowDecoration.CustomizableEdges = customizableEdges102;
             DashBtn.Size = new Size(82, 82);
             DashBtn.TabIndex = 1;
             DashBtn.Click += DashBtn_Click;
             // 
-            // pictureBox1
+            // Logo
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(7, 47);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(82, 62);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = Color.White;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = Color.FromArgb(55, 91, 231);
-            textBox1.Location = new Point(131, 58);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 25);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "View Queue";
-            // 
-            // textBox2
-            // 
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox2.ForeColor = Color.FromArgb(84, 84, 84);
-            textBox2.Location = new Point(131, 89);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(935, 16);
-            textBox2.TabIndex = 2;
-            textBox2.Text = "View all drivers’ queue positions and trip statuses for each route, manage their status updates, and reset queues if you are the Super Admin.";
+            Logo.Image = (Image)resources.GetObject("Logo.Image");
+            Logo.Location = new Point(7, 47);
+            Logo.Name = "Logo";
+            Logo.Size = new Size(82, 62);
+            Logo.SizeMode = PictureBoxSizeMode.Zoom;
+            Logo.TabIndex = 0;
+            Logo.TabStop = false;
             // 
             // guna2Panel3
             // 
             guna2Panel3.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel3.BorderRadius = 15;
             guna2Panel3.BorderThickness = 1;
-            guna2Panel3.Controls.Add(pictureBox3);
+            guna2Panel3.Controls.Add(RouteDPic);
             guna2Panel3.Controls.Add(btnRouteD);
-            guna2Panel3.CustomizableEdges = customizableEdges11;
+            guna2Panel3.CustomizableEdges = customizableEdges107;
             guna2Panel3.FillColor = Color.FromArgb(213, 220, 249);
-            guna2Panel3.Location = new Point(131, 362);
+            guna2Panel3.Location = new Point(131, 385);
             guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2Panel3.Size = new Size(279, 215);
+            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges108;
+            guna2Panel3.Size = new Size(305, 220);
             guna2Panel3.TabIndex = 4;
             guna2Panel3.Paint += guna2Panel3_Paint;
             // 
-            // pictureBox3
+            // RouteDPic
             // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Location = new Point(30, 23);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(221, 105);
-            pictureBox3.TabIndex = 2;
-            pictureBox3.TabStop = false;
+            RouteDPic.BackColor = Color.Transparent;
+            RouteDPic.Location = new Point(30, 23);
+            RouteDPic.Name = "RouteDPic";
+            RouteDPic.Size = new Size(242, 105);
+            RouteDPic.TabIndex = 2;
+            RouteDPic.TabStop = false;
             // 
             // btnRouteD
             // 
             btnRouteD.BackColor = Color.FromArgb(213, 220, 249);
             btnRouteD.BorderRadius = 15;
-            btnRouteD.CustomizableEdges = customizableEdges9;
+            btnRouteD.CustomizableEdges = customizableEdges105;
             btnRouteD.DisabledState.BorderColor = Color.DarkGray;
             btnRouteD.DisabledState.CustomBorderColor = Color.DarkGray;
             btnRouteD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -289,7 +266,7 @@
             btnRouteD.ForeColor = Color.White;
             btnRouteD.Location = new Point(48, 147);
             btnRouteD.Name = "btnRouteD";
-            btnRouteD.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btnRouteD.ShadowDecoration.CustomizableEdges = customizableEdges106;
             btnRouteD.Size = new Size(184, 51);
             btnRouteD.TabIndex = 1;
             btnRouteD.Text = "Route D";
@@ -301,28 +278,28 @@
             guna2Panel2.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel2.BorderRadius = 15;
             guna2Panel2.BorderThickness = 1;
-            guna2Panel2.Controls.Add(pictureBox2);
+            guna2Panel2.Controls.Add(RouteAPic);
             guna2Panel2.Controls.Add(btnRouteA);
-            guna2Panel2.CustomizableEdges = customizableEdges15;
+            guna2Panel2.CustomizableEdges = customizableEdges111;
             guna2Panel2.FillColor = Color.FromArgb(213, 220, 249);
             guna2Panel2.Location = new Point(131, 121);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2Panel2.Size = new Size(279, 215);
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges112;
+            guna2Panel2.Size = new Size(305, 220);
             guna2Panel2.TabIndex = 5;
             // 
-            // pictureBox2
+            // RouteAPic
             // 
-            pictureBox2.Location = new Point(30, 23);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(221, 105);
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            RouteAPic.Location = new Point(30, 23);
+            RouteAPic.Name = "RouteAPic";
+            RouteAPic.Size = new Size(242, 105);
+            RouteAPic.TabIndex = 1;
+            RouteAPic.TabStop = false;
             // 
             // btnRouteA
             // 
             btnRouteA.BorderRadius = 15;
-            btnRouteA.CustomizableEdges = customizableEdges13;
+            btnRouteA.CustomizableEdges = customizableEdges109;
             btnRouteA.DisabledState.BorderColor = Color.DarkGray;
             btnRouteA.DisabledState.CustomBorderColor = Color.DarkGray;
             btnRouteA.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -332,7 +309,7 @@
             btnRouteA.ForeColor = Color.White;
             btnRouteA.Location = new Point(48, 147);
             btnRouteA.Name = "btnRouteA";
-            btnRouteA.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnRouteA.ShadowDecoration.CustomizableEdges = customizableEdges110;
             btnRouteA.Size = new Size(184, 51);
             btnRouteA.TabIndex = 0;
             btnRouteA.Text = "Route A";
@@ -343,31 +320,31 @@
             guna2Panel4.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel4.BorderRadius = 15;
             guna2Panel4.BorderThickness = 1;
-            guna2Panel4.Controls.Add(pictureBox5);
+            guna2Panel4.Controls.Add(RouteBPic);
             guna2Panel4.Controls.Add(btnRouteB);
-            guna2Panel4.CustomizableEdges = customizableEdges19;
+            guna2Panel4.CustomizableEdges = customizableEdges115;
             guna2Panel4.FillColor = Color.FromArgb(213, 220, 249);
-            guna2Panel4.Location = new Point(461, 121);
+            guna2Panel4.Location = new Point(490, 121);
             guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2Panel4.Size = new Size(279, 215);
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges116;
+            guna2Panel4.Size = new Size(305, 220);
             guna2Panel4.TabIndex = 6;
             // 
-            // pictureBox5
+            // RouteBPic
             // 
-            pictureBox5.BackColor = Color.Transparent;
-            pictureBox5.Location = new Point(29, 23);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(221, 105);
-            pictureBox5.TabIndex = 3;
-            pictureBox5.TabStop = false;
-            pictureBox5.Click += pictureBox5_Click;
+            RouteBPic.BackColor = Color.Transparent;
+            RouteBPic.Location = new Point(29, 23);
+            RouteBPic.Name = "RouteBPic";
+            RouteBPic.Size = new Size(242, 105);
+            RouteBPic.TabIndex = 3;
+            RouteBPic.TabStop = false;
+            RouteBPic.Click += pictureBox5_Click;
             // 
             // btnRouteB
             // 
             btnRouteB.BackColor = Color.FromArgb(213, 220, 249);
             btnRouteB.BorderRadius = 15;
-            btnRouteB.CustomizableEdges = customizableEdges17;
+            btnRouteB.CustomizableEdges = customizableEdges113;
             btnRouteB.DisabledState.BorderColor = Color.DarkGray;
             btnRouteB.DisabledState.CustomBorderColor = Color.DarkGray;
             btnRouteB.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -377,7 +354,7 @@
             btnRouteB.ForeColor = Color.White;
             btnRouteB.Location = new Point(47, 147);
             btnRouteB.Name = "btnRouteB";
-            btnRouteB.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btnRouteB.ShadowDecoration.CustomizableEdges = customizableEdges114;
             btnRouteB.Size = new Size(184, 51);
             btnRouteB.TabIndex = 2;
             btnRouteB.Text = "Route B";
@@ -388,30 +365,30 @@
             guna2Panel5.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel5.BorderRadius = 15;
             guna2Panel5.BorderThickness = 1;
-            guna2Panel5.Controls.Add(pictureBox4);
+            guna2Panel5.Controls.Add(RouteEPic);
             guna2Panel5.Controls.Add(btnRouteE);
-            guna2Panel5.CustomizableEdges = customizableEdges23;
+            guna2Panel5.CustomizableEdges = customizableEdges119;
             guna2Panel5.FillColor = Color.FromArgb(213, 220, 249);
-            guna2Panel5.Location = new Point(461, 362);
+            guna2Panel5.Location = new Point(490, 385);
             guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            guna2Panel5.Size = new Size(279, 215);
+            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges120;
+            guna2Panel5.Size = new Size(305, 220);
             guna2Panel5.TabIndex = 7;
             // 
-            // pictureBox4
+            // RouteEPic
             // 
-            pictureBox4.BackColor = Color.Transparent;
-            pictureBox4.Location = new Point(29, 23);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(221, 105);
-            pictureBox4.TabIndex = 3;
-            pictureBox4.TabStop = false;
+            RouteEPic.BackColor = Color.Transparent;
+            RouteEPic.Location = new Point(29, 23);
+            RouteEPic.Name = "RouteEPic";
+            RouteEPic.Size = new Size(242, 105);
+            RouteEPic.TabIndex = 3;
+            RouteEPic.TabStop = false;
             // 
             // btnRouteE
             // 
             btnRouteE.BackColor = Color.FromArgb(213, 220, 249);
             btnRouteE.BorderRadius = 15;
-            btnRouteE.CustomizableEdges = customizableEdges21;
+            btnRouteE.CustomizableEdges = customizableEdges117;
             btnRouteE.DisabledState.BorderColor = Color.DarkGray;
             btnRouteE.DisabledState.CustomBorderColor = Color.DarkGray;
             btnRouteE.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -421,7 +398,7 @@
             btnRouteE.ForeColor = Color.White;
             btnRouteE.Location = new Point(47, 147);
             btnRouteE.Name = "btnRouteE";
-            btnRouteE.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnRouteE.ShadowDecoration.CustomizableEdges = customizableEdges118;
             btnRouteE.Size = new Size(184, 51);
             btnRouteE.TabIndex = 2;
             btnRouteE.Text = "Route E";
@@ -432,30 +409,30 @@
             guna2Panel6.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel6.BorderRadius = 15;
             guna2Panel6.BorderThickness = 1;
-            guna2Panel6.Controls.Add(pictureBox6);
+            guna2Panel6.Controls.Add(RouteCPic);
             guna2Panel6.Controls.Add(btnRouteC);
-            guna2Panel6.CustomizableEdges = customizableEdges27;
+            guna2Panel6.CustomizableEdges = customizableEdges123;
             guna2Panel6.FillColor = Color.FromArgb(213, 220, 249);
-            guna2Panel6.Location = new Point(787, 121);
+            guna2Panel6.Location = new Point(842, 121);
             guna2Panel6.Name = "guna2Panel6";
-            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            guna2Panel6.Size = new Size(279, 215);
+            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges124;
+            guna2Panel6.Size = new Size(305, 220);
             guna2Panel6.TabIndex = 6;
             // 
-            // pictureBox6
+            // RouteCPic
             // 
-            pictureBox6.BackColor = Color.Transparent;
-            pictureBox6.Location = new Point(31, 23);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(221, 105);
-            pictureBox6.TabIndex = 3;
-            pictureBox6.TabStop = false;
+            RouteCPic.BackColor = Color.Transparent;
+            RouteCPic.Location = new Point(31, 23);
+            RouteCPic.Name = "RouteCPic";
+            RouteCPic.Size = new Size(242, 105);
+            RouteCPic.TabIndex = 3;
+            RouteCPic.TabStop = false;
             // 
             // btnRouteC
             // 
             btnRouteC.BackColor = Color.FromArgb(213, 220, 249);
             btnRouteC.BorderRadius = 15;
-            btnRouteC.CustomizableEdges = customizableEdges25;
+            btnRouteC.CustomizableEdges = customizableEdges121;
             btnRouteC.DisabledState.BorderColor = Color.DarkGray;
             btnRouteC.DisabledState.CustomBorderColor = Color.DarkGray;
             btnRouteC.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -465,7 +442,7 @@
             btnRouteC.ForeColor = Color.White;
             btnRouteC.Location = new Point(49, 147);
             btnRouteC.Name = "btnRouteC";
-            btnRouteC.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            btnRouteC.ShadowDecoration.CustomizableEdges = customizableEdges122;
             btnRouteC.Size = new Size(184, 51);
             btnRouteC.TabIndex = 2;
             btnRouteC.Text = "Route C";
@@ -476,30 +453,30 @@
             guna2Panel7.BorderColor = Color.FromArgb(84, 84, 84);
             guna2Panel7.BorderRadius = 15;
             guna2Panel7.BorderThickness = 1;
-            guna2Panel7.Controls.Add(pictureBox7);
+            guna2Panel7.Controls.Add(RouteFPic);
             guna2Panel7.Controls.Add(btnRouteF);
-            guna2Panel7.CustomizableEdges = customizableEdges31;
+            guna2Panel7.CustomizableEdges = customizableEdges127;
             guna2Panel7.FillColor = Color.FromArgb(213, 220, 249);
-            guna2Panel7.Location = new Point(787, 362);
+            guna2Panel7.Location = new Point(842, 385);
             guna2Panel7.Name = "guna2Panel7";
-            guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges32;
-            guna2Panel7.Size = new Size(279, 215);
+            guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges128;
+            guna2Panel7.Size = new Size(305, 220);
             guna2Panel7.TabIndex = 8;
             // 
-            // pictureBox7
+            // RouteFPic
             // 
-            pictureBox7.BackColor = Color.Transparent;
-            pictureBox7.Location = new Point(31, 23);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(221, 105);
-            pictureBox7.TabIndex = 4;
-            pictureBox7.TabStop = false;
+            RouteFPic.BackColor = Color.Transparent;
+            RouteFPic.Location = new Point(31, 23);
+            RouteFPic.Name = "RouteFPic";
+            RouteFPic.Size = new Size(242, 105);
+            RouteFPic.TabIndex = 4;
+            RouteFPic.TabStop = false;
             // 
             // btnRouteF
             // 
             btnRouteF.BackColor = Color.FromArgb(213, 220, 249);
             btnRouteF.BorderRadius = 15;
-            btnRouteF.CustomizableEdges = customizableEdges29;
+            btnRouteF.CustomizableEdges = customizableEdges125;
             btnRouteF.DisabledState.BorderColor = Color.DarkGray;
             btnRouteF.DisabledState.CustomBorderColor = Color.DarkGray;
             btnRouteF.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -509,27 +486,50 @@
             btnRouteF.ForeColor = Color.White;
             btnRouteF.Location = new Point(49, 147);
             btnRouteF.Name = "btnRouteF";
-            btnRouteF.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            btnRouteF.ShadowDecoration.CustomizableEdges = customizableEdges126;
             btnRouteF.Size = new Size(184, 51);
             btnRouteF.TabIndex = 2;
             btnRouteF.Text = "Route F";
             btnRouteF.Click += btnRouteF_Click;
+            // 
+            // lblViewQueueDescription
+            // 
+            lblViewQueueDescription.AutoSize = true;
+            lblViewQueueDescription.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblViewQueueDescription.ForeColor = Color.FromArgb(91, 91, 91);
+            lblViewQueueDescription.Location = new Point(131, 91);
+            lblViewQueueDescription.Name = "lblViewQueueDescription";
+            lblViewQueueDescription.Size = new Size(935, 15);
+            lblViewQueueDescription.TabIndex = 9;
+            lblViewQueueDescription.Text = "View all drivers’ queue positions and trip statuses for each route, manage their status updates, and reset queues if you are the Super Admin.";
+            // 
+            // lblViewQueueTitle
+            // 
+            lblViewQueueTitle.AutoSize = true;
+            lblViewQueueTitle.Font = new Font("Roboto", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblViewQueueTitle.ForeColor = Color.FromArgb(55, 91, 231);
+            lblViewQueueTitle.Location = new Point(128, 52);
+            lblViewQueueTitle.Name = "lblViewQueueTitle";
+            lblViewQueueTitle.Size = new Size(144, 28);
+            lblViewQueueTitle.TabIndex = 10;
+            lblViewQueueTitle.Text = "View Queue";
+            lblViewQueueTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // AdminViewQueue
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1102, 623);
+            ClientSize = new Size(1182, 653);
+            Controls.Add(lblViewQueueTitle);
+            Controls.Add(lblViewQueueDescription);
             Controls.Add(guna2Panel7);
             Controls.Add(guna2Panel6);
             Controls.Add(guna2Panel5);
             Controls.Add(guna2Panel4);
             Controls.Add(guna2Panel2);
             Controls.Add(guna2Panel3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(guna2Panel1);
+            Controls.Add(NavBarPanel);
             Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -540,36 +540,34 @@
             Name = "AdminViewQueue";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TriQue";
-            guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            NavBarPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             guna2Panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RouteDPic).EndInit();
             guna2Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RouteAPic).EndInit();
             guna2Panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RouteBPic).EndInit();
             guna2Panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RouteEPic).EndInit();
             guna2Panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RouteCPic).EndInit();
             guna2Panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RouteFPic).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel NavBarPanel;
         private Guna.UI2.WinForms.Guna2ImageButton DashBtn;
-        private PictureBox pictureBox1;
+        private PictureBox Logo;
         private Guna.UI2.WinForms.Guna2ImageButton SettingsBtn;
         private Guna.UI2.WinForms.Guna2ImageButton GenerateReportBtn;
         private Guna.UI2.WinForms.Guna2ImageButton ManageUserBtn;
         private Guna.UI2.WinForms.Guna2ImageButton ViewQueueBtn;
         private Guna.UI2.WinForms.Guna2ImageButton LogoutBtn;
-        private TextBox textBox1;
-        private TextBox textBox2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Button btnRouteA;
@@ -578,15 +576,17 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private Guna.UI2.WinForms.Guna2Button btnRouteD;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
+        private PictureBox RouteDPic;
+        private PictureBox RouteAPic;
         private Guna.UI2.WinForms.Guna2Button btnRouteB;
         private Guna.UI2.WinForms.Guna2Button btnRouteE;
         private Guna.UI2.WinForms.Guna2Button btnRouteC;
         private Guna.UI2.WinForms.Guna2Button btnRouteF;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox6;
-        private PictureBox pictureBox7;
+        private PictureBox RouteBPic;
+        private PictureBox RouteEPic;
+        private PictureBox RouteCPic;
+        private PictureBox RouteFPic;
+        private Label lblViewQueueDescription;
+        private Label lblViewQueueTitle;
     }
 }

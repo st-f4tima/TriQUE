@@ -22,7 +22,7 @@ namespace TriQue.Forms
             lockLabel.Text = "";
             lockLabel.Size = new Size(0, 0);
             lockLabel.MinimumSize = new Size(0, 0);
-            panel1.Controls.Add(lockLabel);
+            LoginPanel.Controls.Add(lockLabel);
             lockLabel.BringToFront();
         }
 

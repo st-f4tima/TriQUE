@@ -51,7 +51,7 @@ namespace Trique.Forms
         private void AdminForm_Load(object? sender, EventArgs e)
         {
             // ===== PIE CHART =====
-            guna2Chart1.Datasets.Clear();
+            PieChart.Datasets.Clear();
 
             var pieDataset = new GunaPieDataset();
 
@@ -64,15 +64,15 @@ namespace Trique.Forms
             pieDataset.FillColors.Add(Color.Green);
             pieDataset.FillColors.Add(Color.Orange);
 
-            guna2Chart1.Datasets.Add(pieDataset);
+            PieChart.Datasets.Add(pieDataset);
 
-            guna2Chart1.XAxes.Display = false;
-            guna2Chart1.YAxes.Display = false;
-            guna2Chart1.Update();
+            PieChart.XAxes.Display = false;
+            PieChart.YAxes.Display = false;
+            PieChart.Update();
 
 
             // ===== BAR CHART =====
-            guna2Chart2.Datasets.Clear();
+            BarGraph.Datasets.Clear();
 
             var barDataset = new GunaBarDataset();
 
@@ -86,13 +86,13 @@ namespace Trique.Forms
             // ONE COLOR (safe for your version)
             barDataset.FillColors.Add(Color.Blue);
 
-            guna2Chart2.Datasets.Add(barDataset);
+            BarGraph.Datasets.Add(barDataset);
 
-            guna2Chart2.XAxes.GridLines.Display = false;
-            guna2Chart2.YAxes.GridLines.Display = false;
-            guna2Chart2.Legend.Display = false;
+            BarGraph.XAxes.GridLines.Display = false;
+            BarGraph.YAxes.GridLines.Display = false;
+            BarGraph.Legend.Display = false;
 
-            guna2Chart2.Update();
+            BarGraph.Update();
         }
 
         private void guna2ImageButton4_Click(object sender, EventArgs e)
@@ -127,6 +127,16 @@ namespace Trique.Forms
             AdminManageUsers adminForm = new AdminManageUsers();
             adminForm.Show();
             this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LowestTripsValue_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

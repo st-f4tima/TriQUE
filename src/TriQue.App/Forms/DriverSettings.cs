@@ -48,5 +48,7 @@ namespace TriQue.Forms
             login.Show();
             this.Close();
         }
+
+
     }
 }

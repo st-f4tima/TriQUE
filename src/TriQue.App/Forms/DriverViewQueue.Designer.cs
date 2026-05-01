@@ -42,70 +42,66 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            panel1 = new Panel();
+            NavBarPanel = new Panel();
             LogoutBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             SettingsBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             ViewQueueBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             DashBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             Logo = new PictureBox();
-            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            textBox4 = new TextBox();
-            textBox1 = new TextBox();
-            pictureBox2 = new PictureBox();
-            guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            textBox5 = new TextBox();
-            textBox2 = new TextBox();
-            pictureBox3 = new PictureBox();
-            guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            textBox6 = new TextBox();
-            textBox3 = new TextBox();
-            pictureBox4 = new PictureBox();
-            guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            StatusPanel = new Guna.UI2.WinForms.Guna2Panel();
+            lblStatusValue = new Label();
+            lblStatusTiltle = new Label();
+            StatusIcon = new PictureBox();
+            RoutePanel = new Guna.UI2.WinForms.Guna2Panel();
+            lblRouteValue = new Label();
+            lblRouteTitle = new Label();
+            RouteIcon = new PictureBox();
+            RankingPanel = new Guna.UI2.WinForms.Guna2Panel();
+            lblRankingValue = new Label();
+            lblRankingTitle = new Label();
+            RankingIcon = new PictureBox();
+            QueueStatusPanel = new Guna.UI2.WinForms.Guna2Panel();
             DataGridQueueStatus = new Guna.UI2.WinForms.Guna2DataGridView();
             ScrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             RefreshBtn = new Guna.UI2.WinForms.Guna2Button();
             StartTipBtn = new Guna.UI2.WinForms.Guna2Button();
             pictureBox1 = new PictureBox();
-            guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            panel1.SuspendLayout();
+            lblViewQueueStatusTitle = new Label();
+            lblQueueStatusTitle = new Label();
+            NavBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
-            guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            guna2Panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            guna2Panel4.SuspendLayout();
+            StatusPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)StatusIcon).BeginInit();
+            RoutePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)RouteIcon).BeginInit();
+            RankingPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)RankingIcon).BeginInit();
+            QueueStatusPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridQueueStatus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // NavBarPanel
             // 
-            panel1.BackColor = Color.FromArgb(215, 215, 215);
-            panel1.Controls.Add(LogoutBtn);
-            panel1.Controls.Add(SettingsBtn);
-            panel1.Controls.Add(guna2ImageButton2);
-            panel1.Controls.Add(ViewQueueBtn);
-            panel1.Controls.Add(DashBtn);
-            panel1.Controls.Add(Logo);
-            panel1.Location = new Point(0, -9);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(96, 660);
-            panel1.TabIndex = 1;
+            NavBarPanel.BackColor = Color.FromArgb(215, 215, 215);
+            NavBarPanel.Controls.Add(LogoutBtn);
+            NavBarPanel.Controls.Add(SettingsBtn);
+            NavBarPanel.Controls.Add(guna2ImageButton2);
+            NavBarPanel.Controls.Add(ViewQueueBtn);
+            NavBarPanel.Controls.Add(DashBtn);
+            NavBarPanel.Controls.Add(Logo);
+            NavBarPanel.Location = new Point(0, -9);
+            NavBarPanel.Name = "NavBarPanel";
+            NavBarPanel.Size = new Size(96, 660);
+            NavBarPanel.TabIndex = 1;
             // 
             // LogoutBtn
             // 
@@ -195,182 +191,170 @@
             Logo.TabIndex = 0;
             Logo.TabStop = false;
             // 
-            // guna2TextBox1
+            // StatusPanel
             // 
-            guna2TextBox1.BorderColor = Color.White;
-            guna2TextBox1.BorderThickness = 0;
-            guna2TextBox1.CustomizableEdges = customizableEdges6;
-            guna2TextBox1.DefaultText = "View Queue Status";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2TextBox1.ForeColor = Color.FromArgb(55, 91, 231);
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(132, 59);
-            guna2TextBox1.Margin = new Padding(4, 5, 4, 5);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PlaceholderText = "";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            guna2TextBox1.Size = new Size(216, 23);
-            guna2TextBox1.TabIndex = 2;
+            StatusPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            StatusPanel.BorderRadius = 15;
+            StatusPanel.BorderThickness = 1;
+            StatusPanel.Controls.Add(lblStatusValue);
+            StatusPanel.Controls.Add(lblStatusTiltle);
+            StatusPanel.Controls.Add(StatusIcon);
+            StatusPanel.CustomizableEdges = customizableEdges6;
+            StatusPanel.Location = new Point(140, 108);
+            StatusPanel.Name = "StatusPanel";
+            StatusPanel.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            StatusPanel.Size = new Size(315, 73);
+            StatusPanel.TabIndex = 3;
             // 
-            // guna2Panel1
+            // lblStatusValue
             // 
-            guna2Panel1.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel1.BorderRadius = 15;
-            guna2Panel1.BorderThickness = 1;
-            guna2Panel1.Controls.Add(textBox4);
-            guna2Panel1.Controls.Add(textBox1);
-            guna2Panel1.Controls.Add(pictureBox2);
-            guna2Panel1.CustomizableEdges = customizableEdges8;
-            guna2Panel1.Location = new Point(140, 108);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            guna2Panel1.Size = new Size(282, 72);
-            guna2Panel1.TabIndex = 3;
+            lblStatusValue.AutoSize = true;
+            lblStatusValue.Font = new Font("Roboto", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStatusValue.ForeColor = Color.FromArgb(255, 189, 89);
+            lblStatusValue.Location = new Point(101, 34);
+            lblStatusValue.Name = "lblStatusValue";
+            lblStatusValue.Size = new Size(112, 28);
+            lblStatusValue.TabIndex = 13;
+            lblStatusValue.Text = "WAITING";
+            lblStatusValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox4
+            // lblStatusTiltle
             // 
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox4.ForeColor = Color.FromArgb(255, 189, 89);
-            textBox4.Location = new Point(45, 32);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(126, 27);
-            textBox4.TabIndex = 11;
-            textBox4.Text = "WAITING";
+            lblStatusTiltle.AutoSize = true;
+            lblStatusTiltle.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblStatusTiltle.ForeColor = Color.FromArgb(91, 91, 91);
+            lblStatusTiltle.Location = new Point(45, 5);
+            lblStatusTiltle.Name = "lblStatusTiltle";
+            lblStatusTiltle.Size = new Size(75, 20);
+            lblStatusTiltle.TabIndex = 12;
+            lblStatusTiltle.Text = "STATUS";
+            lblStatusTiltle.Click += lblStatus_Click;
             // 
-            // textBox1
+            // StatusIcon
             // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.ForeColor = Color.FromArgb(84, 84, 84);
-            textBox1.Location = new Point(45, 5);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(69, 20);
-            textBox1.TabIndex = 9;
-            textBox1.Text = "STATUS";
+            StatusIcon.Image = (Image)resources.GetObject("StatusIcon.Image");
+            StatusIcon.Location = new Point(17, 3);
+            StatusIcon.Name = "StatusIcon";
+            StatusIcon.Size = new Size(22, 23);
+            StatusIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            StatusIcon.TabIndex = 9;
+            StatusIcon.TabStop = false;
             // 
-            // pictureBox2
+            // RoutePanel
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(17, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(22, 23);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 9;
-            pictureBox2.TabStop = false;
+            RoutePanel.BorderColor = Color.FromArgb(84, 84, 84);
+            RoutePanel.BorderRadius = 15;
+            RoutePanel.BorderThickness = 1;
+            RoutePanel.Controls.Add(lblRouteValue);
+            RoutePanel.Controls.Add(lblRouteTitle);
+            RoutePanel.Controls.Add(RouteIcon);
+            RoutePanel.CustomizableEdges = customizableEdges8;
+            RoutePanel.Location = new Point(483, 108);
+            RoutePanel.Name = "RoutePanel";
+            RoutePanel.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            RoutePanel.Size = new Size(315, 73);
+            RoutePanel.TabIndex = 4;
             // 
-            // guna2Panel2
+            // lblRouteValue
             // 
-            guna2Panel2.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel2.BorderRadius = 15;
-            guna2Panel2.BorderThickness = 1;
-            guna2Panel2.Controls.Add(textBox5);
-            guna2Panel2.Controls.Add(textBox2);
-            guna2Panel2.Controls.Add(pictureBox3);
-            guna2Panel2.CustomizableEdges = customizableEdges10;
-            guna2Panel2.Location = new Point(457, 108);
-            guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            guna2Panel2.Size = new Size(282, 72);
-            guna2Panel2.TabIndex = 4;
+            lblRouteValue.AutoSize = true;
+            lblRouteValue.Font = new Font("Roboto", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRouteValue.ForeColor = Color.FromArgb(91, 91, 91);
+            lblRouteValue.Location = new Point(70, 34);
+            lblRouteValue.Name = "lblRouteValue";
+            lblRouteValue.Size = new Size(186, 28);
+            lblRouteValue.TabIndex = 14;
+            lblRouteValue.Text = "BSU - Alangilan";
+            lblRouteValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox5
+            // lblRouteTitle
             // 
-            textBox5.BorderStyle = BorderStyle.None;
-            textBox5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox5.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox5.Location = new Point(47, 31);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(207, 23);
-            textBox5.TabIndex = 12;
-            textBox5.Text = "-";
+            lblRouteTitle.AutoSize = true;
+            lblRouteTitle.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRouteTitle.ForeColor = Color.FromArgb(91, 91, 91);
+            lblRouteTitle.Location = new Point(47, 5);
+            lblRouteTitle.Name = "lblRouteTitle";
+            lblRouteTitle.Size = new Size(67, 20);
+            lblRouteTitle.TabIndex = 13;
+            lblRouteTitle.Text = "ROUTE";
             // 
-            // textBox2
+            // RouteIcon
             // 
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.ForeColor = Color.FromArgb(84, 84, 84);
-            textBox2.Location = new Point(47, 5);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(69, 20);
-            textBox2.TabIndex = 10;
-            textBox2.Text = "ROUTE";
+            RouteIcon.Image = (Image)resources.GetObject("RouteIcon.Image");
+            RouteIcon.Location = new Point(16, 3);
+            RouteIcon.Name = "RouteIcon";
+            RouteIcon.Size = new Size(25, 23);
+            RouteIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            RouteIcon.TabIndex = 2;
+            RouteIcon.TabStop = false;
             // 
-            // pictureBox3
+            // RankingPanel
             // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(16, 3);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(25, 23);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 2;
-            pictureBox3.TabStop = false;
+            RankingPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            RankingPanel.BorderRadius = 15;
+            RankingPanel.BorderThickness = 1;
+            RankingPanel.Controls.Add(lblRankingValue);
+            RankingPanel.Controls.Add(lblRankingTitle);
+            RankingPanel.Controls.Add(RankingIcon);
+            RankingPanel.CustomizableEdges = customizableEdges10;
+            RankingPanel.Location = new Point(824, 108);
+            RankingPanel.Name = "RankingPanel";
+            RankingPanel.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            RankingPanel.Size = new Size(315, 73);
+            RankingPanel.TabIndex = 5;
             // 
-            // guna2Panel3
+            // lblRankingValue
             // 
-            guna2Panel3.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel3.BorderRadius = 15;
-            guna2Panel3.BorderThickness = 1;
-            guna2Panel3.Controls.Add(textBox6);
-            guna2Panel3.Controls.Add(textBox3);
-            guna2Panel3.Controls.Add(pictureBox4);
-            guna2Panel3.CustomizableEdges = customizableEdges12;
-            guna2Panel3.Location = new Point(771, 108);
-            guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            guna2Panel3.Size = new Size(282, 72);
-            guna2Panel3.TabIndex = 5;
+            lblRankingValue.AutoSize = true;
+            lblRankingValue.Font = new Font("Roboto", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRankingValue.ForeColor = Color.FromArgb(91, 91, 91);
+            lblRankingValue.Location = new Point(139, 34);
+            lblRankingValue.Name = "lblRankingValue";
+            lblRankingValue.Size = new Size(49, 28);
+            lblRankingValue.TabIndex = 15;
+            lblRankingValue.Text = "8th";
+            lblRankingValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox6
+            // lblRankingTitle
             // 
-            textBox6.BorderStyle = BorderStyle.None;
-            textBox6.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox6.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox6.Location = new Point(55, 31);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(201, 31);
-            textBox6.TabIndex = 9;
-            textBox6.Text = "-";
+            lblRankingTitle.AutoSize = true;
+            lblRankingTitle.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRankingTitle.ForeColor = Color.FromArgb(91, 91, 91);
+            lblRankingTitle.Location = new Point(56, 6);
+            lblRankingTitle.Name = "lblRankingTitle";
+            lblRankingTitle.Size = new Size(89, 20);
+            lblRankingTitle.TabIndex = 14;
+            lblRankingTitle.Text = "RANKING";
             // 
-            // textBox3
+            // RankingIcon
             // 
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.ForeColor = Color.FromArgb(84, 84, 84);
-            textBox3.Location = new Point(56, 5);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(85, 20);
-            textBox3.TabIndex = 10;
-            textBox3.Text = "RANKING";
+            RankingIcon.Image = (Image)resources.GetObject("RankingIcon.Image");
+            RankingIcon.Location = new Point(16, 3);
+            RankingIcon.Name = "RankingIcon";
+            RankingIcon.Size = new Size(34, 23);
+            RankingIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            RankingIcon.TabIndex = 9;
+            RankingIcon.TabStop = false;
             // 
-            // pictureBox4
+            // QueueStatusPanel
             // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(16, 3);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(34, 23);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 9;
-            pictureBox4.TabStop = false;
-            // 
-            // guna2Panel4
-            // 
-            guna2Panel4.BorderColor = Color.Black;
-            guna2Panel4.BorderThickness = 1;
-            guna2Panel4.Controls.Add(DataGridQueueStatus);
-            guna2Panel4.Controls.Add(ScrollBar);
-            guna2Panel4.CustomizableEdges = customizableEdges14;
-            guna2Panel4.Location = new Point(140, 230);
-            guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            guna2Panel4.Size = new Size(913, 305);
-            guna2Panel4.TabIndex = 6;
+            QueueStatusPanel.BorderColor = Color.Black;
+            QueueStatusPanel.BorderThickness = 1;
+            QueueStatusPanel.Controls.Add(DataGridQueueStatus);
+            QueueStatusPanel.Controls.Add(ScrollBar);
+            QueueStatusPanel.CustomizableEdges = customizableEdges12;
+            QueueStatusPanel.Location = new Point(140, 230);
+            QueueStatusPanel.Name = "QueueStatusPanel";
+            QueueStatusPanel.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            QueueStatusPanel.Size = new Size(999, 305);
+            QueueStatusPanel.TabIndex = 6;
             // 
             // DataGridQueueStatus
             // 
+            DataGridQueueStatus.AllowUserToAddRows = false;
+            DataGridQueueStatus.AllowUserToDeleteRows = false;
+            DataGridQueueStatus.AllowUserToResizeColumns = false;
+            DataGridQueueStatus.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             DataGridQueueStatus.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -392,12 +376,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             DataGridQueueStatus.DefaultCellStyle = dataGridViewCellStyle3;
             DataGridQueueStatus.GridColor = Color.White;
-            DataGridQueueStatus.Location = new Point(11, 11);
+            DataGridQueueStatus.Location = new Point(17, 15);
             DataGridQueueStatus.Name = "DataGridQueueStatus";
+            DataGridQueueStatus.ReadOnly = true;
             DataGridQueueStatus.RowHeadersVisible = false;
             DataGridQueueStatus.RowHeadersWidth = 40;
             DataGridQueueStatus.RowTemplate.Height = 25;
-            DataGridQueueStatus.Size = new Size(890, 277);
+            DataGridQueueStatus.Size = new Size(964, 273);
             DataGridQueueStatus.TabIndex = 1;
             DataGridQueueStatus.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             DataGridQueueStatus.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -412,7 +397,7 @@
             DataGridQueueStatus.ThemeStyle.HeaderStyle.ForeColor = Color.FromArgb(55, 91, 231);
             DataGridQueueStatus.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             DataGridQueueStatus.ThemeStyle.HeaderStyle.Height = 30;
-            DataGridQueueStatus.ThemeStyle.ReadOnly = false;
+            DataGridQueueStatus.ThemeStyle.ReadOnly = true;
             DataGridQueueStatus.ThemeStyle.RowsStyle.BackColor = Color.White;
             DataGridQueueStatus.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             DataGridQueueStatus.ThemeStyle.RowsStyle.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -434,7 +419,7 @@
             // RefreshBtn
             // 
             RefreshBtn.BorderRadius = 15;
-            RefreshBtn.CustomizableEdges = customizableEdges16;
+            RefreshBtn.CustomizableEdges = customizableEdges14;
             RefreshBtn.DisabledState.BorderColor = Color.DarkGray;
             RefreshBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             RefreshBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -442,9 +427,9 @@
             RefreshBtn.FillColor = Color.FromArgb(55, 91, 231);
             RefreshBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             RefreshBtn.ForeColor = Color.White;
-            RefreshBtn.Location = new Point(132, 547);
+            RefreshBtn.Location = new Point(140, 547);
             RefreshBtn.Name = "RefreshBtn";
-            RefreshBtn.ShadowDecoration.CustomizableEdges = customizableEdges17;
+            RefreshBtn.ShadowDecoration.CustomizableEdges = customizableEdges15;
             RefreshBtn.Size = new Size(191, 45);
             RefreshBtn.TabIndex = 7;
             RefreshBtn.Text = "Refresh Queue";
@@ -453,7 +438,7 @@
             // StartTipBtn
             // 
             StartTipBtn.BorderRadius = 15;
-            StartTipBtn.CustomizableEdges = customizableEdges18;
+            StartTipBtn.CustomizableEdges = customizableEdges16;
             StartTipBtn.DisabledState.BorderColor = Color.DarkGray;
             StartTipBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             StartTipBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -461,9 +446,9 @@
             StartTipBtn.FillColor = Color.FromArgb(55, 91, 231);
             StartTipBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             StartTipBtn.ForeColor = Color.White;
-            StartTipBtn.Location = new Point(339, 547);
+            StartTipBtn.Location = new Point(353, 547);
             StartTipBtn.Name = "StartTipBtn";
-            StartTipBtn.ShadowDecoration.CustomizableEdges = customizableEdges19;
+            StartTipBtn.ShadowDecoration.CustomizableEdges = customizableEdges17;
             StartTipBtn.Size = new Size(145, 45);
             StartTipBtn.TabIndex = 8;
             StartTipBtn.Text = "Start";
@@ -480,45 +465,45 @@
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             // 
-            // guna2TextBox2
+            // lblViewQueueStatusTitle
             // 
-            guna2TextBox2.BorderColor = Color.White;
-            guna2TextBox2.BorderThickness = 0;
-            guna2TextBox2.CustomizableEdges = customizableEdges20;
-            guna2TextBox2.DefaultText = "Queue Status";
-            guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2TextBox2.ForeColor = Color.FromArgb(91, 91, 91);
-            guna2TextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox2.Location = new Point(131, 196);
-            guna2TextBox2.Margin = new Padding(4, 5, 4, 5);
-            guna2TextBox2.Name = "guna2TextBox2";
-            guna2TextBox2.PlaceholderText = "";
-            guna2TextBox2.SelectedText = "";
-            guna2TextBox2.ShadowDecoration.CustomizableEdges = customizableEdges21;
-            guna2TextBox2.Size = new Size(157, 23);
-            guna2TextBox2.TabIndex = 10;
+            lblViewQueueStatusTitle.AutoSize = true;
+            lblViewQueueStatusTitle.Font = new Font("Roboto", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblViewQueueStatusTitle.ForeColor = Color.FromArgb(55, 91, 231);
+            lblViewQueueStatusTitle.Location = new Point(140, 58);
+            lblViewQueueStatusTitle.Name = "lblViewQueueStatusTitle";
+            lblViewQueueStatusTitle.Size = new Size(225, 28);
+            lblViewQueueStatusTitle.TabIndex = 11;
+            lblViewQueueStatusTitle.Text = "View Queue Status";
+            lblViewQueueStatusTitle.Click += lblViewQueueStatusTitle_Click;
+            // 
+            // lblQueueStatusTitle
+            // 
+            lblQueueStatusTitle.AutoSize = true;
+            lblQueueStatusTitle.Font = new Font("Roboto", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblQueueStatusTitle.ForeColor = Color.FromArgb(91, 91, 91);
+            lblQueueStatusTitle.Location = new Point(140, 199);
+            lblQueueStatusTitle.Name = "lblQueueStatusTitle";
+            lblQueueStatusTitle.Size = new Size(164, 28);
+            lblQueueStatusTitle.TabIndex = 12;
+            lblQueueStatusTitle.Text = "Queue Status";
             // 
             // DriverViewQueue
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1102, 623);
-            Controls.Add(guna2TextBox2);
+            ClientSize = new Size(1182, 653);
+            Controls.Add(lblQueueStatusTitle);
+            Controls.Add(lblViewQueueStatusTitle);
             Controls.Add(pictureBox1);
             Controls.Add(StartTipBtn);
             Controls.Add(RefreshBtn);
-            Controls.Add(guna2Panel4);
-            Controls.Add(guna2Panel3);
-            Controls.Add(guna2Panel2);
-            Controls.Add(guna2Panel1);
-            Controls.Add(guna2TextBox1);
-            Controls.Add(panel1);
+            Controls.Add(QueueStatusPanel);
+            Controls.Add(RankingPanel);
+            Controls.Add(RoutePanel);
+            Controls.Add(StatusPanel);
+            Controls.Add(NavBarPanel);
             Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -529,51 +514,52 @@
             Name = "DriverViewQueue";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TriQue";
-            panel1.ResumeLayout(false);
+            NavBarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
-            guna2Panel1.ResumeLayout(false);
-            guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            guna2Panel2.ResumeLayout(false);
-            guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            guna2Panel3.ResumeLayout(false);
-            guna2Panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            guna2Panel4.ResumeLayout(false);
+            StatusPanel.ResumeLayout(false);
+            StatusPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)StatusIcon).EndInit();
+            RoutePanel.ResumeLayout(false);
+            RoutePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)RouteIcon).EndInit();
+            RankingPanel.ResumeLayout(false);
+            RankingPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)RankingIcon).EndInit();
+            QueueStatusPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DataGridQueueStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Panel panel1;
+        private Panel NavBarPanel;
         private Guna.UI2.WinForms.Guna2ImageButton LogoutBtn;
         private Guna.UI2.WinForms.Guna2ImageButton SettingsBtn;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
         private Guna.UI2.WinForms.Guna2ImageButton ViewQueueBtn;
         private Guna.UI2.WinForms.Guna2ImageButton DashBtn;
         private PictureBox Logo;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private Guna.UI2.WinForms.Guna2Panel StatusPanel;
+        private Guna.UI2.WinForms.Guna2Panel RoutePanel;
+        private Guna.UI2.WinForms.Guna2Panel RankingPanel;
+        private Guna.UI2.WinForms.Guna2Panel QueueStatusPanel;
         private Guna.UI2.WinForms.Guna2VScrollBar ScrollBar;
         private Guna.UI2.WinForms.Guna2Button RefreshBtn;
         private Guna.UI2.WinForms.Guna2Button StartTipBtn;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private TextBox textBox4;
-        private TextBox textBox1;
-        private TextBox textBox5;
-        private TextBox textBox2;
-        private PictureBox pictureBox3;
-        private TextBox textBox6;
-        private TextBox textBox3;
-        private PictureBox pictureBox4;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private PictureBox StatusIcon;
+        private PictureBox RouteIcon;
+        private PictureBox RankingIcon;
         private Guna.UI2.WinForms.Guna2DataGridView DataGridQueueStatus;
+        private Label lblViewQueueStatusTitle;
+        private Label lblStatusTiltle;
+        private Label lblRouteTitle;
+        private Label lblRankingTitle;
+        private Label lblStatusValue;
+        private Label lblRouteValue;
+        private Label lblRankingValue;
+        private Label lblQueueStatusTitle;
     }
 }

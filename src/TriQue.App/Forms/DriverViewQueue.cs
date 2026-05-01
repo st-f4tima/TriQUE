@@ -51,9 +51,9 @@ namespace TriQue.Forms
 
             if (row != null)
             {
-                textBox6.Text = row["Position"].ToString();
-                textBox5.Text = row["RouteName"].ToString();
-                textBox4.Text = row["Status"].ToString();
+                lblRankingValue.Text = row["Position"].ToString();
+                lblRouteValue.Text = row["RouteName"].ToString();
+                lblStatusValue.Text = row["Status"].ToString();
             }
 
             DataGridQueueStatus.DataSource =
@@ -166,7 +166,7 @@ namespace TriQue.Forms
             UpdateStartButtonState();
         }
 
-       
+
         // navigation
         private void DashBtn_Click(object sender, EventArgs e)
         {
@@ -187,6 +187,16 @@ namespace TriQue.Forms
             LoginForm login = new LoginForm();
             login.Show();
             this.Close();
+        }
+
+        private void lblStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblViewQueueStatusTitle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
