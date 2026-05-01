@@ -14,7 +14,7 @@ namespace TriQue.Tests.Services
         private DatabaseHelper _dbHelper;
 
         [TestInitialize]
-         public void Setup()
+        public void Setup()
         {
             // Before each test:
             // 1. Create a DatabaseHelper (handles SQLite connections).
