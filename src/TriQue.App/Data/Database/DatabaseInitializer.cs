@@ -130,6 +130,15 @@ namespace TriQue.Data.Database
                 FOREIGN KEY (DriverID) REFERENCES Driver(DriverID),
                 FOREIGN KEY (QueueID) REFERENCES Queue(QueueID)
             );
+
+            CREATE TABLE IF NOT EXISTS TrafficLog (
+                    LogID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    RouteID INTEGER NOT NULL,
+                    DelaySec REAL NOT NULL,
+                    TrafficLevel TEXT NOT NULL,
+                    FetchedAt DATETIME NOT NULL DEFAULT (datetime('now')),
+                    FOREIGN KEY (RouteID) REFERENCES Route(RouteID)
+                );
             ";
 
             cmd.ExecuteNonQuery();

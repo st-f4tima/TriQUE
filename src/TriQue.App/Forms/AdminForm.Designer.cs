@@ -367,7 +367,6 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 2;
             pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
             // 
             // LowestTripsPanel
             // 
@@ -395,7 +394,6 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 10;
             pictureBox5.TabStop = false;
-            pictureBox5.Click += pictureBox5_Click;
             // 
             // PieChartPanel
             // 
@@ -512,7 +510,6 @@
             lblPeakCongestionDuration.TabIndex = 2;
             lblPeakCongestionDuration.Text = "Peak Congestion \r\nDuration";
             lblPeakCongestionDuration.TextAlign = ContentAlignment.MiddleCenter;
-            lblPeakCongestionDuration.Click += label2_Click;
             // 
             // lblTotalTripsToday
             // 
@@ -602,7 +599,6 @@
             LowestTripsValue.TabIndex = 12;
             LowestTripsValue.Text = "178";
             LowestTripsValue.TextAlign = ContentAlignment.MiddleCenter;
-            LowestTripsValue.Click += LowestTripsValue_Click;
             // 
             // AdminForm
             // 
