@@ -57,15 +57,40 @@
             ViewQueueBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             DashBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             Logo = new PictureBox();
-            guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            TotalTripsPanel = new Guna.UI2.WinForms.Guna2Panel();
+            CarIcon = new PictureBox();
+            TotalTripsValue = new Label();
+            lblTotalTrips = new Label();
             ReportPanel = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            MostActiveDriverPanel = new Guna.UI2.WinForms.Guna2Panel();
+            GreenCircleIcon = new PictureBox();
+            MostActiveDriverValue = new Label();
+            lblMostActiveDriver = new Label();
+            LeastActiveDriverPanel = new Guna.UI2.WinForms.Guna2Panel();
+            GrayCircleIcon = new PictureBox();
+            LeastActiveDriverValue = new Label();
+            lbLeastActiveDriver = new Label();
+            FastestTripPanel = new Guna.UI2.WinForms.Guna2Panel();
+            ClockIcon = new PictureBox();
+            FastestTripValue = new Label();
+            lblFastestTrip = new Label();
+            SlowestTripPanel = new Guna.UI2.WinForms.Guna2Panel();
+            TurtleIcon = new PictureBox();
+            SlowestTripValue = new Label();
+            lblSlowestTrip = new Label();
             lblGenerateReportTitle = new Label();
             NavBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
+            TotalTripsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)CarIcon).BeginInit();
+            MostActiveDriverPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)GreenCircleIcon).BeginInit();
+            LeastActiveDriverPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)GrayCircleIcon).BeginInit();
+            FastestTripPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ClockIcon).BeginInit();
+            SlowestTripPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)TurtleIcon).BeginInit();
             SuspendLayout();
             // 
             // NavBarPanel
@@ -191,17 +216,53 @@
             Logo.TabIndex = 0;
             Logo.TabStop = false;
             // 
-            // guna2Panel2
+            // TotalTripsPanel
             // 
-            guna2Panel2.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel2.BorderRadius = 15;
-            guna2Panel2.BorderThickness = 1;
-            guna2Panel2.CustomizableEdges = customizableEdges29;
-            guna2Panel2.Location = new Point(147, 103);
-            guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            guna2Panel2.Size = new Size(180, 125);
-            guna2Panel2.TabIndex = 4;
+            TotalTripsPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            TotalTripsPanel.BorderRadius = 15;
+            TotalTripsPanel.BorderThickness = 1;
+            TotalTripsPanel.Controls.Add(CarIcon);
+            TotalTripsPanel.Controls.Add(TotalTripsValue);
+            TotalTripsPanel.Controls.Add(lblTotalTrips);
+            TotalTripsPanel.CustomizableEdges = customizableEdges29;
+            TotalTripsPanel.Location = new Point(147, 103);
+            TotalTripsPanel.Name = "TotalTripsPanel";
+            TotalTripsPanel.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            TotalTripsPanel.Size = new Size(180, 125);
+            TotalTripsPanel.TabIndex = 4;
+            // 
+            // CarIcon
+            // 
+            CarIcon.Image = (Image)resources.GetObject("CarIcon.Image");
+            CarIcon.Location = new Point(15, 12);
+            CarIcon.Name = "CarIcon";
+            CarIcon.Size = new Size(32, 31);
+            CarIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            CarIcon.TabIndex = 2;
+            CarIcon.TabStop = false;
+            // 
+            // TotalTripsValue
+            // 
+            TotalTripsValue.AutoSize = true;
+            TotalTripsValue.Font = new Font("Roboto", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TotalTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
+            TotalTripsValue.Location = new Point(45, 52);
+            TotalTripsValue.Name = "TotalTripsValue";
+            TotalTripsValue.Size = new Size(89, 37);
+            TotalTripsValue.TabIndex = 1;
+            TotalTripsValue.Text = "2422";
+            TotalTripsValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblTotalTrips
+            // 
+            lblTotalTrips.AutoSize = true;
+            lblTotalTrips.ForeColor = Color.FromArgb(55, 91, 231);
+            lblTotalTrips.Location = new Point(40, 98);
+            lblTotalTrips.Name = "lblTotalTrips";
+            lblTotalTrips.Size = new Size(100, 20);
+            lblTotalTrips.TabIndex = 0;
+            lblTotalTrips.Text = "Total Trips";
+            lblTotalTrips.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // ReportPanel
             // 
@@ -215,53 +276,197 @@
             ReportPanel.Size = new Size(984, 351);
             ReportPanel.TabIndex = 8;
             // 
-            // guna2Panel3
+            // MostActiveDriverPanel
             // 
-            guna2Panel3.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel3.BorderRadius = 15;
-            guna2Panel3.BorderThickness = 1;
-            guna2Panel3.CustomizableEdges = customizableEdges33;
-            guna2Panel3.Location = new Point(349, 103);
-            guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges34;
-            guna2Panel3.Size = new Size(180, 125);
-            guna2Panel3.TabIndex = 9;
+            MostActiveDriverPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            MostActiveDriverPanel.BorderRadius = 15;
+            MostActiveDriverPanel.BorderThickness = 1;
+            MostActiveDriverPanel.Controls.Add(GreenCircleIcon);
+            MostActiveDriverPanel.Controls.Add(MostActiveDriverValue);
+            MostActiveDriverPanel.Controls.Add(lblMostActiveDriver);
+            MostActiveDriverPanel.CustomizableEdges = customizableEdges33;
+            MostActiveDriverPanel.Location = new Point(349, 103);
+            MostActiveDriverPanel.Name = "MostActiveDriverPanel";
+            MostActiveDriverPanel.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            MostActiveDriverPanel.Size = new Size(180, 125);
+            MostActiveDriverPanel.TabIndex = 9;
             // 
-            // guna2Panel4
+            // GreenCircleIcon
             // 
-            guna2Panel4.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel4.BorderRadius = 15;
-            guna2Panel4.BorderThickness = 1;
-            guna2Panel4.CustomizableEdges = customizableEdges35;
-            guna2Panel4.Location = new Point(550, 103);
-            guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges36;
-            guna2Panel4.Size = new Size(180, 125);
-            guna2Panel4.TabIndex = 5;
+            GreenCircleIcon.Image = (Image)resources.GetObject("GreenCircleIcon.Image");
+            GreenCircleIcon.Location = new Point(17, 18);
+            GreenCircleIcon.Name = "GreenCircleIcon";
+            GreenCircleIcon.Size = new Size(28, 25);
+            GreenCircleIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            GreenCircleIcon.TabIndex = 3;
+            GreenCircleIcon.TabStop = false;
             // 
-            // guna2Panel5
+            // MostActiveDriverValue
             // 
-            guna2Panel5.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel5.BorderRadius = 15;
-            guna2Panel5.BorderThickness = 1;
-            guna2Panel5.CustomizableEdges = customizableEdges37;
-            guna2Panel5.Location = new Point(750, 103);
-            guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges38;
-            guna2Panel5.Size = new Size(180, 125);
-            guna2Panel5.TabIndex = 5;
+            MostActiveDriverValue.AutoSize = true;
+            MostActiveDriverValue.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MostActiveDriverValue.ForeColor = Color.FromArgb(84, 84, 84);
+            MostActiveDriverValue.Location = new Point(21, 62);
+            MostActiveDriverValue.Name = "MostActiveDriverValue";
+            MostActiveDriverValue.Size = new Size(137, 20);
+            MostActiveDriverValue.TabIndex = 2;
+            MostActiveDriverValue.Text = "Sanford Vinuya";
+            MostActiveDriverValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // guna2Panel6
+            // lblMostActiveDriver
             // 
-            guna2Panel6.BorderColor = Color.FromArgb(84, 84, 84);
-            guna2Panel6.BorderRadius = 15;
-            guna2Panel6.BorderThickness = 1;
-            guna2Panel6.CustomizableEdges = customizableEdges39;
-            guna2Panel6.Location = new Point(951, 103);
-            guna2Panel6.Name = "guna2Panel6";
-            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges40;
-            guna2Panel6.Size = new Size(180, 125);
-            guna2Panel6.TabIndex = 5;
+            lblMostActiveDriver.AutoSize = true;
+            lblMostActiveDriver.ForeColor = Color.FromArgb(55, 91, 231);
+            lblMostActiveDriver.Location = new Point(7, 98);
+            lblMostActiveDriver.Name = "lblMostActiveDriver";
+            lblMostActiveDriver.Size = new Size(166, 20);
+            lblMostActiveDriver.TabIndex = 1;
+            lblMostActiveDriver.Text = "Most Active Driver";
+            lblMostActiveDriver.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // LeastActiveDriverPanel
+            // 
+            LeastActiveDriverPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            LeastActiveDriverPanel.BorderRadius = 15;
+            LeastActiveDriverPanel.BorderThickness = 1;
+            LeastActiveDriverPanel.Controls.Add(GrayCircleIcon);
+            LeastActiveDriverPanel.Controls.Add(LeastActiveDriverValue);
+            LeastActiveDriverPanel.Controls.Add(lbLeastActiveDriver);
+            LeastActiveDriverPanel.CustomizableEdges = customizableEdges35;
+            LeastActiveDriverPanel.Location = new Point(550, 103);
+            LeastActiveDriverPanel.Name = "LeastActiveDriverPanel";
+            LeastActiveDriverPanel.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            LeastActiveDriverPanel.Size = new Size(180, 125);
+            LeastActiveDriverPanel.TabIndex = 5;
+            // 
+            // GrayCircleIcon
+            // 
+            GrayCircleIcon.Image = (Image)resources.GetObject("GrayCircleIcon.Image");
+            GrayCircleIcon.Location = new Point(17, 18);
+            GrayCircleIcon.Name = "GrayCircleIcon";
+            GrayCircleIcon.Size = new Size(28, 25);
+            GrayCircleIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            GrayCircleIcon.TabIndex = 11;
+            GrayCircleIcon.TabStop = false;
+            // 
+            // LeastActiveDriverValue
+            // 
+            LeastActiveDriverValue.AutoSize = true;
+            LeastActiveDriverValue.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LeastActiveDriverValue.ForeColor = Color.FromArgb(84, 84, 84);
+            LeastActiveDriverValue.Location = new Point(17, 63);
+            LeastActiveDriverValue.Name = "LeastActiveDriverValue";
+            LeastActiveDriverValue.Size = new Size(147, 20);
+            LeastActiveDriverValue.TabIndex = 2;
+            LeastActiveDriverValue.Text = "Rimuru Tempest";
+            LeastActiveDriverValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lbLeastActiveDriver
+            // 
+            lbLeastActiveDriver.AutoSize = true;
+            lbLeastActiveDriver.ForeColor = Color.FromArgb(55, 91, 231);
+            lbLeastActiveDriver.Location = new Point(5, 98);
+            lbLeastActiveDriver.Name = "lbLeastActiveDriver";
+            lbLeastActiveDriver.Size = new Size(169, 20);
+            lbLeastActiveDriver.TabIndex = 1;
+            lbLeastActiveDriver.Text = "Least Active Driver";
+            lbLeastActiveDriver.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // FastestTripPanel
+            // 
+            FastestTripPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            FastestTripPanel.BorderRadius = 15;
+            FastestTripPanel.BorderThickness = 1;
+            FastestTripPanel.Controls.Add(ClockIcon);
+            FastestTripPanel.Controls.Add(FastestTripValue);
+            FastestTripPanel.Controls.Add(lblFastestTrip);
+            FastestTripPanel.CustomizableEdges = customizableEdges37;
+            FastestTripPanel.Location = new Point(750, 103);
+            FastestTripPanel.Name = "FastestTripPanel";
+            FastestTripPanel.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            FastestTripPanel.Size = new Size(180, 125);
+            FastestTripPanel.TabIndex = 5;
+            // 
+            // ClockIcon
+            // 
+            ClockIcon.Image = (Image)resources.GetObject("ClockIcon.Image");
+            ClockIcon.Location = new Point(16, 17);
+            ClockIcon.Name = "ClockIcon";
+            ClockIcon.Size = new Size(28, 25);
+            ClockIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            ClockIcon.TabIndex = 12;
+            ClockIcon.TabStop = false;
+            // 
+            // FastestTripValue
+            // 
+            FastestTripValue.AutoSize = true;
+            FastestTripValue.Font = new Font("Roboto", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            FastestTripValue.ForeColor = Color.FromArgb(84, 84, 84);
+            FastestTripValue.Location = new Point(11, 54);
+            FastestTripValue.Name = "FastestTripValue";
+            FastestTripValue.Size = new Size(158, 37);
+            FastestTripValue.TabIndex = 2;
+            FastestTripValue.Text = "14:32 min";
+            FastestTripValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblFastestTrip
+            // 
+            lblFastestTrip.AutoSize = true;
+            lblFastestTrip.ForeColor = Color.FromArgb(55, 91, 231);
+            lblFastestTrip.Location = new Point(38, 98);
+            lblFastestTrip.Name = "lblFastestTrip";
+            lblFastestTrip.Size = new Size(111, 20);
+            lblFastestTrip.TabIndex = 1;
+            lblFastestTrip.Text = "Fastest Trip";
+            lblFastestTrip.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // SlowestTripPanel
+            // 
+            SlowestTripPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            SlowestTripPanel.BorderRadius = 15;
+            SlowestTripPanel.BorderThickness = 1;
+            SlowestTripPanel.Controls.Add(TurtleIcon);
+            SlowestTripPanel.Controls.Add(SlowestTripValue);
+            SlowestTripPanel.Controls.Add(lblSlowestTrip);
+            SlowestTripPanel.CustomizableEdges = customizableEdges39;
+            SlowestTripPanel.Location = new Point(951, 103);
+            SlowestTripPanel.Name = "SlowestTripPanel";
+            SlowestTripPanel.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            SlowestTripPanel.Size = new Size(180, 125);
+            SlowestTripPanel.TabIndex = 5;
+            // 
+            // TurtleIcon
+            // 
+            TurtleIcon.Image = (Image)resources.GetObject("TurtleIcon.Image");
+            TurtleIcon.Location = new Point(10, 8);
+            TurtleIcon.Name = "TurtleIcon";
+            TurtleIcon.Size = new Size(43, 39);
+            TurtleIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            TurtleIcon.TabIndex = 11;
+            TurtleIcon.TabStop = false;
+            // 
+            // SlowestTripValue
+            // 
+            SlowestTripValue.AutoSize = true;
+            SlowestTripValue.Font = new Font("Roboto", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SlowestTripValue.ForeColor = Color.FromArgb(84, 84, 84);
+            SlowestTripValue.Location = new Point(11, 54);
+            SlowestTripValue.Name = "SlowestTripValue";
+            SlowestTripValue.Size = new Size(158, 37);
+            SlowestTripValue.TabIndex = 2;
+            SlowestTripValue.Text = "28:21 min";
+            SlowestTripValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblSlowestTrip
+            // 
+            lblSlowestTrip.AutoSize = true;
+            lblSlowestTrip.ForeColor = Color.FromArgb(55, 91, 231);
+            lblSlowestTrip.Location = new Point(34, 98);
+            lblSlowestTrip.Name = "lblSlowestTrip";
+            lblSlowestTrip.Size = new Size(115, 20);
+            lblSlowestTrip.TabIndex = 1;
+            lblSlowestTrip.Text = "Slowest Trip";
+            lblSlowestTrip.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblGenerateReportTitle
             // 
@@ -281,12 +486,12 @@
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
             Controls.Add(lblGenerateReportTitle);
-            Controls.Add(guna2Panel6);
-            Controls.Add(guna2Panel5);
-            Controls.Add(guna2Panel4);
-            Controls.Add(guna2Panel3);
+            Controls.Add(SlowestTripPanel);
+            Controls.Add(FastestTripPanel);
+            Controls.Add(LeastActiveDriverPanel);
+            Controls.Add(MostActiveDriverPanel);
             Controls.Add(ReportPanel);
-            Controls.Add(guna2Panel2);
+            Controls.Add(TotalTripsPanel);
             Controls.Add(NavBarPanel);
             Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
@@ -301,6 +506,21 @@
             Text = "TriQue";
             NavBarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
+            TotalTripsPanel.ResumeLayout(false);
+            TotalTripsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)CarIcon).EndInit();
+            MostActiveDriverPanel.ResumeLayout(false);
+            MostActiveDriverPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)GreenCircleIcon).EndInit();
+            LeastActiveDriverPanel.ResumeLayout(false);
+            LeastActiveDriverPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)GrayCircleIcon).EndInit();
+            FastestTripPanel.ResumeLayout(false);
+            FastestTripPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ClockIcon).EndInit();
+            SlowestTripPanel.ResumeLayout(false);
+            SlowestTripPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)TurtleIcon).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -315,12 +535,27 @@
         private Guna.UI2.WinForms.Guna2ImageButton ViewQueueBtn;
         private Guna.UI2.WinForms.Guna2ImageButton DashBtn;
         private PictureBox Logo;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel TotalTripsPanel;
         private Guna.UI2.WinForms.Guna2Panel ReportPanel;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Guna.UI2.WinForms.Guna2Panel MostActiveDriverPanel;
+        private Guna.UI2.WinForms.Guna2Panel LeastActiveDriverPanel;
+        private Guna.UI2.WinForms.Guna2Panel FastestTripPanel;
+        private Guna.UI2.WinForms.Guna2Panel SlowestTripPanel;
         private Label lblGenerateReportTitle;
+        private Label lblTotalTrips;
+        private Label lblMostActiveDriver;
+        private Label lbLeastActiveDriver;
+        private Label lblFastestTrip;
+        private Label lblSlowestTrip;
+        private Label TotalTripsValue;
+        private Label MostActiveDriverValue;
+        private Label LeastActiveDriverValue;
+        private Label FastestTripValue;
+        private Label SlowestTripValue;
+        private PictureBox CarIcon;
+        private PictureBox GreenCircleIcon;
+        private PictureBox GrayCircleIcon;
+        private PictureBox ClockIcon;
+        private PictureBox TurtleIcon;
     }
 }
