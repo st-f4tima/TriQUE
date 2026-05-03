@@ -16,7 +16,7 @@ namespace Trique.Forms
         private int _userID;
         public AdminGenerateReport(int userID)
         {
-
+  
             InitializeComponent();
             _userID = userID;
         }
@@ -62,6 +62,5 @@ namespace Trique.Forms
             adminForm.Show();
             this.Hide();
         }
-
     }
 }
