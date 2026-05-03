@@ -1,142 +1,191 @@
+using Guna.Charts.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using Guna.Charts.WinForms;
 using TriQue.Forms;
-
+using TriQue.Services;
+using TriQue.Data.Repositories;
 namespace Trique.Forms
 {
     public partial class AdminForm : Form
     {
-        public AdminForm()
+        private readonly TrafficService _trafficService = new();
+        private readonly AdminRepository _adminRepo = new();
+        private System.Windows.Forms.Timer _refreshTimer;
+        private int _userID;
+
+        public AdminForm(int userID)
         {
+
             InitializeComponent();
+
+            _userID = userID;
+
+            SetupRefreshTimer();
             this.Load += AdminForm_Load;
         }
 
-        private void gunaChart1_Load(object sender, EventArgs e)
+        private async void AdminForm_Load(object? sender, EventArgs e)
         {
+            LoadCharts();
+            LoadTripStats();
+            await LoadTrafficData();
+        }
+
+        private void LoadCharts()
+        {
+
+            LoadPieChart();
+            LoadBarChart();
+        }
+
+
+        private async Task LoadTrafficData()
+        {
+            try
+            {
+                var trafficList = await _trafficService.GetAllRouteTrafficAsync();
+
+                var worst = trafficList
+                    .OrderByDescending(t => t.DelaySec)
+                    .FirstOrDefault();
+
+                if (worst != null)
+                {
+                    TrafficProneRouteValue.Text = worst.IsTrafficProne
+                        ? worst.RouteName
+                        : "None Detected";
+
+                    PeakCongestionDurationValue.Text = worst.PeakWindow;
+                }
+            }
+            catch (Exception ex)
+            {
+                TrafficProneRouteValue.Text = "Unavailable";
+                PeakCongestionDurationValue.Text = "Unavailable";
+                Console.WriteLine($"[Traffic] {ex.Message}");
+            }
+        }
+
+        private void LoadTripStats()
+        {
+            var todayRoute = _adminRepo.GetTotalTripsTodayRoute();
+            TotalTripsValue.Text = todayRoute;
+
+            var (highRoute, highCount) = _adminRepo.GetHighestTripsRoute();
+            HighestTripsValue.Text = highRoute;
+
+            var (lowRoute, lowCount) = _adminRepo.GetLowestTripsRoute();
+            LowestTripsValue.Text = lowRoute;
 
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void LoadPieChart()
         {
-
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AdminForm_Load(object? sender, EventArgs e)
-        {
-            // ===== PIE CHART =====
             PieChart.Datasets.Clear();
+
+            var status = _adminRepo.GetDriverStatusDistribution();
 
             var pieDataset = new GunaPieDataset();
 
-            pieDataset.DataPoints.Add("On Trip", 58);
-            pieDataset.DataPoints.Add("Finished", 26);
-            pieDataset.DataPoints.Add("Waiting", 16);
+            string[] order = { "Waiting", "OnTrip", "Finished" };
+            Color[] colors = {
+                Color.FromArgb(255, 193,   7),  
+                Color.FromArgb( 55,  91, 231),   
+                Color.FromArgb( 40, 167,  69)   
+            };
 
-            // colors (THIS WORKS IN YOUR VERSION)
-            pieDataset.FillColors.Add(Color.Blue);
-            pieDataset.FillColors.Add(Color.Green);
-            pieDataset.FillColors.Add(Color.Orange);
+            for (int i = 0; i < order.Length; i++)
+            {
+                string key = order[i];
+                int count = status.ContainsKey(key) ? status[key] : 0;
+
+                pieDataset.DataPoints.Add(key, count);
+                pieDataset.FillColors.Add(colors[i]);
+            }
 
             PieChart.Datasets.Add(pieDataset);
-
             PieChart.XAxes.Display = false;
             PieChart.YAxes.Display = false;
             PieChart.Update();
+        }
 
-
-            // ===== BAR CHART =====
+        private void LoadBarChart()
+        {
             BarGraph.Datasets.Clear();
+
+            var routes = _adminRepo.GetDriversPerRoute();
 
             var barDataset = new GunaBarDataset();
 
-            barDataset.DataPoints.Add("Route A", 80);
-            barDataset.DataPoints.Add("Route B", 60);
-            barDataset.DataPoints.Add("Route C", 45);
-            barDataset.DataPoints.Add("Route D", 30);
-            barDataset.DataPoints.Add("Route E", 20);
-            barDataset.DataPoints.Add("Route F", 40);
+            Color[] colors = {
+                Color.FromArgb(55,  91, 231),
+                Color.FromArgb(55,  91, 231),
+                Color.FromArgb(55,  91, 231),
+                Color.FromArgb(55,  91, 231),
+                Color.FromArgb(55,  91, 231),
+                Color.FromArgb(55,  91, 231),
+            };
 
-            // ONE COLOR (safe for your version)
-            barDataset.FillColors.Add(Color.Blue);
+            int i = 0;
+            foreach (var kvp in routes)
+            {
+                barDataset.DataPoints.Add(kvp.Key, kvp.Value);
+                barDataset.FillColors.Add(colors[i % colors.Length]);
+                i++;
+            }
 
             BarGraph.Datasets.Add(barDataset);
-
             BarGraph.XAxes.GridLines.Display = false;
             BarGraph.YAxes.GridLines.Display = false;
             BarGraph.Legend.Display = false;
-
             BarGraph.Update();
         }
 
+        private void SetupRefreshTimer()
+        {
+            _refreshTimer = new System.Windows.Forms.Timer();
+            _refreshTimer.Interval = 30 * 60 * 1000;
+            _refreshTimer.Tick += async (s, e) => await LoadTrafficData();
+            _refreshTimer.Start();
+        }
+
+        // navigation
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
-            LoginForm adminForm = new LoginForm();
-            adminForm.Show();
+            new LoginForm().Show();
             this.Hide();
         }
 
-        private void DashboardBtn_Click(object sender, EventArgs e)
-        {
-
+        private void DashboardBtn_Click(object sender, EventArgs e) { 
+        
         }
 
         private void ViewQueue_Click(object sender, EventArgs e)
         {
-            AdminViewQueue adminForm = new AdminViewQueue();
-            adminForm.Show();
+            AdminViewQueue adminViewQueue = new AdminViewQueue(_userID);
+            adminViewQueue.Show();
             this.Hide();
         }
 
-
         private void SettingsBtn_Click(object sender, EventArgs e)
         {
-            AdminSettings adminForm = new AdminSettings();
-            adminForm.Show();
+            AdminSettings adminSettings = new AdminSettings(_userID);
+            adminSettings.Show();
             this.Hide();
         }
 
         private void ManageUsersBtn_Click(object sender, EventArgs e)
         {
-            AdminManageUsers adminForm = new AdminManageUsers();
-            adminForm.Show();
+            AdminManageUsers adminManageUsers = new AdminManageUsers(_userID);
+            adminManageUsers.Show();
             this.Hide();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LowestTripsValue_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

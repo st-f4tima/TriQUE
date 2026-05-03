@@ -89,29 +89,29 @@
             GenerateReportBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             lblWelcomeMessage = new TextBox();
             TrafficRoutePanel = new Guna.UI2.WinForms.Guna2Panel();
+            TrafficProneRouteValue = new Label();
+            lblTrafficProneRoute = new Label();
             pictureBox1 = new PictureBox();
             CongestionDurationPanel = new Guna.UI2.WinForms.Guna2Panel();
+            PeakCongestionDurationValue = new Label();
+            lblPeakCongestionDuration = new Label();
             pictureBox2 = new PictureBox();
             TotalTripsTodayPanel = new Guna.UI2.WinForms.Guna2Panel();
+            TotalTripsValue = new Label();
+            lblTotalTripsToday = new Label();
             pictureBox3 = new PictureBox();
             HighestTripsPanel = new Guna.UI2.WinForms.Guna2Panel();
+            HighestTripsValue = new Label();
+            lblHighestTrips = new Label();
             pictureBox4 = new PictureBox();
             LowestTripsPanel = new Guna.UI2.WinForms.Guna2Panel();
+            LowestTripsValue = new Label();
+            lblLowestTrips = new Label();
             pictureBox5 = new PictureBox();
             PieChartPanel = new Guna.UI2.WinForms.Guna2Panel();
             PieChart = new Guna.Charts.WinForms.GunaChart();
             BarGraphPanel = new Guna.UI2.WinForms.Guna2Panel();
             BarGraph = new Guna.Charts.WinForms.GunaChart();
-            lblTrafficProneRoute = new Label();
-            lblPeakCongestionDuration = new Label();
-            lblTotalTripsToday = new Label();
-            lblHighestTrips = new Label();
-            lblLowestTrips = new Label();
-            TrafficProneRouteValue = new Label();
-            PeakCongestionDurationValue = new Label();
-            TotalTripsValue = new Label();
-            HighestTripsValue = new Label();
-            LowestTripsValue = new Label();
             NavbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             TrafficRoutePanel.SuspendLayout();
@@ -252,11 +252,11 @@
             // lblWelcomeMessage
             // 
             lblWelcomeMessage.BorderStyle = BorderStyle.None;
-            lblWelcomeMessage.Font = new Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWelcomeMessage.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblWelcomeMessage.ForeColor = Color.FromArgb(91, 91, 91);
             lblWelcomeMessage.Location = new Point(133, 68);
             lblWelcomeMessage.Name = "lblWelcomeMessage";
-            lblWelcomeMessage.Size = new Size(339, 40);
+            lblWelcomeMessage.Size = new Size(339, 38);
             lblWelcomeMessage.TabIndex = 1;
             lblWelcomeMessage.Text = "Welcome Back, Juan!";
             // 
@@ -275,6 +275,28 @@
             TrafficRoutePanel.ShadowDecoration.CustomizableEdges = customizableEdges8;
             TrafficRoutePanel.Size = new Size(185, 145);
             TrafficRoutePanel.TabIndex = 3;
+            // 
+            // TrafficProneRouteValue
+            // 
+            TrafficProneRouteValue.AutoSize = true;
+            TrafficProneRouteValue.ForeColor = Color.FromArgb(84, 84, 84);
+            TrafficProneRouteValue.Location = new Point(21, 68);
+            TrafficProneRouteValue.Name = "TrafficProneRouteValue";
+            TrafficProneRouteValue.Size = new Size(149, 20);
+            TrafficProneRouteValue.TabIndex = 2;
+            TrafficProneRouteValue.Text = "BSU - Alangilan ";
+            TrafficProneRouteValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblTrafficProneRoute
+            // 
+            lblTrafficProneRoute.AutoSize = true;
+            lblTrafficProneRoute.ForeColor = Color.FromArgb(55, 91, 231);
+            lblTrafficProneRoute.Location = new Point(7, 109);
+            lblTrafficProneRoute.Name = "lblTrafficProneRoute";
+            lblTrafficProneRoute.Size = new Size(175, 20);
+            lblTrafficProneRoute.TabIndex = 1;
+            lblTrafficProneRoute.Text = "Traffic-Prone Route";
+            lblTrafficProneRoute.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -303,6 +325,28 @@
             CongestionDurationPanel.Size = new Size(185, 145);
             CongestionDurationPanel.TabIndex = 4;
             // 
+            // PeakCongestionDurationValue
+            // 
+            PeakCongestionDurationValue.AutoSize = true;
+            PeakCongestionDurationValue.ForeColor = Color.FromArgb(84, 84, 84);
+            PeakCongestionDurationValue.Location = new Point(3, 68);
+            PeakCongestionDurationValue.Name = "PeakCongestionDurationValue";
+            PeakCongestionDurationValue.Size = new Size(178, 20);
+            PeakCongestionDurationValue.TabIndex = 10;
+            PeakCongestionDurationValue.Text = "9:00 am - 11: 00 am";
+            PeakCongestionDurationValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblPeakCongestionDuration
+            // 
+            lblPeakCongestionDuration.AutoSize = true;
+            lblPeakCongestionDuration.ForeColor = Color.FromArgb(55, 91, 231);
+            lblPeakCongestionDuration.Location = new Point(14, 99);
+            lblPeakCongestionDuration.Name = "lblPeakCongestionDuration";
+            lblPeakCongestionDuration.Size = new Size(156, 40);
+            lblPeakCongestionDuration.TabIndex = 2;
+            lblPeakCongestionDuration.Text = "Peak Congestion \r\nDuration";
+            lblPeakCongestionDuration.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.White;
@@ -329,6 +373,28 @@
             TotalTripsTodayPanel.ShadowDecoration.CustomizableEdges = customizableEdges12;
             TotalTripsTodayPanel.Size = new Size(185, 145);
             TotalTripsTodayPanel.TabIndex = 4;
+            // 
+            // TotalTripsValue
+            // 
+            TotalTripsValue.AutoSize = true;
+            TotalTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
+            TotalTripsValue.Location = new Point(18, 68);
+            TotalTripsValue.Name = "TotalTripsValue";
+            TotalTripsValue.Size = new Size(149, 20);
+            TotalTripsValue.TabIndex = 10;
+            TotalTripsValue.Text = "BSU - Alangilan ";
+            TotalTripsValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblTotalTripsToday
+            // 
+            lblTotalTripsToday.AutoSize = true;
+            lblTotalTripsToday.ForeColor = Color.FromArgb(55, 91, 231);
+            lblTotalTripsToday.Location = new Point(16, 109);
+            lblTotalTripsToday.Name = "lblTotalTripsToday";
+            lblTotalTripsToday.Size = new Size(156, 20);
+            lblTotalTripsToday.TabIndex = 3;
+            lblTotalTripsToday.Text = "Total Trips Today";
+            lblTotalTripsToday.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox3
             // 
@@ -357,6 +423,28 @@
             HighestTripsPanel.Size = new Size(185, 145);
             HighestTripsPanel.TabIndex = 4;
             // 
+            // HighestTripsValue
+            // 
+            HighestTripsValue.AutoSize = true;
+            HighestTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
+            HighestTripsValue.Location = new Point(23, 67);
+            HighestTripsValue.Name = "HighestTripsValue";
+            HighestTripsValue.Size = new Size(149, 20);
+            HighestTripsValue.TabIndex = 4;
+            HighestTripsValue.Text = "BSU - Alangilan ";
+            HighestTripsValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblHighestTrips
+            // 
+            lblHighestTrips.AutoSize = true;
+            lblHighestTrips.ForeColor = Color.FromArgb(55, 91, 231);
+            lblHighestTrips.Location = new Point(32, 108);
+            lblHighestTrips.Name = "lblHighestTrips";
+            lblHighestTrips.Size = new Size(123, 20);
+            lblHighestTrips.TabIndex = 3;
+            lblHighestTrips.Text = "Highest Trips";
+            lblHighestTrips.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.White;
@@ -367,7 +455,6 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 2;
             pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
             // 
             // LowestTripsPanel
             // 
@@ -385,6 +472,29 @@
             LowestTripsPanel.Size = new Size(185, 145);
             LowestTripsPanel.TabIndex = 4;
             // 
+            // LowestTripsValue
+            // 
+            LowestTripsValue.AutoSize = true;
+            LowestTripsValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LowestTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
+            LowestTripsValue.Location = new Point(61, 57);
+            LowestTripsValue.Name = "LowestTripsValue";
+            LowestTripsValue.Size = new Size(65, 32);
+            LowestTripsValue.TabIndex = 12;
+            LowestTripsValue.Text = "178";
+            LowestTripsValue.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblLowestTrips
+            // 
+            lblLowestTrips.AutoSize = true;
+            lblLowestTrips.ForeColor = Color.FromArgb(55, 91, 231);
+            lblLowestTrips.Location = new Point(34, 108);
+            lblLowestTrips.Name = "lblLowestTrips";
+            lblLowestTrips.Size = new Size(118, 20);
+            lblLowestTrips.TabIndex = 11;
+            lblLowestTrips.Text = "Lowest Trips";
+            lblLowestTrips.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // pictureBox5
             // 
             pictureBox5.BackColor = Color.White;
@@ -395,7 +505,6 @@
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 10;
             pictureBox5.TabStop = false;
-            pictureBox5.Click += pictureBox5_Click;
             // 
             // PieChartPanel
             // 
@@ -491,119 +600,6 @@
             tick6.Font = chartFont16;
             BarGraph.ZAxes.Ticks = tick6;
             // 
-            // lblTrafficProneRoute
-            // 
-            lblTrafficProneRoute.AutoSize = true;
-            lblTrafficProneRoute.ForeColor = Color.FromArgb(55, 91, 231);
-            lblTrafficProneRoute.Location = new Point(7, 109);
-            lblTrafficProneRoute.Name = "lblTrafficProneRoute";
-            lblTrafficProneRoute.Size = new Size(172, 20);
-            lblTrafficProneRoute.TabIndex = 1;
-            lblTrafficProneRoute.Text = "Traffic-Prone Route";
-            lblTrafficProneRoute.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblPeakCongestionDuration
-            // 
-            lblPeakCongestionDuration.AutoSize = true;
-            lblPeakCongestionDuration.ForeColor = Color.FromArgb(55, 91, 231);
-            lblPeakCongestionDuration.Location = new Point(14, 99);
-            lblPeakCongestionDuration.Name = "lblPeakCongestionDuration";
-            lblPeakCongestionDuration.Size = new Size(158, 40);
-            lblPeakCongestionDuration.TabIndex = 2;
-            lblPeakCongestionDuration.Text = "Peak Congestion \r\nDuration";
-            lblPeakCongestionDuration.TextAlign = ContentAlignment.MiddleCenter;
-            lblPeakCongestionDuration.Click += label2_Click;
-            // 
-            // lblTotalTripsToday
-            // 
-            lblTotalTripsToday.AutoSize = true;
-            lblTotalTripsToday.ForeColor = Color.FromArgb(55, 91, 231);
-            lblTotalTripsToday.Location = new Point(16, 109);
-            lblTotalTripsToday.Name = "lblTotalTripsToday";
-            lblTotalTripsToday.Size = new Size(156, 20);
-            lblTotalTripsToday.TabIndex = 3;
-            lblTotalTripsToday.Text = "Total Trips Today";
-            lblTotalTripsToday.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblHighestTrips
-            // 
-            lblHighestTrips.AutoSize = true;
-            lblHighestTrips.ForeColor = Color.FromArgb(55, 91, 231);
-            lblHighestTrips.Location = new Point(32, 108);
-            lblHighestTrips.Name = "lblHighestTrips";
-            lblHighestTrips.Size = new Size(123, 20);
-            lblHighestTrips.TabIndex = 3;
-            lblHighestTrips.Text = "Highest Trips";
-            lblHighestTrips.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblLowestTrips
-            // 
-            lblLowestTrips.AutoSize = true;
-            lblLowestTrips.ForeColor = Color.FromArgb(55, 91, 231);
-            lblLowestTrips.Location = new Point(34, 108);
-            lblLowestTrips.Name = "lblLowestTrips";
-            lblLowestTrips.Size = new Size(119, 20);
-            lblLowestTrips.TabIndex = 11;
-            lblLowestTrips.Text = "Lowest Trips";
-            lblLowestTrips.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // TrafficProneRouteValue
-            // 
-            TrafficProneRouteValue.AutoSize = true;
-            TrafficProneRouteValue.ForeColor = Color.FromArgb(84, 84, 84);
-            TrafficProneRouteValue.Location = new Point(21, 68);
-            TrafficProneRouteValue.Name = "TrafficProneRouteValue";
-            TrafficProneRouteValue.Size = new Size(143, 20);
-            TrafficProneRouteValue.TabIndex = 2;
-            TrafficProneRouteValue.Text = "BSU - Alangilan ";
-            TrafficProneRouteValue.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // PeakCongestionDurationValue
-            // 
-            PeakCongestionDurationValue.AutoSize = true;
-            PeakCongestionDurationValue.ForeColor = Color.FromArgb(84, 84, 84);
-            PeakCongestionDurationValue.Location = new Point(3, 68);
-            PeakCongestionDurationValue.Name = "PeakCongestionDurationValue";
-            PeakCongestionDurationValue.Size = new Size(179, 20);
-            PeakCongestionDurationValue.TabIndex = 10;
-            PeakCongestionDurationValue.Text = "9:00 am - 11: 00 am";
-            PeakCongestionDurationValue.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // TotalTripsValue
-            // 
-            TotalTripsValue.AutoSize = true;
-            TotalTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
-            TotalTripsValue.Location = new Point(18, 68);
-            TotalTripsValue.Name = "TotalTripsValue";
-            TotalTripsValue.Size = new Size(143, 20);
-            TotalTripsValue.TabIndex = 10;
-            TotalTripsValue.Text = "BSU - Alangilan ";
-            TotalTripsValue.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // HighestTripsValue
-            // 
-            HighestTripsValue.AutoSize = true;
-            HighestTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
-            HighestTripsValue.Location = new Point(23, 67);
-            HighestTripsValue.Name = "HighestTripsValue";
-            HighestTripsValue.Size = new Size(143, 20);
-            HighestTripsValue.TabIndex = 4;
-            HighestTripsValue.Text = "BSU - Alangilan ";
-            HighestTripsValue.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // LowestTripsValue
-            // 
-            LowestTripsValue.AutoSize = true;
-            LowestTripsValue.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LowestTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
-            LowestTripsValue.Location = new Point(61, 57);
-            LowestTripsValue.Name = "LowestTripsValue";
-            LowestTripsValue.Size = new Size(66, 34);
-            LowestTripsValue.TabIndex = 12;
-            LowestTripsValue.Text = "178";
-            LowestTripsValue.TextAlign = ContentAlignment.MiddleCenter;
-            LowestTripsValue.Click += LowestTripsValue_Click;
-            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
@@ -619,7 +615,7 @@
             Controls.Add(TrafficRoutePanel);
             Controls.Add(lblWelcomeMessage);
             Controls.Add(NavbarPanel);
-            Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);

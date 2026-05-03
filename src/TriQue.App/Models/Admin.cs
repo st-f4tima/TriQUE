@@ -11,7 +11,7 @@ namespace TriQue.Models
         public AdminLevel Level { get; set; }
         public override Form GetView()
         {
-            return new AdminForm();
+            return new AdminForm(UserID);
         }
 
     }

@@ -2,8 +2,8 @@
 {
     public enum AdminLevel
     {
-        SuperAdmin,
-        TodaOfficer,
-        Staff
+        SuperAdmin = 1,
+        TodaOfficer = 2,
+        Staff = 3
     }
 }

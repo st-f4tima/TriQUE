@@ -13,42 +13,45 @@ namespace Trique.Forms
 {
     public partial class AdminGenerateReport : Form
     {
-        public AdminGenerateReport()
+        private int _userID;
+        public AdminGenerateReport(int userID)
         {
+  
             InitializeComponent();
+            _userID = userID;
         }
 
         private void ViewQueueBtn_Click(object sender, EventArgs e)
         {
-            AdminViewQueue adminForm = new AdminViewQueue();
+            AdminViewQueue adminForm = new AdminViewQueue(_userID);
             adminForm.Show();
             this.Hide();
         }
 
         private void ManageUserBtn_Click(object sender, EventArgs e)
         {
-            AdminManageUsers adminForm = new AdminManageUsers();
+            AdminManageUsers adminForm = new AdminManageUsers(_userID);
             adminForm.Show();
             this.Hide();
         }
 
         private void SettingsBtn_Click(object sender, EventArgs e)
         {
-            AdminSettings settingsForm = new AdminSettings();
+            AdminSettings settingsForm = new AdminSettings(_userID);
             settingsForm.Show();
             this.Hide();
         }
 
         private void GenerateReportBtn_Click(object sender, EventArgs e)
         {
-            AdminGenerateReport reportForm = new AdminGenerateReport();
+            AdminGenerateReport reportForm = new AdminGenerateReport(_userID);
             reportForm.Show();
             this.Hide();
         }
 
         private void DashBtn_Click(object sender, EventArgs e)
         {
-            AdminViewQueue adminForm = new AdminViewQueue();
+            AdminViewQueue adminForm = new AdminViewQueue(_userID);
             adminForm.Show();
             this.Hide();
         }

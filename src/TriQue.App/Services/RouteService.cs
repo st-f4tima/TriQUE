@@ -29,15 +29,14 @@ namespace TriQue.Services
             return await client.GetStringAsync(url);
         }
 
-        public async Task<(double durationMin, string trafficCondition)> GetTrafficAndDuration(
-            double startLat, double startLng,
-            double endLat, double endLng)
+        public async Task<(double durationMin, double delaySec, string trafficCondition)>
+    GetTrafficAndDuration(double startLat, double startLng,
+                          double endLat, double endLng)
         {
-            string key = Environment.GetEnvironmentVariable("TOMTOM_API_KEY");
-
             string url =
                 $"https://api.tomtom.com/routing/1/calculateRoute/" +
-                $"{startLat},{startLng}:{endLat},{endLng}/json?key={key}";
+                $"{startLat},{startLng}:{endLat},{endLng}/json" +
+                $"?traffic=true&key={_apiKey}";   
 
             using var client = new HttpClient();
             var response = await client.GetStringAsync(url);
@@ -48,21 +47,16 @@ namespace TriQue.Services
                 .GetProperty("routes")[0]
                 .GetProperty("summary");
 
-            double durationMin = summary
-                .GetProperty("travelTimeInSeconds").GetDouble() / 60;
+            double durationSec = summary.GetProperty("travelTimeInSeconds").GetDouble();
+            double delaySec = summary.GetProperty("trafficDelayInSeconds").GetDouble();
 
-            double delayMin = summary
-                .GetProperty("trafficDelayInSeconds").GetDouble() / 60;
+            double delayRatio = durationSec > 0 ? delaySec / durationSec : 0;
 
-            // classify traffic
-            string trafficCondition = "Light";
+            string trafficCondition = delayRatio >= 0.20 ? "Heavy"
+                         : delayRatio >= 0.05 ? "Moderate"
+                         : "Light";
 
-            if (delayMin > 10)
-                trafficCondition = "Heavy";
-            else if (delayMin > 2)
-                trafficCondition = "Moderate";
-
-            return (Math.Round(durationMin, 1), trafficCondition);
+            return (Math.Round(durationSec / 60, 1), delaySec, trafficCondition);
         }
     }
 }

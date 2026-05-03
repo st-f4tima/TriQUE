@@ -130,6 +130,15 @@ namespace TriQue.Data.Database
                 FOREIGN KEY (DriverID) REFERENCES Driver(DriverID),
                 FOREIGN KEY (QueueID) REFERENCES Queue(QueueID)
             );
+
+            CREATE TABLE IF NOT EXISTS TrafficLog (
+                    LogID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    RouteID INTEGER NOT NULL,
+                    DelaySec REAL NOT NULL,
+                    TrafficLevel TEXT NOT NULL,
+                    FetchedAt DATETIME NOT NULL DEFAULT (datetime('now')),
+                    FOREIGN KEY (RouteID) REFERENCES Route(RouteID)
+                );
             ";
 
             cmd.ExecuteNonQuery();
@@ -273,20 +282,6 @@ namespace TriQue.Data.Database
                 (2, 6, 102, 2, 150, '2026-04-23 08:10:00', '2026-04-23 08:45:00'),
                 (3, 11, 103, 1, 0, '2026-04-23 09:00:00', NULL),
                 (4, 16, 104, 3, 200, '2026-04-23 07:00:00', '2026-04-23 07:40:00');
-
-
-            INSERT OR IGNORE INTO QueueEntry (EntryID, QueueID, DriverID, Position, JoinedAt) VALUES
-                (1, 1, 6, 1, '2026-04-23 09:40:00'),
-                (7, 1, 2, 2, '2026-04-23 09:50:00'),
-                (10, 1, 3, 3, '2026-04-23 09:55:00'),
-                (11, 1, 4, 4, '2026-04-23 10:00:00'),
-                (12, 1, 5, 5, '2026-04-23 10:05:00'),
-
-                (2, 2, 7, 1, '2026-04-23 07:55:00'),
-                (3, 3, 11, 1, '2026-04-23 08:00:00'),
-                (4, 4, 16, 1, '2026-04-23 08:05:00'),
-                (5, 5, 21, 1, '2026-04-23 08:10:00'),
-                (6, 6, 26, 1, '2026-04-23 08:15:00');
 
             INSERT OR IGNORE INTO AuthenticationLog (LogID, UserID, LoginTime, LogoutTime, AuthOutcome) VALUES
                 (1, 1, '2026-04-23 07:00:00', '2026-04-23 12:00:00', 'Success'),
