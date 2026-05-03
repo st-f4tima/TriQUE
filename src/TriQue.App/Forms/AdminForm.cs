@@ -18,11 +18,15 @@ namespace Trique.Forms
         private readonly TrafficService _trafficService = new();
         private readonly AdminRepository _adminRepo = new();
         private System.Windows.Forms.Timer _refreshTimer;
+        private int _userID;
 
-        public AdminForm()
+        public AdminForm(int userID)
         {
 
             InitializeComponent();
+
+            _userID = userID;
+
             SetupRefreshTimer();
             this.Load += AdminForm_Load;
         }
@@ -159,23 +163,28 @@ namespace Trique.Forms
             this.Hide();
         }
 
-        private void DashboardBtn_Click(object sender, EventArgs e) { }
+        private void DashboardBtn_Click(object sender, EventArgs e) { 
+        
+        }
 
         private void ViewQueue_Click(object sender, EventArgs e)
         {
-            new AdminViewQueue().Show();
+            AdminViewQueue adminViewQueue = new AdminViewQueue(_userID);
+            adminViewQueue.Show();
             this.Hide();
         }
 
         private void SettingsBtn_Click(object sender, EventArgs e)
         {
-            new AdminSettings().Show();
+            AdminSettings adminSettings = new AdminSettings(_userID);
+            adminSettings.Show();
             this.Hide();
         }
 
         private void ManageUsersBtn_Click(object sender, EventArgs e)
         {
-            new AdminManageUsers().Show();
+            AdminManageUsers adminManageUsers = new AdminManageUsers(_userID);
+            adminManageUsers.Show();
             this.Hide();
         }
     }

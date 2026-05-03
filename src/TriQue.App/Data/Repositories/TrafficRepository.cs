@@ -14,14 +14,15 @@ namespace TriQue.Data.Repositories
         public void SaveTrafficLog(int routeID, double delaySec, string level)
         {
             string query = @"
-                INSERT INTO TrafficLog (RouteID, DelaySec, TrafficLevel)
-                VALUES (@routeId, @delay, @level)
+                INSERT INTO TrafficLog (RouteID, DelaySec, TrafficLevel, FetchedAt)
+                VALUES (@routeId, @delay, @level, @fetchedAt)
             ";
 
             _dbHelper.ExecuteNonQuery(query,
                 new SqliteParameter("@routeId", routeID),
                 new SqliteParameter("@delay", delaySec),
-                new SqliteParameter("@level", level)
+                new SqliteParameter("@level", level),
+                new SqliteParameter("@fetchedAt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             );
         }
         public bool IsTrafficProne(int routeId)
@@ -29,14 +30,14 @@ namespace TriQue.Data.Repositories
             string query = @"
                 SELECT COUNT(*) FROM TrafficLog
                 WHERE RouteID = @routeId
-                  AND TrafficLevel IN ('Heavy', 'Moderate')
-                  AND FetchedAt >= datetime('now', '-7 days')
+                AND TrafficLevel IN ('Heavy', 'Moderate')
+                AND FetchedAt >= datetime('now', 'localtime', '-7 days')
             ";
 
             var result = _dbHelper.ExecuteScalar(query,
                 new SqliteParameter("@routeId", routeId));
 
-            return result != null && (long)result >= 5;
+            return result != null && (long)result >= 1;
         }
 
         public string GetPeakWindow(int routeId)
@@ -44,8 +45,8 @@ namespace TriQue.Data.Repositories
             string query = @"
                 SELECT strftime('%H', FetchedAt) as Hour, COUNT(*) as Hits
                 FROM TrafficLog
-                WHERE RouteID = @routeId
-                  AND TrafficLevel IN ('Heavy', 'Moderate')
+                WHERE RouteID      = @routeId
+                AND TrafficLevel IN ('Heavy', 'Moderate')
                 GROUP BY Hour
                 ORDER BY Hits DESC
                 LIMIT 1
@@ -64,7 +65,6 @@ namespace TriQue.Data.Repositories
             int peakHour = int.Parse(reader.GetString(0));
             int endHour = peakHour + 2;
 
-            // format to 12-hour
             string FormatHour(int h)
             {
                 string suffix = h < 12 ? "AM" : "PM";

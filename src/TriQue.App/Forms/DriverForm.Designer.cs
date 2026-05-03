@@ -490,7 +490,7 @@ namespace TriQue.Forms
             DataGridTripHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(41, 75, 255);
             dataGridViewCellStyle2.SelectionBackColor = Color.White;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -500,7 +500,7 @@ namespace TriQue.Forms
             DataGridTripHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 7F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
@@ -523,14 +523,14 @@ namespace TriQue.Forms
             DataGridTripHistory.ThemeStyle.GridColor = Color.White;
             DataGridTripHistory.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
             DataGridTripHistory.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            DataGridTripHistory.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 8F);
+            DataGridTripHistory.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 7F);
             DataGridTripHistory.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             DataGridTripHistory.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             DataGridTripHistory.ThemeStyle.HeaderStyle.Height = 30;
             DataGridTripHistory.ThemeStyle.ReadOnly = false;
             DataGridTripHistory.ThemeStyle.RowsStyle.BackColor = Color.White;
             DataGridTripHistory.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            DataGridTripHistory.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            DataGridTripHistory.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 7F, FontStyle.Bold);
             DataGridTripHistory.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(64, 64, 64);
             DataGridTripHistory.ThemeStyle.RowsStyle.Height = 25;
             DataGridTripHistory.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);

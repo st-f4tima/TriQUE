@@ -59,13 +59,8 @@ namespace TriQue.Forms
             if (_data == null || _data.User == null || _data.Driver == null)
                 return;
 
-            // name
             lblWelcomeMessage.Text = $"Welcome Back, {_data.User.FirstName}!";
-
-            // earnings
             lblTodayEarningValue.Text = _data.ActualEarnings.ToString("₱ 0");
-
-            // goal 
             lblEarningsGoal.Text = $"Goal: {_data.Driver.GoalEarnings.ToString("₱ 0")}";
 
             // progress bar
@@ -84,15 +79,24 @@ namespace TriQue.Forms
 
             var driver = _data.Driver.DriverID;
 
-            // route name
             lblRouteStatus.Text = $"On Route - {_data.RouteName}";
-
-            // total distance
             lblTotalDistanceValue.Text = $"{_data.TotalDistance} km";
+            LoadDataGrid();
+            
+        }
 
-
-            // queue history
+        private void LoadDataGrid()
+        {
             DataGridTripHistory.DataSource = _tripRepo.GetTripHistory(_data.Driver.DriverID);
+            DataGridTripHistory.DataBindingComplete += (s, e) =>
+            {
+                if (DataGridTripHistory.Columns.Count >= 3)
+                {
+                    DataGridTripHistory.Columns[0].Width = 120;
+                    DataGridTripHistory.Columns[1].Width = 70;
+                    DataGridTripHistory.Columns[2].Width = 150;
+                }
+            };
         }
 
         private async void Form1_Load(object sender, EventArgs e)
