@@ -163,8 +163,10 @@ namespace Trique.Forms
             this.Hide();
         }
 
-        private void DashboardBtn_Click(object sender, EventArgs e) { 
-        
+        private void DashboardBtn_Click(object sender, EventArgs e) {
+            AdminForm adminForm = new AdminForm(_userID);
+            adminForm.Show();
+            this.Hide();
         }
 
         private void ViewQueue_Click(object sender, EventArgs e)

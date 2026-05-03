@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminManageUsers));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             UsersPanel = new Guna.UI2.WinForms.Guna2Panel();
             lblManageUsersTitle = new Label();
             NavbarPanel = new Panel();
@@ -55,11 +55,11 @@
             // 
             UsersPanel.BorderColor = Color.FromArgb(84, 84, 84);
             UsersPanel.BorderThickness = 1;
-            UsersPanel.CustomizableEdges = customizableEdges9;
+            UsersPanel.CustomizableEdges = customizableEdges1;
             UsersPanel.Location = new Point(131, 114);
             UsersPanel.Margin = new Padding(4);
             UsersPanel.Name = "UsersPanel";
-            UsersPanel.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            UsersPanel.ShadowDecoration.CustomizableEdges = customizableEdges2;
             UsersPanel.Size = new Size(1020, 508);
             UsersPanel.TabIndex = 3;
             // 
@@ -70,7 +70,7 @@
             lblManageUsersTitle.Location = new Point(131, 72);
             lblManageUsersTitle.Margin = new Padding(4, 0, 4, 0);
             lblManageUsersTitle.Name = "lblManageUsersTitle";
-            lblManageUsersTitle.Size = new Size(173, 28);
+            lblManageUsersTitle.Size = new Size(181, 29);
             lblManageUsersTitle.TabIndex = 4;
             lblManageUsersTitle.Text = "Manage Users";
             // 
@@ -101,9 +101,10 @@
             ManageUsersBtn.Location = new Point(7, 244);
             ManageUsersBtn.Name = "ManageUsersBtn";
             ManageUsersBtn.PressedState.ImageSize = new Size(34, 34);
-            ManageUsersBtn.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            ManageUsersBtn.ShadowDecoration.CustomizableEdges = customizableEdges3;
             ManageUsersBtn.Size = new Size(82, 82);
             ManageUsersBtn.TabIndex = 7;
+            ManageUsersBtn.Click += ManageUsersBtn_Click;
             // 
             // LogoutBtn
             // 
@@ -116,9 +117,10 @@
             LogoutBtn.Location = new Point(10, 549);
             LogoutBtn.Name = "LogoutBtn";
             LogoutBtn.PressedState.ImageSize = new Size(34, 34);
-            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
             LogoutBtn.Size = new Size(82, 82);
             LogoutBtn.TabIndex = 6;
+            LogoutBtn.Click += LogoutBtn_Click;
             // 
             // ViewQueueBtn
             // 
@@ -131,9 +133,10 @@
             ViewQueueBtn.Location = new Point(7, 184);
             ViewQueueBtn.Name = "ViewQueueBtn";
             ViewQueueBtn.PressedState.ImageSize = new Size(34, 34);
-            ViewQueueBtn.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            ViewQueueBtn.ShadowDecoration.CustomizableEdges = customizableEdges5;
             ViewQueueBtn.Size = new Size(82, 82);
             ViewQueueBtn.TabIndex = 2;
+            ViewQueueBtn.Click += ViewQueueBtn_Click_1;
             // 
             // DashboardBtn
             // 
@@ -146,9 +149,10 @@
             DashboardBtn.Location = new Point(7, 123);
             DashboardBtn.Name = "DashboardBtn";
             DashboardBtn.PressedState.ImageSize = new Size(33, 33);
-            DashboardBtn.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            DashboardBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
             DashboardBtn.Size = new Size(82, 82);
             DashboardBtn.TabIndex = 1;
+            DashboardBtn.Click += DashboardBtn_Click;
             // 
             // SettingsBtn
             // 
@@ -161,9 +165,10 @@
             SettingsBtn.Location = new Point(7, 370);
             SettingsBtn.Name = "SettingsBtn";
             SettingsBtn.PressedState.ImageSize = new Size(34, 34);
-            SettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            SettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges7;
             SettingsBtn.Size = new Size(82, 82);
             SettingsBtn.TabIndex = 5;
+            SettingsBtn.Click += SettingsBtn_Click;
             // 
             // Logo
             // 
@@ -186,20 +191,21 @@
             GenerateReportBtn.Location = new Point(8, 307);
             GenerateReportBtn.Name = "GenerateReportBtn";
             GenerateReportBtn.PressedState.ImageSize = new Size(34, 34);
-            GenerateReportBtn.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            GenerateReportBtn.ShadowDecoration.CustomizableEdges = customizableEdges8;
             GenerateReportBtn.Size = new Size(82, 82);
             GenerateReportBtn.TabIndex = 4;
+            GenerateReportBtn.Click += GenerateReportBtn_Click_1;
             // 
             // AdminManageUsers
             // 
-            AutoScaleDimensions = new SizeF(14F, 28F);
+            AutoScaleDimensions = new SizeF(15F, 29F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
             Controls.Add(NavbarPanel);
             Controls.Add(lblManageUsersTitle);
             Controls.Add(UsersPanel);
-            Font = new Font("Roboto", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
