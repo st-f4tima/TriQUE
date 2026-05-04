@@ -80,40 +80,5 @@ namespace TriQue.Data.Repositories
                 new SqliteParameter("$driverId", driverId)
             );
         }
-
-        public (string FullName, string BodyNumber, string PhoneNumber, string RouteName, string GroupName, string StatusName)? GetDriverSettings(int userID)
-        {
-            string query = @"
-                SELECT 
-                    u.FirstName || ' ' || u.LastName AS FullName,
-                    d.BodyNumber,
-                    u.PhoneNumber,
-                    r.RouteName,
-                    g.GroupName,
-                    ds.StatusName
-                FROM Driver d
-                JOIN User u ON d.UserID = u.UserID
-                JOIN DriverGroup g ON d.GroupID = g.GroupID
-                JOIN DriverStatus ds ON d.StatusID = ds.StatusID
-                LEFT JOIN Route r ON r.AssignedGroup = d.GroupID
-                WHERE d.UserID = @userID
-                LIMIT 1";
-
-            using var reader = _dbHelper.ExecuteReader(
-                query,
-                new SqliteParameter("@userID", userID)
-            );
-
-            if (!reader.Read()) return null;
-
-            return (
-                FullName: reader["FullName"].ToString() ?? "",
-                BodyNumber: reader["BodyNumber"].ToString() ?? "",
-                PhoneNumber: reader["PhoneNumber"].ToString() ?? "",
-                RouteName: reader["RouteName"].ToString() ?? "No Route Assigned",
-                GroupName: reader["GroupName"].ToString() ?? "",
-                StatusName: reader["StatusName"].ToString() ?? "Waiting"
-            );
-        }
     }
 }
