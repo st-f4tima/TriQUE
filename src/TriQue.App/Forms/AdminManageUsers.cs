@@ -1,15 +1,37 @@
-﻿using TriQue.Forms;
+﻿using TriQue.Data.Repositories;
+using TriQue.Forms;
 
 namespace Trique.Forms
 {
     public partial class AdminManageUsers : Form
     {
         private int _userID;
+        private readonly UserRepository _repo = new();
 
         public AdminManageUsers(int userID)
         {
             InitializeComponent();
             _userID = userID;
+            LoadUsers();
+        }
+
+        private void LoadUsers(string search = "")
+        {
+            var users = _repo.GetAll(search);
+            UserListPanel.Controls.Clear();  
+
+            UserListDataGrid.Rows.Clear();
+            foreach (var u in users)
+            {
+                UserListDataGrid.Rows.Add(
+                    u.UserID,
+                    u.FullName,
+                    u.PhoneNumber,
+                    u.RoleName,
+                    u.AssignedRoute ?? "—",
+                    u.Status
+                );
+            }
         }
 
         private void DashboardBtn_Click(object sender, EventArgs e)
@@ -53,6 +75,16 @@ namespace Trique.Forms
         {
             new LoginForm().Show();
             this.Hide();
+        }
+
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddUserBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
