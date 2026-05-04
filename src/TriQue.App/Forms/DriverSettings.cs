@@ -1,7 +1,5 @@
 using System.Drawing;
 using System.Windows.Forms;
-using Trique.Forms;
-using TriQue.Data;
 using TriQue.Data.Repositories;
 using TriQue.Models;
 using TriQue.Services;
@@ -10,13 +8,30 @@ namespace TriQue.Forms
 {
     public partial class DriverSettings : Form
     {
-        private Form previousForm;
         private int _userID;
+        private readonly DriverRepository _driverRepo;
 
         public DriverSettings(int userID)
         {
             InitializeComponent();
             _userID = userID;
+            _driverRepo = new DriverRepository();
+
+            LoadDriverInfo();
+        }
+
+        private void LoadDriverInfo()
+        {
+            var info = _driverRepo.GetDriverSettings(_userID);
+            if (info == null) return;
+
+            lblDriverName.Text = info.Value.FullName;
+            lblBodyNumber.Text = "Body No. " + info.Value.BodyNumber;
+            lblContactNumberValue.Text = info.Value.PhoneNumber;
+            lblAssignedRouteValue.Text = info.Value.RouteName;
+            lblGroupNameValue.Text = info.Value.GroupName;
+            lblRoleValue.Text = "Driver";
+            lblCurrentStatusValue.Text = info.Value.StatusName;
         }
 
         private void DashBtn_Click(object sender, EventArgs e)
@@ -30,11 +45,9 @@ namespace TriQue.Forms
         {
             var dashboard = new DriverDashboardService();
             var driver = dashboard.GetDriver(_userID);
-
             if (driver == null) return;
 
             var route = dashboard.GetDriverRouteByDriverID(driver.DriverID);
-
             if (route == null) return;
 
             DriverViewQueue viewQueue = new DriverViewQueue(route.RouteID, _userID);
@@ -48,7 +61,5 @@ namespace TriQue.Forms
             login.Show();
             this.Close();
         }
-
-
     }
 }
