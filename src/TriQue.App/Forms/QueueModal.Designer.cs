@@ -55,7 +55,7 @@
             // 
             SearchBar.BorderColor = Color.FromArgb(91, 91, 91);
             SearchBar.CustomizableEdges = customizableEdges1;
-            SearchBar.DefaultText = "Search a driver";
+            SearchBar.DefaultText = "";
             SearchBar.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             SearchBar.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             SearchBar.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -66,7 +66,7 @@
             SearchBar.Location = new Point(74, 13);
             SearchBar.Margin = new Padding(3, 4, 3, 4);
             SearchBar.Name = "SearchBar";
-            SearchBar.PlaceholderText = "";
+            SearchBar.PlaceholderText = "Search a driver";
             SearchBar.SelectedText = "";
             SearchBar.ShadowDecoration.CustomizableEdges = customizableEdges2;
             SearchBar.Size = new Size(702, 32);
@@ -116,7 +116,7 @@
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.ForeColor = Color.White;
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
