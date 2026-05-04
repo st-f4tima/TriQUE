@@ -14,8 +14,7 @@ namespace TriQue.Tests.Services
         [TestInitialize]
         public void Setup()
         {
-            // Set fake API key for testing
-            Environment.SetEnvironmentVariable("TOMTOM_API_KEY", "fake-key-for-testing");
+            DotNetEnv.Env.Load(); // reads .env and sets environment variables
             _routeService = new RouteService();
         }
 
@@ -39,26 +38,6 @@ namespace TriQue.Tests.Services
         }
 
         // =========================
-        // API KEY ERROR TEST
-        // =========================
-        [TestMethod]
-        public async Task GetTrafficAndDuration_ShouldThrow_WhenApiKeyIsMissing()
-        {
-            Environment.SetEnvironmentVariable("TOMTOM_API_KEY", null);
-            var serviceWithoutKey = new RouteService();
-
-            try
-            {
-                await serviceWithoutKey.GetTrafficAndDuration(14.083, 121.146, 14.084, 121.147);
-                Assert.Fail("Expected exception was not thrown.");
-            }
-            catch (Exception)
-            {
-                // Test passes
-            }
-        }
-
-        // =========================
         // INVALID INPUT TEST
         // =========================
         [TestMethod]
@@ -67,6 +46,26 @@ namespace TriQue.Tests.Services
             try
             {
                 await _routeService.GetTrafficAndDuration(999, 999, 999, 999);
+                Assert.Fail("Expected exception was not thrown.");
+            }
+            catch
+            {
+                //Invalid coordinates detected -> test passes
+            }
+        }
+        
+        // =========================
+        // API KEY ERROR TEST
+        // =========================
+        [TestMethod]
+        public async Task GetTrafficAndDuration_ShouldThrow_WhenApiKeyIsMissing()
+        {
+            Environment.SetEnvironmentVariable("TOMTOM_API_KEY", null);
+
+            try
+            {
+                var serviceWithoutKey = new RouteService();
+                await serviceWithoutKey.GetTrafficAndDuration(14.083, 121.146, 14.084, 121.147);
                 Assert.Fail("Expected exception was not thrown.");
             }
             catch (Exception)
@@ -97,7 +96,6 @@ namespace TriQue.Tests.Services
 
         // =========================
         // TRAFFIC LOGIC TESTS
-        // (PURE LOGIC - QA REQUIRED)
         // =========================
 
         [TestMethod]
