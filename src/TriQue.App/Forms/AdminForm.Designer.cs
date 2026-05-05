@@ -112,6 +112,8 @@
             PieChart = new Guna.Charts.WinForms.GunaChart();
             BarGraphPanel = new Guna.UI2.WinForms.Guna2Panel();
             BarGraph = new Guna.Charts.WinForms.GunaChart();
+            label1 = new Label();
+            label2 = new Label();
             NavbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             TrafficRoutePanel.SuspendLayout();
@@ -282,9 +284,9 @@
             TrafficProneRouteValue.ForeColor = Color.FromArgb(84, 84, 84);
             TrafficProneRouteValue.Location = new Point(21, 68);
             TrafficProneRouteValue.Name = "TrafficProneRouteValue";
-            TrafficProneRouteValue.Size = new Size(149, 20);
+            TrafficProneRouteValue.Size = new Size(90, 20);
             TrafficProneRouteValue.TabIndex = 2;
-            TrafficProneRouteValue.Text = "BSU - Alangilan ";
+            TrafficProneRouteValue.Text = "Loading...";
             TrafficProneRouteValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblTrafficProneRoute
@@ -329,11 +331,11 @@
             // 
             PeakCongestionDurationValue.AutoSize = true;
             PeakCongestionDurationValue.ForeColor = Color.FromArgb(84, 84, 84);
-            PeakCongestionDurationValue.Location = new Point(3, 68);
+            PeakCongestionDurationValue.Location = new Point(12, 69);
             PeakCongestionDurationValue.Name = "PeakCongestionDurationValue";
-            PeakCongestionDurationValue.Size = new Size(178, 20);
+            PeakCongestionDurationValue.Size = new Size(90, 20);
             PeakCongestionDurationValue.TabIndex = 10;
-            PeakCongestionDurationValue.Text = "9:00 am - 11: 00 am";
+            PeakCongestionDurationValue.Text = "Loading...";
             PeakCongestionDurationValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblPeakCongestionDuration
@@ -513,19 +515,19 @@
             PieChartPanel.BorderThickness = 1;
             PieChartPanel.Controls.Add(PieChart);
             PieChartPanel.CustomizableEdges = customizableEdges17;
-            PieChartPanel.Location = new Point(134, 328);
+            PieChartPanel.Location = new Point(134, 361);
             PieChartPanel.Name = "PieChartPanel";
             PieChartPanel.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            PieChartPanel.Size = new Size(433, 285);
+            PieChartPanel.Size = new Size(433, 252);
             PieChartPanel.TabIndex = 8;
             // 
             // PieChart
             // 
             chartFont1.FontName = "Arial";
             PieChart.Legend.LabelFont = chartFont1;
-            PieChart.Location = new Point(16, 11);
+            PieChart.Location = new Point(11, 11);
             PieChart.Name = "PieChart";
-            PieChart.Size = new Size(402, 263);
+            PieChart.Size = new Size(410, 238);
             PieChart.TabIndex = 8;
             chartFont2.FontName = "Arial";
             chartFont2.Size = 12;
@@ -560,19 +562,19 @@
             BarGraphPanel.BorderThickness = 1;
             BarGraphPanel.Controls.Add(BarGraph);
             BarGraphPanel.CustomizableEdges = customizableEdges19;
-            BarGraphPanel.Location = new Point(608, 328);
+            BarGraphPanel.Location = new Point(608, 361);
             BarGraphPanel.Name = "BarGraphPanel";
             BarGraphPanel.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            BarGraphPanel.Size = new Size(538, 285);
+            BarGraphPanel.Size = new Size(538, 252);
             BarGraphPanel.TabIndex = 9;
             // 
             // BarGraph
             // 
             chartFont9.FontName = "Arial";
             BarGraph.Legend.LabelFont = chartFont9;
-            BarGraph.Location = new Point(16, 11);
+            BarGraph.Location = new Point(12, 8);
             BarGraph.Name = "BarGraph";
-            BarGraph.Size = new Size(509, 263);
+            BarGraph.Size = new Size(509, 241);
             BarGraph.TabIndex = 7;
             chartFont10.FontName = "Arial";
             chartFont10.Size = 12;
@@ -600,12 +602,36 @@
             tick6.Font = chartFont16;
             BarGraph.ZAxes.Ticks = tick6;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.FromArgb(91, 91, 91);
+            label1.Location = new Point(134, 324);
+            label1.Name = "label1";
+            label1.Size = new Size(315, 20);
+            label1.TabIndex = 3;
+            label1.Text = "Driver Status Distribution For Today";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = Color.FromArgb(91, 91, 91);
+            label2.Location = new Point(608, 324);
+            label2.Name = "label2";
+            label2.Size = new Size(215, 20);
+            label2.TabIndex = 10;
+            label2.Text = " Total Drivers Per Route";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(BarGraphPanel);
             Controls.Add(PieChartPanel);
             Controls.Add(LowestTripsPanel);
@@ -624,7 +650,7 @@
             MinimizeBox = false;
             Name = "AdminForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TriQue";
+            Text = "TriQUE";
             Load += AdminForm_Load;
             NavbarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
@@ -684,5 +710,7 @@
         private Label TotalTripsValue;
         private Label HighestTripsValue;
         private Label LowestTripsValue;
+        private Label label1;
+        private Label label2;
     }
 }

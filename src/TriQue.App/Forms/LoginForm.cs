@@ -11,13 +11,12 @@ namespace TriQue.Forms
         public LoginForm()
         {
             InitializeComponent();
-            guna2Button1.Click += guna2Button1_Click;
 
             lockLabel = new Label();
             lockLabel.AutoSize = true;
             lockLabel.ForeColor = Color.FromArgb(220, 53, 69);
             lockLabel.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
-            lockLabel.Location = new Point(55, 450);
+            lockLabel.Location = new Point(70, 450);
             lockLabel.Visible = false;
             lockLabel.Text = "";
             lockLabel.Size = new Size(0, 0);
@@ -26,8 +25,7 @@ namespace TriQue.Forms
             lockLabel.BringToFront();
         }
 
-        // login button
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void LoginBtn_Click_1(object sender, EventArgs e)
         {
             string username = textBox1.Text.Trim();
             string password = textBoxPassword.Text.Trim();
@@ -38,18 +36,12 @@ namespace TriQue.Forms
             {
                 int secondsLeft = _auth.GetLockSecondsRemaining(username);
                 if (message.Contains("locked"))
-                {
                     ShowWarning(message);
-                }
                 else
-                {
                     ShowError(message);
-                }
 
                 if (secondsLeft > 0)
-                {
                     StartLockUI(secondsLeft);
-                }
 
                 return;
             }
@@ -58,8 +50,17 @@ namespace TriQue.Forms
 
             var user = _auth.GetCurrentUser();
 
-            Form nextForm = user.GetView();
+            var repo = new TriQue.Data.Repositories.UserRepository();
+            if (repo.IsTemporaryPassword(user.UserID))
+            {
+                var setPwdForm = new TriQue.Forms.SetPasswordModal(user.UserID);
+                var result = setPwdForm.ShowDialog();
 
+                if (result != System.Windows.Forms.DialogResult.OK)
+                    return; 
+            }
+
+            Form nextForm = user.GetView();
             nextForm.Show();
             this.Hide();
         }
@@ -78,7 +79,7 @@ namespace TriQue.Forms
             }
 
             int remaining = seconds;
-            guna2Button1.Enabled = false;
+            LoginBtn.Enabled = false;
             lockLabel.Visible = true;
             lockLabel.Text = $"Account locked — {remaining}s remaining";
 
@@ -94,7 +95,7 @@ namespace TriQue.Forms
                 {
                     _lockTimer.Stop();
                     _lockTimer.Dispose();
-                    guna2Button1.Enabled = true;
+                    LoginBtn.Enabled = true;
                     lockLabel.Visible = false;
                     lockLabel.Text = "";
                 }
@@ -119,16 +120,6 @@ namespace TriQue.Forms
         {
             MessageBox.Show(msg, "Login Successful",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void ExitBtn_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void ExitBtn_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

@@ -1,3 +1,4 @@
+using TriQue.Data.Repositories;
 using TriQue.Forms;
 
 namespace Trique.Forms
@@ -48,7 +49,6 @@ namespace Trique.Forms
         }
 
         // navbar
-
         private void DashBtn_Click(object sender, EventArgs e)
         {
             AdminForm adminForm = new AdminForm(_userID);
@@ -58,8 +58,22 @@ namespace Trique.Forms
 
         private void ManageUserBtn_Click(object sender, EventArgs e)
         {
-            AdminManageUsers adminForm = new AdminManageUsers(_userID);
-            adminForm.Show();
+            var repo = new UserRepository();
+            int level = repo.GetAdminLevel(_userID);
+
+            // 1 = SuperAdmin only
+            if (level != 1)
+            {
+                MessageBox.Show(
+                    "Access denied. Only SuperAdmins can manage users.",
+                    "Access Denied",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            AdminManageUsers adminManageUsers = new AdminManageUsers(_userID);
+            adminManageUsers.Show();
             this.Hide();
         }
 

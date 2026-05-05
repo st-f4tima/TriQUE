@@ -30,22 +30,23 @@ namespace Trique.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminManageUsers));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             UserListPanel = new Guna2Panel();
+            UserListDataGrid = new Guna2DataGridView();
             AddUserBtn = new Guna2ImageButton();
             SearchBar = new Guna2TextBox();
             lblManageUsersTitle = new Label();
@@ -57,11 +58,10 @@ namespace Trique.Forms
             SettingsBtn = new Guna2ImageButton();
             Logo = new PictureBox();
             GenerateReportBtn = new Guna2ImageButton();
-            UserListDataGrid = new Guna2DataGridView();
             UserListPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)UserListDataGrid).BeginInit();
             NavbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)UserListDataGrid).BeginInit();
             SuspendLayout();
             // 
             // UserListPanel
@@ -71,13 +71,68 @@ namespace Trique.Forms
             UserListPanel.Controls.Add(UserListDataGrid);
             UserListPanel.Controls.Add(AddUserBtn);
             UserListPanel.Controls.Add(SearchBar);
-            UserListPanel.CustomizableEdges = customizableEdges15;
+            UserListPanel.CustomizableEdges = customizableEdges4;
             UserListPanel.Location = new Point(131, 141);
             UserListPanel.Margin = new Padding(4);
             UserListPanel.Name = "UserListPanel";
-            UserListPanel.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            UserListPanel.ShadowDecoration.CustomizableEdges = customizableEdges5;
             UserListPanel.Size = new Size(1017, 481);
             UserListPanel.TabIndex = 3;
+            // 
+            // UserListDataGrid
+            // 
+            UserListDataGrid.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            UserListDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(50, 100, 230);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            UserListDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            UserListDataGrid.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            UserListDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            UserListDataGrid.GridColor = Color.White;
+            UserListDataGrid.Location = new Point(17, 74);
+            UserListDataGrid.Name = "UserListDataGrid";
+            UserListDataGrid.RowHeadersVisible = false;
+            UserListDataGrid.RowHeadersWidth = 51;
+            UserListDataGrid.RowTemplate.Height = 40;
+            UserListDataGrid.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            UserListDataGrid.Size = new Size(987, 390);
+            UserListDataGrid.TabIndex = 0;
+            UserListDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            UserListDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
+            UserListDataGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            UserListDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            UserListDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            UserListDataGrid.ThemeStyle.BackColor = Color.White;
+            UserListDataGrid.ThemeStyle.GridColor = Color.White;
+            UserListDataGrid.ThemeStyle.HeaderStyle.BackColor = Color.White;
+            UserListDataGrid.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            UserListDataGrid.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            UserListDataGrid.ThemeStyle.HeaderStyle.ForeColor = Color.FromArgb(50, 100, 230);
+            UserListDataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            UserListDataGrid.ThemeStyle.HeaderStyle.Height = 40;
+            UserListDataGrid.ThemeStyle.ReadOnly = false;
+            UserListDataGrid.ThemeStyle.RowsStyle.BackColor = Color.White;
+            UserListDataGrid.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            UserListDataGrid.ThemeStyle.RowsStyle.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            UserListDataGrid.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            UserListDataGrid.ThemeStyle.RowsStyle.Height = 40;
+            UserListDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = Color.White;
+            UserListDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            UserListDataGrid.CellClick += UserListDataGrid_CellContentClick;
             // 
             // AddUserBtn
             // 
@@ -91,14 +146,15 @@ namespace Trique.Forms
             AddUserBtn.Location = new Point(965, 21);
             AddUserBtn.Name = "AddUserBtn";
             AddUserBtn.PressedState.ImageSize = new Size(30, 30);
-            AddUserBtn.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            AddUserBtn.ShadowDecoration.CustomizableEdges = customizableEdges1;
             AddUserBtn.Size = new Size(39, 33);
             AddUserBtn.TabIndex = 6;
+            AddUserBtn.Click += AddUserBtn_Click_1;
             // 
             // SearchBar
             // 
             SearchBar.BorderColor = Color.FromArgb(91, 91, 91);
-            SearchBar.CustomizableEdges = customizableEdges13;
+            SearchBar.CustomizableEdges = customizableEdges2;
             SearchBar.DefaultText = "";
             SearchBar.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             SearchBar.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -112,9 +168,10 @@ namespace Trique.Forms
             SearchBar.Name = "SearchBar";
             SearchBar.PlaceholderText = "Search a driver";
             SearchBar.SelectedText = "";
-            SearchBar.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            SearchBar.ShadowDecoration.CustomizableEdges = customizableEdges3;
             SearchBar.Size = new Size(942, 33);
             SearchBar.TabIndex = 4;
+            SearchBar.TextChanged += SearchBar_TextChanged;
             // 
             // lblManageUsersTitle
             // 
@@ -155,7 +212,7 @@ namespace Trique.Forms
             ManageUsersBtn.Location = new Point(7, 244);
             ManageUsersBtn.Name = "ManageUsersBtn";
             ManageUsersBtn.PressedState.ImageSize = new Size(34, 34);
-            ManageUsersBtn.ShadowDecoration.CustomizableEdges = customizableEdges17;
+            ManageUsersBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
             ManageUsersBtn.Size = new Size(82, 82);
             ManageUsersBtn.TabIndex = 7;
             ManageUsersBtn.Click += ManageUsersBtn_Click;
@@ -171,7 +228,7 @@ namespace Trique.Forms
             LogoutBtn.Location = new Point(10, 549);
             LogoutBtn.Name = "LogoutBtn";
             LogoutBtn.PressedState.ImageSize = new Size(34, 34);
-            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges7;
             LogoutBtn.Size = new Size(82, 82);
             LogoutBtn.TabIndex = 6;
             LogoutBtn.Click += LogoutBtn_Click;
@@ -187,7 +244,7 @@ namespace Trique.Forms
             ViewQueueBtn.Location = new Point(7, 184);
             ViewQueueBtn.Name = "ViewQueueBtn";
             ViewQueueBtn.PressedState.ImageSize = new Size(34, 34);
-            ViewQueueBtn.ShadowDecoration.CustomizableEdges = customizableEdges19;
+            ViewQueueBtn.ShadowDecoration.CustomizableEdges = customizableEdges8;
             ViewQueueBtn.Size = new Size(82, 82);
             ViewQueueBtn.TabIndex = 2;
             ViewQueueBtn.Click += ViewQueueBtn_Click_1;
@@ -203,7 +260,7 @@ namespace Trique.Forms
             DashboardBtn.Location = new Point(7, 123);
             DashboardBtn.Name = "DashboardBtn";
             DashboardBtn.PressedState.ImageSize = new Size(33, 33);
-            DashboardBtn.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            DashboardBtn.ShadowDecoration.CustomizableEdges = customizableEdges9;
             DashboardBtn.Size = new Size(82, 82);
             DashboardBtn.TabIndex = 1;
             DashboardBtn.Click += DashboardBtn_Click;
@@ -219,7 +276,7 @@ namespace Trique.Forms
             SettingsBtn.Location = new Point(7, 370);
             SettingsBtn.Name = "SettingsBtn";
             SettingsBtn.PressedState.ImageSize = new Size(34, 34);
-            SettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges21;
+            SettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges10;
             SettingsBtn.Size = new Size(82, 82);
             SettingsBtn.TabIndex = 5;
             SettingsBtn.Click += SettingsBtn_Click;
@@ -245,60 +302,10 @@ namespace Trique.Forms
             GenerateReportBtn.Location = new Point(8, 307);
             GenerateReportBtn.Name = "GenerateReportBtn";
             GenerateReportBtn.PressedState.ImageSize = new Size(34, 34);
-            GenerateReportBtn.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            GenerateReportBtn.ShadowDecoration.CustomizableEdges = customizableEdges11;
             GenerateReportBtn.Size = new Size(82, 82);
             GenerateReportBtn.TabIndex = 4;
             GenerateReportBtn.Click += GenerateReportBtn_Click_1;
-            // 
-            // UserListDataGrid
-            // 
-            dataGridViewCellStyle4.BackColor = Color.White;
-            UserListDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            UserListDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            UserListDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            UserListDataGrid.DefaultCellStyle = dataGridViewCellStyle6;
-            UserListDataGrid.GridColor = Color.FromArgb(231, 229, 255);
-            UserListDataGrid.Location = new Point(17, 76);
-            UserListDataGrid.Name = "UserListDataGrid";
-            UserListDataGrid.RowHeadersVisible = false;
-            UserListDataGrid.RowHeadersWidth = 51;
-            UserListDataGrid.Size = new Size(987, 388);
-            UserListDataGrid.TabIndex = 7;
-            UserListDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            UserListDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
-            UserListDataGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            UserListDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            UserListDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            UserListDataGrid.ThemeStyle.BackColor = Color.White;
-            UserListDataGrid.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            UserListDataGrid.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            UserListDataGrid.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            UserListDataGrid.ThemeStyle.HeaderStyle.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            UserListDataGrid.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            UserListDataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            UserListDataGrid.ThemeStyle.HeaderStyle.Height = 4;
-            UserListDataGrid.ThemeStyle.ReadOnly = false;
-            UserListDataGrid.ThemeStyle.RowsStyle.BackColor = Color.White;
-            UserListDataGrid.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            UserListDataGrid.ThemeStyle.RowsStyle.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            UserListDataGrid.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            UserListDataGrid.ThemeStyle.RowsStyle.Height = 29;
-            UserListDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            UserListDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // AdminManageUsers
             // 
@@ -318,11 +325,11 @@ namespace Trique.Forms
             MinimizeBox = false;
             Name = "AdminManageUsers";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TriQue";
+            Text = "TriQUE";
             UserListPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)UserListDataGrid).EndInit();
             NavbarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)UserListDataGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
