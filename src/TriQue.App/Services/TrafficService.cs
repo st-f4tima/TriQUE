@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using TriQue.Data.Repositories;
-using TriQue.Models;
+using TriQue.DTOs;
 
 namespace TriQue.Services
 {
@@ -61,10 +61,10 @@ namespace TriQue.Services
             return (Math.Round(durationSec / 60, 1), delaySec, level);
         }
 
-        public async Task<List<TrafficData>> GetAllRouteTrafficAsync()
+        public async Task<List<TrafficDto>> GetAllRouteTrafficAsync()
         {
             int[] routeIds = { 101, 102, 103, 104, 105, 106 };
-            var results = new List<TrafficData>();
+            var results = new List<TrafficDto>();
 
             foreach (var id in routeIds)
             {
@@ -80,7 +80,7 @@ namespace TriQue.Services
 
                     _trafficRepo.SaveTrafficLog(route.RouteID, delaySec, condition);
 
-                    results.Add(new TrafficData
+                    results.Add(new TrafficDto
                     {
                         RouteID = route.RouteID,
                         RouteName = route.RouteName,
@@ -93,7 +93,7 @@ namespace TriQue.Services
                 }
                 catch
                 {
-                    results.Add(new TrafficData
+                    results.Add(new TrafficDto
                     {
                         RouteID = route.RouteID,
                         RouteName = route.RouteName,

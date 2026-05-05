@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using TriQue.Models;
 
-namespace TriQue.Models
+namespace TriQue.DTOs
 {
-    public class DriverDashboardData
+    public class DriverDashboardDto
     {
         public User? User { get; set; }
         public Driver? Driver { get; set; }

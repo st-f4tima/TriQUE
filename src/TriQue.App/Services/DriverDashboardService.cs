@@ -1,5 +1,6 @@
 ﻿using System;
 using TriQue.Data.Repositories;
+using TriQue.DTOs;
 using TriQue.Models;
 
 namespace TriQue.Services
@@ -38,7 +39,7 @@ namespace TriQue.Services
             return _driverRepo.GetByUserID(user.UserID);
         }
 
-        public DriverDashboardData GetDashboard(int userID)
+        public DriverDashboardDto GetDashboard(int userID)
         {
             var user = _userRepo.GetById(userID);
             var driver = _driverRepo.GetByUserID(user.UserID);
@@ -53,7 +54,7 @@ namespace TriQue.Services
             var queueHistory = _queueRepo.GetQueueHistory(driver.DriverID);
 
 
-            return new DriverDashboardData
+            return new DriverDashboardDto
             {
                 User = user,
                 Driver = driver,

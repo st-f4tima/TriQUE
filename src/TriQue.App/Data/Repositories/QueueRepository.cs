@@ -39,18 +39,24 @@ namespace TriQue.Data.Repositories
         {
             string query = @"
                 SELECT 
-                    qe.Position,
+                    ranked.Position,
                     r.RouteName,
                     ds.StatusName AS Status
+                FROM (
+                SELECT 
+                    qe.DriverID,
+                    ROW_NUMBER() OVER (ORDER BY qe.Position ASC) AS Position,
+                    q.RouteID
                 FROM QueueEntry qe
                 INNER JOIN Queue q ON qe.QueueID = q.QueueID
-                INNER JOIN Route r ON q.RouteID = r.RouteID
                 INNER JOIN Driver d ON qe.DriverID = d.DriverID
-                INNER JOIN DriverStatus ds ON d.StatusID = ds.StatusID
                 WHERE qe.QueueID = $queueId
-                AND qe.DriverID = $driverId
-                -- BUG FIX: don't show position if driver is Finished
                 AND d.StatusID != 3
+                ) ranked
+                INNER JOIN Route r ON ranked.RouteID = r.RouteID
+                INNER JOIN Driver d ON ranked.DriverID = d.DriverID
+                INNER JOIN DriverStatus ds ON d.StatusID = ds.StatusID
+                WHERE ranked.DriverID = $driverId
                 LIMIT 1;
             ";
 
@@ -114,6 +120,30 @@ namespace TriQue.Data.Repositories
             return Convert.ToInt32(result) > 0;
         }
 
+        public void ReorderQueuePositions(int queueId)
+        {
+            string createTemp = @"
+                CREATE TEMP TABLE IF NOT EXISTS _reorder AS
+                SELECT DriverID, ROW_NUMBER() OVER (ORDER BY Position ASC) AS NewPos
+                FROM QueueEntry
+                WHERE QueueID = $queueId;
+            ";
+
+            string query = @"
+                UPDATE QueueEntry
+                SET Position = (
+                    SELECT COUNT(*)
+                    FROM QueueEntry q2
+                    WHERE q2.QueueID = QueueEntry.QueueID
+                    AND q2.Position <= QueueEntry.Position
+                )
+                WHERE QueueID = $queueId;
+            ";
+
+            _dbHelper.ExecuteNonQuery(query,
+                new SqliteParameter("$queueId", queueId));
+        }
+
         public void RemoveDriverFromQueue(int driverID, int queueID)
         {
             string query = @"
@@ -156,7 +186,7 @@ namespace TriQue.Data.Repositories
         {
             string query = @"
                 SELECT 
-                    qe.Position AS Position,
+                    ROW_NUMBER() OVER (ORDER BY qe.Position ASC) AS Position,
                     u.FirstName || ' ' || u.LastName AS DriverName,
                     d.BodyNumber AS BodyNumber,
                     ds.StatusName AS Status

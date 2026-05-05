@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TriQue.Models
+namespace TriQue.DTOs
 {
-    public class TrafficData
+    public class TrafficDto
     {
         public int RouteID { get; set; }
         public string RouteName { get; set; } = "";

@@ -1,6 +1,6 @@
 using TriQue.Data.Repositories;
+using TriQue.DTOs;
 using TriQue.Enums;
-using TriQue.Models;
 using TriQue.Services;
 
 namespace TriQue.Forms
@@ -10,7 +10,7 @@ namespace TriQue.Forms
         private DriverDashboardService _dashboardService;
         private RouteService _routeService;
         private QueueService _queueService;
-        private DriverDashboardData _data;
+        private DriverDashboardDto _data;
         private QueueRepository _queueRepo;
         private TripRepository _tripRepo;
 
