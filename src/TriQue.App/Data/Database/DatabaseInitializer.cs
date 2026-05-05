@@ -21,6 +21,28 @@ namespace TriQue.Data.Database
 
             var cmd = conn.CreateCommand();
 
+            // Uncomment this if AuthenticationServiceTests.cs keeps failing
+
+            //cmd.CommandText =
+            //@"
+            //    PRAGMA foreign_keys = OFF;
+            //    DROP TABLE IF EXISTS AuthenticationLog;
+            //    DROP TABLE IF EXISTS QueueEntry;
+            //    DROP TABLE IF EXISTS Trip;
+            //    DROP TABLE IF EXISTS Queue;
+            //    DROP TABLE IF EXISTS Driver;
+            //    DROP TABLE IF EXISTS Admin;
+            //    DROP TABLE IF EXISTS User;
+            //    DROP TABLE IF EXISTS Route;
+            //    DROP TABLE IF EXISTS DriverGroup;
+            //    DROP TABLE IF EXISTS DriverStatus;
+            //    DROP TABLE IF EXISTS AdminLevel;
+            //    DROP TABLE IF EXISTS UserRole;
+            //    DROP TABLE IF EXISTS TrafficLog;
+            //    PRAGMA foreign_keys = ON;
+            //";
+            //cmd.ExecuteNonQuery();
+
             // creating tables
             cmd.CommandText =
             @"
@@ -289,9 +311,8 @@ namespace TriQue.Data.Database
                 (3, 4, '2026-04-23 08:00:00', '2026-04-23 09:00:00', 'Success'),
                 (4, 5, '2026-04-23 08:30:00', '2026-04-23 09:30:00', 'Failed');
             ";
-
-            HashPlainPasswords();
             cmd.ExecuteNonQuery();
+            HashPlainPasswords();
         }
 
         // Hash the initialized password 
