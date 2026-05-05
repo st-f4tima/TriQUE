@@ -228,7 +228,6 @@
             lblStatusTiltle.Size = new Size(75, 20);
             lblStatusTiltle.TabIndex = 12;
             lblStatusTiltle.Text = "STATUS";
-            lblStatusTiltle.Click += lblStatus_Click;
             // 
             // StatusIcon
             // 
@@ -475,7 +474,6 @@
             lblViewQueueStatusTitle.Size = new Size(225, 28);
             lblViewQueueStatusTitle.TabIndex = 11;
             lblViewQueueStatusTitle.Text = "View Queue Status";
-            lblViewQueueStatusTitle.Click += lblViewQueueStatusTitle_Click;
             // 
             // lblQueueStatusTitle
             // 

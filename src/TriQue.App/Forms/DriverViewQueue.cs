@@ -52,12 +52,49 @@ namespace TriQue.Forms
             if (row != null)
             {
                 lblRankingValue.Text = row["Position"].ToString();
-                lblRouteValue.Text = row["RouteName"].ToString();
-                lblStatusValue.Text = row["Status"].ToString();
+
+                string status = row["Status"].ToString();
+
+                lblStatusValue.Text = status switch
+                {
+                    "OnTrip" => "On Trip",
+                    "Waiting" => "Waiting",
+                    "Finished" => "Finished",
+                    _ => status
+                };
+
+                lblStatusValue.ForeColor = status switch
+                {
+                    "OnTrip" => Color.FromArgb(13, 110, 253),
+                    "Waiting" => Color.FromArgb(255, 183, 0),
+                    "Finished" => Color.FromArgb(0, 200, 83),
+                    _ => Color.Gray
+                };
+            }
+            else
+            {
+                lblRankingValue.Text = "—";
+
+                string fallbackStatus = driver.Status.ToString();
+
+                lblStatusValue.Text = fallbackStatus switch
+                {
+                    "OnTrip" => "On Trip",
+                    "Waiting" => "Waiting",
+                    "Finished" => "Finished",
+                    _ => fallbackStatus
+                };
+
+                lblStatusValue.ForeColor = fallbackStatus switch
+                {
+                    "OnTrip" => Color.FromArgb(13, 110, 253),
+                    "Waiting" => Color.FromArgb(255, 183, 0),
+                    "Finished" => Color.FromArgb(0, 200, 83),
+                    _ => Color.Gray
+                };
             }
 
-            DataGridQueueStatus.DataSource =
-                _queueRepo.GetQueueDrivers(_queueId);
+            DataGridQueueStatus.DataSource = _queueRepo.GetQueueDrivers(_queueId);
         }
 
         // start/end trip button
@@ -66,44 +103,42 @@ namespace TriQue.Forms
             var driver = _driverRepo.GetByDriverID(_driverID);
             if (driver == null) return;
 
-            // start trip button
+            // --- Start Trip ---
             if (driver.Status == DriverStatus.Waiting && IsDriverInQueue())
             {
                 var confirm = MessageBox.Show(
-                    "Start your trip now?",
-                    "Confirm",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
+                    "Start your trip now?", "Confirm",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm != DialogResult.Yes) return;
 
                 _driverRepo.UpdateStatus(_driverID, (int)DriverStatus.OnTrip);
                 _tripService.StartTrip(_driverID, _routeId);
 
+                System.Threading.Thread.Sleep(150);
                 displayData();
                 UpdateStartButtonState();
                 return;
             }
 
-            // end trip
+            // --- End Trip ---
             if (driver.Status == DriverStatus.OnTrip)
             {
                 var confirm = MessageBox.Show(
-                    "End your trip now?",
-                    "Confirm",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
+                    "End your trip now?", "Confirm",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm != DialogResult.Yes) return;
 
                 _tripService.EndTrip(_driverID, _routeId);
                 _driverRepo.UpdateStatus(_driverID, (int)DriverStatus.Finished);
                 _queueRepo.RemoveDriverFromQueue(_driverID, _queueId);
 
+                // Compact positions: rank 2 → rank 1, rank 3 → rank 2, etc.
+                _queueRepo.ReorderQueuePositions(_queueId);
+
+                System.Threading.Thread.Sleep(150);
                 displayData();
                 UpdateStartButtonState();
 
-                // notify dashboard
                 foreach (Form f in Application.OpenForms)
                 {
                     if (f is DriverForm dashboard)
@@ -112,7 +147,6 @@ namespace TriQue.Forms
                         break;
                     }
                 }
-
                 return;
             }
         }
@@ -167,7 +201,7 @@ namespace TriQue.Forms
         }
 
 
-        // navigation
+        // navbar
         private void DashBtn_Click(object sender, EventArgs e)
         {
             DriverForm dash = new DriverForm(_userID);
@@ -187,16 +221,6 @@ namespace TriQue.Forms
             LoginForm login = new LoginForm();
             login.Show();
             this.Close();
-        }
-
-        private void lblStatus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblViewQueueStatusTitle_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
