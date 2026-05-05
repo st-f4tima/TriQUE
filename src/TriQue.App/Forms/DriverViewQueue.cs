@@ -1,8 +1,4 @@
-﻿using Guna.UI2.WinForms;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using TriQue.Data.Repositories;
+﻿using TriQue.Data.Repositories;
 using TriQue.Enums;
 using TriQue.Services;
 
