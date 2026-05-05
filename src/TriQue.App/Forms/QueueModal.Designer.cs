@@ -116,7 +116,7 @@
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(91, 91, 91);
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
@@ -203,6 +203,8 @@
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "QueueModal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Route";

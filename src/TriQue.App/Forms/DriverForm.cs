@@ -82,7 +82,7 @@ namespace TriQue.Forms
             lblRouteStatus.Text = $"On Route - {_data.RouteName}";
             lblTotalDistanceValue.Text = $"{_data.TotalDistance} km";
             LoadDataGrid();
-            
+
         }
 
         private void LoadDataGrid()
@@ -251,6 +251,5 @@ namespace TriQue.Forms
             login.Show();
             this.Close();
         }
-
     }
 }

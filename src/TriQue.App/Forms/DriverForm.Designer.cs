@@ -254,11 +254,11 @@ namespace TriQue.Forms
             btnJoinQueue.FillColor = Color.FromArgb(55, 91, 231);
             btnJoinQueue.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnJoinQueue.ForeColor = Color.White;
-            btnJoinQueue.Location = new Point(528, 20);
+            btnJoinQueue.Location = new Point(545, 20);
             btnJoinQueue.Margin = new Padding(4, 3, 4, 3);
             btnJoinQueue.Name = "btnJoinQueue";
             btnJoinQueue.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnJoinQueue.Size = new Size(257, 47);
+            btnJoinQueue.Size = new Size(273, 47);
             btnJoinQueue.TabIndex = 2;
             btnJoinQueue.Text = "Join Queue";
             btnJoinQueue.Click += btnJoinQueue_Click;
@@ -271,21 +271,21 @@ namespace TriQue.Forms
             RoutePanel.Controls.Add(lblRouteStatus);
             RoutePanel.Controls.Add(pictureBox10);
             RoutePanel.CustomizableEdges = customizableEdges9;
-            RoutePanel.Font = new Font("Roboto", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            RoutePanel.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             RoutePanel.ForeColor = Color.FromArgb(91, 91, 91);
-            RoutePanel.Location = new Point(792, 20);
+            RoutePanel.Location = new Point(825, 20);
             RoutePanel.Name = "RoutePanel";
             RoutePanel.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            RoutePanel.Size = new Size(306, 47);
+            RoutePanel.Size = new Size(289, 47);
             RoutePanel.TabIndex = 3;
             // 
             // lblRouteStatus
             // 
             lblRouteStatus.AutoSize = true;
-            lblRouteStatus.Font = new Font("Roboto", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRouteStatus.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblRouteStatus.Location = new Point(52, 16);
             lblRouteStatus.Name = "lblRouteStatus";
-            lblRouteStatus.Size = new Size(92, 18);
+            lblRouteStatus.Size = new Size(96, 18);
             lblRouteStatus.TabIndex = 17;
             lblRouteStatus.Text = "On Route - ";
             // 
@@ -319,34 +319,34 @@ namespace TriQue.Forms
             // lblEarningsGoal
             // 
             lblEarningsGoal.AutoSize = true;
-            lblEarningsGoal.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEarningsGoal.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblEarningsGoal.ForeColor = Color.FromArgb(91, 91, 91);
             lblEarningsGoal.Location = new Point(31, 100);
             lblEarningsGoal.Name = "lblEarningsGoal";
-            lblEarningsGoal.Size = new Size(84, 15);
+            lblEarningsGoal.Size = new Size(86, 16);
             lblEarningsGoal.TabIndex = 5;
             lblEarningsGoal.Text = "Goal: ₱ 650";
             // 
             // lblTodayEarningValue
             // 
             lblTodayEarningValue.AutoSize = true;
-            lblTodayEarningValue.Font = new Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTodayEarningValue.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTodayEarningValue.ForeColor = Color.FromArgb(91, 91, 91);
-            lblTodayEarningValue.Location = new Point(109, 35);
+            lblTodayEarningValue.Location = new Point(126, 35);
             lblTodayEarningValue.Name = "lblTodayEarningValue";
-            lblTodayEarningValue.Size = new Size(113, 41);
+            lblTodayEarningValue.Size = new Size(51, 39);
             lblTodayEarningValue.TabIndex = 4;
-            lblTodayEarningValue.Text = "₱ 450";
+            lblTodayEarningValue.Text = "₱ ";
             lblTodayEarningValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblTodayEarningsTitle
             // 
             lblTodayEarningsTitle.AutoSize = true;
-            lblTodayEarningsTitle.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTodayEarningsTitle.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTodayEarningsTitle.ForeColor = Color.FromArgb(91, 91, 91);
             lblTodayEarningsTitle.Location = new Point(54, 13);
             lblTodayEarningsTitle.Name = "lblTodayEarningsTitle";
-            lblTodayEarningsTitle.Size = new Size(119, 15);
+            lblTodayEarningsTitle.Size = new Size(129, 16);
             lblTodayEarningsTitle.TabIndex = 3;
             lblTodayEarningsTitle.Text = "Today’s Earnings";
             // 
@@ -391,11 +391,11 @@ namespace TriQue.Forms
             // lblTotalTripsLabel
             // 
             lblTotalTripsLabel.AutoSize = true;
-            lblTotalTripsLabel.Font = new Font("Roboto", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalTripsLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalTripsLabel.ForeColor = Color.FromArgb(55, 91, 231);
             lblTotalTripsLabel.Location = new Point(4, 84);
             lblTotalTripsLabel.Name = "lblTotalTripsLabel";
-            lblTotalTripsLabel.Size = new Size(177, 18);
+            lblTotalTripsLabel.Size = new Size(175, 18);
             lblTotalTripsLabel.TabIndex = 6;
             lblTotalTripsLabel.Text = "Total Trips Completed";
             lblTotalTripsLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -403,10 +403,10 @@ namespace TriQue.Forms
             // lblTotalTripsValue
             // 
             lblTotalTripsValue.AutoSize = true;
-            lblTotalTripsValue.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalTripsValue.Location = new Point(74, 41);
+            lblTotalTripsValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalTripsValue.Location = new Point(63, 41);
             lblTotalTripsValue.Name = "lblTotalTripsValue";
-            lblTotalTripsValue.Size = new Size(66, 34);
+            lblTotalTripsValue.Size = new Size(65, 32);
             lblTotalTripsValue.TabIndex = 5;
             lblTotalTripsValue.Text = "178";
             lblTotalTripsValue.TextAlign = ContentAlignment.MiddleCenter;
@@ -439,7 +439,7 @@ namespace TriQue.Forms
             // lblTripsTodayLabel
             // 
             lblTripsTodayLabel.AutoSize = true;
-            lblTripsTodayLabel.Font = new Font("Roboto", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTripsTodayLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTripsTodayLabel.ForeColor = Color.FromArgb(55, 91, 231);
             lblTripsTodayLabel.Location = new Point(24, 84);
             lblTripsTodayLabel.Name = "lblTripsTodayLabel";
@@ -451,11 +451,11 @@ namespace TriQue.Forms
             // lblTripsTodayValue
             // 
             lblTripsTodayValue.AutoSize = true;
-            lblTripsTodayValue.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTripsTodayValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTripsTodayValue.ForeColor = Color.FromArgb(91, 91, 91);
-            lblTripsTodayValue.Location = new Point(74, 41);
+            lblTripsTodayValue.Location = new Point(65, 41);
             lblTripsTodayValue.Name = "lblTripsTodayValue";
-            lblTripsTodayValue.Size = new Size(49, 34);
+            lblTripsTodayValue.Size = new Size(48, 32);
             lblTripsTodayValue.TabIndex = 6;
             lblTripsTodayValue.Text = "10";
             lblTripsTodayValue.TextAlign = ContentAlignment.MiddleCenter;
@@ -555,10 +555,10 @@ namespace TriQue.Forms
             // lblFastestTripValue
             // 
             lblFastestTripValue.AutoSize = true;
-            lblFastestTripValue.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFastestTripValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFastestTripValue.Location = new Point(49, 45);
             lblFastestTripValue.Name = "lblFastestTripValue";
-            lblFastestTripValue.Size = new Size(90, 34);
+            lblFastestTripValue.Size = new Size(88, 32);
             lblFastestTripValue.TabIndex = 8;
             lblFastestTripValue.Text = "8 min";
             lblFastestTripValue.TextAlign = ContentAlignment.MiddleCenter;
@@ -566,11 +566,11 @@ namespace TriQue.Forms
             // lblFastestTripLabel
             // 
             lblFastestTripLabel.AutoSize = true;
-            lblFastestTripLabel.Font = new Font("Roboto", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFastestTripLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFastestTripLabel.ForeColor = Color.FromArgb(55, 91, 231);
             lblFastestTripLabel.Location = new Point(47, 83);
             lblFastestTripLabel.Name = "lblFastestTripLabel";
-            lblFastestTripLabel.Size = new Size(99, 18);
+            lblFastestTripLabel.Size = new Size(98, 18);
             lblFastestTripLabel.TabIndex = 7;
             lblFastestTripLabel.Text = "Fastest Trip";
             lblFastestTripLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -604,10 +604,10 @@ namespace TriQue.Forms
             // lblLowestTripValue
             // 
             lblLowestTripValue.AutoSize = true;
-            lblLowestTripValue.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLowestTripValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblLowestTripValue.Location = new Point(39, 48);
             lblLowestTripValue.Name = "lblLowestTripValue";
-            lblLowestTripValue.Size = new Size(107, 34);
+            lblLowestTripValue.Size = new Size(105, 32);
             lblLowestTripValue.TabIndex = 9;
             lblLowestTripValue.Text = "12 min";
             lblLowestTripValue.TextAlign = ContentAlignment.MiddleCenter;
@@ -615,11 +615,11 @@ namespace TriQue.Forms
             // lblLowestTripLabel
             // 
             lblLowestTripLabel.AutoSize = true;
-            lblLowestTripLabel.Font = new Font("Roboto", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLowestTripLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblLowestTripLabel.ForeColor = Color.FromArgb(55, 91, 231);
             lblLowestTripLabel.Location = new Point(47, 83);
             lblLowestTripLabel.Name = "lblLowestTripLabel";
-            lblLowestTripLabel.Size = new Size(97, 18);
+            lblLowestTripLabel.Size = new Size(96, 18);
             lblLowestTripLabel.TabIndex = 8;
             lblLowestTripLabel.Text = "Lowest Trip";
             lblLowestTripLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -642,10 +642,10 @@ namespace TriQue.Forms
             MapRoutePanel.Controls.Add(webView21);
             MapRoutePanel.CustomizableEdges = customizableEdges25;
             MapRoutePanel.ForeColor = Color.FromArgb(91, 91, 91);
-            MapRoutePanel.Location = new Point(522, 80);
+            MapRoutePanel.Location = new Point(534, 80);
             MapRoutePanel.Name = "MapRoutePanel";
             MapRoutePanel.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            MapRoutePanel.Size = new Size(633, 394);
+            MapRoutePanel.Size = new Size(621, 394);
             MapRoutePanel.TabIndex = 11;
             // 
             // webView21
@@ -653,9 +653,9 @@ namespace TriQue.Forms
             webView21.AllowExternalDrop = true;
             webView21.CreationProperties = null;
             webView21.DefaultBackgroundColor = Color.White;
-            webView21.Location = new Point(25, 19);
+            webView21.Location = new Point(18, 15);
             webView21.Name = "webView21";
-            webView21.Size = new Size(587, 356);
+            webView21.Size = new Size(581, 356);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
             // 
@@ -669,7 +669,7 @@ namespace TriQue.Forms
             TrafficConditionPanel.Controls.Add(pictureBox7);
             TrafficConditionPanel.CustomizableEdges = customizableEdges27;
             TrafficConditionPanel.ForeColor = Color.FromArgb(91, 91, 91);
-            TrafficConditionPanel.Location = new Point(547, 497);
+            TrafficConditionPanel.Location = new Point(534, 497);
             TrafficConditionPanel.Name = "TrafficConditionPanel";
             TrafficConditionPanel.ShadowDecoration.CustomizableEdges = customizableEdges28;
             TrafficConditionPanel.Size = new Size(185, 125);
@@ -678,19 +678,19 @@ namespace TriQue.Forms
             // lblTrafficStatus
             // 
             lblTrafficStatus.AutoSize = true;
-            lblTrafficStatus.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTrafficStatus.ForeColor = Color.FromArgb(215, 108, 68);
+            lblTrafficStatus.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTrafficStatus.ForeColor = Color.FromArgb(91, 91, 91);
             lblTrafficStatus.Location = new Point(22, 51);
             lblTrafficStatus.Name = "lblTrafficStatus";
-            lblTrafficStatus.Size = new Size(141, 34);
+            lblTrafficStatus.Size = new Size(151, 32);
             lblTrafficStatus.TabIndex = 19;
-            lblTrafficStatus.Text = "Moderate";
+            lblTrafficStatus.Text = "Loading...";
             lblTrafficStatus.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblTrafficLabel
             // 
             lblTrafficLabel.AutoSize = true;
-            lblTrafficLabel.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTrafficLabel.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTrafficLabel.ForeColor = Color.FromArgb(55, 91, 231);
             lblTrafficLabel.Location = new Point(20, 93);
             lblTrafficLabel.Name = "lblTrafficLabel";
@@ -719,7 +719,7 @@ namespace TriQue.Forms
             TotalDurationPanel.Controls.Add(pictureBox8);
             TotalDurationPanel.CustomizableEdges = customizableEdges29;
             TotalDurationPanel.ForeColor = Color.FromArgb(91, 91, 91);
-            TotalDurationPanel.Location = new Point(750, 497);
+            TotalDurationPanel.Location = new Point(755, 497);
             TotalDurationPanel.Name = "TotalDurationPanel";
             TotalDurationPanel.ShadowDecoration.CustomizableEdges = customizableEdges30;
             TotalDurationPanel.Size = new Size(185, 125);
@@ -728,18 +728,18 @@ namespace TriQue.Forms
             // lblTotalDurationValue
             // 
             lblTotalDurationValue.AutoSize = true;
-            lblTotalDurationValue.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalDurationValue.Location = new Point(48, 51);
+            lblTotalDurationValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalDurationValue.Location = new Point(16, 51);
             lblTotalDurationValue.Name = "lblTotalDurationValue";
-            lblTotalDurationValue.Size = new Size(90, 34);
+            lblTotalDurationValue.Size = new Size(151, 32);
             lblTotalDurationValue.TabIndex = 20;
-            lblTotalDurationValue.Text = "4 min";
+            lblTotalDurationValue.Text = "Loading...";
             lblTotalDurationValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblTotalDurationLabel
             // 
             lblTotalDurationLabel.AutoSize = true;
-            lblTotalDurationLabel.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalDurationLabel.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalDurationLabel.ForeColor = Color.FromArgb(55, 91, 231);
             lblTotalDurationLabel.Location = new Point(33, 93);
             lblTotalDurationLabel.Name = "lblTotalDurationLabel";
@@ -768,7 +768,7 @@ namespace TriQue.Forms
             TotalDistancePanel.Controls.Add(pictureBox9);
             TotalDistancePanel.CustomizableEdges = customizableEdges31;
             TotalDistancePanel.ForeColor = Color.FromArgb(91, 91, 91);
-            TotalDistancePanel.Location = new Point(949, 497);
+            TotalDistancePanel.Location = new Point(970, 497);
             TotalDistancePanel.Name = "TotalDistancePanel";
             TotalDistancePanel.ShadowDecoration.CustomizableEdges = customizableEdges32;
             TotalDistancePanel.Size = new Size(185, 125);
@@ -777,11 +777,11 @@ namespace TriQue.Forms
             // lblTotalDistanceLabel
             // 
             lblTotalDistanceLabel.AutoSize = true;
-            lblTotalDistanceLabel.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalDistanceLabel.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalDistanceLabel.ForeColor = Color.FromArgb(55, 91, 231);
             lblTotalDistanceLabel.Location = new Point(31, 93);
             lblTotalDistanceLabel.Name = "lblTotalDistanceLabel";
-            lblTotalDistanceLabel.Size = new Size(131, 20);
+            lblTotalDistanceLabel.Size = new Size(132, 20);
             lblTotalDistanceLabel.TabIndex = 10;
             lblTotalDistanceLabel.Text = "Total Distance";
             lblTotalDistanceLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -789,10 +789,10 @@ namespace TriQue.Forms
             // lblTotalDistanceValue
             // 
             lblTotalDistanceValue.AutoSize = true;
-            lblTotalDistanceValue.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalDistanceValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalDistanceValue.Location = new Point(46, 51);
             lblTotalDistanceValue.Name = "lblTotalDistanceValue";
-            lblTotalDistanceValue.Size = new Size(81, 34);
+            lblTotalDistanceValue.Size = new Size(78, 32);
             lblTotalDistanceValue.TabIndex = 9;
             lblTotalDistanceValue.Text = "2 km";
             lblTotalDistanceValue.TextAlign = ContentAlignment.BottomCenter;
@@ -814,29 +814,29 @@ namespace TriQue.Forms
             guna2ImageButton5.Image = (Image)resources.GetObject("guna2ImageButton5.Image");
             guna2ImageButton5.ImageOffset = new Point(0, 0);
             guna2ImageButton5.ImageRotate = 0F;
-            guna2ImageButton5.ImageSize = new Size(40, 40);
-            guna2ImageButton5.Location = new Point(1101, 14);
+            guna2ImageButton5.ImageSize = new Size(30, 30);
+            guna2ImageButton5.Location = new Point(1120, 30);
             guna2ImageButton5.Name = "guna2ImageButton5";
             guna2ImageButton5.PressedState.ImageSize = new Size(64, 64);
             guna2ImageButton5.ShadowDecoration.CustomizableEdges = customizableEdges33;
-            guna2ImageButton5.Size = new Size(60, 60);
+            guna2ImageButton5.Size = new Size(35, 35);
             guna2ImageButton5.TabIndex = 16;
             // 
             // lblWelcomeMessage
             // 
             lblWelcomeMessage.AutoSize = true;
-            lblWelcomeMessage.Font = new Font("Roboto", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWelcomeMessage.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblWelcomeMessage.ForeColor = Color.FromArgb(91, 91, 91);
             lblWelcomeMessage.Location = new Point(125, 30);
             lblWelcomeMessage.Name = "lblWelcomeMessage";
-            lblWelcomeMessage.Size = new Size(322, 37);
+            lblWelcomeMessage.Size = new Size(320, 36);
             lblWelcomeMessage.TabIndex = 17;
             lblWelcomeMessage.Text = "Welcome Back, Juan!";
             // 
             // lblTripHistoryTitle
             // 
             lblTripHistoryTitle.AutoSize = true;
-            lblTripHistoryTitle.Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTripHistoryTitle.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTripHistoryTitle.ForeColor = Color.FromArgb(91, 91, 91);
             lblTripHistoryTitle.Location = new Point(125, 463);
             lblTripHistoryTitle.Name = "lblTripHistoryTitle";

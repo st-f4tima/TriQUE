@@ -96,9 +96,9 @@ namespace Trique.Forms
 
             string[] order = { "Waiting", "OnTrip", "Finished" };
             Color[] colors = {
-                Color.FromArgb(255, 193,   7),  
-                Color.FromArgb( 55,  91, 231),   
-                Color.FromArgb( 40, 167,  69)   
+                Color.FromArgb(255, 193,   7),
+                Color.FromArgb( 55,  91, 231),
+                Color.FromArgb( 40, 167,  69)
             };
 
             for (int i = 0; i < order.Length; i++)
@@ -156,14 +156,15 @@ namespace Trique.Forms
             _refreshTimer.Start();
         }
 
-        // navigation
+        // navbar
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
             new LoginForm().Show();
             this.Hide();
         }
 
-        private void DashboardBtn_Click(object sender, EventArgs e) {
+        private void DashboardBtn_Click(object sender, EventArgs e)
+        {
             AdminForm adminForm = new AdminForm(_userID);
             adminForm.Show();
             this.Hide();
@@ -185,9 +186,24 @@ namespace Trique.Forms
 
         private void ManageUsersBtn_Click(object sender, EventArgs e)
         {
+            var repo = new UserRepository();
+            int level = repo.GetAdminLevel(_userID);
+
+            // 1 = SuperAdmin only
+            if (level != 1)
+            {
+                MessageBox.Show(
+                    "Access denied. Only SuperAdmins can manage users.",
+                    "Access Denied",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
             AdminManageUsers adminManageUsers = new AdminManageUsers(_userID);
             adminManageUsers.Show();
             this.Hide();
         }
+
     }
 }

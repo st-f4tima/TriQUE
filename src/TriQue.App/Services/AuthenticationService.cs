@@ -1,5 +1,6 @@
 ﻿using System;
 using TriQue.Data.Repositories;
+using TriQue.Helpers;
 using TriQue.Models;
 
 namespace TriQue.Services
@@ -37,7 +38,7 @@ namespace TriQue.Services
                 return false;
             }
 
-            if (password != user.PasswordHash)
+            if (!PasswordHelper.Verify(password, user.PasswordHash))
             {
                 _repo.IncreaseFailedAttempts(user.UserID);
 

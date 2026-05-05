@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using TriQue.Data.Repositories;
 
 namespace TriQue
 {
     public partial class UserDetailsModal : Form
     {
-        public UserDetailsModal()
+        private readonly UserRepository _repo = new();
+        public UserDetailsModal(int userID)
         {
             InitializeComponent();
+            LoadData(userID);
+        }
+
+        private void LoadData(int userID)
+        {
+           
+            // Todo: Put it inside here
         }
 
     }

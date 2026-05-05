@@ -8,7 +8,20 @@ namespace TriQue.Helpers
             => BCrypt.Net.BCrypt.HashPassword(password);
 
         public static bool Verify(string password, string hash)
-            => BCrypt.Net.BCrypt.Verify(password, hash);
+        {
+            try
+            {
+                // if hash is not a valid BCrypt hash, return false instead of crashing
+                if (string.IsNullOrWhiteSpace(hash) || !hash.StartsWith("$2"))
+                    return false;
+
+                return BCrypt.Net.BCrypt.Verify(password, hash);
+            }
+            catch (BCrypt.Net.SaltParseException)
+            {
+                return false;
+            }
+        }
 
         public static string GenerateTempPassword(int length = 8)
         {

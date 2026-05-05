@@ -20,7 +20,7 @@ namespace TriQue.Data.Database
             conn.Open();
 
             var cmd = conn.CreateCommand();
-                
+
             // creating tables
             cmd.CommandText =
             @"
@@ -68,6 +68,7 @@ namespace TriQue.Data.Database
                 RoleID INTEGER NOT NULL,
                 FailedAttempts INTEGER NOT NULL DEFAULT 0,
                 LockoutUntil DATETIME,
+                IsTemporaryPassword INTEGER NOT NULL DEFAULT 0,
                 FOREIGN KEY (RoleID) REFERENCES UserRole(RoleID)
             );
 
@@ -161,43 +162,42 @@ namespace TriQue.Data.Database
                 (3, 'Finished');
 
 
-            INSERT OR IGNORE INTO User (UserID, Username, PasswordHash, FirstName, LastName, PhoneNumber, RoleID) VALUES
-
+            INSERT OR IGNORE INTO User (UserID, Username, PasswordHash, FirstName, LastName, PhoneNumber, RoleID, IsTemporaryPassword) VALUES
                 -- ADMINS
-                (1, 'admin1', 'hash1', 'Juan', 'Dela Cruz', '09111111111', 2),
-                (2, 'admin2', 'hash2', 'Luis', 'Torres', '09222222222', 2),
+                (1, 'admin1', 'hash1', 'Juan', 'Dela Cruz', '09111111111', 2, 0),
+                (2, 'admin2', 'hash2', 'Luis', 'Torres', '09222222222', 2, 0),
 
                 -- DRIVERS (30)
-                (3, 'driver1', 'hash3', 'Lemon', 'Juice', '09300000001', 1),
-                (4, 'driver2', 'hash4', 'Driver2', 'Test', '09300000002', 1),
-                (5, 'driver3', 'hash5', 'Driver3', 'Test', '09300000003', 1),
-                (6, 'driver4', 'hash6', 'Driver4', 'Test', '09300000004', 1),
-                (7, 'driver5', 'hash7', 'Driver5', 'Test', '09300000005', 1),
-                (8, 'driver6', 'hash8', 'Driver6', 'Test', '09300000006', 1),
-                (9, 'driver7', 'hash9', 'Driver7', 'Test', '09300000007', 1),
-                (10, 'driver8', 'hash10', 'Driver8', 'Test', '09300000008', 1),
-                (11, 'driver9', 'hash11', 'Driver9', 'Test', '09300000009', 1),
-                (12, 'driver10', 'hash12', 'Driver10', 'Test', '09300000010', 1),
-                (13, 'driver11', 'hash13', 'Driver11', 'Test', '09300000011', 1),
-                (14, 'driver12', 'hash14', 'Driver12', 'Test', '09300000012', 1),
-                (15, 'driver13', 'hash15', 'Driver13', 'Test', '09300000013', 1),
-                (16, 'driver14', 'hash16', 'Driver14', 'Test', '09300000014', 1),
-                (17, 'driver15', 'hash17', 'Driver15', 'Test', '09300000015', 1),
-                (18, 'driver16', 'hash18', 'Driver16', 'Test', '09300000016', 1),
-                (19, 'driver17', 'hash19', 'Driver17', 'Test', '09300000017', 1),
-                (20, 'driver18', 'hash20', 'Driver18', 'Test', '09300000018', 1),
-                (21, 'driver19', 'hash21', 'Driver19', 'Test', '09300000019', 1),
-                (22, 'driver20', 'hash22', 'Driver20', 'Test', '09300000020', 1),
-                (23, 'driver21', 'hash23', 'Driver21', 'Test', '09300000021', 1),
-                (24, 'driver22', 'hash24', 'Driver22', 'Test', '09300000022', 1),
-                (25, 'driver23', 'hash25', 'Driver23', 'Test', '09300000023', 1),
-                (26, 'driver24', 'hash26', 'Driver24', 'Test', '09300000024', 1),
-                (27, 'driver25', 'hash27', 'Driver25', 'Test', '09300000025', 1),
-                (28, 'driver26', 'hash28', 'Driver26', 'Test', '09300000026', 1),
-                (29, 'driver27', 'hash29', 'Driver27', 'Test', '09300000027', 1),
-                (30, 'driver28', 'hash30', 'Driver28', 'Test', '09300000028', 1),
-                (31, 'driver29', 'hash31', 'Driver29', 'Test', '09300000029', 1),
-                (32, 'driver30', 'hash32', 'Driver30', 'Test', '09300000030', 1);
+                (3, 'driver1', 'hash3', 'Mike', 'Wheeler', '09300000001', 1, 1),
+                (4, 'driver2', 'hash4', 'Driver2', 'Test', '09300000002', 1, 0),
+                (5, 'driver3', 'hash5', 'Driver3', 'Test', '09300000003', 1, 0),
+                (6, 'driver4', 'hash6', 'Driver4', 'Test', '09300000004', 1, 0),
+                (7, 'driver5', 'hash7', 'Driver5', 'Test', '09300000005', 1, 0),
+                (8, 'driver6', 'hash8', 'Driver6', 'Test', '09300000006', 1, 0),
+                (9, 'driver7', 'hash9', 'Driver7', 'Test', '09300000007', 1, 0),
+                (10, 'driver8', 'hash10', 'Driver8', 'Test', '09300000008', 1, 0),
+                (11, 'driver9', 'hash11', 'Driver9', 'Test', '09300000009', 1, 0),
+                (12, 'driver10', 'hash12', 'Driver10', 'Test', '09300000010', 1, 0),
+                (13, 'driver11', 'hash13', 'Driver11', 'Test', '09300000011', 1, 0),
+                (14, 'driver12', 'hash14', 'Driver12', 'Test', '09300000012', 1, 0),
+                (15, 'driver13', 'hash15', 'Driver13', 'Test', '09300000013', 1, 0),
+                (16, 'driver14', 'hash16', 'Driver14', 'Test', '09300000014', 1, 0),
+                (17, 'driver15', 'hash17', 'Driver15', 'Test', '09300000015', 1, 0),
+                (18, 'driver16', 'hash18', 'Driver16', 'Test', '09300000016', 1, 0),
+                (19, 'driver17', 'hash19', 'Driver17', 'Test', '09300000017', 1, 0),
+                (20, 'driver18', 'hash20', 'Driver18', 'Test', '09300000018', 1, 0),
+                (21, 'driver19', 'hash21', 'Driver19', 'Test', '09300000019', 1, 0),
+                (22, 'driver20', 'hash22', 'Driver20', 'Test', '09300000020', 1, 0),
+                (23, 'driver21', 'hash23', 'Driver21', 'Test', '09300000021', 1, 0),
+                (24, 'driver22', 'hash24', 'Driver22', 'Test', '09300000022', 1, 0),
+                (25, 'driver23', 'hash25', 'Driver23', 'Test', '09300000023', 1, 0),
+                (26, 'driver24', 'hash26', 'Driver24', 'Test', '09300000024', 1, 0),
+                (27, 'driver25', 'hash27', 'Driver25', 'Test', '09300000025', 1, 0),
+                (28, 'driver26', 'hash28', 'Driver26', 'Test', '09300000026', 1, 0),
+                (29, 'driver27', 'hash29', 'Driver27', 'Test', '09300000027', 1, 0),
+                (30, 'driver28', 'hash30', 'Driver28', 'Test', '09300000028', 1, 0),
+                (31, 'driver29', 'hash31', 'Driver29', 'Test', '09300000029', 1, 0),
+                (32, 'driver30', 'hash32', 'Driver30', 'Test', '09300000030', 1, 0);
 
             INSERT OR IGNORE INTO Admin (AdminID, UserID, LevelID) VALUES
                 (1, 1, 1),
@@ -290,7 +290,36 @@ namespace TriQue.Data.Database
                 (4, 5, '2026-04-23 08:30:00', '2026-04-23 09:30:00', 'Failed');
             ";
 
+            HashPlainPasswords();
             cmd.ExecuteNonQuery();
+        }
+
+        // Hash the initialized password 
+        private void HashPlainPasswords()
+        {
+            string selectQuery = "SELECT UserID, PasswordHash FROM User";
+            using var reader = _dbHelper.ExecuteReader(selectQuery);
+
+            var toUpdate = new List<(int id, string hash)>();
+
+            while (reader.Read())
+            {
+                string stored = reader["PasswordHash"].ToString() ?? "";
+
+                if (!stored.StartsWith("$2"))
+                {
+                    string hashed = PasswordHelper.Hash(stored);
+                    toUpdate.Add((Convert.ToInt32(reader["UserID"]), hashed));
+                }
+            }
+
+            foreach (var (id, hash) in toUpdate)
+            {
+                _dbHelper.ExecuteNonQuery(
+                    "UPDATE User SET PasswordHash = @hash WHERE UserID = @id",
+                    new SqliteParameter("@hash", hash),
+                    new SqliteParameter("@id", id));
+            }
         }
     }
 }
