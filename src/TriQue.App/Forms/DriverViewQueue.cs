@@ -62,8 +62,8 @@ namespace TriQue.Forms
                 lblStatusValue.ForeColor = status switch
                 {
                     "Waiting" => Color.FromArgb(255, 193, 7),
-                    "OnTrip" => Color.FromArgb(13, 110, 253),
-                    "Finished" => Color.FromArgb(0, 200, 83),
+                    "OnTrip" => Color.FromArgb(40, 167, 69),
+                    "Finished" => Color.FromArgb(0, 123, 255),
                     _ => Color.Gray
                 };
             }
@@ -83,9 +83,9 @@ namespace TriQue.Forms
 
                 lblStatusValue.ForeColor = fallbackStatus switch
                 {
-                    "Waiting" => Color.FromArgb(255, 193, 7),   
-                    "OnTrip" => Color.FromArgb(13, 110, 253),   
-                    "Finished" => Color.FromArgb(0, 200, 83), 
+                    "Waiting" => Color.FromArgb(255, 193, 7),
+                    "OnTrip" => Color.FromArgb(40, 167, 69),
+                    "Finished" => Color.FromArgb(0, 123, 255),
                     _ => Color.Gray
                 };
             }
@@ -113,8 +113,8 @@ namespace TriQue.Forms
                 e.CellStyle.ForeColor = status switch
                 {
                     "Waiting" => Color.FromArgb(255, 193, 7),
-                    "OnTrip" => Color.FromArgb(13, 110, 253),
-                    "Finished" => Color.FromArgb(0, 200, 83),
+                    "OnTrip" => Color.FromArgb(40, 167, 69),
+                    "Finished" => Color.FromArgb(0, 123, 255),
                     _ => Color.Gray
                 };
 
