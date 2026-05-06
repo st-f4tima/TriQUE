@@ -79,5 +79,32 @@ namespace TriQue.Data.Repositories
                 DistanceKm = reader.IsDBNull(7) ? 0 : reader.GetDouble(7)
             };
         }
+
+        public List<Route> GetAllRoutes()
+        {
+            var routes = new List<Route>();
+
+            string query = "SELECT RouteID, AssignedGroup, RouteName, StartLat, StartLng, EndLat, EndLng, DistanceKm " +
+                "FROM Route ORDER BY RouteID";
+
+            using var reader = _dbHelper.ExecuteReader(query);
+
+            while (reader.Read())
+            {
+                routes.Add(new Route
+                {
+                    RouteID = reader.GetInt32(0),
+                    AssignedGroup = reader.GetInt32(1),
+                    RouteName = reader.GetString(2),
+                    StartLat = reader.IsDBNull(3) ? 0 : reader.GetDouble(3),
+                    StartLng = reader.IsDBNull(4) ? 0 : reader.GetDouble(4),
+                    EndLat = reader.IsDBNull(5) ? 0 : reader.GetDouble(5),
+                    EndLng = reader.IsDBNull(6) ? 0 : reader.GetDouble(6),
+                    DistanceKm = reader.IsDBNull(7) ? 0 : reader.GetDouble(7)
+                });
+            }
+
+            return routes;
+        }
     }
 }

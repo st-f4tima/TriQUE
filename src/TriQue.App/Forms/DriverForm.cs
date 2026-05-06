@@ -14,9 +14,9 @@ namespace TriQue.Forms
         private QueueRepository _queueRepo;
         private TripRepository _tripRepo;
 
-
         private int _userID;
         private int _routeId;
+        private bool _mapLoaded = false;
 
         public DriverForm(int userID)
         {
@@ -109,20 +109,27 @@ namespace TriQue.Forms
                 $"window.tomtomKey = '{key}';"
             );
 
+            webView21.CoreWebView2.WebMessageReceived += async (s, args) =>
+            {
+                if (args.TryGetWebMessageAsString() == "mapReady")
+                {
+                    _mapLoaded = true;
+                    await LoadRouteToMap();
+                }
+            };
+
             string path = Path.Combine(
                 AppDomain.CurrentDomain.BaseDirectory,
                 "Assets", "map.html"
             );
 
             webView21.Source = new Uri(path);
-            webView21.NavigationCompleted += async (s, args) =>
-            {
-                await LoadRouteToMap();
-            };
         }
 
         private async Task LoadRouteToMap()
         {
+            if (!_mapLoaded) return;
+
             var driver = _dashboardService.GetDriver(_userID);
             if (driver == null) return;
 
@@ -130,34 +137,32 @@ namespace TriQue.Forms
             if (route == null) return;
 
             _routeId = route.RouteID;
+
             var result = await _routeService.GetTrafficAndDuration(
                 route.StartLat, route.StartLng,
                 route.EndLat, route.EndLng
             );
 
-            var coords = new[]
+            var payload = new object[]
             {
                 new[] { route.StartLng, route.StartLat },
-                new[] { route.EndLng,   route.EndLat   }
+                new[] { route.EndLng,   route.EndLat   },
+                route.RouteName
             };
 
-            string json = System.Text.Json.JsonSerializer.Serialize(coords);
+            string json = System.Text.Json.JsonSerializer.Serialize(payload);
+
+            await webView21.CoreWebView2.ExecuteScriptAsync("clearRoute();");
             await webView21.CoreWebView2.ExecuteScriptAsync($"drawRoute({json});");
 
-            // display
             lblTrafficStatus.Text = $"{result.trafficCondition}";
-            if (result.trafficCondition == "Light")
+            lblTrafficStatus.ForeColor = result.trafficCondition switch
             {
-                lblTrafficStatus.ForeColor = Color.Green;
-            }
-            else if (result.trafficCondition == "Moderate")
-            {
-                lblTrafficStatus.ForeColor = Color.Orange;
-            }
-            else if (result.trafficCondition == "Heavy")
-            {
-                lblTrafficStatus.ForeColor = Color.Red;
-            }
+                "Light" => Color.Green,
+                "Moderate" => Color.Orange,
+                "Heavy" => Color.Red,
+                _ => Color.Gray
+            };
 
             lblTotalDurationValue.Text = $"{result.durationMin} min";
         }

@@ -332,7 +332,7 @@ namespace TriQue.Forms
             lblTodayEarningValue.AutoSize = true;
             lblTodayEarningValue.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTodayEarningValue.ForeColor = Color.FromArgb(91, 91, 91);
-            lblTodayEarningValue.Location = new Point(126, 35);
+            lblTodayEarningValue.Location = new Point(134, 35);
             lblTodayEarningValue.Name = "lblTodayEarningValue";
             lblTodayEarningValue.Size = new Size(51, 39);
             lblTodayEarningValue.TabIndex = 4;
@@ -366,6 +366,8 @@ namespace TriQue.Forms
             progressBar1.CustomizableEdges = customizableEdges11;
             progressBar1.Location = new Point(27, 77);
             progressBar1.Name = "progressBar1";
+            progressBar1.ProgressColor = Color.Green;
+            progressBar1.ProgressColor2 = Color.Green;
             progressBar1.ShadowDecoration.CustomizableEdges = customizableEdges12;
             progressBar1.Size = new Size(322, 18);
             progressBar1.TabIndex = 0;

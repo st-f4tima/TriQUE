@@ -115,5 +115,24 @@ namespace TriQue.Data.Repositories
                 StatusName: reader["StatusName"].ToString() ?? "Waiting"
             );
         }
+
+        public DriverGroup? GetGroupByID(int groupID)
+        {
+            string query = "SELECT GroupID, GroupName, RotationDay FROM DriverGroup WHERE GroupID = @groupID";
+
+            using var reader = _dbHelper.ExecuteReader(
+                query,
+                new SqliteParameter("@groupID", groupID)
+            );
+
+            if (!reader.Read()) return null;
+
+            return new DriverGroup
+            {
+                GroupID = Convert.ToInt32(reader["GroupID"]),
+                GroupName = reader["GroupName"].ToString(),
+                GroupRotationDay = (RotationDay)Convert.ToInt32(reader["RotationDay"])
+            };
+        }
     }
 }
