@@ -32,6 +32,25 @@ namespace TriQue.Forms
             lblGroupNameValue.Text = info.Value.GroupName;
             lblRoleValue.Text = "Driver";
             lblCurrentStatusValue.Text = info.Value.StatusName;
+
+            switch (lblCurrentStatusValue.Text)
+            {
+                case "OnTrip":
+                    StatusPanel.FillColor = Color.FromArgb(40, 167, 69); 
+                    break;
+
+                case "Waiting":
+                    StatusPanel.FillColor = Color.FromArgb(255, 193, 7);
+                    break;
+
+                case "Finished":
+                    StatusPanel.FillColor = Color.FromArgb(0, 123, 255); 
+                    break;
+
+                default:
+                    StatusPanel.FillColor = Color.Gray; 
+                    break;
+            }
         }
 
         private void DashBtn_Click(object sender, EventArgs e)

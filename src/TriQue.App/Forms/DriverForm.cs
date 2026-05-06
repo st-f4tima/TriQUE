@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.Logging;
 using TriQue.Data.Repositories;
 using TriQue.DTOs;
 using TriQue.Enums;
@@ -14,9 +15,9 @@ namespace TriQue.Forms
         private QueueRepository _queueRepo;
         private TripRepository _tripRepo;
 
-
         private int _userID;
         private int _routeId;
+        private bool _mapLoaded = false;
 
         public DriverForm(int userID)
         {
@@ -60,16 +61,19 @@ namespace TriQue.Forms
                 return;
 
             lblWelcomeMessage.Text = $"Welcome Back, {_data.User.FirstName}!";
-            lblTodayEarningValue.Text = _data.ActualEarnings.ToString("₱ 0");
+            lblTodayEarningValue.Text = _data.ActualEarnings.ToString("₱ #,##0.00");
             lblEarningsGoal.Text = $"Goal: {_data.Driver.GoalEarnings.ToString("₱ 0")}";
 
             // progress bar
             int goal = (int)_data.Driver.GoalEarnings;
             int actual = (int)_data.ActualEarnings;
 
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = goal > 0 ? goal : 1;
-            progressBar1.Value = Math.Min(actual, progressBar1.Maximum);
+            ProgressBar.Minimum = 0;
+            ProgressBar.Maximum = goal > 0 ? goal : 1;
+            ProgressBar.Value = Math.Min(actual, ProgressBar.Maximum);
+            int percent = goal > 0 ? (int)Math.Min((double)actual / goal * 100, 100) : 0;
+            ProgressBar.Maximum = 100;
+            ProgressBar.Value = percent;
 
             // stats
             lblTotalTripsValue.Text = _data.CompletedTrips.ToString();
@@ -109,20 +113,27 @@ namespace TriQue.Forms
                 $"window.tomtomKey = '{key}';"
             );
 
+            webView21.CoreWebView2.WebMessageReceived += async (s, args) =>
+            {
+                if (args.TryGetWebMessageAsString() == "mapReady")
+                {
+                    _mapLoaded = true;
+                    await LoadRouteToMap();
+                }
+            };
+
             string path = Path.Combine(
                 AppDomain.CurrentDomain.BaseDirectory,
                 "Assets", "map.html"
             );
 
             webView21.Source = new Uri(path);
-            webView21.NavigationCompleted += async (s, args) =>
-            {
-                await LoadRouteToMap();
-            };
         }
 
         private async Task LoadRouteToMap()
         {
+            if (!_mapLoaded) return;
+
             var driver = _dashboardService.GetDriver(_userID);
             if (driver == null) return;
 
@@ -130,34 +141,32 @@ namespace TriQue.Forms
             if (route == null) return;
 
             _routeId = route.RouteID;
+
             var result = await _routeService.GetTrafficAndDuration(
                 route.StartLat, route.StartLng,
                 route.EndLat, route.EndLng
             );
 
-            var coords = new[]
+            var payload = new object[]
             {
                 new[] { route.StartLng, route.StartLat },
-                new[] { route.EndLng,   route.EndLat   }
+                new[] { route.EndLng,   route.EndLat   },
+                route.RouteName
             };
 
-            string json = System.Text.Json.JsonSerializer.Serialize(coords);
+            string json = System.Text.Json.JsonSerializer.Serialize(payload);
+
+            await webView21.CoreWebView2.ExecuteScriptAsync("clearRoute();");
             await webView21.CoreWebView2.ExecuteScriptAsync($"drawRoute({json});");
 
-            // display
             lblTrafficStatus.Text = $"{result.trafficCondition}";
-            if (result.trafficCondition == "Light")
+            lblTrafficStatus.ForeColor = result.trafficCondition switch
             {
-                lblTrafficStatus.ForeColor = Color.Green;
-            }
-            else if (result.trafficCondition == "Moderate")
-            {
-                lblTrafficStatus.ForeColor = Color.Orange;
-            }
-            else if (result.trafficCondition == "Heavy")
-            {
-                lblTrafficStatus.ForeColor = Color.Red;
-            }
+                "Light" => Color.FromArgb(0, 200, 83),
+                "Moderate" => Color.Orange,
+                "Heavy" => Color.Red,
+                _ => Color.Gray
+            };
 
             lblTotalDurationValue.Text = $"{result.durationMin} min";
         }
@@ -178,7 +187,10 @@ namespace TriQue.Forms
             }
 
             var message = _queueService.JoinQueue(driver.DriverID, route.RouteID);
-            MessageBox.Show(message);
+            MessageBox.Show(message,
+                    "Queue Update",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
 
             UpdateJoinButtonState(driver.DriverID, route.RouteID);
 
@@ -223,7 +235,7 @@ namespace TriQue.Forms
         // navigation
 
         // view queue navbar button
-        private void guna2ImageButton2_Click(object sender, EventArgs e)
+        private void ViewQueueBtn_Click(object sender, EventArgs e)
         {
             if (_routeId == 0)
             {
@@ -237,7 +249,7 @@ namespace TriQue.Forms
         }
 
         // settings navbar button
-        private void guna2ImageButton3_Click(object sender, EventArgs e)
+        private void DriverSettingsBtn_Click(object sender, EventArgs e)
         {
             DriverSettings settings = new DriverSettings(_userID);
             settings.Show();
@@ -245,7 +257,7 @@ namespace TriQue.Forms
         }
 
         // logout button
-        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        private void LogoutBtn_Click(object sender, EventArgs e)
         {
             LoginForm login = new LoginForm();
             login.Show();

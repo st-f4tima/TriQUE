@@ -2,10 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.js"></script>
     <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.css" />
-
     <style>
         * {
             margin: 0;
@@ -28,56 +26,73 @@
         }
     </style>
 </head>
-
 <body>
-
     <div id="map"></div>
-
     <script>
         let map;
         let mapReady = false;
-        let pendingCoords = null;
 
         if (!window.tomtomKey) {
             console.warn("Missing window.tomtomKey");
+        }
+
+        function createPinImage(color, callback) {
+            const svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="48" viewBox="0 0 36 48">
+                  <defs>
+                    <filter id="shadow" x="-30%" y="-10%" width="160%" height="140%">
+                      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="rgba(0,0,0,0.35)"/>
+                    </filter>
+                  </defs>
+                  <!-- Teardrop body -->
+                  <path d="M18 2 C9.16 2 2 9.16 2 18 C2 28 18 46 18 46 C18 46 34 28 34 18 C34 9.16 26.84 2 18 2 Z"
+                        fill="${color}" filter="url(#shadow)"/>
+                  <!-- Inner white circle -->
+                  <circle cx="18" cy="18" r="7" fill="white" opacity="0.9"/>
+                </svg>`;
+
+            const blob = new Blob([svg], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const img = new Image(36, 48);
+            img.onload = () => { callback(img); URL.revokeObjectURL(url); };
+            img.src = url;
         }
 
         window.onload = function () {
             map = tt.map({
                 key: window.tomtomKey,
                 container: 'map',
-                center: [121.0, 14.6],
-                zoom: 12
+                center: [121.07, 13.78],
+                zoom: 13
             });
 
             map.on('load', function () {
-                mapReady = true;
-
-                map.flyTo({
-                    center: [121.0, 14.6],
-                    zoom: 15,
-                    speed: 1.2
+                createPinImage('#22c55e', function (imgStart) {
+                    map.addImage('pin-start', imgStart, { pixelRatio: 1 });
+                    createPinImage('#ef4444', function (imgEnd) {
+                        map.addImage('pin-end', imgEnd, { pixelRatio: 1 });
+                        mapReady = true;
+                        window.chrome.webview.postMessage("mapReady");
+                    });
                 });
-
-                if (pendingCoords) {
-                    renderRoute(pendingCoords);
-                    pendingCoords = null;
-                }
             });
         };
 
         window.drawRoute = function (coords) {
-
-            if (!mapReady) {
-                pendingCoords = coords;
-                return;
-            }
-
+            if (!mapReady) return;
             renderRoute(coords);
         };
 
-        async function renderRoute(coords) {
+        window.clearRoute = function () {
+            ['route', 'route-start-pin', 'route-end-pin'].forEach(id => {
+                if (map.getLayer(id)) map.removeLayer(id);
+            });
+            ['route', 'route-start', 'route-end'].forEach(id => {
+                if (map.getSource(id)) map.removeSource(id);
+            });
+        };
 
+        async function renderRoute(coords) {
             const startLng = coords[0][0];
             const startLat = coords[0][1];
             const endLng = coords[1][0];
@@ -92,33 +107,72 @@
                 const data = await response.json();
 
                 if (!data.routes || data.routes.length === 0) {
+                    console.error("No routes returned");
                     return;
                 }
 
                 const points = data.routes[0].legs.flatMap(l => l.points);
                 const lineCoords = points.map(p => [p.longitude, p.latitude]);
 
-                if (map.getLayer("route")) map.removeLayer("route");
-                if (map.getSource("route")) map.removeSource("route");
+                // Clear existing
+                ['route', 'route-start-pin', 'route-end-pin'].forEach(id => {
+                    if (map.getLayer(id)) map.removeLayer(id);
+                });
+                ['route', 'route-start', 'route-end'].forEach(id => {
+                    if (map.getSource(id)) map.removeSource(id);
+                });
 
+                // Route line
                 map.addSource("route", {
                     type: "geojson",
                     data: {
                         type: "Feature",
-                        geometry: {
-                            type: "LineString",
-                            coordinates: lineCoords
-                        }
+                        geometry: { type: "LineString", coordinates: lineCoords }
                     }
                 });
-
                 map.addLayer({
                     id: "route",
                     type: "line",
                     source: "route",
-                    paint: {
-                        "line-color": "#0066ff",
-                        "line-width": 5
+                    paint: { "line-color": "#0066ff", "line-width": 5 }
+                });
+
+                map.addSource("route-start", {
+                    type: "geojson",
+                    data: {
+                        type: "Feature",
+                        geometry: { type: "Point", coordinates: [startLng, startLat] }
+                    }
+                });
+                map.addLayer({
+                    id: "route-start-pin",
+                    type: "symbol",
+                    source: "route-start",
+                    layout: {
+                        "icon-image": "pin-start",
+                        "icon-size": 1,
+                        "icon-anchor": "bottom",
+                        "icon-allow-overlap": true
+                    }
+                });
+
+                // End pin
+                map.addSource("route-end", {
+                    type: "geojson",
+                    data: {
+                        type: "Feature",
+                        geometry: { type: "Point", coordinates: [endLng, endLat] }
+                    }
+                });
+                map.addLayer({
+                    id: "route-end-pin",
+                    type: "symbol",
+                    source: "route-end",
+                    layout: {
+                        "icon-image": "pin-end",
+                        "icon-size": 1,
+                        "icon-anchor": "bottom",
+                        "icon-allow-overlap": true
                     }
                 });
 
@@ -134,15 +188,16 @@
                 );
 
                 map.fitBounds(bounds, {
-                    padding: 80,
-                    maxZoom: 16
+                    padding: { top: 50, bottom: 40, left: 30, right: 30 },
+                    maxZoom: 14
                 });
+
+                setTimeout(() => map.resize(), 100);
 
             } catch (err) {
                 console.error("renderRoute error:", err);
             }
         }
     </script>
-
 </body>
 </html>

@@ -49,19 +49,19 @@ namespace TriQue.Forms
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -72,25 +72,22 @@ namespace TriQue.Forms
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             NavbarPanel = new Guna.UI2.WinForms.Guna2Panel();
-            guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
-            guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
-            guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
-            guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            LogoutBtn = new Guna.UI2.WinForms.Guna2ImageButton();
+            DriverSettingsBtn = new Guna.UI2.WinForms.Guna2ImageButton();
+            ViewQueueBtn = new Guna.UI2.WinForms.Guna2ImageButton();
+            DriverDashBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             pictureBox1 = new PictureBox();
             btnJoinQueue = new Guna.UI2.WinForms.Guna2Button();
             RoutePanel = new Guna.UI2.WinForms.Guna2Panel();
             lblRouteStatus = new Label();
             pictureBox10 = new PictureBox();
             EarningsPanel = new Guna.UI2.WinForms.Guna2Panel();
+            ProgressBar = new ReaLTaiizor.Controls.DungeonProgressBar();
             lblEarningsGoal = new Label();
             lblTodayEarningValue = new Label();
             lblTodayEarningsTitle = new Label();
             pictureBox2 = new PictureBox();
-            progressBar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
             CompletedTripsPanel = new Guna.UI2.WinForms.Guna2Panel();
             lblTotalTripsLabel = new Label();
             lblTotalTripsValue = new Label();
@@ -100,6 +97,7 @@ namespace TriQue.Forms
             lblTripsTodayValue = new Label();
             pictureBox4 = new PictureBox();
             TripHistoryPanel = new Guna.UI2.WinForms.Guna2Panel();
+            lblTripHistoryTitle = new Label();
             DataGridTripHistory = new Guna.UI2.WinForms.Guna2DataGridView();
             FastestTripPanel = new Guna.UI2.WinForms.Guna2Panel();
             lblFastestTripValue = new Label();
@@ -123,10 +121,9 @@ namespace TriQue.Forms
             lblTotalDistanceLabel = new Label();
             lblTotalDistanceValue = new Label();
             pictureBox9 = new PictureBox();
-            guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
             timer1 = new System.Windows.Forms.Timer(components);
             lblWelcomeMessage = new Label();
-            lblTripHistoryTitle = new Label();
+            greeting = new Label();
             NavbarPanel.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             RoutePanel.SuspendLayout();
@@ -155,11 +152,11 @@ namespace TriQue.Forms
             // 
             // NavbarPanel
             // 
-            NavbarPanel.BackColor = Color.FromArgb(215, 215, 215);
-            NavbarPanel.Controls.Add(guna2ImageButton4);
-            NavbarPanel.Controls.Add(guna2ImageButton3);
-            NavbarPanel.Controls.Add(guna2ImageButton2);
-            NavbarPanel.Controls.Add(guna2ImageButton1);
+            NavbarPanel.BackColor = Color.FromArgb(224, 224, 224);
+            NavbarPanel.Controls.Add(LogoutBtn);
+            NavbarPanel.Controls.Add(DriverSettingsBtn);
+            NavbarPanel.Controls.Add(ViewQueueBtn);
+            NavbarPanel.Controls.Add(DriverDashBtn);
             NavbarPanel.Controls.Add(pictureBox1);
             NavbarPanel.CustomizableEdges = customizableEdges5;
             NavbarPanel.Location = new Point(0, -9);
@@ -169,68 +166,68 @@ namespace TriQue.Forms
             NavbarPanel.Size = new Size(96, 720);
             NavbarPanel.TabIndex = 0;
             // 
-            // guna2ImageButton4
+            // LogoutBtn
             // 
-            guna2ImageButton4.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton4.HoverState.ImageSize = new Size(34, 34);
-            guna2ImageButton4.Image = (Image)resources.GetObject("guna2ImageButton4.Image");
-            guna2ImageButton4.ImageOffset = new Point(0, 0);
-            guna2ImageButton4.ImageRotate = 0F;
-            guna2ImageButton4.ImageSize = new Size(32, 32);
-            guna2ImageButton4.Location = new Point(7, 537);
-            guna2ImageButton4.Name = "guna2ImageButton4";
-            guna2ImageButton4.PressedState.ImageSize = new Size(36, 36);
-            guna2ImageButton4.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            guna2ImageButton4.Size = new Size(82, 82);
-            guna2ImageButton4.TabIndex = 4;
-            guna2ImageButton4.Click += guna2ImageButton4_Click;
+            LogoutBtn.CheckedState.ImageSize = new Size(64, 64);
+            LogoutBtn.HoverState.ImageSize = new Size(34, 34);
+            LogoutBtn.Image = (Image)resources.GetObject("LogoutBtn.Image");
+            LogoutBtn.ImageOffset = new Point(0, 0);
+            LogoutBtn.ImageRotate = 0F;
+            LogoutBtn.ImageSize = new Size(32, 32);
+            LogoutBtn.Location = new Point(7, 537);
+            LogoutBtn.Name = "LogoutBtn";
+            LogoutBtn.PressedState.ImageSize = new Size(36, 36);
+            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            LogoutBtn.Size = new Size(82, 82);
+            LogoutBtn.TabIndex = 4;
+            LogoutBtn.Click += LogoutBtn_Click;
             // 
-            // guna2ImageButton3
+            // DriverSettingsBtn
             // 
-            guna2ImageButton3.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton3.HoverState.ImageSize = new Size(34, 34);
-            guna2ImageButton3.Image = (Image)resources.GetObject("guna2ImageButton3.Image");
-            guna2ImageButton3.ImageOffset = new Point(0, 0);
-            guna2ImageButton3.ImageRotate = 0F;
-            guna2ImageButton3.ImageSize = new Size(32, 32);
-            guna2ImageButton3.Location = new Point(7, 311);
-            guna2ImageButton3.Name = "guna2ImageButton3";
-            guna2ImageButton3.PressedState.ImageSize = new Size(36, 36);
-            guna2ImageButton3.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2ImageButton3.Size = new Size(82, 82);
-            guna2ImageButton3.TabIndex = 3;
-            guna2ImageButton3.Click += guna2ImageButton3_Click;
+            DriverSettingsBtn.CheckedState.ImageSize = new Size(64, 64);
+            DriverSettingsBtn.HoverState.ImageSize = new Size(34, 34);
+            DriverSettingsBtn.Image = (Image)resources.GetObject("DriverSettingsBtn.Image");
+            DriverSettingsBtn.ImageOffset = new Point(0, 0);
+            DriverSettingsBtn.ImageRotate = 0F;
+            DriverSettingsBtn.ImageSize = new Size(32, 32);
+            DriverSettingsBtn.Location = new Point(7, 311);
+            DriverSettingsBtn.Name = "DriverSettingsBtn";
+            DriverSettingsBtn.PressedState.ImageSize = new Size(36, 36);
+            DriverSettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            DriverSettingsBtn.Size = new Size(82, 82);
+            DriverSettingsBtn.TabIndex = 3;
+            DriverSettingsBtn.Click += DriverSettingsBtn_Click;
             // 
-            // guna2ImageButton2
+            // ViewQueueBtn
             // 
-            guna2ImageButton2.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton2.HoverState.ImageSize = new Size(34, 34);
-            guna2ImageButton2.Image = (Image)resources.GetObject("guna2ImageButton2.Image");
-            guna2ImageButton2.ImageOffset = new Point(0, 0);
-            guna2ImageButton2.ImageRotate = 0F;
-            guna2ImageButton2.ImageSize = new Size(32, 32);
-            guna2ImageButton2.Location = new Point(7, 223);
-            guna2ImageButton2.Name = "guna2ImageButton2";
-            guna2ImageButton2.PressedState.ImageSize = new Size(36, 36);
-            guna2ImageButton2.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            guna2ImageButton2.Size = new Size(82, 82);
-            guna2ImageButton2.TabIndex = 2;
-            guna2ImageButton2.Click += guna2ImageButton2_Click;
+            ViewQueueBtn.CheckedState.ImageSize = new Size(64, 64);
+            ViewQueueBtn.HoverState.ImageSize = new Size(34, 34);
+            ViewQueueBtn.Image = (Image)resources.GetObject("ViewQueueBtn.Image");
+            ViewQueueBtn.ImageOffset = new Point(0, 0);
+            ViewQueueBtn.ImageRotate = 0F;
+            ViewQueueBtn.ImageSize = new Size(32, 32);
+            ViewQueueBtn.Location = new Point(7, 223);
+            ViewQueueBtn.Name = "ViewQueueBtn";
+            ViewQueueBtn.PressedState.ImageSize = new Size(36, 36);
+            ViewQueueBtn.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            ViewQueueBtn.Size = new Size(82, 82);
+            ViewQueueBtn.TabIndex = 2;
+            ViewQueueBtn.Click += ViewQueueBtn_Click;
             // 
-            // guna2ImageButton1
+            // DriverDashBtn
             // 
-            guna2ImageButton1.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton1.HoverState.ImageSize = new Size(34, 34);
-            guna2ImageButton1.Image = (Image)resources.GetObject("guna2ImageButton1.Image");
-            guna2ImageButton1.ImageOffset = new Point(0, 0);
-            guna2ImageButton1.ImageRotate = 0F;
-            guna2ImageButton1.ImageSize = new Size(32, 32);
-            guna2ImageButton1.Location = new Point(7, 135);
-            guna2ImageButton1.Name = "guna2ImageButton1";
-            guna2ImageButton1.PressedState.ImageSize = new Size(36, 36);
-            guna2ImageButton1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2ImageButton1.Size = new Size(82, 82);
-            guna2ImageButton1.TabIndex = 1;
+            DriverDashBtn.CheckedState.ImageSize = new Size(64, 64);
+            DriverDashBtn.HoverState.ImageSize = new Size(34, 34);
+            DriverDashBtn.Image = (Image)resources.GetObject("DriverDashBtn.Image");
+            DriverDashBtn.ImageOffset = new Point(0, 0);
+            DriverDashBtn.ImageRotate = 0F;
+            DriverDashBtn.ImageSize = new Size(32, 32);
+            DriverDashBtn.Location = new Point(7, 135);
+            DriverDashBtn.Name = "DriverDashBtn";
+            DriverDashBtn.PressedState.ImageSize = new Size(36, 36);
+            DriverDashBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            DriverDashBtn.Size = new Size(82, 82);
+            DriverDashBtn.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -254,29 +251,31 @@ namespace TriQue.Forms
             btnJoinQueue.FillColor = Color.FromArgb(55, 91, 231);
             btnJoinQueue.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnJoinQueue.ForeColor = Color.White;
-            btnJoinQueue.Location = new Point(545, 20);
+            btnJoinQueue.Location = new Point(551, 30);
             btnJoinQueue.Margin = new Padding(4, 3, 4, 3);
             btnJoinQueue.Name = "btnJoinQueue";
             btnJoinQueue.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnJoinQueue.Size = new Size(273, 47);
+            btnJoinQueue.Size = new Size(305, 47);
             btnJoinQueue.TabIndex = 2;
             btnJoinQueue.Text = "Join Queue";
             btnJoinQueue.Click += btnJoinQueue_Click;
             // 
             // RoutePanel
             // 
-            RoutePanel.BorderColor = Color.FromArgb(84, 84, 84);
+            RoutePanel.BackColor = Color.White;
+            RoutePanel.BorderColor = Color.FromArgb(38, 187, 87);
             RoutePanel.BorderRadius = 15;
             RoutePanel.BorderThickness = 1;
             RoutePanel.Controls.Add(lblRouteStatus);
             RoutePanel.Controls.Add(pictureBox10);
+            RoutePanel.Cursor = Cursors.IBeam;
             RoutePanel.CustomizableEdges = customizableEdges9;
             RoutePanel.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             RoutePanel.ForeColor = Color.FromArgb(91, 91, 91);
-            RoutePanel.Location = new Point(825, 20);
+            RoutePanel.Location = new Point(863, 30);
             RoutePanel.Name = "RoutePanel";
             RoutePanel.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            RoutePanel.Size = new Size(289, 47);
+            RoutePanel.Size = new Size(292, 47);
             RoutePanel.TabIndex = 3;
             // 
             // lblRouteStatus
@@ -301,91 +300,101 @@ namespace TriQue.Forms
             // 
             // EarningsPanel
             // 
-            EarningsPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            EarningsPanel.BorderColor = Color.DarkGray;
             EarningsPanel.BorderRadius = 15;
             EarningsPanel.BorderThickness = 1;
+            EarningsPanel.Controls.Add(ProgressBar);
             EarningsPanel.Controls.Add(lblEarningsGoal);
             EarningsPanel.Controls.Add(lblTodayEarningValue);
             EarningsPanel.Controls.Add(lblTodayEarningsTitle);
             EarningsPanel.Controls.Add(pictureBox2);
-            EarningsPanel.Controls.Add(progressBar1);
-            EarningsPanel.CustomizableEdges = customizableEdges13;
-            EarningsPanel.Location = new Point(125, 82);
+            EarningsPanel.CustomizableEdges = customizableEdges11;
+            EarningsPanel.Location = new Point(125, 88);
             EarningsPanel.Name = "EarningsPanel";
-            EarningsPanel.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            EarningsPanel.Size = new Size(378, 119);
+            EarningsPanel.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            EarningsPanel.Size = new Size(397, 140);
             EarningsPanel.TabIndex = 4;
+            // 
+            // ProgressBar
+            // 
+            ProgressBar.BackColor = Color.Transparent;
+            ProgressBar.BackColorA = Color.FromArgb(226, 232, 240);
+            ProgressBar.BackColorB = Color.FromArgb(226, 232, 240);
+            ProgressBar.BorderColor = Color.FromArgb(180, 180, 180);
+            ProgressBar.DrawHatch = false;
+            ProgressBar.ForeColor = Color.White;
+            ProgressBar.Location = new Point(12, 87);
+            ProgressBar.Maximum = 100;
+            ProgressBar.Minimum = 0;
+            ProgressBar.MinimumSize = new Size(58, 20);
+            ProgressBar.Name = "ProgressBar";
+            ProgressBar.ProgressColorA = Color.FromArgb(34, 197, 94);
+            ProgressBar.ProgressColorB = Color.FromArgb(22, 163, 74);
+            ProgressBar.ProgressHatchColor = Color.FromArgb(25, 255, 255, 255);
+            ProgressBar.ShowPercentage = true;
+            ProgressBar.Size = new Size(375, 20);
+            ProgressBar.TabIndex = 1;
+            ProgressBar.Value = 100;
+            ProgressBar.ValueAlignment = ReaLTaiizor.Controls.DungeonProgressBar.Alignment.Left;
             // 
             // lblEarningsGoal
             // 
             lblEarningsGoal.AutoSize = true;
-            lblEarningsGoal.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEarningsGoal.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblEarningsGoal.ForeColor = Color.FromArgb(91, 91, 91);
-            lblEarningsGoal.Location = new Point(31, 100);
+            lblEarningsGoal.Location = new Point(290, 110);
             lblEarningsGoal.Name = "lblEarningsGoal";
-            lblEarningsGoal.Size = new Size(86, 16);
+            lblEarningsGoal.Size = new Size(97, 18);
             lblEarningsGoal.TabIndex = 5;
             lblEarningsGoal.Text = "Goal: ₱ 650";
             // 
             // lblTodayEarningValue
             // 
             lblTodayEarningValue.AutoSize = true;
-            lblTodayEarningValue.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTodayEarningValue.Font = new Font("Microsoft Sans Serif", 19.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTodayEarningValue.ForeColor = Color.FromArgb(91, 91, 91);
-            lblTodayEarningValue.Location = new Point(126, 35);
+            lblTodayEarningValue.Location = new Point(12, 47);
             lblTodayEarningValue.Name = "lblTodayEarningValue";
-            lblTodayEarningValue.Size = new Size(51, 39);
+            lblTodayEarningValue.Size = new Size(49, 37);
             lblTodayEarningValue.TabIndex = 4;
             lblTodayEarningValue.Text = "₱ ";
-            lblTodayEarningValue.TextAlign = ContentAlignment.MiddleCenter;
+            lblTodayEarningValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTodayEarningsTitle
             // 
             lblTodayEarningsTitle.AutoSize = true;
-            lblTodayEarningsTitle.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTodayEarningsTitle.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTodayEarningsTitle.ForeColor = Color.FromArgb(91, 91, 91);
-            lblTodayEarningsTitle.Location = new Point(54, 13);
+            lblTodayEarningsTitle.Location = new Point(51, 13);
             lblTodayEarningsTitle.Name = "lblTodayEarningsTitle";
-            lblTodayEarningsTitle.Size = new Size(129, 16);
+            lblTodayEarningsTitle.Size = new Size(154, 20);
             lblTodayEarningsTitle.TabIndex = 3;
             lblTodayEarningsTitle.Text = "Today’s Earnings";
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(15, 6);
+            pictureBox2.Location = new Point(12, 13);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(33, 31);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
             // 
-            // progressBar1
-            // 
-            progressBar1.BorderRadius = 15;
-            progressBar1.CustomizableEdges = customizableEdges11;
-            progressBar1.Location = new Point(27, 77);
-            progressBar1.Name = "progressBar1";
-            progressBar1.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            progressBar1.Size = new Size(322, 18);
-            progressBar1.TabIndex = 0;
-            progressBar1.Text = "guna2ProgressBar1";
-            progressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
             // CompletedTripsPanel
             // 
-            CompletedTripsPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            CompletedTripsPanel.BorderColor = Color.DarkGray;
             CompletedTripsPanel.BorderRadius = 15;
             CompletedTripsPanel.BorderThickness = 1;
             CompletedTripsPanel.Controls.Add(lblTotalTripsLabel);
             CompletedTripsPanel.Controls.Add(lblTotalTripsValue);
             CompletedTripsPanel.Controls.Add(pictureBox3);
-            CompletedTripsPanel.CustomizableEdges = customizableEdges15;
+            CompletedTripsPanel.CustomizableEdges = customizableEdges13;
             CompletedTripsPanel.ForeColor = Color.FromArgb(91, 91, 91);
-            CompletedTripsPanel.Location = new Point(125, 214);
+            CompletedTripsPanel.Location = new Point(125, 242);
             CompletedTripsPanel.Name = "CompletedTripsPanel";
-            CompletedTripsPanel.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            CompletedTripsPanel.Size = new Size(185, 110);
+            CompletedTripsPanel.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            CompletedTripsPanel.Size = new Size(190, 110);
             CompletedTripsPanel.TabIndex = 5;
             // 
             // lblTotalTripsLabel
@@ -404,12 +413,12 @@ namespace TriQue.Forms
             // 
             lblTotalTripsValue.AutoSize = true;
             lblTotalTripsValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalTripsValue.Location = new Point(63, 41);
+            lblTotalTripsValue.Location = new Point(12, 52);
             lblTotalTripsValue.Name = "lblTotalTripsValue";
             lblTotalTripsValue.Size = new Size(65, 32);
             lblTotalTripsValue.TabIndex = 5;
             lblTotalTripsValue.Text = "178";
-            lblTotalTripsValue.TextAlign = ContentAlignment.MiddleCenter;
+            lblTotalTripsValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pictureBox3
             // 
@@ -423,17 +432,17 @@ namespace TriQue.Forms
             // 
             // TodayTripPanel
             // 
-            TodayTripPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            TodayTripPanel.BorderColor = Color.DarkGray;
             TodayTripPanel.BorderRadius = 15;
             TodayTripPanel.BorderThickness = 1;
             TodayTripPanel.Controls.Add(lblTripsTodayLabel);
             TodayTripPanel.Controls.Add(lblTripsTodayValue);
             TodayTripPanel.Controls.Add(pictureBox4);
-            TodayTripPanel.CustomizableEdges = customizableEdges17;
-            TodayTripPanel.Location = new Point(317, 214);
+            TodayTripPanel.CustomizableEdges = customizableEdges15;
+            TodayTripPanel.Location = new Point(332, 242);
             TodayTripPanel.Name = "TodayTripPanel";
-            TodayTripPanel.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            TodayTripPanel.Size = new Size(185, 110);
+            TodayTripPanel.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            TodayTripPanel.Size = new Size(190, 110);
             TodayTripPanel.TabIndex = 6;
             // 
             // lblTripsTodayLabel
@@ -441,7 +450,7 @@ namespace TriQue.Forms
             lblTripsTodayLabel.AutoSize = true;
             lblTripsTodayLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTripsTodayLabel.ForeColor = Color.FromArgb(55, 91, 231);
-            lblTripsTodayLabel.Location = new Point(24, 84);
+            lblTripsTodayLabel.Location = new Point(12, 84);
             lblTripsTodayLabel.Name = "lblTripsTodayLabel";
             lblTripsTodayLabel.Size = new Size(140, 18);
             lblTripsTodayLabel.TabIndex = 7;
@@ -453,12 +462,12 @@ namespace TriQue.Forms
             lblTripsTodayValue.AutoSize = true;
             lblTripsTodayValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTripsTodayValue.ForeColor = Color.FromArgb(91, 91, 91);
-            lblTripsTodayValue.Location = new Point(65, 41);
+            lblTripsTodayValue.Location = new Point(12, 50);
             lblTripsTodayValue.Name = "lblTripsTodayValue";
             lblTripsTodayValue.Size = new Size(48, 32);
             lblTripsTodayValue.TabIndex = 6;
             lblTripsTodayValue.Text = "10";
-            lblTripsTodayValue.TextAlign = ContentAlignment.MiddleCenter;
+            lblTripsTodayValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pictureBox4
             // 
@@ -472,17 +481,29 @@ namespace TriQue.Forms
             // 
             // TripHistoryPanel
             // 
-            TripHistoryPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            TripHistoryPanel.BorderColor = Color.DarkGray;
             TripHistoryPanel.BorderRadius = 15;
             TripHistoryPanel.BorderThickness = 1;
+            TripHistoryPanel.Controls.Add(lblTripHistoryTitle);
             TripHistoryPanel.Controls.Add(DataGridTripHistory);
-            TripHistoryPanel.CustomizableEdges = customizableEdges19;
+            TripHistoryPanel.CustomizableEdges = customizableEdges17;
             TripHistoryPanel.ForeColor = Color.FromArgb(91, 91, 91);
             TripHistoryPanel.Location = new Point(125, 486);
             TripHistoryPanel.Name = "TripHistoryPanel";
-            TripHistoryPanel.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            TripHistoryPanel.Size = new Size(378, 136);
+            TripHistoryPanel.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            TripHistoryPanel.Size = new Size(397, 134);
             TripHistoryPanel.TabIndex = 9;
+            // 
+            // lblTripHistoryTitle
+            // 
+            lblTripHistoryTitle.AutoSize = true;
+            lblTripHistoryTitle.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTripHistoryTitle.ForeColor = Color.FromArgb(91, 91, 91);
+            lblTripHistoryTitle.Location = new Point(12, 11);
+            lblTripHistoryTitle.Name = "lblTripHistoryTitle";
+            lblTripHistoryTitle.Size = new Size(109, 20);
+            lblTripHistoryTitle.TabIndex = 18;
+            lblTripHistoryTitle.Text = "Trip History";
             // 
             // DataGridTripHistory
             // 
@@ -507,12 +528,12 @@ namespace TriQue.Forms
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             DataGridTripHistory.DefaultCellStyle = dataGridViewCellStyle3;
             DataGridTripHistory.GridColor = Color.White;
-            DataGridTripHistory.Location = new Point(12, 11);
+            DataGridTripHistory.Location = new Point(12, 34);
             DataGridTripHistory.Name = "DataGridTripHistory";
             DataGridTripHistory.RowHeadersVisible = false;
             DataGridTripHistory.RowHeadersWidth = 40;
             DataGridTripHistory.RowTemplate.Height = 25;
-            DataGridTripHistory.Size = new Size(353, 113);
+            DataGridTripHistory.Size = new Size(375, 90);
             DataGridTripHistory.TabIndex = 0;
             DataGridTripHistory.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             DataGridTripHistory.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -538,17 +559,17 @@ namespace TriQue.Forms
             // 
             // FastestTripPanel
             // 
-            FastestTripPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            FastestTripPanel.BorderColor = Color.DarkGray;
             FastestTripPanel.BorderRadius = 15;
             FastestTripPanel.BorderThickness = 1;
             FastestTripPanel.Controls.Add(lblFastestTripValue);
             FastestTripPanel.Controls.Add(lblFastestTripLabel);
             FastestTripPanel.Controls.Add(pictureBox5);
-            FastestTripPanel.CustomizableEdges = customizableEdges21;
+            FastestTripPanel.CustomizableEdges = customizableEdges19;
             FastestTripPanel.ForeColor = Color.FromArgb(91, 91, 91);
-            FastestTripPanel.Location = new Point(125, 345);
+            FastestTripPanel.Location = new Point(125, 358);
             FastestTripPanel.Name = "FastestTripPanel";
-            FastestTripPanel.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            FastestTripPanel.ShadowDecoration.CustomizableEdges = customizableEdges20;
             FastestTripPanel.Size = new Size(185, 110);
             FastestTripPanel.TabIndex = 10;
             // 
@@ -556,19 +577,19 @@ namespace TriQue.Forms
             // 
             lblFastestTripValue.AutoSize = true;
             lblFastestTripValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFastestTripValue.Location = new Point(49, 45);
+            lblFastestTripValue.Location = new Point(12, 48);
             lblFastestTripValue.Name = "lblFastestTripValue";
             lblFastestTripValue.Size = new Size(88, 32);
             lblFastestTripValue.TabIndex = 8;
             lblFastestTripValue.Text = "8 min";
-            lblFastestTripValue.TextAlign = ContentAlignment.MiddleCenter;
+            lblFastestTripValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblFastestTripLabel
             // 
             lblFastestTripLabel.AutoSize = true;
             lblFastestTripLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFastestTripLabel.ForeColor = Color.FromArgb(55, 91, 231);
-            lblFastestTripLabel.Location = new Point(47, 83);
+            lblFastestTripLabel.Location = new Point(15, 83);
             lblFastestTripLabel.Name = "lblFastestTripLabel";
             lblFastestTripLabel.Size = new Size(98, 18);
             lblFastestTripLabel.TabIndex = 7;
@@ -587,37 +608,37 @@ namespace TriQue.Forms
             // 
             // SlowestTripPanel
             // 
-            SlowestTripPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            SlowestTripPanel.BorderColor = Color.DarkGray;
             SlowestTripPanel.BorderRadius = 15;
             SlowestTripPanel.BorderThickness = 1;
             SlowestTripPanel.Controls.Add(lblLowestTripValue);
             SlowestTripPanel.Controls.Add(lblLowestTripLabel);
             SlowestTripPanel.Controls.Add(pictureBox6);
-            SlowestTripPanel.CustomizableEdges = customizableEdges23;
+            SlowestTripPanel.CustomizableEdges = customizableEdges21;
             SlowestTripPanel.ForeColor = Color.FromArgb(91, 91, 91);
-            SlowestTripPanel.Location = new Point(318, 342);
+            SlowestTripPanel.Location = new Point(332, 358);
             SlowestTripPanel.Name = "SlowestTripPanel";
-            SlowestTripPanel.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            SlowestTripPanel.Size = new Size(185, 110);
+            SlowestTripPanel.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            SlowestTripPanel.Size = new Size(190, 110);
             SlowestTripPanel.TabIndex = 6;
             // 
             // lblLowestTripValue
             // 
             lblLowestTripValue.AutoSize = true;
             lblLowestTripValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblLowestTripValue.Location = new Point(39, 48);
+            lblLowestTripValue.Location = new Point(8, 48);
             lblLowestTripValue.Name = "lblLowestTripValue";
             lblLowestTripValue.Size = new Size(105, 32);
             lblLowestTripValue.TabIndex = 9;
             lblLowestTripValue.Text = "12 min";
-            lblLowestTripValue.TextAlign = ContentAlignment.MiddleCenter;
+            lblLowestTripValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblLowestTripLabel
             // 
             lblLowestTripLabel.AutoSize = true;
             lblLowestTripLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblLowestTripLabel.ForeColor = Color.FromArgb(55, 91, 231);
-            lblLowestTripLabel.Location = new Point(47, 83);
+            lblLowestTripLabel.Location = new Point(14, 83);
             lblLowestTripLabel.Name = "lblLowestTripLabel";
             lblLowestTripLabel.Size = new Size(96, 18);
             lblLowestTripLabel.TabIndex = 8;
@@ -636,16 +657,16 @@ namespace TriQue.Forms
             // 
             // MapRoutePanel
             // 
-            MapRoutePanel.BorderColor = Color.FromArgb(84, 84, 84);
+            MapRoutePanel.BorderColor = Color.DarkGray;
             MapRoutePanel.BorderRadius = 15;
             MapRoutePanel.BorderThickness = 1;
             MapRoutePanel.Controls.Add(webView21);
-            MapRoutePanel.CustomizableEdges = customizableEdges25;
+            MapRoutePanel.CustomizableEdges = customizableEdges23;
             MapRoutePanel.ForeColor = Color.FromArgb(91, 91, 91);
-            MapRoutePanel.Location = new Point(534, 80);
+            MapRoutePanel.Location = new Point(551, 88);
             MapRoutePanel.Name = "MapRoutePanel";
-            MapRoutePanel.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            MapRoutePanel.Size = new Size(621, 394);
+            MapRoutePanel.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            MapRoutePanel.Size = new Size(604, 380);
             MapRoutePanel.TabIndex = 11;
             // 
             // webView21
@@ -653,26 +674,26 @@ namespace TriQue.Forms
             webView21.AllowExternalDrop = true;
             webView21.CreationProperties = null;
             webView21.DefaultBackgroundColor = Color.White;
-            webView21.Location = new Point(18, 15);
+            webView21.Location = new Point(14, 8);
             webView21.Name = "webView21";
-            webView21.Size = new Size(581, 356);
+            webView21.Size = new Size(576, 367);
             webView21.TabIndex = 0;
             webView21.ZoomFactor = 1D;
             // 
             // TrafficConditionPanel
             // 
-            TrafficConditionPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            TrafficConditionPanel.BorderColor = Color.DarkGray;
             TrafficConditionPanel.BorderRadius = 15;
             TrafficConditionPanel.BorderThickness = 1;
             TrafficConditionPanel.Controls.Add(lblTrafficStatus);
             TrafficConditionPanel.Controls.Add(lblTrafficLabel);
             TrafficConditionPanel.Controls.Add(pictureBox7);
-            TrafficConditionPanel.CustomizableEdges = customizableEdges27;
+            TrafficConditionPanel.CustomizableEdges = customizableEdges25;
             TrafficConditionPanel.ForeColor = Color.FromArgb(91, 91, 91);
-            TrafficConditionPanel.Location = new Point(534, 497);
+            TrafficConditionPanel.Location = new Point(551, 486);
             TrafficConditionPanel.Name = "TrafficConditionPanel";
-            TrafficConditionPanel.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            TrafficConditionPanel.Size = new Size(185, 125);
+            TrafficConditionPanel.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            TrafficConditionPanel.Size = new Size(190, 134);
             TrafficConditionPanel.TabIndex = 12;
             // 
             // lblTrafficStatus
@@ -680,19 +701,19 @@ namespace TriQue.Forms
             lblTrafficStatus.AutoSize = true;
             lblTrafficStatus.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTrafficStatus.ForeColor = Color.FromArgb(91, 91, 91);
-            lblTrafficStatus.Location = new Point(22, 51);
+            lblTrafficStatus.Location = new Point(14, 60);
             lblTrafficStatus.Name = "lblTrafficStatus";
             lblTrafficStatus.Size = new Size(151, 32);
             lblTrafficStatus.TabIndex = 19;
             lblTrafficStatus.Text = "Loading...";
-            lblTrafficStatus.TextAlign = ContentAlignment.MiddleCenter;
+            lblTrafficStatus.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTrafficLabel
             // 
             lblTrafficLabel.AutoSize = true;
             lblTrafficLabel.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTrafficLabel.ForeColor = Color.FromArgb(55, 91, 231);
-            lblTrafficLabel.Location = new Point(20, 93);
+            lblTrafficLabel.Location = new Point(14, 104);
             lblTrafficLabel.Name = "lblTrafficLabel";
             lblTrafficLabel.Size = new Size(149, 20);
             lblTrafficLabel.TabIndex = 9;
@@ -711,37 +732,37 @@ namespace TriQue.Forms
             // 
             // TotalDurationPanel
             // 
-            TotalDurationPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            TotalDurationPanel.BorderColor = Color.DarkGray;
             TotalDurationPanel.BorderRadius = 15;
             TotalDurationPanel.BorderThickness = 1;
             TotalDurationPanel.Controls.Add(lblTotalDurationValue);
             TotalDurationPanel.Controls.Add(lblTotalDurationLabel);
             TotalDurationPanel.Controls.Add(pictureBox8);
-            TotalDurationPanel.CustomizableEdges = customizableEdges29;
+            TotalDurationPanel.CustomizableEdges = customizableEdges27;
             TotalDurationPanel.ForeColor = Color.FromArgb(91, 91, 91);
-            TotalDurationPanel.Location = new Point(755, 497);
+            TotalDurationPanel.Location = new Point(762, 486);
             TotalDurationPanel.Name = "TotalDurationPanel";
-            TotalDurationPanel.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            TotalDurationPanel.Size = new Size(185, 125);
+            TotalDurationPanel.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            TotalDurationPanel.Size = new Size(190, 134);
             TotalDurationPanel.TabIndex = 13;
             // 
             // lblTotalDurationValue
             // 
             lblTotalDurationValue.AutoSize = true;
             lblTotalDurationValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalDurationValue.Location = new Point(16, 51);
+            lblTotalDurationValue.Location = new Point(16, 60);
             lblTotalDurationValue.Name = "lblTotalDurationValue";
             lblTotalDurationValue.Size = new Size(151, 32);
             lblTotalDurationValue.TabIndex = 20;
             lblTotalDurationValue.Text = "Loading...";
-            lblTotalDurationValue.TextAlign = ContentAlignment.MiddleCenter;
+            lblTotalDurationValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTotalDurationLabel
             // 
             lblTotalDurationLabel.AutoSize = true;
             lblTotalDurationLabel.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalDurationLabel.ForeColor = Color.FromArgb(55, 91, 231);
-            lblTotalDurationLabel.Location = new Point(33, 93);
+            lblTotalDurationLabel.Location = new Point(15, 104);
             lblTotalDurationLabel.Name = "lblTotalDurationLabel";
             lblTotalDurationLabel.Size = new Size(129, 20);
             lblTotalDurationLabel.TabIndex = 19;
@@ -760,18 +781,18 @@ namespace TriQue.Forms
             // 
             // TotalDistancePanel
             // 
-            TotalDistancePanel.BorderColor = Color.FromArgb(84, 84, 84);
+            TotalDistancePanel.BorderColor = Color.DarkGray;
             TotalDistancePanel.BorderRadius = 15;
             TotalDistancePanel.BorderThickness = 1;
             TotalDistancePanel.Controls.Add(lblTotalDistanceLabel);
             TotalDistancePanel.Controls.Add(lblTotalDistanceValue);
             TotalDistancePanel.Controls.Add(pictureBox9);
-            TotalDistancePanel.CustomizableEdges = customizableEdges31;
+            TotalDistancePanel.CustomizableEdges = customizableEdges29;
             TotalDistancePanel.ForeColor = Color.FromArgb(91, 91, 91);
-            TotalDistancePanel.Location = new Point(970, 497);
+            TotalDistancePanel.Location = new Point(970, 486);
             TotalDistancePanel.Name = "TotalDistancePanel";
-            TotalDistancePanel.ShadowDecoration.CustomizableEdges = customizableEdges32;
-            TotalDistancePanel.Size = new Size(185, 125);
+            TotalDistancePanel.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            TotalDistancePanel.Size = new Size(185, 134);
             TotalDistancePanel.TabIndex = 14;
             // 
             // lblTotalDistanceLabel
@@ -779,7 +800,7 @@ namespace TriQue.Forms
             lblTotalDistanceLabel.AutoSize = true;
             lblTotalDistanceLabel.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalDistanceLabel.ForeColor = Color.FromArgb(55, 91, 231);
-            lblTotalDistanceLabel.Location = new Point(31, 93);
+            lblTotalDistanceLabel.Location = new Point(15, 104);
             lblTotalDistanceLabel.Name = "lblTotalDistanceLabel";
             lblTotalDistanceLabel.Size = new Size(132, 20);
             lblTotalDistanceLabel.TabIndex = 10;
@@ -790,12 +811,12 @@ namespace TriQue.Forms
             // 
             lblTotalDistanceValue.AutoSize = true;
             lblTotalDistanceValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalDistanceValue.Location = new Point(46, 51);
+            lblTotalDistanceValue.Location = new Point(15, 60);
             lblTotalDistanceValue.Name = "lblTotalDistanceValue";
             lblTotalDistanceValue.Size = new Size(78, 32);
             lblTotalDistanceValue.TabIndex = 9;
             lblTotalDistanceValue.Text = "2 km";
-            lblTotalDistanceValue.TextAlign = ContentAlignment.BottomCenter;
+            lblTotalDistanceValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pictureBox9
             // 
@@ -807,52 +828,37 @@ namespace TriQue.Forms
             pictureBox9.TabIndex = 2;
             pictureBox9.TabStop = false;
             // 
-            // guna2ImageButton5
-            // 
-            guna2ImageButton5.CheckedState.ImageSize = new Size(64, 64);
-            guna2ImageButton5.HoverState.ImageSize = new Size(44, 44);
-            guna2ImageButton5.Image = (Image)resources.GetObject("guna2ImageButton5.Image");
-            guna2ImageButton5.ImageOffset = new Point(0, 0);
-            guna2ImageButton5.ImageRotate = 0F;
-            guna2ImageButton5.ImageSize = new Size(30, 30);
-            guna2ImageButton5.Location = new Point(1120, 30);
-            guna2ImageButton5.Name = "guna2ImageButton5";
-            guna2ImageButton5.PressedState.ImageSize = new Size(64, 64);
-            guna2ImageButton5.ShadowDecoration.CustomizableEdges = customizableEdges33;
-            guna2ImageButton5.Size = new Size(35, 35);
-            guna2ImageButton5.TabIndex = 16;
-            // 
             // lblWelcomeMessage
             // 
             lblWelcomeMessage.AutoSize = true;
-            lblWelcomeMessage.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWelcomeMessage.Font = new Font("Bahnschrift", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblWelcomeMessage.ForeColor = Color.FromArgb(91, 91, 91);
-            lblWelcomeMessage.Location = new Point(125, 30);
+            lblWelcomeMessage.Location = new Point(125, 9);
             lblWelcomeMessage.Name = "lblWelcomeMessage";
-            lblWelcomeMessage.Size = new Size(320, 36);
+            lblWelcomeMessage.Size = new Size(299, 36);
             lblWelcomeMessage.TabIndex = 17;
             lblWelcomeMessage.Text = "Welcome Back, Juan!";
+            lblWelcomeMessage.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblTripHistoryTitle
+            // greeting
             // 
-            lblTripHistoryTitle.AutoSize = true;
-            lblTripHistoryTitle.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTripHistoryTitle.ForeColor = Color.FromArgb(91, 91, 91);
-            lblTripHistoryTitle.Location = new Point(125, 463);
-            lblTripHistoryTitle.Name = "lblTripHistoryTitle";
-            lblTripHistoryTitle.Size = new Size(109, 20);
-            lblTripHistoryTitle.TabIndex = 18;
-            lblTripHistoryTitle.Text = "Trip History";
+            greeting.AutoSize = true;
+            greeting.Font = new Font("Arial Rounded MT Bold", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            greeting.ForeColor = Color.FromArgb(55, 91, 231);
+            greeting.Location = new Point(125, 57);
+            greeting.Name = "greeting";
+            greeting.Size = new Size(185, 20);
+            greeting.TabIndex = 18;
+            greeting.Text = "Ready to get started?";
             // 
             // DriverForm
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1182, 653);
-            Controls.Add(lblTripHistoryTitle);
+            Controls.Add(greeting);
             Controls.Add(lblWelcomeMessage);
-            Controls.Add(guna2ImageButton5);
             Controls.Add(TotalDistancePanel);
             Controls.Add(TotalDurationPanel);
             Controls.Add(TrafficConditionPanel);
@@ -875,7 +881,7 @@ namespace TriQue.Forms
             MinimizeBox = false;
             Name = "DriverForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TriQue";
+            Text = "TriQUE";
             Load += Form1_Load;
             NavbarPanel.ResumeLayout(false);
             ((ISupportInitialize)pictureBox1).EndInit();
@@ -892,6 +898,7 @@ namespace TriQue.Forms
             TodayTripPanel.PerformLayout();
             ((ISupportInitialize)pictureBox4).EndInit();
             TripHistoryPanel.ResumeLayout(false);
+            TripHistoryPanel.PerformLayout();
             ((ISupportInitialize)DataGridTripHistory).EndInit();
             FastestTripPanel.ResumeLayout(false);
             FastestTripPanel.PerformLayout();
@@ -931,12 +938,11 @@ namespace TriQue.Forms
         private Guna.UI2.WinForms.Guna2Panel TotalDistancePanel;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
         private PictureBox pictureBox1;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton4;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton3;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
+        private Guna.UI2.WinForms.Guna2ImageButton DriverDashBtn;
+        private Guna.UI2.WinForms.Guna2ImageButton LogoutBtn;
+        private Guna.UI2.WinForms.Guna2ImageButton DriverSettingsBtn;
+        private Guna.UI2.WinForms.Guna2ImageButton ViewQueueBtn;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
-        private Guna.UI2.WinForms.Guna2ProgressBar progressBar1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
@@ -969,5 +975,7 @@ namespace TriQue.Forms
         private Label lblTotalDurationValue;
         private Label lblTotalDistanceLabel;
         private Label lblTotalDistanceValue;
+        private ReaLTaiizor.Controls.DungeonProgressBar ProgressBar;
+        private Label greeting;
     }
 }

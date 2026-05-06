@@ -13,6 +13,7 @@ namespace TriQue.Services
         private readonly QueueRepository _queueRepo;
         private readonly RouteService _routeService;
         private readonly RouteRepository _routeRepo;
+        private readonly RotationService _rotationService;
 
         public DriverDashboardService()
         {
@@ -22,6 +23,8 @@ namespace TriQue.Services
             _queueRepo = new QueueRepository();
             _routeRepo = new RouteRepository();
             _routeService = new RouteService();
+            _rotationService = new RotationService();
+
         }
 
         public Route? GetDriverRouteByDriverID(int driverID)
@@ -29,7 +32,7 @@ namespace TriQue.Services
             var driver = _driverRepo.GetByDriverID(driverID);
             if (driver == null) return null;
 
-            return _routeRepo.GetRouteByGroupID(driver.GroupID);
+            return _rotationService.GetTodayRoute(driver.GroupID);
         }
 
         public Driver? GetDriver(int userID)
@@ -43,12 +46,11 @@ namespace TriQue.Services
         {
             var user = _userRepo.GetById(userID);
             var driver = _driverRepo.GetByUserID(user.UserID);
-            var route = _routeRepo.GetRouteByGroupID(driver.GroupID);
+            var route = _rotationService.GetTodayRoute(driver.GroupID);
             var trips = _tripRepo.GetByDriverID(driver.DriverID);
             var completedTrips = _tripRepo.GetCompletedTrips(driver.DriverID);
             var todayTrips = _tripRepo.GetTodayTrips(driver.DriverID);
             var actualEarnings = _tripRepo.GetEarningsProgress(driver.DriverID);
-
 
             var stats = _tripRepo.GetTripSpeedStats(driver.DriverID);
             var queueHistory = _queueRepo.GetQueueHistory(driver.DriverID);
@@ -65,8 +67,8 @@ namespace TriQue.Services
                 FastestTrip = stats.fastest,
                 SlowestTrip = stats.slowest,
                 QueueHistory = queueHistory,
-                RouteName = route.RouteName,
-                TotalDistance = route.DistanceKm
+                RouteName = route?.RouteName ?? "No Route Today",
+                TotalDistance = route?.DistanceKm ?? 0
             };
 
         }
