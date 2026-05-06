@@ -52,10 +52,10 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             NavBarPanel = new Guna.UI2.WinForms.Guna2Panel();
             SettingsBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             GenerateReportBtn = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -82,8 +82,8 @@
             SystemAdDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             lblSettingsTitle = new Label();
             lblSystemAdministratorTitle = new Label();
-            guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             NavBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             guna2Panel2.SuspendLayout();
@@ -95,8 +95,8 @@
             guna2Panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SystemAdDataGrid).BeginInit();
-            guna2Panel4.SuspendLayout();
             guna2Panel6.SuspendLayout();
+            guna2Panel4.SuspendLayout();
             SuspendLayout();
             // 
             // NavBarPanel
@@ -299,7 +299,7 @@
             guna2Panel1.Location = new Point(0, 33);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            guna2Panel1.Size = new Size(939, 123);
+            guna2Panel1.Size = new Size(939, 124);
             guna2Panel1.TabIndex = 2;
             // 
             // guna2Panel8
@@ -313,10 +313,10 @@
             guna2Panel8.Controls.Add(pictureBox4);
             guna2Panel8.CustomizableEdges = customizableEdges13;
             guna2Panel8.FillColor = Color.White;
-            guna2Panel8.Location = new Point(468, 18);
+            guna2Panel8.Location = new Point(474, 18);
             guna2Panel8.Name = "guna2Panel8";
             guna2Panel8.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2Panel8.Size = new Size(457, 87);
+            guna2Panel8.Size = new Size(440, 87);
             guna2Panel8.TabIndex = 9;
             // 
             // lblUserRole
@@ -365,7 +365,7 @@
             guna2Panel7.Location = new Point(22, 18);
             guna2Panel7.Name = "guna2Panel7";
             guna2Panel7.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2Panel7.Size = new Size(440, 87);
+            guna2Panel7.Size = new Size(430, 87);
             guna2Panel7.TabIndex = 8;
             // 
             // lblPhoneNumber
@@ -439,13 +439,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             SystemAdDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             SystemAdDataGrid.GridColor = Color.White;
-            SystemAdDataGrid.Location = new Point(13, 3);
+            SystemAdDataGrid.Location = new Point(13, 13);
             SystemAdDataGrid.Name = "SystemAdDataGrid";
             SystemAdDataGrid.ReadOnly = true;
             SystemAdDataGrid.RowHeadersVisible = false;
             SystemAdDataGrid.RowHeadersWidth = 40;
             SystemAdDataGrid.RowTemplate.Height = 25;
-            SystemAdDataGrid.Size = new Size(912, 210);
+            SystemAdDataGrid.Size = new Size(912, 191);
             SystemAdDataGrid.TabIndex = 1;
             SystemAdDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             SystemAdDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -492,27 +492,13 @@
             lblSystemAdministratorTitle.TabIndex = 11;
             lblSystemAdministratorTitle.Text = "System Administrators";
             // 
-            // guna2Panel4
-            // 
-            guna2Panel4.BackColor = Color.Transparent;
-            guna2Panel4.BorderColor = Color.DarkGray;
-            guna2Panel4.BorderRadius = 15;
-            guna2Panel4.BorderThickness = 1;
-            guna2Panel4.Controls.Add(SystemAdDataGrid);
-            guna2Panel4.CustomizableEdges = customizableEdges21;
-            guna2Panel4.FillColor = Color.White;
-            guna2Panel4.Location = new Point(131, 405);
-            guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            guna2Panel4.Size = new Size(939, 216);
-            guna2Panel4.TabIndex = 10;
-            // 
             // guna2Panel6
             // 
             guna2Panel6.BackColor = Color.Transparent;
             guna2Panel6.BorderColor = Color.DarkGray;
             guna2Panel6.BorderRadius = 15;
             guna2Panel6.BorderThickness = 1;
+            guna2Panel6.Controls.Add(guna2Panel4);
             guna2Panel6.Controls.Add(lblSystemAdministratorTitle);
             guna2Panel6.CustomizableEdges = customizableEdges23;
             guna2Panel6.FillColor = Color.FromArgb(213, 220, 249);
@@ -522,13 +508,27 @@
             guna2Panel6.Size = new Size(939, 253);
             guna2Panel6.TabIndex = 12;
             // 
+            // guna2Panel4
+            // 
+            guna2Panel4.BackColor = Color.Transparent;
+            guna2Panel4.BorderColor = Color.DarkGray;
+            guna2Panel4.BorderRadius = 15;
+            guna2Panel4.BorderThickness = 1;
+            guna2Panel4.Controls.Add(SystemAdDataGrid);
+            guna2Panel4.CustomizableEdges = customizableEdges21;
+            guna2Panel4.FillColor = Color.White;
+            guna2Panel4.Location = new Point(0, 37);
+            guna2Panel4.Name = "guna2Panel4";
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            guna2Panel4.Size = new Size(939, 216);
+            guna2Panel4.TabIndex = 10;
+            // 
             // AdminSettings
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
-            Controls.Add(guna2Panel4);
             Controls.Add(lblSettingsTitle);
             Controls.Add(guna2Panel3);
             Controls.Add(guna2Panel2);
@@ -559,9 +559,9 @@
             guna2Panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)SystemAdDataGrid).EndInit();
-            guna2Panel4.ResumeLayout(false);
             guna2Panel6.ResumeLayout(false);
             guna2Panel6.PerformLayout();
+            guna2Panel4.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -594,7 +594,7 @@
         private Guna.UI2.WinForms.Guna2ImageButton SettingsBtn;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Label lblSystemAdministratorTitle;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
     }
 }
