@@ -58,9 +58,9 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             NavBarPanel = new Guna.UI2.WinForms.Guna2Panel();
-            LogoutBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             SettingsBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             GenerateReportBtn = new Guna.UI2.WinForms.Guna2ImageButton();
+            LogoutBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             ManageUserBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             ViewQueueBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             DashBtn = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -114,10 +114,10 @@
             // 
             // NavBarPanel
             // 
-            NavBarPanel.BackColor = Color.FromArgb(215, 215, 215);
-            NavBarPanel.Controls.Add(LogoutBtn);
+            NavBarPanel.BackColor = Color.FromArgb(224, 224, 224);
             NavBarPanel.Controls.Add(SettingsBtn);
             NavBarPanel.Controls.Add(GenerateReportBtn);
+            NavBarPanel.Controls.Add(LogoutBtn);
             NavBarPanel.Controls.Add(ManageUserBtn);
             NavBarPanel.Controls.Add(ViewQueueBtn);
             NavBarPanel.Controls.Add(DashBtn);
@@ -128,6 +128,38 @@
             NavBarPanel.ShadowDecoration.CustomizableEdges = customizableEdges8;
             NavBarPanel.Size = new Size(96, 660);
             NavBarPanel.TabIndex = 2;
+            // 
+            // SettingsBtn
+            // 
+            SettingsBtn.CheckedState.ImageSize = new Size(64, 64);
+            SettingsBtn.HoverState.ImageSize = new Size(37, 37);
+            SettingsBtn.Image = (Image)resources.GetObject("SettingsBtn.Image");
+            SettingsBtn.ImageOffset = new Point(0, 0);
+            SettingsBtn.ImageRotate = 0F;
+            SettingsBtn.ImageSize = new Size(36, 36);
+            SettingsBtn.Location = new Point(7, 375);
+            SettingsBtn.Name = "SettingsBtn";
+            SettingsBtn.PressedState.ImageSize = new Size(34, 34);
+            SettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            SettingsBtn.Size = new Size(82, 82);
+            SettingsBtn.TabIndex = 8;
+            SettingsBtn.Click += SettingsBtn_Click;
+            // 
+            // GenerateReportBtn
+            // 
+            GenerateReportBtn.CheckedState.ImageSize = new Size(64, 64);
+            GenerateReportBtn.HoverState.ImageSize = new Size(37, 37);
+            GenerateReportBtn.Image = (Image)resources.GetObject("GenerateReportBtn.Image");
+            GenerateReportBtn.ImageOffset = new Point(0, 0);
+            GenerateReportBtn.ImageRotate = 0F;
+            GenerateReportBtn.ImageSize = new Size(36, 36);
+            GenerateReportBtn.Location = new Point(7, 315);
+            GenerateReportBtn.Name = "GenerateReportBtn";
+            GenerateReportBtn.PressedState.ImageSize = new Size(34, 34);
+            GenerateReportBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            GenerateReportBtn.Size = new Size(82, 82);
+            GenerateReportBtn.TabIndex = 7;
+            GenerateReportBtn.Click += GenerateReportBtn_Click;
             // 
             // LogoutBtn
             // 
@@ -140,42 +172,10 @@
             LogoutBtn.Location = new Point(10, 548);
             LogoutBtn.Name = "LogoutBtn";
             LogoutBtn.PressedState.ImageSize = new Size(32, 32);
-            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges3;
             LogoutBtn.Size = new Size(82, 82);
             LogoutBtn.TabIndex = 6;
             LogoutBtn.Click += LogoutBtn_Click;
-            // 
-            // SettingsBtn
-            // 
-            SettingsBtn.CheckedState.ImageSize = new Size(64, 64);
-            SettingsBtn.HoverState.ImageSize = new Size(34, 34);
-            SettingsBtn.Image = (Image)resources.GetObject("SettingsBtn.Image");
-            SettingsBtn.ImageOffset = new Point(0, 0);
-            SettingsBtn.ImageRotate = 0F;
-            SettingsBtn.ImageSize = new Size(36, 36);
-            SettingsBtn.Location = new Point(7, 370);
-            SettingsBtn.Name = "SettingsBtn";
-            SettingsBtn.PressedState.ImageSize = new Size(32, 32);
-            SettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            SettingsBtn.Size = new Size(82, 82);
-            SettingsBtn.TabIndex = 5;
-            SettingsBtn.Click += SettingsBtn_Click;
-            // 
-            // GenerateReportBtn
-            // 
-            GenerateReportBtn.CheckedState.ImageSize = new Size(64, 64);
-            GenerateReportBtn.HoverState.ImageSize = new Size(34, 34);
-            GenerateReportBtn.Image = (Image)resources.GetObject("GenerateReportBtn.Image");
-            GenerateReportBtn.ImageOffset = new Point(0, 0);
-            GenerateReportBtn.ImageRotate = 0F;
-            GenerateReportBtn.ImageSize = new Size(36, 36);
-            GenerateReportBtn.Location = new Point(10, 307);
-            GenerateReportBtn.Name = "GenerateReportBtn";
-            GenerateReportBtn.PressedState.ImageSize = new Size(32, 32);
-            GenerateReportBtn.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            GenerateReportBtn.Size = new Size(82, 82);
-            GenerateReportBtn.TabIndex = 4;
-            GenerateReportBtn.Click += GenerateReportBtn_Click;
             // 
             // ManageUserBtn
             // 
@@ -237,14 +237,14 @@
             // 
             // guna2Panel2
             // 
-            guna2Panel2.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel2.BorderColor = Color.DarkGray;
             guna2Panel2.BorderRadius = 15;
             guna2Panel2.BorderThickness = 1;
             guna2Panel2.Controls.Add(lblTotalTrips);
             guna2Panel2.Controls.Add(label3);
             guna2Panel2.Controls.Add(pictureBox3);
             guna2Panel2.CustomizableEdges = customizableEdges9;
-            guna2Panel2.Location = new Point(147, 132);
+            guna2Panel2.Location = new Point(147, 114);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2Panel2.Size = new Size(180, 125);
@@ -286,7 +286,7 @@
             // 
             // ReportPanel
             // 
-            ReportPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            ReportPanel.BorderColor = Color.DarkGray;
             ReportPanel.BorderRadius = 15;
             ReportPanel.BorderThickness = 1;
             ReportPanel.Controls.Add(btnGenerateReport);
@@ -299,10 +299,10 @@
             ReportPanel.Controls.Add(label5);
             ReportPanel.Controls.Add(label4);
             ReportPanel.CustomizableEdges = customizableEdges17;
-            ReportPanel.Location = new Point(147, 331);
+            ReportPanel.Location = new Point(147, 306);
             ReportPanel.Name = "ReportPanel";
             ReportPanel.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            ReportPanel.Size = new Size(984, 263);
+            ReportPanel.Size = new Size(984, 278);
             ReportPanel.TabIndex = 8;
             // 
             // btnGenerateReport
@@ -316,7 +316,7 @@
             btnGenerateReport.FillColor = Color.FromArgb(55, 91, 231);
             btnGenerateReport.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGenerateReport.ForeColor = Color.White;
-            btnGenerateReport.Location = new Point(34, 198);
+            btnGenerateReport.Location = new Point(34, 210);
             btnGenerateReport.Margin = new Padding(4, 3, 4, 3);
             btnGenerateReport.Name = "btnGenerateReport";
             btnGenerateReport.ShadowDecoration.CustomizableEdges = customizableEdges12;
@@ -329,31 +329,33 @@
             // 
             cmbRoute.BackColor = Color.Transparent;
             cmbRoute.BorderColor = Color.DarkGray;
+            cmbRoute.BorderRadius = 5;
             cmbRoute.CustomizableEdges = customizableEdges13;
             cmbRoute.DrawMode = DrawMode.OwnerDrawFixed;
             cmbRoute.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbRoute.FocusedColor = Color.FromArgb(94, 148, 255);
             cmbRoute.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbRoute.Font = new Font("Segoe UI", 10F);
-            cmbRoute.ForeColor = Color.FromArgb(68, 88, 112);
+            cmbRoute.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            cmbRoute.ForeColor = Color.FromArgb(91, 91, 91);
             cmbRoute.ItemHeight = 30;
             cmbRoute.Location = new Point(34, 134);
             cmbRoute.Name = "cmbRoute";
             cmbRoute.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            cmbRoute.Size = new Size(200, 36);
+            cmbRoute.Size = new Size(215, 36);
             cmbRoute.TabIndex = 22;
             // 
             // cmbDriver
             // 
             cmbDriver.BackColor = Color.Transparent;
             cmbDriver.BorderColor = Color.DarkGray;
+            cmbDriver.BorderRadius = 5;
             cmbDriver.CustomizableEdges = customizableEdges15;
             cmbDriver.DrawMode = DrawMode.OwnerDrawFixed;
             cmbDriver.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDriver.FocusedColor = Color.FromArgb(94, 148, 255);
             cmbDriver.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbDriver.Font = new Font("Segoe UI", 10F);
-            cmbDriver.ForeColor = Color.FromArgb(68, 88, 112);
+            cmbDriver.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            cmbDriver.ForeColor = Color.FromArgb(91, 91, 91);
             cmbDriver.ItemHeight = 30;
             cmbDriver.Location = new Point(338, 134);
             cmbDriver.Name = "cmbDriver";
@@ -387,6 +389,8 @@
             // 
             // dtpTo
             // 
+            dtpTo.CalendarForeColor = Color.FromArgb(91, 91, 91);
+            dtpTo.CalendarTitleForeColor = Color.FromArgb(91, 91, 91);
             dtpTo.FontSize = ReaLTaiizor.Extension.Poison.PoisonDateTimeSize.Medium;
             dtpTo.Location = new Point(338, 49);
             dtpTo.MinimumSize = new Size(0, 30);
@@ -396,11 +400,13 @@
             // 
             // dtpFrom
             // 
+            dtpFrom.CalendarForeColor = Color.FromArgb(91, 91, 91);
+            dtpFrom.CalendarTitleForeColor = Color.FromArgb(91, 91, 91);
             dtpFrom.FontSize = ReaLTaiizor.Extension.Poison.PoisonDateTimeSize.Medium;
             dtpFrom.Location = new Point(34, 49);
             dtpFrom.MinimumSize = new Size(0, 30);
             dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(200, 30);
+            dtpFrom.Size = new Size(210, 30);
             dtpFrom.TabIndex = 17;
             // 
             // label5
@@ -432,7 +438,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(91, 91, 91);
-            label7.Location = new Point(147, 292);
+            label7.Location = new Point(147, 271);
             label7.Name = "label7";
             label7.Size = new Size(216, 25);
             label7.TabIndex = 14;
@@ -441,14 +447,14 @@
             // 
             // guna2Panel3
             // 
-            guna2Panel3.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel3.BorderColor = Color.DarkGray;
             guna2Panel3.BorderRadius = 15;
             guna2Panel3.BorderThickness = 1;
             guna2Panel3.Controls.Add(lblMostActive);
             guna2Panel3.Controls.Add(label2);
             guna2Panel3.Controls.Add(pictureBox10);
             guna2Panel3.CustomizableEdges = customizableEdges19;
-            guna2Panel3.Location = new Point(349, 132);
+            guna2Panel3.Location = new Point(348, 114);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2Panel3.Size = new Size(180, 125);
@@ -490,14 +496,14 @@
             // 
             // guna2Panel4
             // 
-            guna2Panel4.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel4.BorderColor = Color.DarkGray;
             guna2Panel4.BorderRadius = 15;
             guna2Panel4.BorderThickness = 1;
             guna2Panel4.Controls.Add(lblLeastActive);
             guna2Panel4.Controls.Add(label1);
             guna2Panel4.Controls.Add(GrayCircle);
             guna2Panel4.CustomizableEdges = customizableEdges23;
-            guna2Panel4.Location = new Point(551, 132);
+            guna2Panel4.Location = new Point(553, 114);
             guna2Panel4.Name = "guna2Panel4";
             guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges24;
             guna2Panel4.Size = new Size(180, 125);
@@ -541,14 +547,14 @@
             // 
             // guna2Panel5
             // 
-            guna2Panel5.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel5.BorderColor = Color.DarkGray;
             guna2Panel5.BorderRadius = 15;
             guna2Panel5.BorderThickness = 1;
             guna2Panel5.Controls.Add(lblFastestTrip);
             guna2Panel5.Controls.Add(lblFastestTripLabel);
             guna2Panel5.Controls.Add(pictureBox5);
             guna2Panel5.CustomizableEdges = customizableEdges25;
-            guna2Panel5.Location = new Point(750, 132);
+            guna2Panel5.Location = new Point(751, 114);
             guna2Panel5.Name = "guna2Panel5";
             guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges26;
             guna2Panel5.Size = new Size(180, 125);
@@ -590,14 +596,14 @@
             // 
             // guna2Panel6
             // 
-            guna2Panel6.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel6.BorderColor = Color.DarkGray;
             guna2Panel6.BorderRadius = 15;
             guna2Panel6.BorderThickness = 1;
             guna2Panel6.Controls.Add(lblSlowestTrip);
             guna2Panel6.Controls.Add(lblLowestTripLabel);
             guna2Panel6.Controls.Add(pictureBox6);
             guna2Panel6.CustomizableEdges = customizableEdges27;
-            guna2Panel6.Location = new Point(951, 132);
+            guna2Panel6.Location = new Point(951, 114);
             guna2Panel6.Name = "guna2Panel6";
             guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2Panel6.Size = new Size(180, 125);
@@ -608,7 +614,7 @@
             lblSlowestTrip.AutoSize = true;
             lblSlowestTrip.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSlowestTrip.ForeColor = Color.FromArgb(91, 91, 91);
-            lblSlowestTrip.Location = new Point(13, 62);
+            lblSlowestTrip.Location = new Point(13, 61);
             lblSlowestTrip.Name = "lblSlowestTrip";
             lblSlowestTrip.Size = new Size(88, 32);
             lblSlowestTrip.TabIndex = 10;
@@ -701,8 +707,6 @@
 
         private Guna.UI2.WinForms.Guna2Panel NavBarPanel;
         private Guna.UI2.WinForms.Guna2ImageButton LogoutBtn;
-        private Guna.UI2.WinForms.Guna2ImageButton SettingsBtn;
-        private Guna.UI2.WinForms.Guna2ImageButton GenerateReportBtn;
         private Guna.UI2.WinForms.Guna2ImageButton ManageUserBtn;
         private Guna.UI2.WinForms.Guna2ImageButton ViewQueueBtn;
         private Guna.UI2.WinForms.Guna2ImageButton DashBtn;
@@ -732,12 +736,14 @@
         private Label lblSlowestTrip;
         private Label label4;
         private Label label5;
-        private ReaLTaiizor.Controls.PoisonDateTime dtpFrom;
         private ReaLTaiizor.Controls.PoisonDateTime dtpTo;
         private Guna.UI2.WinForms.Guna2ComboBox cmbRoute;
         private Guna.UI2.WinForms.Guna2ComboBox cmbDriver;
         private Label label8;
         private Label label6;
         private Guna.UI2.WinForms.Guna2Button btnGenerateReport;
+        private Guna.UI2.WinForms.Guna2ImageButton GenerateReportBtn;
+        private Guna.UI2.WinForms.Guna2ImageButton SettingsBtn;
+        private ReaLTaiizor.Controls.PoisonDateTime dtpFrom;
     }
 }

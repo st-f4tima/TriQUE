@@ -142,12 +142,14 @@
             // cboRole
             // 
             cboRole.BackColor = Color.Transparent;
+            cboRole.BorderColor = Color.DarkGray;
+            cboRole.BorderRadius = 5;
             cboRole.CustomizableEdges = customizableEdges3;
             cboRole.DrawMode = DrawMode.OwnerDrawFixed;
             cboRole.DropDownStyle = ComboBoxStyle.DropDownList;
             cboRole.FocusedColor = Color.FromArgb(94, 148, 255);
             cboRole.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cboRole.Font = new Font("Segoe UI", 10F);
+            cboRole.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             cboRole.ForeColor = Color.FromArgb(91, 91, 91);
             cboRole.ItemHeight = 30;
             cboRole.Location = new Point(215, 154);
@@ -159,12 +161,14 @@
             // cboAssignedRoute
             // 
             cboAssignedRoute.BackColor = Color.Transparent;
+            cboAssignedRoute.BorderColor = Color.DarkGray;
+            cboAssignedRoute.BorderRadius = 5;
             cboAssignedRoute.CustomizableEdges = customizableEdges5;
             cboAssignedRoute.DrawMode = DrawMode.OwnerDrawFixed;
             cboAssignedRoute.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAssignedRoute.FocusedColor = Color.FromArgb(94, 148, 255);
             cboAssignedRoute.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cboAssignedRoute.Font = new Font("Segoe UI", 10F);
+            cboAssignedRoute.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             cboAssignedRoute.ForeColor = Color.FromArgb(91, 91, 91);
             cboAssignedRoute.ItemHeight = 30;
             cboAssignedRoute.Location = new Point(215, 197);
@@ -190,7 +194,8 @@
             // 
             // txtFirstName
             // 
-            txtFirstName.BorderColor = Color.FromArgb(217, 221, 226);
+            txtFirstName.BorderColor = Color.DarkGray;
+            txtFirstName.BorderRadius = 5;
             txtFirstName.CustomizableEdges = customizableEdges7;
             txtFirstName.DefaultText = "";
             txtFirstName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -198,22 +203,22 @@
             txtFirstName.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtFirstName.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtFirstName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtFirstName.Font = new Font("Segoe UI", 9F);
+            txtFirstName.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             txtFirstName.ForeColor = Color.FromArgb(91, 91, 91);
             txtFirstName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtFirstName.Location = new Point(215, 22);
-            txtFirstName.Margin = new Padding(3, 4, 3, 4);
+            txtFirstName.Location = new Point(215, 30);
+            txtFirstName.Margin = new Padding(4, 4, 4, 4);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.PlaceholderText = "";
             txtFirstName.SelectedText = "";
             txtFirstName.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            txtFirstName.Size = new Size(330, 37);
+            txtFirstName.Size = new Size(330, 33);
             txtFirstName.TabIndex = 14;
             // 
             // txtLastName
             // 
-            txtLastName.BorderColor = Color.FromArgb(217, 221, 226);
-            txtLastName.BorderRadius = 1;
+            txtLastName.BorderColor = Color.DarkGray;
+            txtLastName.BorderRadius = 5;
             txtLastName.CustomizableEdges = customizableEdges9;
             txtLastName.DefaultText = "";
             txtLastName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -221,21 +226,22 @@
             txtLastName.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtLastName.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtLastName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtLastName.Font = new Font("Segoe UI", 9F);
+            txtLastName.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             txtLastName.ForeColor = Color.FromArgb(91, 91, 91);
             txtLastName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtLastName.Location = new Point(215, 67);
-            txtLastName.Margin = new Padding(3, 4, 3, 4);
+            txtLastName.Location = new Point(215, 71);
+            txtLastName.Margin = new Padding(4, 4, 4, 4);
             txtLastName.Name = "txtLastName";
             txtLastName.PlaceholderText = "";
             txtLastName.SelectedText = "";
             txtLastName.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            txtLastName.Size = new Size(330, 37);
+            txtLastName.Size = new Size(330, 33);
             txtLastName.TabIndex = 15;
             // 
             // txtPhoneNumber
             // 
-            txtPhoneNumber.BorderColor = Color.FromArgb(217, 221, 226);
+            txtPhoneNumber.BorderColor = Color.DarkGray;
+            txtPhoneNumber.BorderRadius = 5;
             txtPhoneNumber.CustomizableEdges = customizableEdges11;
             txtPhoneNumber.DefaultText = "";
             txtPhoneNumber.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -243,27 +249,29 @@
             txtPhoneNumber.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtPhoneNumber.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtPhoneNumber.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPhoneNumber.Font = new Font("Segoe UI", 9F);
+            txtPhoneNumber.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             txtPhoneNumber.ForeColor = Color.FromArgb(91, 91, 91);
             txtPhoneNumber.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPhoneNumber.Location = new Point(215, 109);
-            txtPhoneNumber.Margin = new Padding(3, 4, 3, 4);
+            txtPhoneNumber.Location = new Point(215, 114);
+            txtPhoneNumber.Margin = new Padding(4, 4, 4, 4);
             txtPhoneNumber.Name = "txtPhoneNumber";
             txtPhoneNumber.PlaceholderText = "";
             txtPhoneNumber.SelectedText = "";
             txtPhoneNumber.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            txtPhoneNumber.Size = new Size(330, 37);
+            txtPhoneNumber.Size = new Size(330, 33);
             txtPhoneNumber.TabIndex = 16;
             // 
             // cboAdminLevel
             // 
             cboAdminLevel.BackColor = Color.Transparent;
+            cboAdminLevel.BorderColor = Color.DarkGray;
+            cboAdminLevel.BorderRadius = 5;
             cboAdminLevel.CustomizableEdges = customizableEdges13;
             cboAdminLevel.DrawMode = DrawMode.OwnerDrawFixed;
             cboAdminLevel.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAdminLevel.FocusedColor = Color.FromArgb(94, 148, 255);
             cboAdminLevel.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cboAdminLevel.Font = new Font("Segoe UI", 10F);
+            cboAdminLevel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             cboAdminLevel.ForeColor = Color.FromArgb(91, 91, 91);
             cboAdminLevel.ItemHeight = 30;
             cboAdminLevel.Location = new Point(215, 239);

@@ -496,7 +496,7 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Window;
+            BackColor = Color.White;
             ClientSize = new Size(1182, 653);
             Controls.Add(lblQueueStatusTitle);
             Controls.Add(lblViewQueueStatusTitle);

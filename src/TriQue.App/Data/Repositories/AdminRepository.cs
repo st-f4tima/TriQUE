@@ -1,8 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
 using TriQue.Enums;
 using TriQue.Helpers;
 using TriQue.Models;
@@ -271,6 +268,54 @@ namespace TriQue.Data.Repositories
             _dbHelper.ExecuteNonQuery(clearQueue,
                 new SqliteParameter("@routeID", routeID)
             );
+        }
+
+        public (string FullName, string PhoneNumber, string LevelName)? GetAdminSettings(int userID)
+        {
+            string query = @"
+                SELECT 
+                    u.FirstName || ' ' || u.LastName AS FullName,
+                    u.PhoneNumber,
+                    al.LevelName
+                FROM Admin a
+                JOIN User u ON a.UserID = u.UserID
+                JOIN AdminLevel al ON a.LevelID = al.LevelID
+                WHERE a.UserID = @userID
+                LIMIT 1";
+
+            using var reader = _dbHelper.ExecuteReader(
+                query,
+                new SqliteParameter("@userID", userID)
+            );
+
+            if (!reader.Read()) return null;
+
+            return (
+                FullName: reader["FullName"].ToString() ?? "",
+                PhoneNumber: reader["PhoneNumber"].ToString() ?? "",
+                LevelName: reader["LevelName"].ToString() ?? ""
+            );
+        }
+
+        public DataTable GetAllAdmins()
+        {
+            string query = @"
+                SELECT 
+                    u.FirstName || ' ' || u.LastName AS [Admin Name],
+                    al.LevelName AS [Authorization Level],
+                    u.PhoneNumber AS [Contact Number]
+                FROM Admin a
+                JOIN User u ON a.UserID = u.UserID
+                JOIN AdminLevel al ON a.LevelID = al.LevelID
+                ORDER BY a.LevelID ASC";
+
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
+
+            using var cmd = new SqliteCommand(query, conn);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            return dt;
         }
     }
 }

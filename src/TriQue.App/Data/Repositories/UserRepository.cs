@@ -154,6 +154,25 @@ namespace TriQue.Data.Repositories
                 new SqliteParameter("@outcome", outcome));
         }
 
+        public void InsertLogoutLog(int userID)
+        {
+            string query = @"
+                UPDATE AuthenticationLog
+                SET LogoutTime = @time
+                WHERE LogID = (
+                    SELECT LogID FROM AuthenticationLog
+                    WHERE UserID = @id
+                    AND LogoutTime IS NULL
+                    AND AuthOutcome = 'Success'
+                    ORDER BY LoginTime DESC
+                    LIMIT 1
+                )";
+
+            _dbHelper.ExecuteNonQuery(query,
+                new SqliteParameter("@time", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
+                new SqliteParameter("@id", userID));
+        }
+
         public List<UserListItem> GetAllUsers(string search = "")
         {
             string query = @"

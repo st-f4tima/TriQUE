@@ -855,7 +855,7 @@ namespace TriQue.Forms
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
+            BackColor = Color.White;
             ClientSize = new Size(1182, 653);
             Controls.Add(greeting);
             Controls.Add(lblWelcomeMessage);

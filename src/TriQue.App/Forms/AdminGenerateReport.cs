@@ -56,6 +56,8 @@ namespace Trique.Forms
 
             cmbDriver.DisplayMember = "FullName";
             cmbDriver.SelectedIndex = 0;
+            cmbDriver.DropDownHeight = 150; 
+            cmbDriver.MaxDropDownItems = 5;
         }
 
         private void LoadStats(DateTime? from, DateTime? to, int? routeID, int? driverID)

@@ -112,7 +112,7 @@
             UpdateBtn.FillColor = Color.FromArgb(55, 91, 231);
             UpdateBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             UpdateBtn.ForeColor = Color.White;
-            UpdateBtn.Location = new Point(294, 259);
+            UpdateBtn.Location = new Point(298, 259);
             UpdateBtn.Name = "UpdateBtn";
             UpdateBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
             UpdateBtn.Size = new Size(123, 44);
@@ -141,6 +141,8 @@
             // 
             // txtFullName
             // 
+            txtFullName.BorderColor = Color.DarkGray;
+            txtFullName.BorderRadius = 5;
             txtFullName.CustomizableEdges = customizableEdges5;
             txtFullName.DefaultText = "";
             txtFullName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -148,20 +150,22 @@
             txtFullName.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtFullName.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtFullName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtFullName.Font = new Font("Segoe UI", 9F);
+            txtFullName.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtFullName.ForeColor = Color.FromArgb(91, 91, 91);
             txtFullName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtFullName.Location = new Point(264, 13);
-            txtFullName.Margin = new Padding(3, 4, 3, 4);
+            txtFullName.Location = new Point(264, 17);
+            txtFullName.Margin = new Padding(4);
             txtFullName.Name = "txtFullName";
             txtFullName.PlaceholderText = "";
             txtFullName.SelectedText = "";
             txtFullName.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtFullName.Size = new Size(286, 38);
+            txtFullName.Size = new Size(286, 34);
             txtFullName.TabIndex = 8;
             // 
             // txtPhoneNumber
             // 
+            txtPhoneNumber.BorderColor = Color.DarkGray;
+            txtPhoneNumber.BorderRadius = 5;
             txtPhoneNumber.CustomizableEdges = customizableEdges7;
             txtPhoneNumber.DefaultText = "";
             txtPhoneNumber.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -169,28 +173,30 @@
             txtPhoneNumber.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtPhoneNumber.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtPhoneNumber.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPhoneNumber.Font = new Font("Segoe UI", 9F);
+            txtPhoneNumber.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             txtPhoneNumber.ForeColor = Color.FromArgb(91, 91, 91);
             txtPhoneNumber.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtPhoneNumber.Location = new Point(264, 59);
-            txtPhoneNumber.Margin = new Padding(3, 4, 3, 4);
+            txtPhoneNumber.Margin = new Padding(4);
             txtPhoneNumber.Name = "txtPhoneNumber";
             txtPhoneNumber.PlaceholderText = "";
             txtPhoneNumber.SelectedText = "";
             txtPhoneNumber.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            txtPhoneNumber.Size = new Size(286, 38);
+            txtPhoneNumber.Size = new Size(286, 34);
             txtPhoneNumber.TabIndex = 9;
             txtPhoneNumber.TextChanged += txtPhoneNumber_TextChanged;
             // 
             // cboRole
             // 
             cboRole.BackColor = Color.Transparent;
+            cboRole.BorderColor = Color.DarkGray;
+            cboRole.BorderRadius = 5;
             cboRole.CustomizableEdges = customizableEdges9;
             cboRole.DrawMode = DrawMode.OwnerDrawFixed;
             cboRole.DropDownStyle = ComboBoxStyle.DropDownList;
             cboRole.FocusedColor = Color.FromArgb(94, 148, 255);
             cboRole.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cboRole.Font = new Font("Segoe UI", 10F);
+            cboRole.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             cboRole.ForeColor = Color.FromArgb(91, 91, 91);
             cboRole.ItemHeight = 30;
             cboRole.Location = new Point(264, 104);
@@ -202,12 +208,14 @@
             // cboAdminLevel
             // 
             cboAdminLevel.BackColor = Color.Transparent;
+            cboAdminLevel.BorderColor = Color.DarkGray;
+            cboAdminLevel.BorderRadius = 5;
             cboAdminLevel.CustomizableEdges = customizableEdges11;
             cboAdminLevel.DrawMode = DrawMode.OwnerDrawFixed;
             cboAdminLevel.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAdminLevel.FocusedColor = Color.FromArgb(94, 148, 255);
             cboAdminLevel.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cboAdminLevel.Font = new Font("Segoe UI", 10F);
+            cboAdminLevel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             cboAdminLevel.ForeColor = Color.FromArgb(91, 91, 91);
             cboAdminLevel.ItemHeight = 30;
             cboAdminLevel.Location = new Point(264, 188);
@@ -219,12 +227,14 @@
             // cboAssignedRoute
             // 
             cboAssignedRoute.BackColor = Color.Transparent;
+            cboAssignedRoute.BorderColor = Color.DarkGray;
+            cboAssignedRoute.BorderRadius = 5;
             cboAssignedRoute.CustomizableEdges = customizableEdges13;
             cboAssignedRoute.DrawMode = DrawMode.OwnerDrawFixed;
             cboAssignedRoute.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAssignedRoute.FocusedColor = Color.FromArgb(94, 148, 255);
             cboAssignedRoute.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cboAssignedRoute.Font = new Font("Segoe UI", 10F);
+            cboAssignedRoute.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             cboAssignedRoute.ForeColor = Color.FromArgb(91, 91, 91);
             cboAssignedRoute.ItemHeight = 30;
             cboAssignedRoute.Location = new Point(264, 146);
@@ -248,6 +258,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(582, 327);
             Controls.Add(lblAdminLevel);
             Controls.Add(cboAssignedRoute);

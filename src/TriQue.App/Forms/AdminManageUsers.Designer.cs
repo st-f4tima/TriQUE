@@ -51,7 +51,7 @@ namespace Trique.Forms
             SearchBar = new Guna2TextBox();
             lblManageUsersTitle = new Label();
             NavbarPanel = new Panel();
-            ManageUsersBtn = new Guna2ImageButton();
+            ManageUserBtn = new Guna2ImageButton();
             LogoutBtn = new Guna2ImageButton();
             ViewQueueBtn = new Guna2ImageButton();
             DashboardBtn = new Guna2ImageButton();
@@ -66,17 +66,18 @@ namespace Trique.Forms
             // 
             // UserListPanel
             // 
-            UserListPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            UserListPanel.BorderColor = Color.DarkGray;
+            UserListPanel.BorderRadius = 15;
             UserListPanel.BorderThickness = 1;
             UserListPanel.Controls.Add(UserListDataGrid);
             UserListPanel.Controls.Add(AddUserBtn);
             UserListPanel.Controls.Add(SearchBar);
             UserListPanel.CustomizableEdges = customizableEdges4;
-            UserListPanel.Location = new Point(131, 141);
+            UserListPanel.Location = new Point(131, 83);
             UserListPanel.Margin = new Padding(4);
             UserListPanel.Name = "UserListPanel";
             UserListPanel.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            UserListPanel.Size = new Size(1017, 481);
+            UserListPanel.Size = new Size(1017, 522);
             UserListPanel.TabIndex = 3;
             // 
             // UserListDataGrid
@@ -109,7 +110,7 @@ namespace Trique.Forms
             UserListDataGrid.RowHeadersWidth = 51;
             UserListDataGrid.RowTemplate.Height = 40;
             UserListDataGrid.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            UserListDataGrid.Size = new Size(987, 390);
+            UserListDataGrid.Size = new Size(987, 432);
             UserListDataGrid.TabIndex = 0;
             UserListDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             UserListDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -153,7 +154,8 @@ namespace Trique.Forms
             // 
             // SearchBar
             // 
-            SearchBar.BorderColor = Color.FromArgb(91, 91, 91);
+            SearchBar.BorderColor = Color.DarkGray;
+            SearchBar.BorderRadius = 5;
             SearchBar.CustomizableEdges = customizableEdges2;
             SearchBar.DefaultText = "";
             SearchBar.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -161,34 +163,36 @@ namespace Trique.Forms
             SearchBar.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             SearchBar.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             SearchBar.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            SearchBar.Font = new Font("Segoe UI", 9F);
+            SearchBar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SearchBar.ForeColor = Color.FromArgb(91, 91, 91);
             SearchBar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            SearchBar.Location = new Point(17, 21);
-            SearchBar.Margin = new Padding(3, 4, 3, 4);
+            SearchBar.Location = new Point(21, 21);
+            SearchBar.Margin = new Padding(4);
             SearchBar.Name = "SearchBar";
             SearchBar.PlaceholderText = "Search a driver";
             SearchBar.SelectedText = "";
             SearchBar.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            SearchBar.Size = new Size(942, 33);
+            SearchBar.Size = new Size(937, 35);
             SearchBar.TabIndex = 4;
             SearchBar.TextChanged += SearchBar_TextChanged;
             // 
             // lblManageUsersTitle
             // 
             lblManageUsersTitle.AutoSize = true;
+            lblManageUsersTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblManageUsersTitle.ForeColor = Color.FromArgb(55, 91, 231);
-            lblManageUsersTitle.Location = new Point(121, 71);
+            lblManageUsersTitle.Location = new Point(131, 38);
             lblManageUsersTitle.Margin = new Padding(4, 0, 4, 0);
             lblManageUsersTitle.Name = "lblManageUsersTitle";
-            lblManageUsersTitle.Size = new Size(181, 29);
+            lblManageUsersTitle.Size = new Size(152, 25);
             lblManageUsersTitle.TabIndex = 4;
             lblManageUsersTitle.Text = "Manage Users";
             lblManageUsersTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // NavbarPanel
             // 
-            NavbarPanel.BackColor = Color.FromArgb(215, 215, 215);
-            NavbarPanel.Controls.Add(ManageUsersBtn);
+            NavbarPanel.BackColor = Color.FromArgb(224, 224, 224);
+            NavbarPanel.Controls.Add(ManageUserBtn);
             NavbarPanel.Controls.Add(LogoutBtn);
             NavbarPanel.Controls.Add(ViewQueueBtn);
             NavbarPanel.Controls.Add(DashboardBtn);
@@ -201,21 +205,21 @@ namespace Trique.Forms
             NavbarPanel.Size = new Size(96, 660);
             NavbarPanel.TabIndex = 5;
             // 
-            // ManageUsersBtn
+            // ManageUserBtn
             // 
-            ManageUsersBtn.CheckedState.ImageSize = new Size(64, 64);
-            ManageUsersBtn.HoverState.ImageSize = new Size(37, 37);
-            ManageUsersBtn.Image = (Image)resources.GetObject("ManageUsersBtn.Image");
-            ManageUsersBtn.ImageOffset = new Point(0, 0);
-            ManageUsersBtn.ImageRotate = 0F;
-            ManageUsersBtn.ImageSize = new Size(42, 42);
-            ManageUsersBtn.Location = new Point(7, 244);
-            ManageUsersBtn.Name = "ManageUsersBtn";
-            ManageUsersBtn.PressedState.ImageSize = new Size(34, 34);
-            ManageUsersBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            ManageUsersBtn.Size = new Size(82, 82);
-            ManageUsersBtn.TabIndex = 7;
-            ManageUsersBtn.Click += ManageUsersBtn_Click;
+            ManageUserBtn.CheckedState.ImageSize = new Size(64, 64);
+            ManageUserBtn.HoverState.ImageSize = new Size(44, 44);
+            ManageUserBtn.Image = (Image)resources.GetObject("ManageUserBtn.Image");
+            ManageUserBtn.ImageOffset = new Point(0, 0);
+            ManageUserBtn.ImageRotate = 0F;
+            ManageUserBtn.ImageSize = new Size(42, 42);
+            ManageUserBtn.Location = new Point(7, 242);
+            ManageUserBtn.Name = "ManageUserBtn";
+            ManageUserBtn.PressedState.ImageSize = new Size(44, 44);
+            ManageUserBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            ManageUserBtn.Size = new Size(82, 82);
+            ManageUserBtn.TabIndex = 7;
+            ManageUserBtn.Click += ManageUsersBtn_Click;
             // 
             // LogoutBtn
             // 
@@ -338,7 +342,6 @@ namespace Trique.Forms
         private Guna.UI2.WinForms.Guna2Panel UserListPanel;
         private Label lblManageUsersTitle;
         private Panel NavbarPanel;
-        private Guna.UI2.WinForms.Guna2ImageButton ManageUsersBtn;
         private Guna.UI2.WinForms.Guna2ImageButton LogoutBtn;
         private Guna.UI2.WinForms.Guna2ImageButton ViewQueueBtn;
         private Guna.UI2.WinForms.Guna2ImageButton DashboardBtn;
@@ -350,5 +353,6 @@ namespace Trique.Forms
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2ImageButton AddUserBtn;
         private Guna2DataGridView UserListDataGrid;
+        private Guna2ImageButton ManageUserBtn;
     }
 }
