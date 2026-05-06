@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.Logging;
 using TriQue.Data.Repositories;
 using TriQue.DTOs;
 using TriQue.Enums;
@@ -60,16 +61,19 @@ namespace TriQue.Forms
                 return;
 
             lblWelcomeMessage.Text = $"Welcome Back, {_data.User.FirstName}!";
-            lblTodayEarningValue.Text = _data.ActualEarnings.ToString("₱ 0");
+            lblTodayEarningValue.Text = _data.ActualEarnings.ToString("₱ #,##0.00");
             lblEarningsGoal.Text = $"Goal: {_data.Driver.GoalEarnings.ToString("₱ 0")}";
 
             // progress bar
             int goal = (int)_data.Driver.GoalEarnings;
             int actual = (int)_data.ActualEarnings;
 
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = goal > 0 ? goal : 1;
-            progressBar1.Value = Math.Min(actual, progressBar1.Maximum);
+            ProgressBar.Minimum = 0;
+            ProgressBar.Maximum = goal > 0 ? goal : 1;
+            ProgressBar.Value = Math.Min(actual, ProgressBar.Maximum);
+            int percent = goal > 0 ? (int)Math.Min((double)actual / goal * 100, 100) : 0;
+            ProgressBar.Maximum = 100;
+            ProgressBar.Value = percent;
 
             // stats
             lblTotalTripsValue.Text = _data.CompletedTrips.ToString();
@@ -158,7 +162,7 @@ namespace TriQue.Forms
             lblTrafficStatus.Text = $"{result.trafficCondition}";
             lblTrafficStatus.ForeColor = result.trafficCondition switch
             {
-                "Light" => Color.Green,
+                "Light" => Color.FromArgb(0, 200, 83),
                 "Moderate" => Color.Orange,
                 "Heavy" => Color.Red,
                 _ => Color.Gray
@@ -183,7 +187,10 @@ namespace TriQue.Forms
             }
 
             var message = _queueService.JoinQueue(driver.DriverID, route.RouteID);
-            MessageBox.Show(message);
+            MessageBox.Show(message,
+                    "Queue Update",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
 
             UpdateJoinButtonState(driver.DriverID, route.RouteID);
 
@@ -228,7 +235,7 @@ namespace TriQue.Forms
         // navigation
 
         // view queue navbar button
-        private void guna2ImageButton2_Click(object sender, EventArgs e)
+        private void ViewQueueBtn_Click(object sender, EventArgs e)
         {
             if (_routeId == 0)
             {
@@ -242,7 +249,7 @@ namespace TriQue.Forms
         }
 
         // settings navbar button
-        private void guna2ImageButton3_Click(object sender, EventArgs e)
+        private void DriverSettingsBtn_Click(object sender, EventArgs e)
         {
             DriverSettings settings = new DriverSettings(_userID);
             settings.Show();
@@ -250,7 +257,7 @@ namespace TriQue.Forms
         }
 
         // logout button
-        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        private void LogoutBtn_Click(object sender, EventArgs e)
         {
             LoginForm login = new LoginForm();
             login.Show();

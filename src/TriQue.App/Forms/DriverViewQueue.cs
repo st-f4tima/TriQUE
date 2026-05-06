@@ -61,8 +61,8 @@ namespace TriQue.Forms
 
                 lblStatusValue.ForeColor = status switch
                 {
+                    "Waiting" => Color.FromArgb(255, 193, 7),
                     "OnTrip" => Color.FromArgb(13, 110, 253),
-                    "Waiting" => Color.FromArgb(255, 183, 0),
                     "Finished" => Color.FromArgb(0, 200, 83),
                     _ => Color.Gray
                 };
@@ -83,14 +83,54 @@ namespace TriQue.Forms
 
                 lblStatusValue.ForeColor = fallbackStatus switch
                 {
-                    "OnTrip" => Color.FromArgb(13, 110, 253),
-                    "Waiting" => Color.FromArgb(255, 183, 0),
-                    "Finished" => Color.FromArgb(0, 200, 83),
+                    "Waiting" => Color.FromArgb(255, 193, 7),   
+                    "OnTrip" => Color.FromArgb(13, 110, 253),   
+                    "Finished" => Color.FromArgb(0, 200, 83), 
                     _ => Color.Gray
                 };
             }
 
             DataGridQueueStatus.DataSource = _queueRepo.GetQueueDrivers(_queueId);
+            if (DataGridQueueStatus.Columns.Contains("DriverName"))
+                DataGridQueueStatus.Columns["DriverName"].HeaderText = "Driver Name";
+
+            if (DataGridQueueStatus.Columns.Contains("BodyNumber"))
+                DataGridQueueStatus.Columns["BodyNumber"].HeaderText = "Body Number";
+
+            if (DataGridQueueStatus.Columns.Contains("Position"))
+                DataGridQueueStatus.Columns["Position"].HeaderText = "Position";
+
+            if (DataGridQueueStatus.Columns.Contains("Status"))
+                DataGridQueueStatus.Columns["Status"].HeaderText = "Status";
+        }
+
+        private void DataGridQueueStatus_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (DataGridQueueStatus.Columns[e.ColumnIndex].Name == "Status" && e.Value != null)
+            {
+                string status = e.Value.ToString();
+
+                e.CellStyle.ForeColor = status switch
+                {
+                    "Waiting" => Color.FromArgb(255, 193, 7),
+                    "OnTrip" => Color.FromArgb(13, 110, 253),
+                    "Finished" => Color.FromArgb(0, 200, 83),
+                    _ => Color.Gray
+                };
+
+                if (status == "OnTrip")
+                {
+                    e.Value = "On Trip";
+                    e.FormattingApplied = true; 
+                }
+
+                e.CellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+                e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                e.CellStyle.BackColor = Color.White;
+
+                e.CellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240);
+                e.CellStyle.SelectionForeColor = e.CellStyle.ForeColor;
+            }
         }
 
         // start/end trip button
@@ -128,7 +168,6 @@ namespace TriQue.Forms
                 _driverRepo.UpdateStatus(_driverID, (int)DriverStatus.Finished);
                 _queueRepo.RemoveDriverFromQueue(_driverID, _queueId);
 
-                // Compact positions: rank 2 → rank 1, rank 3 → rank 2, etc.
                 _queueRepo.ReorderQueuePositions(_queueId);
 
                 System.Threading.Thread.Sleep(150);

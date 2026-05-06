@@ -61,7 +61,7 @@
             lblBodyNumber = new Label();
             lblCurrentStatusTitle = new Label();
             lblDriverName = new Label();
-            guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            StatusPanel = new Guna.UI2.WinForms.Guna2Panel();
             lblCurrentStatusValue = new Label();
             UserIcon = new PictureBox();
             DriverInfoPanel = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
@@ -87,7 +87,7 @@
             NavBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             DriverDetailsPanel.SuspendLayout();
-            guna2Panel5.SuspendLayout();
+            StatusPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserIcon).BeginInit();
             DriverInfoPanel.SuspendLayout();
             guna2CustomGradientPanel3.SuspendLayout();
@@ -103,7 +103,7 @@
             // 
             // NavBarPanel
             // 
-            NavBarPanel.BackColor = Color.FromArgb(215, 215, 215);
+            NavBarPanel.BackColor = Color.FromArgb(224, 224, 224);
             NavBarPanel.Controls.Add(LogoutBtn);
             NavBarPanel.Controls.Add(SettingsBtn);
             NavBarPanel.Controls.Add(guna2ImageButton2);
@@ -205,20 +205,20 @@
             // 
             // DriverDetailsPanel
             // 
-            DriverDetailsPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            DriverDetailsPanel.BorderColor = Color.DarkGray;
             DriverDetailsPanel.BorderRadius = 15;
             DriverDetailsPanel.BorderThickness = 1;
             DriverDetailsPanel.Controls.Add(lblBodyNumber);
             DriverDetailsPanel.Controls.Add(lblCurrentStatusTitle);
             DriverDetailsPanel.Controls.Add(lblDriverName);
-            DriverDetailsPanel.Controls.Add(guna2Panel5);
+            DriverDetailsPanel.Controls.Add(StatusPanel);
             DriverDetailsPanel.Controls.Add(UserIcon);
             DriverDetailsPanel.CustomBorderColor = Color.Black;
             DriverDetailsPanel.CustomizableEdges = customizableEdges8;
-            DriverDetailsPanel.Location = new Point(144, 124);
+            DriverDetailsPanel.Location = new Point(144, 126);
             DriverDetailsPanel.Name = "DriverDetailsPanel";
             DriverDetailsPanel.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            DriverDetailsPanel.Size = new Size(906, 96);
+            DriverDetailsPanel.Size = new Size(906, 106);
             DriverDetailsPanel.TabIndex = 2;
             // 
             // lblBodyNumber
@@ -227,54 +227,53 @@
             lblBodyNumber.ForeColor = Color.FromArgb(84, 84, 84);
             lblBodyNumber.Location = new Point(119, 68);
             lblBodyNumber.Name = "lblBodyNumber";
-            lblBodyNumber.Size = new Size(135, 20);
+            lblBodyNumber.Size = new Size(131, 20);
             lblBodyNumber.TabIndex = 11;
             lblBodyNumber.Text = "Body No. 1234";
             // 
             // lblCurrentStatusTitle
             // 
             lblCurrentStatusTitle.AutoSize = true;
-            lblCurrentStatusTitle.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCurrentStatusTitle.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCurrentStatusTitle.ForeColor = Color.FromArgb(84, 84, 84);
-            lblCurrentStatusTitle.Location = new Point(731, 18);
+            lblCurrentStatusTitle.Location = new Point(743, 22);
             lblCurrentStatusTitle.Name = "lblCurrentStatusTitle";
-            lblCurrentStatusTitle.Size = new Size(154, 24);
+            lblCurrentStatusTitle.Size = new Size(132, 20);
             lblCurrentStatusTitle.TabIndex = 9;
             lblCurrentStatusTitle.Text = "Current Status";
             // 
             // lblDriverName
             // 
             lblDriverName.AutoSize = true;
-            lblDriverName.Font = new Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDriverName.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDriverName.ForeColor = Color.FromArgb(84, 84, 84);
             lblDriverName.Location = new Point(119, 23);
             lblDriverName.Name = "lblDriverName";
-            lblDriverName.Size = new Size(261, 41);
+            lblDriverName.Size = new Size(266, 39);
             lblDriverName.TabIndex = 7;
             lblDriverName.Text = "Juan Dela Cruz";
             // 
-            // guna2Panel5
+            // StatusPanel
             // 
-            guna2Panel5.BorderColor = Color.Black;
-            guna2Panel5.BorderRadius = 15;
-            guna2Panel5.BorderThickness = 1;
-            guna2Panel5.Controls.Add(lblCurrentStatusValue);
-            guna2Panel5.CustomizableEdges = customizableEdges6;
-            guna2Panel5.FillColor = Color.FromArgb(255, 189, 89);
-            guna2Panel5.Location = new Point(743, 45);
-            guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            guna2Panel5.Size = new Size(134, 35);
-            guna2Panel5.TabIndex = 6;
+            StatusPanel.BorderColor = Color.Black;
+            StatusPanel.BorderRadius = 15;
+            StatusPanel.Controls.Add(lblCurrentStatusValue);
+            StatusPanel.CustomizableEdges = customizableEdges6;
+            StatusPanel.FillColor = Color.FromArgb(255, 189, 89);
+            StatusPanel.Location = new Point(755, 45);
+            StatusPanel.Name = "StatusPanel";
+            StatusPanel.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            StatusPanel.Size = new Size(120, 35);
+            StatusPanel.TabIndex = 6;
             // 
             // lblCurrentStatusValue
             // 
             lblCurrentStatusValue.AutoSize = true;
             lblCurrentStatusValue.BackColor = Color.Transparent;
             lblCurrentStatusValue.ForeColor = Color.White;
-            lblCurrentStatusValue.Location = new Point(34, 8);
+            lblCurrentStatusValue.Location = new Point(23, 8);
             lblCurrentStatusValue.Name = "lblCurrentStatusValue";
-            lblCurrentStatusValue.Size = new Size(73, 20);
+            lblCurrentStatusValue.Size = new Size(72, 20);
             lblCurrentStatusValue.TabIndex = 10;
             lblCurrentStatusValue.Text = "Waiting";
             // 
@@ -290,7 +289,7 @@
             // 
             // DriverInfoPanel
             // 
-            DriverInfoPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            DriverInfoPanel.BorderColor = Color.DarkGray;
             DriverInfoPanel.BorderRadius = 15;
             DriverInfoPanel.BorderThickness = 1;
             DriverInfoPanel.Controls.Add(lblDriverInfoTitle);
@@ -301,27 +300,28 @@
             DriverInfoPanel.FillColor2 = Color.FromArgb(213, 220, 249);
             DriverInfoPanel.FillColor3 = Color.FromArgb(213, 220, 249);
             DriverInfoPanel.FillColor4 = Color.FromArgb(213, 220, 249);
-            DriverInfoPanel.Location = new Point(144, 251);
+            DriverInfoPanel.Location = new Point(144, 253);
             DriverInfoPanel.Name = "DriverInfoPanel";
             DriverInfoPanel.ShadowDecoration.CustomizableEdges = customizableEdges21;
-            DriverInfoPanel.Size = new Size(906, 257);
+            DriverInfoPanel.Size = new Size(906, 287);
             DriverInfoPanel.TabIndex = 3;
             // 
             // lblDriverInfoTitle
             // 
             lblDriverInfoTitle.AutoSize = true;
             lblDriverInfoTitle.BackColor = Color.FromArgb(213, 220, 249);
+            lblDriverInfoTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDriverInfoTitle.ForeColor = Color.FromArgb(84, 84, 84);
-            lblDriverInfoTitle.Location = new Point(23, 18);
+            lblDriverInfoTitle.Location = new Point(23, 14);
             lblDriverInfoTitle.Name = "lblDriverInfoTitle";
-            lblDriverInfoTitle.Size = new Size(157, 20);
+            lblDriverInfoTitle.Size = new Size(182, 25);
             lblDriverInfoTitle.TabIndex = 4;
-            lblDriverInfoTitle.Text = "Driver Infomation";
+            lblDriverInfoTitle.Text = "Driver Information";
             // 
             // guna2CustomGradientPanel3
             // 
             guna2CustomGradientPanel3.BackColor = Color.Transparent;
-            guna2CustomGradientPanel3.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2CustomGradientPanel3.BorderColor = Color.DarkGray;
             guna2CustomGradientPanel3.BorderRadius = 15;
             guna2CustomGradientPanel3.BorderThickness = 1;
             guna2CustomGradientPanel3.Controls.Add(DriverInfo);
@@ -333,43 +333,44 @@
             guna2CustomGradientPanel3.Location = new Point(0, 51);
             guna2CustomGradientPanel3.Name = "guna2CustomGradientPanel3";
             guna2CustomGradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges19;
-            guna2CustomGradientPanel3.Size = new Size(906, 206);
+            guna2CustomGradientPanel3.Size = new Size(906, 235);
             guna2CustomGradientPanel3.TabIndex = 3;
             // 
             // DriverInfo
             // 
             DriverInfo.BackColor = Color.White;
-            DriverInfo.BorderColor = Color.FromArgb(84, 84, 84);
+            DriverInfo.BorderColor = Color.DarkGray;
             DriverInfo.BorderRadius = 15;
             DriverInfo.BorderThickness = 1;
             DriverInfo.Controls.Add(lblAssignedRouteValue);
             DriverInfo.Controls.Add(lblAssignedRouteTitle);
             DriverInfo.Controls.Add(RouteIcon);
             DriverInfo.CustomizableEdges = customizableEdges10;
-            DriverInfo.Location = new Point(464, 113);
+            DriverInfo.Location = new Point(464, 131);
             DriverInfo.Name = "DriverInfo";
             DriverInfo.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            DriverInfo.Size = new Size(420, 68);
+            DriverInfo.Size = new Size(420, 80);
             DriverInfo.TabIndex = 3;
             // 
             // lblAssignedRouteValue
             // 
             lblAssignedRouteValue.AutoSize = true;
+            lblAssignedRouteValue.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold);
             lblAssignedRouteValue.ForeColor = Color.FromArgb(84, 84, 84);
-            lblAssignedRouteValue.Location = new Point(52, 37);
+            lblAssignedRouteValue.Location = new Point(52, 39);
             lblAssignedRouteValue.Name = "lblAssignedRouteValue";
-            lblAssignedRouteValue.Size = new Size(138, 20);
+            lblAssignedRouteValue.Size = new Size(196, 29);
             lblAssignedRouteValue.TabIndex = 5;
             lblAssignedRouteValue.Text = "BSU - Alangilan";
             // 
             // lblAssignedRouteTitle
             // 
             lblAssignedRouteTitle.AutoSize = true;
-            lblAssignedRouteTitle.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAssignedRouteTitle.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAssignedRouteTitle.ForeColor = Color.FromArgb(84, 84, 84);
             lblAssignedRouteTitle.Location = new Point(52, 10);
             lblAssignedRouteTitle.Name = "lblAssignedRouteTitle";
-            lblAssignedRouteTitle.Size = new Size(126, 15);
+            lblAssignedRouteTitle.Size = new Size(141, 16);
             lblAssignedRouteTitle.TabIndex = 4;
             lblAssignedRouteTitle.Text = "ASSIGNED ROUTE";
             // 
@@ -386,37 +387,38 @@
             // guna2Panel3
             // 
             guna2Panel3.BackColor = Color.White;
-            guna2Panel3.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel3.BorderColor = Color.DarkGray;
             guna2Panel3.BorderRadius = 15;
             guna2Panel3.BorderThickness = 1;
             guna2Panel3.Controls.Add(lblGroupNameValue);
             guna2Panel3.Controls.Add(lblRoleTitle);
             guna2Panel3.Controls.Add(GroupIcon);
             guna2Panel3.CustomizableEdges = customizableEdges12;
-            guna2Panel3.Location = new Point(23, 113);
+            guna2Panel3.Location = new Point(23, 133);
             guna2Panel3.Name = "guna2Panel3";
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            guna2Panel3.Size = new Size(420, 68);
+            guna2Panel3.Size = new Size(420, 78);
             guna2Panel3.TabIndex = 2;
             // 
             // lblGroupNameValue
             // 
             lblGroupNameValue.AutoSize = true;
+            lblGroupNameValue.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold);
             lblGroupNameValue.ForeColor = Color.FromArgb(84, 84, 84);
             lblGroupNameValue.Location = new Point(48, 37);
             lblGroupNameValue.Name = "lblGroupNameValue";
-            lblGroupNameValue.Size = new Size(78, 20);
+            lblGroupNameValue.Size = new Size(108, 29);
             lblGroupNameValue.TabIndex = 4;
             lblGroupNameValue.Text = "Group A";
             // 
             // lblRoleTitle
             // 
             lblRoleTitle.AutoSize = true;
-            lblRoleTitle.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRoleTitle.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblRoleTitle.ForeColor = Color.FromArgb(84, 84, 84);
             lblRoleTitle.Location = new Point(48, 10);
             lblRoleTitle.Name = "lblRoleTitle";
-            lblRoleTitle.Size = new Size(97, 15);
+            lblRoleTitle.Size = new Size(108, 16);
             lblRoleTitle.TabIndex = 3;
             lblRoleTitle.Text = "GROUP NAME";
             // 
@@ -433,7 +435,7 @@
             // guna2Panel2
             // 
             guna2Panel2.BackColor = Color.White;
-            guna2Panel2.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel2.BorderColor = Color.DarkGray;
             guna2Panel2.BorderRadius = 15;
             guna2Panel2.BorderThickness = 1;
             guna2Panel2.Controls.Add(lblRoleValue);
@@ -443,27 +445,28 @@
             guna2Panel2.Location = new Point(464, 27);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            guna2Panel2.Size = new Size(420, 68);
+            guna2Panel2.Size = new Size(420, 85);
             guna2Panel2.TabIndex = 1;
             // 
             // lblRoleValue
             // 
             lblRoleValue.AutoSize = true;
+            lblRoleValue.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold);
             lblRoleValue.ForeColor = Color.FromArgb(84, 84, 84);
-            lblRoleValue.Location = new Point(52, 35);
+            lblRoleValue.Location = new Point(52, 39);
             lblRoleValue.Name = "lblRoleValue";
-            lblRoleValue.Size = new Size(59, 20);
+            lblRoleValue.Size = new Size(83, 29);
             lblRoleValue.TabIndex = 4;
             lblRoleValue.Text = "Driver";
             // 
             // lblGroupNameTitle
             // 
             lblGroupNameTitle.AutoSize = true;
-            lblGroupNameTitle.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGroupNameTitle.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGroupNameTitle.ForeColor = Color.FromArgb(84, 84, 84);
             lblGroupNameTitle.Location = new Point(52, 10);
             lblGroupNameTitle.Name = "lblGroupNameTitle";
-            lblGroupNameTitle.Size = new Size(42, 15);
+            lblGroupNameTitle.Size = new Size(47, 16);
             lblGroupNameTitle.TabIndex = 3;
             lblGroupNameTitle.Text = "ROLE";
             // 
@@ -480,7 +483,7 @@
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.White;
-            guna2Panel1.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel1.BorderColor = Color.DarkGray;
             guna2Panel1.BorderRadius = 15;
             guna2Panel1.BorderThickness = 1;
             guna2Panel1.Controls.Add(lblContactNumberValue);
@@ -490,27 +493,28 @@
             guna2Panel1.Location = new Point(23, 27);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges17;
-            guna2Panel1.Size = new Size(420, 68);
+            guna2Panel1.Size = new Size(420, 82);
             guna2Panel1.TabIndex = 0;
             // 
             // lblContactNumberValue
             // 
             lblContactNumberValue.AutoSize = true;
+            lblContactNumberValue.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold);
             lblContactNumberValue.ForeColor = Color.FromArgb(84, 84, 84);
-            lblContactNumberValue.Location = new Point(48, 35);
+            lblContactNumberValue.Location = new Point(48, 39);
             lblContactNumberValue.Name = "lblContactNumberValue";
-            lblContactNumberValue.Size = new Size(130, 20);
+            lblContactNumberValue.Size = new Size(167, 29);
             lblContactNumberValue.TabIndex = 3;
             lblContactNumberValue.Text = "09104524987";
             // 
             // lblContactNumberTitle
             // 
             lblContactNumberTitle.AutoSize = true;
-            lblContactNumberTitle.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblContactNumberTitle.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblContactNumberTitle.ForeColor = Color.FromArgb(84, 84, 84);
             lblContactNumberTitle.Location = new Point(48, 10);
             lblContactNumberTitle.Name = "lblContactNumberTitle";
-            lblContactNumberTitle.Size = new Size(132, 15);
+            lblContactNumberTitle.Size = new Size(148, 16);
             lblContactNumberTitle.TabIndex = 2;
             lblContactNumberTitle.Text = "CONTACT NUMBER";
             // 
@@ -527,11 +531,11 @@
             // lblSettingsTitle
             // 
             lblSettingsTitle.AutoSize = true;
-            lblSettingsTitle.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSettingsTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSettingsTitle.ForeColor = Color.FromArgb(55, 91, 231);
-            lblSettingsTitle.Location = new Point(144, 72);
+            lblSettingsTitle.Location = new Point(144, 75);
             lblSettingsTitle.Name = "lblSettingsTitle";
-            lblSettingsTitle.Size = new Size(125, 34);
+            lblSettingsTitle.Size = new Size(91, 25);
             lblSettingsTitle.TabIndex = 7;
             lblSettingsTitle.Text = "Settings";
             // 
@@ -545,7 +549,7 @@
             Controls.Add(DriverInfoPanel);
             Controls.Add(DriverDetailsPanel);
             Controls.Add(NavBarPanel);
-            Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ButtonHighlight;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -560,8 +564,8 @@
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             DriverDetailsPanel.ResumeLayout(false);
             DriverDetailsPanel.PerformLayout();
-            guna2Panel5.ResumeLayout(false);
-            guna2Panel5.PerformLayout();
+            StatusPanel.ResumeLayout(false);
+            StatusPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)UserIcon).EndInit();
             DriverInfoPanel.ResumeLayout(false);
             DriverInfoPanel.PerformLayout();
@@ -603,7 +607,7 @@
         private PictureBox RoleIcon;
         private PictureBox ContactIcon;
         private PictureBox RouteIcon;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
+        private Guna.UI2.WinForms.Guna2Panel StatusPanel;
         private Label lblCurrentStatusValue;
         private Label lblCurrentStatusTitle;
         private Label lblDriverName;
