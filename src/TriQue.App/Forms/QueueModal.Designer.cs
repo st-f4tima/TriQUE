@@ -53,7 +53,8 @@
             // 
             // SearchBar
             // 
-            SearchBar.BorderColor = Color.FromArgb(91, 91, 91);
+            SearchBar.BorderColor = Color.DarkGray;
+            SearchBar.BorderRadius = 5;
             SearchBar.CustomizableEdges = customizableEdges1;
             SearchBar.DefaultText = "";
             SearchBar.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -61,20 +62,22 @@
             SearchBar.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             SearchBar.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             SearchBar.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            SearchBar.Font = new Font("Segoe UI", 9F);
+            SearchBar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            SearchBar.ForeColor = Color.FromArgb(91, 91, 91);
             SearchBar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            SearchBar.Location = new Point(74, 13);
-            SearchBar.Margin = new Padding(3, 4, 3, 4);
+            SearchBar.Location = new Point(75, 12);
+            SearchBar.Margin = new Padding(4);
             SearchBar.Name = "SearchBar";
             SearchBar.PlaceholderText = "Search a driver";
             SearchBar.SelectedText = "";
             SearchBar.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            SearchBar.Size = new Size(702, 32);
+            SearchBar.Size = new Size(701, 33);
             SearchBar.TabIndex = 0;
             // 
             // guna2Panel1
             // 
-            guna2Panel1.BorderColor = Color.FromArgb(91, 91, 91);
+            guna2Panel1.BorderColor = Color.DarkGray;
+            guna2Panel1.BorderRadius = 5;
             guna2Panel1.BorderThickness = 1;
             guna2Panel1.Controls.Add(SearchBtn);
             guna2Panel1.CustomizableEdges = customizableEdges4;
@@ -150,6 +153,7 @@
             DriverListDataGrid.ThemeStyle.RowsStyle.Height = 25;
             DriverListDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             DriverListDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            DriverListDataGrid.CellFormatting += DgvQueue_CellFormatting;
             // 
             // UpdateStatusBtn
             // 

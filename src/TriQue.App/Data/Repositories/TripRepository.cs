@@ -195,5 +195,158 @@ namespace TriQue.Data.Repositories
             dt.Load(cmd.ExecuteReader());
             return dt;
         }
+
+         // for generating reports
+        public DataTable GetTripSummary(DateTime? from, DateTime? to, int? routeID, int? driverID)
+        {
+            string query = @"
+                SELECT 
+                    t.StartTime AS Date,
+                    u.FirstName || ' ' || u.LastName AS Driver,
+                    d.BodyNumber AS [Body No],
+                    r.RouteName AS Route,
+                    CASE t.StatusID 
+                        WHEN 1 THEN 'Waiting'
+                        WHEN 2 THEN 'On Trip'
+                        WHEN 3 THEN 'Completed'
+                    END AS Status,
+                    '₱ ' || t.ActualEarnings AS Earnings,
+                    CASE 
+                        WHEN t.EndTime IS NOT NULL 
+                        THEN ROUND((julianday(t.EndTime) - julianday(t.StartTime)) * 1440, 0) || ' min'
+                        ELSE '-'
+                    END AS Duration
+                FROM Trip t
+                JOIN Driver d ON t.DriverID = d.DriverID
+                JOIN User u ON d.UserID = u.UserID
+                JOIN Route r ON t.RouteID = r.RouteID
+                WHERE 1=1
+                AND (@from IS NULL OR DATE(t.StartTime) >= @from)
+                AND (@to IS NULL OR DATE(t.StartTime) <= @to)
+                AND (@routeID IS NULL OR t.RouteID = @routeID)
+                AND (@driverID IS NULL OR t.DriverID = @driverID)
+                ORDER BY t.StartTime DESC";
+
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
+            using var cmd = new SqliteCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@from", from == null ? DBNull.Value : from.Value.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@to", to == null ? DBNull.Value : to.Value.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@routeID", routeID == null ? DBNull.Value : routeID);
+            cmd.Parameters.AddWithValue("@driverID", driverID == null ? DBNull.Value : driverID);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            return dt;
+        }
+
+        // panels in generating reports
+        public (int totalTrips, double totalEarnings, string mostActive, string leastActive, double fastest, double slowest)
+            GetReportStats(DateTime? from, DateTime? to, int? routeID, int? driverID)
+        {
+            string fromStr = from == null ? null : from.Value.ToString("yyyy-MM-dd");
+            string toStr = to == null ? null : to.Value.ToString("yyyy-MM-dd");
+
+            // total trips and earnings
+            string statsQuery = @"
+                SELECT COUNT(*), IFNULL(SUM(ActualEarnings), 0)
+                FROM Trip t
+                WHERE 1=1
+                AND (@from IS NULL OR DATE(t.StartTime) >= @from)
+                AND (@to IS NULL OR DATE(t.StartTime) <= @to)
+                AND (@routeID IS NULL OR t.RouteID = @routeID)
+                AND (@driverID IS NULL OR t.DriverID = @driverID)";
+
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
+
+            using var statsCmd = new SqliteCommand(statsQuery, conn);
+            statsCmd.Parameters.AddWithValue("@from", fromStr ?? (object)DBNull.Value);
+            statsCmd.Parameters.AddWithValue("@to", toStr ?? (object)DBNull.Value);
+            statsCmd.Parameters.AddWithValue("@routeID", routeID ?? (object)DBNull.Value);
+            statsCmd.Parameters.AddWithValue("@driverID", driverID ?? (object)DBNull.Value);
+
+            int totalTrips = 0;
+            double totalEarnings = 0;
+
+            using (var r = statsCmd.ExecuteReader())
+            {
+                if (r.Read())
+                {
+                    totalTrips = Convert.ToInt32(r[0]);
+                    totalEarnings = Convert.ToDouble(r[1]);
+                }
+            }
+
+            // most and least active driver
+            string activeQuery = @"
+                SELECT u.FirstName || ' ' || u.LastName, COUNT(*) as TripCount
+                FROM Trip t
+                JOIN Driver d ON t.DriverID = d.DriverID
+                JOIN User u ON d.UserID = u.UserID
+                WHERE 1=1
+                AND (@from IS NULL OR DATE(t.StartTime) >= @from)
+                AND (@to IS NULL OR DATE(t.StartTime) <= @to)
+                AND (@routeID IS NULL OR t.RouteID = @routeID)
+                AND (@driverID IS NULL OR t.DriverID = @driverID)
+                GROUP BY t.DriverID
+                ORDER BY TripCount {0}
+                LIMIT 1";
+
+            string mostActive = "-";
+            string leastActive = "-";
+
+            using (var mostCmd = new SqliteCommand(string.Format(activeQuery, "DESC"), conn))
+            {
+                mostCmd.Parameters.AddWithValue("@from", fromStr ?? (object)DBNull.Value);
+                mostCmd.Parameters.AddWithValue("@to", toStr ?? (object)DBNull.Value);
+                mostCmd.Parameters.AddWithValue("@routeID", routeID ?? (object)DBNull.Value);
+                mostCmd.Parameters.AddWithValue("@driverID", driverID ?? (object)DBNull.Value);
+                using var r = mostCmd.ExecuteReader();
+                if (r.Read()) mostActive = r[0].ToString();
+            }
+
+            using (var leastCmd = new SqliteCommand(string.Format(activeQuery, "ASC"), conn))
+            {
+                leastCmd.Parameters.AddWithValue("@from", fromStr ?? (object)DBNull.Value);
+                leastCmd.Parameters.AddWithValue("@to", toStr ?? (object)DBNull.Value);
+                leastCmd.Parameters.AddWithValue("@routeID", routeID ?? (object)DBNull.Value);
+                leastCmd.Parameters.AddWithValue("@driverID", driverID ?? (object)DBNull.Value);
+                using var r = leastCmd.ExecuteReader();
+                if (r.Read()) leastActive = r[0].ToString();
+            }
+
+            // fastest and slowest
+            string speedQuery = @"
+                SELECT 
+                    MIN((julianday(EndTime)-julianday(StartTime))*1440),
+                    MAX((julianday(EndTime)-julianday(StartTime))*1440)
+                FROM Trip t
+                WHERE EndTime IS NOT NULL
+                AND (@from IS NULL OR DATE(t.StartTime) >= @from)
+                AND (@to IS NULL OR DATE(t.StartTime) <= @to)
+                AND (@routeID IS NULL OR t.RouteID = @routeID)
+                AND (@driverID IS NULL OR t.DriverID = @driverID)";
+
+            double fastest = 0;
+            double slowest = 0;
+
+            using (var speedCmd = new SqliteCommand(speedQuery, conn))
+            {
+                speedCmd.Parameters.AddWithValue("@from", fromStr ?? (object)DBNull.Value);
+                speedCmd.Parameters.AddWithValue("@to", toStr ?? (object)DBNull.Value);
+                speedCmd.Parameters.AddWithValue("@routeID", routeID ?? (object)DBNull.Value);
+                speedCmd.Parameters.AddWithValue("@driverID", driverID ?? (object)DBNull.Value);
+                using var r = speedCmd.ExecuteReader();
+                if (r.Read())
+                {
+                    fastest = r.IsDBNull(0) ? 0 : Convert.ToDouble(r[0]);
+                    slowest = r.IsDBNull(1) ? 0 : Convert.ToDouble(r[1]);
+                }
+            }
+
+            return (totalTrips, totalEarnings, mostActive, leastActive, fastest, slowest);
+        }
     }
 }

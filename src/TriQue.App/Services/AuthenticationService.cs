@@ -80,5 +80,11 @@ namespace TriQue.Services
             var remaining = (lockoutUntil.Value - DateTime.Now).TotalSeconds;
             return remaining > 0 ? (int)remaining : 0;
         }
+
+        public void Logout(int userID)
+        {
+            _repo.InsertLogoutLog(userID); 
+            _currentUser = null;
+        }
     }
 }

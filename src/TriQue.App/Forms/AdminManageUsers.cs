@@ -13,7 +13,7 @@ namespace Trique.Forms
         {
             InitializeComponent();
             _userID = userID;
-            SetupGrid();   
+            SetupGrid();
             LoadUsers();
         }
 
@@ -32,8 +32,8 @@ namespace Trique.Forms
             {
                 Name = "FullName",
                 HeaderText = "Name",
-                Width = 200,
-                MinimumWidth = 200,
+                Width = 180,
+                MinimumWidth = 180,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.None
             });
 
@@ -41,8 +41,8 @@ namespace Trique.Forms
             {
                 Name = "PhoneNumber",
                 HeaderText = "Phone #",
-                Width = 140,
-                MinimumWidth = 140,
+                Width = 160,
+                MinimumWidth = 160,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.None
             });
 
@@ -50,8 +50,8 @@ namespace Trique.Forms
             {
                 Name = "RoleName",
                 HeaderText = "Role",
-                Width = 100,
-                MinimumWidth = 100,
+                Width = 120,
+                MinimumWidth = 120,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.None
             });
 
@@ -60,9 +60,9 @@ namespace Trique.Forms
             {
                 Name = "AssignedRoute",
                 HeaderText = "Assigned Route",
-                Width = 220,
-                MinimumWidth = 220,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill  
+                Width = 200,
+                MinimumWidth = 200,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
 
             UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
@@ -74,7 +74,7 @@ namespace Trique.Forms
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.None
             });
 
-            
+
             var editCol = new DataGridViewButtonColumn
             {
                 Name = "EditCol",
@@ -133,20 +133,21 @@ namespace Trique.Forms
                 var row = UserListDataGrid.Rows[rowIndex];
 
                 var statusCell = row.Cells["Status"];
-                statusCell.Style.ForeColor = Color.White;
                 statusCell.Style.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
-                statusCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                statusCell.Style.BackColor = u.Status switch
+                statusCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                statusCell.Style.BackColor = Color.White;
+                statusCell.Style.SelectionBackColor = Color.White;
+
+                statusCell.Style.ForeColor = u.Status switch
                 {
-                    "Active" => Color.FromArgb(0, 200, 83),
-                    "OnTrip" => Color.FromArgb(0, 200, 83),
-                    "Waiting" => Color.FromArgb(255, 183, 0),
-                    "Finished" => Color.FromArgb(108, 117, 125),
-                    _ => Color.FromArgb(0, 200, 83)
+                    "Waiting" => Color.FromArgb(255, 193, 7),   // yellow
+                    "OnTrip" => Color.FromArgb(40, 167, 69),   // green
+                    "Finished" => Color.FromArgb(0, 123, 255),   // blue
+                    "Active" => Color.FromArgb(40, 167, 69),   // green
+                    _ => Color.Gray
                 };
 
-                statusCell.Style.SelectionBackColor = statusCell.Style.BackColor;
-                statusCell.Style.SelectionForeColor = Color.White;
+                statusCell.Style.SelectionForeColor = statusCell.Style.ForeColor;
 
                 var editCell = row.Cells["EditCol"];
                 editCell.Style.BackColor = Color.FromArgb(220, 53, 69);
@@ -165,6 +166,7 @@ namespace Trique.Forms
                 viewCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
         }
+        
 
         private void SearchBar_TextChanged(object sender, EventArgs e)
         {

@@ -58,7 +58,7 @@
             // 
             // txtNewPassword
             // 
-            txtNewPassword.BorderColor = Color.FromArgb(217, 221, 226);
+            txtNewPassword.BorderColor = Color.DarkGray;
             txtNewPassword.BorderRadius = 5;
             txtNewPassword.CustomizableEdges = customizableEdges1;
             txtNewPassword.DefaultText = "";
@@ -67,16 +67,16 @@
             txtNewPassword.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtNewPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtNewPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNewPassword.Font = new Font("Segoe UI", 9F);
+            txtNewPassword.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             txtNewPassword.ForeColor = Color.FromArgb(91, 91, 91);
             txtNewPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNewPassword.Location = new Point(29, 78);
-            txtNewPassword.Margin = new Padding(3, 4, 3, 4);
+            txtNewPassword.Location = new Point(36, 70);
+            txtNewPassword.Margin = new Padding(4, 4, 4, 4);
             txtNewPassword.Name = "txtNewPassword";
             txtNewPassword.PlaceholderText = "Enter new password";
             txtNewPassword.SelectedText = "";
             txtNewPassword.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtNewPassword.Size = new Size(435, 39);
+            txtNewPassword.Size = new Size(411, 35);
             txtNewPassword.TabIndex = 6;
             // 
             // label1
@@ -95,7 +95,7 @@
             chkShowNew.AutoSize = true;
             chkShowNew.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             chkShowNew.ForeColor = Color.FromArgb(91, 91, 91);
-            chkShowNew.Location = new Point(29, 124);
+            chkShowNew.Location = new Point(36, 112);
             chkShowNew.Name = "chkShowNew";
             chkShowNew.Size = new Size(138, 20);
             chkShowNew.TabIndex = 8;
@@ -105,7 +105,7 @@
             // 
             // txtConfirmPassword
             // 
-            txtConfirmPassword.BorderColor = Color.FromArgb(217, 221, 226);
+            txtConfirmPassword.BorderColor = Color.DarkGray;
             txtConfirmPassword.BorderRadius = 5;
             txtConfirmPassword.CustomizableEdges = customizableEdges3;
             txtConfirmPassword.DefaultText = "";
@@ -114,16 +114,16 @@
             txtConfirmPassword.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtConfirmPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtConfirmPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtConfirmPassword.Font = new Font("Segoe UI", 9F);
+            txtConfirmPassword.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             txtConfirmPassword.ForeColor = Color.FromArgb(91, 91, 91);
             txtConfirmPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtConfirmPassword.Location = new Point(29, 202);
-            txtConfirmPassword.Margin = new Padding(3, 4, 3, 4);
+            txtConfirmPassword.Location = new Point(29, 191);
+            txtConfirmPassword.Margin = new Padding(4, 4, 4, 4);
             txtConfirmPassword.Name = "txtConfirmPassword";
             txtConfirmPassword.PlaceholderText = "Re-enter new password";
             txtConfirmPassword.SelectedText = "";
             txtConfirmPassword.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtConfirmPassword.Size = new Size(435, 39);
+            txtConfirmPassword.Size = new Size(411, 35);
             txtConfirmPassword.TabIndex = 9;
             // 
             // chkShowConfirm
@@ -131,7 +131,7 @@
             chkShowConfirm.AutoSize = true;
             chkShowConfirm.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             chkShowConfirm.ForeColor = Color.FromArgb(91, 91, 91);
-            chkShowConfirm.Location = new Point(29, 248);
+            chkShowConfirm.Location = new Point(36, 233);
             chkShowConfirm.Name = "chkShowConfirm";
             chkShowConfirm.Size = new Size(138, 20);
             chkShowConfirm.TabIndex = 10;
@@ -167,17 +167,21 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(29, 292);
+            label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            label2.ForeColor = Color.FromArgb(220, 53, 69);
+            label2.Location = new Point(29, 291);
             label2.Name = "label2";
-            label2.Size = new Size(0, 20);
+            label2.Size = new Size(0, 18);
             label2.TabIndex = 12;
             // 
             // lblError
             // 
             lblError.AutoSize = true;
-            lblError.Location = new Point(29, 292);
+            lblError.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            lblError.ForeColor = Color.FromArgb(220, 53, 69);
+            lblError.Location = new Point(29, 291);
             lblError.Name = "lblError";
-            lblError.Size = new Size(0, 20);
+            lblError.Size = new Size(0, 18);
             lblError.TabIndex = 13;
             // 
             // SetPasswordModal

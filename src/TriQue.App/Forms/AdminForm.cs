@@ -24,7 +24,6 @@ namespace Trique.Forms
         {
 
             InitializeComponent();
-
             _userID = userID;
 
             SetupRefreshTimer();
@@ -44,7 +43,6 @@ namespace Trique.Forms
             LoadPieChart();
             LoadBarChart();
         }
-
 
         private async Task LoadTrafficData()
         {
@@ -157,8 +155,10 @@ namespace Trique.Forms
         }
 
         // navbar
-        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        private void LogoutBtn_Click(object sender, EventArgs e) 
         {
+            var authService = new AuthenticationService();
+            authService.Logout(_userID);
             new LoginForm().Show();
             this.Hide();
         }
@@ -189,7 +189,7 @@ namespace Trique.Forms
             var repo = new UserRepository();
             int level = repo.GetAdminLevel(_userID);
 
-            // 1 = SuperAdmin only
+            // SuperAdmin only
             if (level != 1)
             {
                 MessageBox.Show(
@@ -205,5 +205,25 @@ namespace Trique.Forms
             this.Hide();
         }
 
+        private void GenerateReportBtn_Click(object sender, EventArgs e)
+        {
+            var repo = new UserRepository();
+            int level = repo.GetAdminLevel(_userID);
+
+            // SuperAdmin and Toda Officeronly
+            if (level != 1 && level != 2)
+            {
+                MessageBox.Show(
+                    "Access denied. Only SuperAdmins and Toda Officers can manage users.",
+                    "Access Denied",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            AdminGenerateReport reportForm = new AdminGenerateReport(_userID);
+            reportForm.Show();
+            this.Hide();
+        }
     }
 }

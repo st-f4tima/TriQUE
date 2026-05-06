@@ -44,9 +44,8 @@ namespace Trique.Forms
 
         private void SetupGrid()
         {
-            DriverListDataGrid.AutoGenerateColumns = false;
+            DriverListDataGrid.AutoGenerateColumns = false; 
             DriverListDataGrid.AllowUserToAddRows = false;
-            DriverListDataGrid.ReadOnly = false;
 
             var chk = new DataGridViewCheckBoxColumn
             {
@@ -103,7 +102,38 @@ namespace Trique.Forms
             colAction.Items.AddRange("Waiting", "OnTrip", "Finished");
 
             DriverListDataGrid.Columns.AddRange(chk, colRank, colBody, colName, colStatus, colAction);
-            DriverListDataGrid.CellFormatting += DgvQueue_CellFormatting;
+        }
+
+        private void DgvQueue_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var colName = DriverListDataGrid.Columns[e.ColumnIndex].Name;
+
+            // hide ranking for Finished drivers
+            if (colName == "colRanking")
+            {
+                var row = DriverListDataGrid.Rows[e.RowIndex];
+                var status = row.Cells["colStatus"].Value?.ToString();
+                if (status == "Finished")
+                    e.Value = "-";
+                return;
+            }
+
+            if (colName != "colStatus") return;
+
+            e.CellStyle.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
+            var value = e.Value?.ToString();
+
+            Color statusColor = value switch
+            {
+                "Waiting" => Color.Orange,
+                "OnTrip" => Color.FromArgb(0, 150, 0),
+                "Finished" => Color.FromArgb(0, 86, 179),
+                _ => Color.FromArgb(91, 91, 91)
+            };
+
+            e.CellStyle.ForeColor = statusColor;
+            e.CellStyle.SelectionForeColor = statusColor;
+            e.CellStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
         }
 
         private void LoadQueue()
@@ -152,34 +182,6 @@ namespace Trique.Forms
                     ? rows.CopyToDataTable()
                     : _fullTable.Clone();
             };
-        }
-
-        private void DgvQueue_CellFormatting(object sender,
-            DataGridViewCellFormattingEventArgs e)
-        {
-            if (DriverListDataGrid.Columns[e.ColumnIndex].Name != "colStatus") return;
-
-            e.CellStyle.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
-            var value = e.Value?.ToString();
-
-            switch (value)
-            {
-                case "Waiting":
-                    e.CellStyle.ForeColor = Color.Orange;
-                    break;
-
-                case "OnTrip":
-                    e.CellStyle.ForeColor = Color.FromArgb(0, 150, 0);
-                    break;
-
-                case "Finished":
-                    e.CellStyle.ForeColor = Color.FromArgb(0, 86, 179);
-                    break;
-
-                default:
-                    e.CellStyle.ForeColor = Color.Black;
-                    break;
-            }
         }
 
         private void UpdateStatusBtn_Click_1(object sender, EventArgs e)

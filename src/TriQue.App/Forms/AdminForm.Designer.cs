@@ -80,7 +80,7 @@
             Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
             Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
             NavbarPanel = new Panel();
-            ManageUsersBtn = new Guna.UI2.WinForms.Guna2ImageButton();
+            ManageUserBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             LogoutBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             ViewQueue = new Guna.UI2.WinForms.Guna2ImageButton();
             DashboardBtn = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -114,6 +114,7 @@
             BarGraph = new Guna.Charts.WinForms.GunaChart();
             label1 = new Label();
             label2 = new Label();
+            greeting = new Label();
             NavbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             TrafficRoutePanel.SuspendLayout();
@@ -132,8 +133,8 @@
             // 
             // NavbarPanel
             // 
-            NavbarPanel.BackColor = Color.FromArgb(215, 215, 215);
-            NavbarPanel.Controls.Add(ManageUsersBtn);
+            NavbarPanel.BackColor = Color.FromArgb(224, 224, 224);
+            NavbarPanel.Controls.Add(ManageUserBtn);
             NavbarPanel.Controls.Add(LogoutBtn);
             NavbarPanel.Controls.Add(ViewQueue);
             NavbarPanel.Controls.Add(DashboardBtn);
@@ -146,21 +147,21 @@
             NavbarPanel.Size = new Size(96, 660);
             NavbarPanel.TabIndex = 0;
             // 
-            // ManageUsersBtn
+            // ManageUserBtn
             // 
-            ManageUsersBtn.CheckedState.ImageSize = new Size(64, 64);
-            ManageUsersBtn.HoverState.ImageSize = new Size(37, 37);
-            ManageUsersBtn.Image = (Image)resources.GetObject("ManageUsersBtn.Image");
-            ManageUsersBtn.ImageOffset = new Point(0, 0);
-            ManageUsersBtn.ImageRotate = 0F;
-            ManageUsersBtn.ImageSize = new Size(42, 42);
-            ManageUsersBtn.Location = new Point(7, 244);
-            ManageUsersBtn.Name = "ManageUsersBtn";
-            ManageUsersBtn.PressedState.ImageSize = new Size(34, 34);
-            ManageUsersBtn.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            ManageUsersBtn.Size = new Size(82, 82);
-            ManageUsersBtn.TabIndex = 7;
-            ManageUsersBtn.Click += ManageUsersBtn_Click;
+            ManageUserBtn.CheckedState.ImageSize = new Size(64, 64);
+            ManageUserBtn.HoverState.ImageSize = new Size(44, 44);
+            ManageUserBtn.Image = (Image)resources.GetObject("ManageUserBtn.Image");
+            ManageUserBtn.ImageOffset = new Point(0, 0);
+            ManageUserBtn.ImageRotate = 0F;
+            ManageUserBtn.ImageSize = new Size(42, 42);
+            ManageUserBtn.Location = new Point(7, 246);
+            ManageUserBtn.Name = "ManageUserBtn";
+            ManageUserBtn.PressedState.ImageSize = new Size(44, 44);
+            ManageUserBtn.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            ManageUserBtn.Size = new Size(82, 82);
+            ManageUserBtn.TabIndex = 7;
+            ManageUserBtn.Click += ManageUsersBtn_Click;
             // 
             // LogoutBtn
             // 
@@ -176,7 +177,7 @@
             LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
             LogoutBtn.Size = new Size(82, 82);
             LogoutBtn.TabIndex = 6;
-            LogoutBtn.Click += guna2ImageButton4_Click;
+            LogoutBtn.Click += LogoutBtn_Click;
             // 
             // ViewQueue
             // 
@@ -250,21 +251,22 @@
             GenerateReportBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
             GenerateReportBtn.Size = new Size(82, 82);
             GenerateReportBtn.TabIndex = 4;
+            GenerateReportBtn.Click += GenerateReportBtn_Click;
             // 
             // lblWelcomeMessage
             // 
             lblWelcomeMessage.BorderStyle = BorderStyle.None;
-            lblWelcomeMessage.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWelcomeMessage.Font = new Font("Bahnschrift", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblWelcomeMessage.ForeColor = Color.FromArgb(91, 91, 91);
-            lblWelcomeMessage.Location = new Point(133, 68);
+            lblWelcomeMessage.Location = new Point(132, 49);
             lblWelcomeMessage.Name = "lblWelcomeMessage";
-            lblWelcomeMessage.Size = new Size(339, 38);
+            lblWelcomeMessage.Size = new Size(339, 40);
             lblWelcomeMessage.TabIndex = 1;
             lblWelcomeMessage.Text = "Welcome Back, Juan!";
             // 
             // TrafficRoutePanel
             // 
-            TrafficRoutePanel.BorderColor = Color.FromArgb(84, 84, 84);
+            TrafficRoutePanel.BorderColor = Color.DarkGray;
             TrafficRoutePanel.BorderRadius = 15;
             TrafficRoutePanel.BorderThickness = 1;
             TrafficRoutePanel.Controls.Add(TrafficProneRouteValue);
@@ -282,12 +284,12 @@
             // 
             TrafficProneRouteValue.AutoSize = true;
             TrafficProneRouteValue.ForeColor = Color.FromArgb(84, 84, 84);
-            TrafficProneRouteValue.Location = new Point(21, 68);
+            TrafficProneRouteValue.Location = new Point(13, 70);
             TrafficProneRouteValue.Name = "TrafficProneRouteValue";
             TrafficProneRouteValue.Size = new Size(90, 20);
             TrafficProneRouteValue.TabIndex = 2;
             TrafficProneRouteValue.Text = "Loading...";
-            TrafficProneRouteValue.TextAlign = ContentAlignment.MiddleCenter;
+            TrafficProneRouteValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTrafficProneRoute
             // 
@@ -313,7 +315,7 @@
             // 
             // CongestionDurationPanel
             // 
-            CongestionDurationPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            CongestionDurationPanel.BorderColor = Color.DarkGray;
             CongestionDurationPanel.BorderRadius = 15;
             CongestionDurationPanel.BorderThickness = 1;
             CongestionDurationPanel.Controls.Add(PeakCongestionDurationValue);
@@ -336,7 +338,7 @@
             PeakCongestionDurationValue.Size = new Size(90, 20);
             PeakCongestionDurationValue.TabIndex = 10;
             PeakCongestionDurationValue.Text = "Loading...";
-            PeakCongestionDurationValue.TextAlign = ContentAlignment.MiddleCenter;
+            PeakCongestionDurationValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblPeakCongestionDuration
             // 
@@ -362,7 +364,7 @@
             // 
             // TotalTripsTodayPanel
             // 
-            TotalTripsTodayPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            TotalTripsTodayPanel.BorderColor = Color.DarkGray;
             TotalTripsTodayPanel.BorderRadius = 15;
             TotalTripsTodayPanel.BorderThickness = 1;
             TotalTripsTodayPanel.Controls.Add(TotalTripsValue);
@@ -380,18 +382,18 @@
             // 
             TotalTripsValue.AutoSize = true;
             TotalTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
-            TotalTripsValue.Location = new Point(18, 68);
+            TotalTripsValue.Location = new Point(11, 68);
             TotalTripsValue.Name = "TotalTripsValue";
             TotalTripsValue.Size = new Size(149, 20);
             TotalTripsValue.TabIndex = 10;
             TotalTripsValue.Text = "BSU - Alangilan ";
-            TotalTripsValue.TextAlign = ContentAlignment.MiddleCenter;
+            TotalTripsValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTotalTripsToday
             // 
             lblTotalTripsToday.AutoSize = true;
             lblTotalTripsToday.ForeColor = Color.FromArgb(55, 91, 231);
-            lblTotalTripsToday.Location = new Point(16, 109);
+            lblTotalTripsToday.Location = new Point(11, 109);
             lblTotalTripsToday.Name = "lblTotalTripsToday";
             lblTotalTripsToday.Size = new Size(156, 20);
             lblTotalTripsToday.TabIndex = 3;
@@ -411,7 +413,7 @@
             // 
             // HighestTripsPanel
             // 
-            HighestTripsPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            HighestTripsPanel.BorderColor = Color.DarkGray;
             HighestTripsPanel.BorderRadius = 15;
             HighestTripsPanel.BorderThickness = 1;
             HighestTripsPanel.Controls.Add(HighestTripsValue);
@@ -429,18 +431,18 @@
             // 
             HighestTripsValue.AutoSize = true;
             HighestTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
-            HighestTripsValue.Location = new Point(23, 67);
+            HighestTripsValue.Location = new Point(13, 68);
             HighestTripsValue.Name = "HighestTripsValue";
             HighestTripsValue.Size = new Size(149, 20);
             HighestTripsValue.TabIndex = 4;
             HighestTripsValue.Text = "BSU - Alangilan ";
-            HighestTripsValue.TextAlign = ContentAlignment.MiddleCenter;
+            HighestTripsValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblHighestTrips
             // 
             lblHighestTrips.AutoSize = true;
             lblHighestTrips.ForeColor = Color.FromArgb(55, 91, 231);
-            lblHighestTrips.Location = new Point(32, 108);
+            lblHighestTrips.Location = new Point(13, 108);
             lblHighestTrips.Name = "lblHighestTrips";
             lblHighestTrips.Size = new Size(123, 20);
             lblHighestTrips.TabIndex = 3;
@@ -460,7 +462,7 @@
             // 
             // LowestTripsPanel
             // 
-            LowestTripsPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            LowestTripsPanel.BorderColor = Color.DarkGray;
             LowestTripsPanel.BorderRadius = 15;
             LowestTripsPanel.BorderThickness = 1;
             LowestTripsPanel.Controls.Add(LowestTripsValue);
@@ -477,20 +479,20 @@
             // LowestTripsValue
             // 
             LowestTripsValue.AutoSize = true;
-            LowestTripsValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LowestTripsValue.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
             LowestTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
-            LowestTripsValue.Location = new Point(61, 57);
+            LowestTripsValue.Location = new Point(12, 67);
             LowestTripsValue.Name = "LowestTripsValue";
-            LowestTripsValue.Size = new Size(65, 32);
+            LowestTripsValue.Size = new Size(160, 20);
             LowestTripsValue.TabIndex = 12;
-            LowestTripsValue.Text = "178";
-            LowestTripsValue.TextAlign = ContentAlignment.MiddleCenter;
+            LowestTripsValue.Text = "SM Batangas City";
+            LowestTripsValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblLowestTrips
             // 
             lblLowestTrips.AutoSize = true;
             lblLowestTrips.ForeColor = Color.FromArgb(55, 91, 231);
-            lblLowestTrips.Location = new Point(34, 108);
+            lblLowestTrips.Location = new Point(12, 108);
             lblLowestTrips.Name = "lblLowestTrips";
             lblLowestTrips.Size = new Size(118, 20);
             lblLowestTrips.TabIndex = 11;
@@ -510,7 +512,7 @@
             // 
             // PieChartPanel
             // 
-            PieChartPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            PieChartPanel.BorderColor = Color.DarkGray;
             PieChartPanel.BorderRadius = 15;
             PieChartPanel.BorderThickness = 1;
             PieChartPanel.Controls.Add(PieChart);
@@ -527,7 +529,7 @@
             PieChart.Legend.LabelFont = chartFont1;
             PieChart.Location = new Point(11, 11);
             PieChart.Name = "PieChart";
-            PieChart.Size = new Size(410, 238);
+            PieChart.Size = new Size(410, 229);
             PieChart.TabIndex = 8;
             chartFont2.FontName = "Arial";
             chartFont2.Size = 12;
@@ -557,7 +559,7 @@
             // 
             // BarGraphPanel
             // 
-            BarGraphPanel.BorderColor = Color.FromArgb(84, 84, 84);
+            BarGraphPanel.BorderColor = Color.DarkGray;
             BarGraphPanel.BorderRadius = 15;
             BarGraphPanel.BorderThickness = 1;
             BarGraphPanel.Controls.Add(BarGraph);
@@ -574,7 +576,7 @@
             BarGraph.Legend.LabelFont = chartFont9;
             BarGraph.Location = new Point(12, 8);
             BarGraph.Name = "BarGraph";
-            BarGraph.Size = new Size(509, 241);
+            BarGraph.Size = new Size(509, 232);
             BarGraph.TabIndex = 7;
             chartFont10.FontName = "Arial";
             chartFont10.Size = 12;
@@ -617,12 +619,23 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.FromArgb(91, 91, 91);
-            label2.Location = new Point(608, 324);
+            label2.Location = new Point(599, 324);
             label2.Name = "label2";
             label2.Size = new Size(215, 20);
             label2.TabIndex = 10;
             label2.Text = " Total Drivers Per Route";
             label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // greeting
+            // 
+            greeting.AutoSize = true;
+            greeting.Font = new Font("Arial Rounded MT Bold", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            greeting.ForeColor = Color.FromArgb(55, 91, 231);
+            greeting.Location = new Point(132, 104);
+            greeting.Name = "greeting";
+            greeting.Size = new Size(185, 20);
+            greeting.TabIndex = 19;
+            greeting.Text = "Ready to get started?";
             // 
             // AdminForm
             // 
@@ -630,6 +643,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
+            Controls.Add(greeting);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(BarGraphPanel);
@@ -699,7 +713,6 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private Guna.Charts.WinForms.GunaChart PieChart;
-        private Guna.UI2.WinForms.Guna2ImageButton ManageUsersBtn;
         private Label lblTrafficProneRoute;
         private Label lblPeakCongestionDuration;
         private Label lblTotalTripsToday;
@@ -712,5 +725,7 @@
         private Label LowestTripsValue;
         private Label label1;
         private Label label2;
+        private Guna.UI2.WinForms.Guna2ImageButton ManageUserBtn;
+        private Label greeting;
     }
 }

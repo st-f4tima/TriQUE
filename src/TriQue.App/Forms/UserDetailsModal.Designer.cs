@@ -65,7 +65,8 @@
             // 
             // UserInformationPanel
             // 
-            UserInformationPanel.BorderColor = Color.FromArgb(91, 91, 91);
+            UserInformationPanel.BorderColor = Color.DarkGray;
+            UserInformationPanel.BorderRadius = 15;
             UserInformationPanel.BorderThickness = 1;
             UserInformationPanel.Controls.Add(lblPhoneValue);
             UserInformationPanel.Controls.Add(lblBodyValue);
@@ -84,10 +85,10 @@
             UserInformationPanel.Controls.Add(lblPhoneNumber);
             UserInformationPanel.CustomizableEdges = customizableEdges3;
             UserInformationPanel.ForeColor = Color.FromArgb(91, 91, 91);
-            UserInformationPanel.Location = new Point(40, 126);
+            UserInformationPanel.Location = new Point(24, 126);
             UserInformationPanel.Name = "UserInformationPanel";
             UserInformationPanel.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            UserInformationPanel.Size = new Size(585, 270);
+            UserInformationPanel.Size = new Size(547, 270);
             UserInformationPanel.TabIndex = 0;
             // 
             // lblPhoneValue
@@ -267,9 +268,9 @@
             // UserIcon
             // 
             UserIcon.Image = (Image)resources.GetObject("UserIcon.Image");
-            UserIcon.Location = new Point(40, 30);
+            UserIcon.Location = new Point(24, 30);
             UserIcon.Name = "UserIcon";
-            UserIcon.Size = new Size(100, 90);
+            UserIcon.Size = new Size(100, 75);
             UserIcon.SizeMode = PictureBoxSizeMode.Zoom;
             UserIcon.TabIndex = 1;
             UserIcon.TabStop = false;
@@ -300,7 +301,8 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(663, 420);
+            BackColor = Color.White;
+            ClientSize = new Size(600, 420);
             Controls.Add(lblFullName);
             Controls.Add(lblUserRole);
             Controls.Add(UserIcon);
