@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
+using TriQue.DTOs;
 using TriQue.Enums;
 using TriQue.Helpers;
 using TriQue.Models;
@@ -133,6 +134,30 @@ namespace TriQue.Data.Repositories
                 GroupName = reader["GroupName"].ToString(),
                 GroupRotationDay = (RotationDay)Convert.ToInt32(reader["RotationDay"])
             };
+        }
+
+        public List<DriverDto> GetAllDrivers()
+        {
+            var drivers = new List<DriverDto>();
+
+            string query = @"
+                SELECT d.DriverID, u.FirstName || ' ' || u.LastName AS FullName
+                FROM Driver d
+                JOIN User u ON d.UserID = u.UserID
+                ORDER BY FullName";
+
+            using var reader = _dbHelper.ExecuteReader(query);
+
+            while (reader.Read())
+            {
+                drivers.Add(new DriverDto
+                {
+                    DriverID = Convert.ToInt32(reader["DriverID"]),
+                    FullName = reader["FullName"].ToString()
+                });
+            }
+
+            return drivers;
         }
     }
 }

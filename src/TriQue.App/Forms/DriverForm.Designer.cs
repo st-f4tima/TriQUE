@@ -640,9 +640,9 @@ namespace TriQue.Forms
             lblLowestTripLabel.ForeColor = Color.FromArgb(55, 91, 231);
             lblLowestTripLabel.Location = new Point(14, 83);
             lblLowestTripLabel.Name = "lblLowestTripLabel";
-            lblLowestTripLabel.Size = new Size(96, 18);
+            lblLowestTripLabel.Size = new Size(102, 18);
             lblLowestTripLabel.TabIndex = 8;
-            lblLowestTripLabel.Text = "Lowest Trip";
+            lblLowestTripLabel.Text = "Slowest Trip";
             lblLowestTripLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox6

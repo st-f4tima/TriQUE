@@ -684,7 +684,7 @@
   <data name="UserIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAA2KSURBVHhe7V0L
+        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAA2KSURBVHhe7V0L
         jF1FGW7rWwQjKvhARTG+0KpZ9szZLWhRQUGFqFnZO3NuJWgwEpVgSDRq4qrxVapABBWiRNTUWqLgI6ZQ
         rDzKy6KmtTW0FSjudv65XbqU1qIie6/55xy2u/+Z7d7HOXf+c+/5ki/d9Jw7881/z52ZM/PP/y9a1HNo
         LB6UtVcFyrwvVOZTgYRvCwXXBRHcEir4m1CghYIpoeBfQkEjIf6N/6fxHntvBGvxs7aMCN6LZWLZtLYS
@@ -748,7 +748,7 @@
   <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAptSURBVHhe7Z1p
+        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAptSURBVHhe7Z1p
         jBxHFcd3A+EK930jblASE7Lerh47JkYQwBAOJVni6epdTBABEQFBSEAkJAyBCPiCEOFGXCGAgBAOAxEB
         BEEQzJdwxBAUghN2t17N2g5GiQnGx6D/TG9YXtfsTs90z3TVvp/0l7Vyd3W9V9XHvHpVNTEhCIIgCIIg
         CIIQHKrZelTUbDXipPXCKKGZjlLzKvytmq0NG2btSfwcwVO2zizdP9a0TWn6sNL0a6XtP5Sm9lqKNd2m
@@ -799,7 +799,7 @@
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAiYSURBVHhe7Z1r
+        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAiYSURBVHhe7Z1r
         jGRFFcd31vf7gfiKiULkA6iIDlNVvbA6UaNZoolIOmzfc5tsUNdo4gNNFEPUicZXNBqMiYoaIcYQNBrU
         IAYJsIZAloBodI0BcWRnt071LKyACz4Wts3pvh3D6ZrZmem+9bhzfsn/2+7t86ipuo9Tp7ZsmTKq607S
         YD+iAK9VJf5VAx7RgP/SgPs14B5T4oLpOs3/n5A5c0XvZF3gFRrwUQ3YX4P2qtK+k19HyBBd4Dka8AFP

@@ -60,23 +60,23 @@
             DashBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             Logo = new PictureBox();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            lblUserName = new Label();
             UserIcon = new PictureBox();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            lblAdminInformationTItle = new Label();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            lblSystemAdministratorTitle = new Label();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            pictureBox4 = new PictureBox();
-            guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            pictureBox3 = new PictureBox();
-            lblSettingsTitle = new Label();
-            lblUserName = new Label();
-            lblContactNumber = new Label();
-            lblContactNumberValue = new Label();
             lblUserRole = new Label();
             lblUserRoleValue = new Label();
-            lblSystemAdministratorTitle = new Label();
-            lblAdminInformationTItle = new Label();
+            pictureBox4 = new PictureBox();
+            guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            lblContactNumberValue = new Label();
+            lblContactNumber = new Label();
+            pictureBox3 = new PictureBox();
+            lblSettingsTitle = new Label();
             NavBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             guna2Panel2.SuspendLayout();
@@ -226,6 +226,17 @@
             guna2Panel2.Size = new Size(939, 81);
             guna2Panel2.TabIndex = 5;
             // 
+            // lblUserName
+            // 
+            lblUserName.AutoSize = true;
+            lblUserName.Font = new Font("Microsoft Sans Serif", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUserName.ForeColor = Color.FromArgb(91, 91, 91);
+            lblUserName.Location = new Point(123, 20);
+            lblUserName.Name = "lblUserName";
+            lblUserName.Size = new Size(290, 42);
+            lblUserName.TabIndex = 1;
+            lblUserName.Text = "Juan Dela Cruz";
+            // 
             // UserIcon
             // 
             UserIcon.Image = (Image)resources.GetObject("UserIcon.Image");
@@ -250,9 +261,22 @@
             guna2Panel3.Size = new Size(939, 146);
             guna2Panel3.TabIndex = 6;
             // 
+            // lblAdminInformationTItle
+            // 
+            lblAdminInformationTItle.AutoSize = true;
+            lblAdminInformationTItle.BackColor = Color.Transparent;
+            lblAdminInformationTItle.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAdminInformationTItle.ForeColor = Color.FromArgb(91, 91, 91);
+            lblAdminInformationTItle.Location = new Point(13, 8);
+            lblAdminInformationTItle.Name = "lblAdminInformationTItle";
+            lblAdminInformationTItle.Size = new Size(170, 22);
+            lblAdminInformationTItle.TabIndex = 2;
+            lblAdminInformationTItle.Text = "Admin Information";
+            // 
             // guna2Panel4
             // 
             guna2Panel4.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel4.BorderRadius = 15;
             guna2Panel4.BorderThickness = 1;
             guna2Panel4.Controls.Add(lblSystemAdministratorTitle);
             guna2Panel4.Controls.Add(guna2Panel5);
@@ -261,18 +285,31 @@
             guna2Panel4.Location = new Point(131, 361);
             guna2Panel4.Name = "guna2Panel4";
             guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2Panel4.Size = new Size(939, 234);
+            guna2Panel4.Size = new Size(939, 260);
             guna2Panel4.TabIndex = 7;
+            // 
+            // lblSystemAdministratorTitle
+            // 
+            lblSystemAdministratorTitle.AutoSize = true;
+            lblSystemAdministratorTitle.BackColor = Color.Transparent;
+            lblSystemAdministratorTitle.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSystemAdministratorTitle.ForeColor = Color.FromArgb(91, 91, 91);
+            lblSystemAdministratorTitle.Location = new Point(13, 8);
+            lblSystemAdministratorTitle.Name = "lblSystemAdministratorTitle";
+            lblSystemAdministratorTitle.Size = new Size(209, 22);
+            lblSystemAdministratorTitle.TabIndex = 11;
+            lblSystemAdministratorTitle.Text = "System Administrators";
             // 
             // guna2Panel5
             // 
             guna2Panel5.BorderColor = Color.FromArgb(84, 84, 84);
+            guna2Panel5.BorderRadius = 15;
             guna2Panel5.BorderThickness = 1;
             guna2Panel5.CustomizableEdges = customizableEdges13;
             guna2Panel5.Location = new Point(0, 36);
             guna2Panel5.Name = "guna2Panel5";
             guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2Panel5.Size = new Size(939, 198);
+            guna2Panel5.Size = new Size(939, 224);
             guna2Panel5.TabIndex = 0;
             // 
             // guna2Panel6
@@ -285,10 +322,10 @@
             guna2Panel6.Controls.Add(guna2Panel7);
             guna2Panel6.CustomizableEdges = customizableEdges21;
             guna2Panel6.FillColor = Color.White;
-            guna2Panel6.Location = new Point(131, 235);
+            guna2Panel6.Location = new Point(131, 225);
             guna2Panel6.Name = "guna2Panel6";
             guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            guna2Panel6.Size = new Size(939, 103);
+            guna2Panel6.Size = new Size(939, 113);
             guna2Panel6.TabIndex = 7;
             // 
             // guna2Panel8
@@ -307,6 +344,28 @@
             guna2Panel8.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2Panel8.Size = new Size(412, 74);
             guna2Panel8.TabIndex = 9;
+            // 
+            // lblUserRole
+            // 
+            lblUserRole.AutoSize = true;
+            lblUserRole.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUserRole.ForeColor = Color.FromArgb(91, 91, 91);
+            lblUserRole.Location = new Point(42, 11);
+            lblUserRole.Name = "lblUserRole";
+            lblUserRole.Size = new Size(180, 16);
+            lblUserRole.TabIndex = 10;
+            lblUserRole.Text = "AUTHORIZATION LEVEL";
+            // 
+            // lblUserRoleValue
+            // 
+            lblUserRoleValue.AutoSize = true;
+            lblUserRoleValue.Font = new Font("Microsoft Sans Serif", 13.2000008F, FontStyle.Bold);
+            lblUserRoleValue.ForeColor = Color.FromArgb(91, 91, 91);
+            lblUserRoleValue.Location = new Point(42, 33);
+            lblUserRoleValue.Name = "lblUserRoleValue";
+            lblUserRoleValue.Size = new Size(188, 29);
+            lblUserRoleValue.TabIndex = 11;
+            lblUserRoleValue.Text = "SUPER ADMIN";
             // 
             // pictureBox4
             // 
@@ -335,6 +394,28 @@
             guna2Panel7.Size = new Size(412, 74);
             guna2Panel7.TabIndex = 8;
             // 
+            // lblContactNumberValue
+            // 
+            lblContactNumberValue.AutoSize = true;
+            lblContactNumberValue.Font = new Font("Microsoft Sans Serif", 13.2000008F, FontStyle.Bold);
+            lblContactNumberValue.ForeColor = Color.FromArgb(91, 91, 91);
+            lblContactNumberValue.Location = new Point(42, 33);
+            lblContactNumberValue.Name = "lblContactNumberValue";
+            lblContactNumberValue.Size = new Size(167, 29);
+            lblContactNumberValue.TabIndex = 2;
+            lblContactNumberValue.Text = "09192544631";
+            // 
+            // lblContactNumber
+            // 
+            lblContactNumber.AutoSize = true;
+            lblContactNumber.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblContactNumber.ForeColor = Color.FromArgb(91, 91, 91);
+            lblContactNumber.Location = new Point(42, 10);
+            lblContactNumber.Name = "lblContactNumber";
+            lblContactNumber.Size = new Size(148, 16);
+            lblContactNumber.TabIndex = 1;
+            lblContactNumber.Text = "CONTACT NUMBER";
+            // 
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
@@ -348,90 +429,13 @@
             // lblSettingsTitle
             // 
             lblSettingsTitle.AutoSize = true;
-            lblSettingsTitle.Font = new Font("Roboto", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSettingsTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSettingsTitle.ForeColor = Color.FromArgb(55, 91, 231);
-            lblSettingsTitle.Location = new Point(131, 49);
+            lblSettingsTitle.Location = new Point(131, 38);
             lblSettingsTitle.Name = "lblSettingsTitle";
-            lblSettingsTitle.Size = new Size(106, 28);
+            lblSettingsTitle.Size = new Size(91, 25);
             lblSettingsTitle.TabIndex = 8;
             lblSettingsTitle.Text = "Settings";
-            // 
-            // lblUserName
-            // 
-            lblUserName.AutoSize = true;
-            lblUserName.Font = new Font("Roboto", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUserName.ForeColor = Color.FromArgb(91, 91, 91);
-            lblUserName.Location = new Point(114, 25);
-            lblUserName.Name = "lblUserName";
-            lblUserName.Size = new Size(279, 44);
-            lblUserName.TabIndex = 1;
-            lblUserName.Text = "Juan Dela Cruz";
-            // 
-            // lblContactNumber
-            // 
-            lblContactNumber.AutoSize = true;
-            lblContactNumber.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblContactNumber.ForeColor = Color.FromArgb(91, 91, 91);
-            lblContactNumber.Location = new Point(42, 10);
-            lblContactNumber.Name = "lblContactNumber";
-            lblContactNumber.Size = new Size(132, 15);
-            lblContactNumber.TabIndex = 1;
-            lblContactNumber.Text = "CONTACT NUMBER";
-            // 
-            // lblContactNumberValue
-            // 
-            lblContactNumberValue.AutoSize = true;
-            lblContactNumberValue.ForeColor = Color.FromArgb(91, 91, 91);
-            lblContactNumberValue.Location = new Point(42, 39);
-            lblContactNumberValue.Name = "lblContactNumberValue";
-            lblContactNumberValue.Size = new Size(130, 20);
-            lblContactNumberValue.TabIndex = 2;
-            lblContactNumberValue.Text = "09192544631";
-            // 
-            // lblUserRole
-            // 
-            lblUserRole.AutoSize = true;
-            lblUserRole.Font = new Font("Roboto", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUserRole.ForeColor = Color.FromArgb(91, 91, 91);
-            lblUserRole.Location = new Point(42, 11);
-            lblUserRole.Name = "lblUserRole";
-            lblUserRole.Size = new Size(164, 15);
-            lblUserRole.TabIndex = 10;
-            lblUserRole.Text = "AUTHORIZATION LEVEL";
-            // 
-            // lblUserRoleValue
-            // 
-            lblUserRoleValue.AutoSize = true;
-            lblUserRoleValue.ForeColor = Color.FromArgb(91, 91, 91);
-            lblUserRoleValue.Location = new Point(42, 39);
-            lblUserRoleValue.Name = "lblUserRoleValue";
-            lblUserRoleValue.Size = new Size(130, 20);
-            lblUserRoleValue.TabIndex = 11;
-            lblUserRoleValue.Text = "SUPER ADMIN";
-            // 
-            // lblSystemAdministratorTitle
-            // 
-            lblSystemAdministratorTitle.AutoSize = true;
-            lblSystemAdministratorTitle.BackColor = Color.Transparent;
-            lblSystemAdministratorTitle.Font = new Font("Roboto", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSystemAdministratorTitle.ForeColor = Color.FromArgb(91, 91, 91);
-            lblSystemAdministratorTitle.Location = new Point(13, 8);
-            lblSystemAdministratorTitle.Name = "lblSystemAdministratorTitle";
-            lblSystemAdministratorTitle.Size = new Size(214, 22);
-            lblSystemAdministratorTitle.TabIndex = 11;
-            lblSystemAdministratorTitle.Text = "System Administrators";
-            // 
-            // lblAdminInformationTItle
-            // 
-            lblAdminInformationTItle.AutoSize = true;
-            lblAdminInformationTItle.BackColor = Color.Transparent;
-            lblAdminInformationTItle.Font = new Font("Roboto", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAdminInformationTItle.ForeColor = Color.FromArgb(91, 91, 91);
-            lblAdminInformationTItle.Location = new Point(13, 14);
-            lblAdminInformationTItle.Name = "lblAdminInformationTItle";
-            lblAdminInformationTItle.Size = new Size(176, 22);
-            lblAdminInformationTItle.TabIndex = 2;
-            lblAdminInformationTItle.Text = "Admin Information";
             // 
             // AdminSettings
             // 
@@ -445,7 +449,7 @@
             Controls.Add(guna2Panel3);
             Controls.Add(guna2Panel2);
             Controls.Add(NavBarPanel);
-            Font = new Font("Roboto", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
