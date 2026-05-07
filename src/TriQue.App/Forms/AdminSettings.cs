@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using TriQue.Data.Repositories;
 using TriQue.Forms;
+using TriQue.Services;
 
 namespace Trique.Forms
 {
@@ -94,6 +95,20 @@ namespace Trique.Forms
 
         private void GenerateReportBtn_Click(object sender, EventArgs e)
         {
+            var repo = new UserRepository();
+            int level = repo.GetAdminLevel(_userID);
+
+            // SuperAdmin and Toda Officer only
+            if (level != 1 && level != 2)
+            {
+                MessageBox.Show(
+                    "Access denied. Only SuperAdmins and Toda Officers can manage users.",
+                    "Access Denied",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
             AdminGenerateReport reportForm = new AdminGenerateReport(_userID);
             reportForm.Show();
             this.Hide();
@@ -108,8 +123,22 @@ namespace Trique.Forms
 
         private void ManageUsersBtn_Click(object sender, EventArgs e)
         {
-            AdminManageUsers adminForm = new AdminManageUsers(_userID);
-            adminForm.Show();
+            var repo = new UserRepository();
+            int level = repo.GetAdminLevel(_userID);
+
+            // SuperAdmin only
+            if (level != 1)
+            {
+                MessageBox.Show(
+                    "Access denied. Only SuperAdmins can manage users.",
+                    "Access Denied",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            AdminManageUsers adminManageUsers = new AdminManageUsers(_userID);
+            adminManageUsers.Show();
             this.Hide();
         }
 
@@ -122,8 +151,9 @@ namespace Trique.Forms
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            LoginForm adminForm = new LoginForm();
-            adminForm.Show();
+            var authService = new AuthenticationService();
+            authService.Logout(_userID);
+            new LoginForm().Show();
             this.Hide();
         }
     }
