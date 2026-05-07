@@ -2,6 +2,7 @@
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using TriQue;
 using TriQue.Data.Repositories;
 using TriQue.Forms;
 using TriQue.Services;
@@ -93,7 +94,8 @@ namespace Trique.Forms
             };
         }
 
-        private void GenerateReportBtn_Click(object sender, EventArgs e)
+        //navbar
+        private async void GenerateReportBtn_Click(object sender, EventArgs e)
         {
             var repo = new UserRepository();
             int level = repo.GetAdminLevel(_userID);
@@ -109,19 +111,15 @@ namespace Trique.Forms
                 return;
             }
 
-            AdminGenerateReport reportForm = new AdminGenerateReport(_userID);
-            reportForm.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminGenerateReport(_userID));
         }
 
-        private void ViewQueueBtn_Click(object sender, EventArgs e)
+        private async void ViewQueueBtn_Click(object sender, EventArgs e)
         {
-            AdminViewQueue adminForm = new AdminViewQueue(_userID);
-            adminForm.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminViewQueue(_userID));
         }
 
-        private void ManageUsersBtn_Click(object sender, EventArgs e)
+        private async void ManageUsersBtn_Click(object sender, EventArgs e)
         {
             var repo = new UserRepository();
             int level = repo.GetAdminLevel(_userID);
@@ -137,24 +135,20 @@ namespace Trique.Forms
                 return;
             }
 
-            AdminManageUsers adminManageUsers = new AdminManageUsers(_userID);
-            adminManageUsers.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminManageUsers(_userID));
         }
 
-        private void DashBtn_Click(object sender, EventArgs e)
+        private async void DashBtn_Click(object sender, EventArgs e)
         {
-            AdminViewQueue adminForm = new AdminViewQueue(_userID);
-            adminForm.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminViewQueue(_userID));
         }
 
-        private void LogoutBtn_Click(object sender, EventArgs e)
+        private async void LogoutBtn_Click(object sender, EventArgs e)
         {
             var authService = new AuthenticationService();
             authService.Logout(_userID);
-            new LoginForm().Show();
-            this.Hide();
+
+            await FormAnimator.SwitchAsync(this, new LoginForm());
         }
     }
 }

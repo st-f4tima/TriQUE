@@ -517,7 +517,7 @@
             MinimizeBox = false;
             Name = "DriverViewQueue";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TriQue";
+            Text = "TriQUE";
             NavBarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             StatusPanel.ResumeLayout(false);

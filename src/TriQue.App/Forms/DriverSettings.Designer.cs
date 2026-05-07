@@ -559,7 +559,7 @@
             MinimizeBox = false;
             Name = "DriverSettings";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TriQue";
+            Text = "TriQUE";
             NavBarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             DriverDetailsPanel.ResumeLayout(false);

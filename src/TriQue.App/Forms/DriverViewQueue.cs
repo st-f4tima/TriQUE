@@ -1,4 +1,5 @@
-﻿using TriQue.Data.Repositories;
+﻿using System.Security.Policy;
+using TriQue.Data.Repositories;
 using TriQue.Enums;
 using TriQue.Services;
 
@@ -237,26 +238,23 @@ namespace TriQue.Forms
 
 
         // navbar
-        private void DashBtn_Click(object sender, EventArgs e)
+        private async void DashBtn_Click(object sender, EventArgs e)
         {
             DriverForm dash = new DriverForm(_userID);
-            dash.Show();
-            this.Close();
+            await FormAnimator.SwitchAsync(this, dash, closeCurrentAfter: true);
         }
 
-        private void SettingsBtn_Click(object sender, EventArgs e)
+        private async void SettingsBtn_Click(object sender, EventArgs e)
         {
             DriverSettings settings = new DriverSettings(_userID);
-            settings.Show();
-            this.Close();
+            await FormAnimator.SwitchAsync(this, settings, closeCurrentAfter: true);
         }
 
-        private void LogoutBtn_Click(object sender, EventArgs e)
+        private async void LogoutBtn_Click(object sender, EventArgs e)
         {
             var authService = new AuthenticationService();
             authService.Logout(_userID);
-            new LoginForm().Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new LoginForm(), closeCurrentAfter: true);
         }
     }
 }

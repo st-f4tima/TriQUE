@@ -34,6 +34,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetPasswordModal));
             usernamelb = new Label();
             txtNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
             label1 = new Label();
@@ -50,7 +51,7 @@
             usernamelb.AutoSize = true;
             usernamelb.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             usernamelb.ForeColor = Color.FromArgb(91, 91, 91);
-            usernamelb.Location = new Point(29, 42);
+            usernamelb.Location = new Point(36, 42);
             usernamelb.Name = "usernamelb";
             usernamelb.Size = new Size(133, 20);
             usernamelb.TabIndex = 5;
@@ -71,7 +72,7 @@
             txtNewPassword.ForeColor = Color.FromArgb(91, 91, 91);
             txtNewPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtNewPassword.Location = new Point(36, 70);
-            txtNewPassword.Margin = new Padding(4, 4, 4, 4);
+            txtNewPassword.Margin = new Padding(4);
             txtNewPassword.Name = "txtNewPassword";
             txtNewPassword.PlaceholderText = "Enter new password";
             txtNewPassword.SelectedText = "";
@@ -84,7 +85,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(91, 91, 91);
-            label1.Location = new Point(29, 167);
+            label1.Location = new Point(36, 167);
             label1.Name = "label1";
             label1.Size = new Size(163, 20);
             label1.TabIndex = 7;
@@ -117,8 +118,8 @@
             txtConfirmPassword.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             txtConfirmPassword.ForeColor = Color.FromArgb(91, 91, 91);
             txtConfirmPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtConfirmPassword.Location = new Point(29, 191);
-            txtConfirmPassword.Margin = new Padding(4, 4, 4, 4);
+            txtConfirmPassword.Location = new Point(36, 191);
+            txtConfirmPassword.Margin = new Padding(4);
             txtConfirmPassword.Name = "txtConfirmPassword";
             txtConfirmPassword.PlaceholderText = "Re-enter new password";
             txtConfirmPassword.SelectedText = "";
@@ -155,7 +156,7 @@
             ConfirmBtn.HoverState.FillColor = Color.FromArgb(0, 50, 125);
             ConfirmBtn.HoverState.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ConfirmBtn.HoverState.ForeColor = Color.White;
-            ConfirmBtn.Location = new Point(303, 280);
+            ConfirmBtn.Location = new Point(286, 283);
             ConfirmBtn.Name = "ConfirmBtn";
             ConfirmBtn.PressedColor = Color.FromArgb(0, 50, 125);
             ConfirmBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
@@ -200,6 +201,7 @@
             Controls.Add(txtNewPassword);
             Controls.Add(usernamelb);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "SetPasswordModal";

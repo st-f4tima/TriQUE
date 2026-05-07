@@ -174,15 +174,18 @@ namespace Trique.Forms
             LoadUsers(SearchBar.Text.Trim());
         }
 
-        private void AddUserBtn_Click_1(object sender, EventArgs e)
+        private async void AddUserBtn_Click_1(object sender, EventArgs e)
         {
             var modal = new AddUsersModal();
-            if (modal.ShowDialog() == DialogResult.OK)
+
+            await ModalAnimator.ShowModalAsync(this, modal);
+
+            if (modal.DialogResult == DialogResult.OK)
                 LoadUsers();
         }
 
         // action buttons
-        private void UserListDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void UserListDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
@@ -197,30 +200,32 @@ namespace Trique.Forms
             if (colName == "EditCol")
             {
                 var modal = new EditUserInformationModal(userID);
-                if (modal.ShowDialog() == DialogResult.OK)
+
+                await ModalAnimator.ShowModalAsync(this, modal);
+
+                if (modal.DialogResult == DialogResult.OK)
                     LoadUsers();
             }
             else if (colName == "ViewCol")
             {
                 var modal = new UserDetailsModal(userID);
-                modal.ShowDialog();
+
+                await ModalAnimator.ShowModalAsync(this, modal);
             }
         }
 
         // navbar
-        private void DashboardBtn_Click(object sender, EventArgs e)
+        private async void DashboardBtn_Click(object sender, EventArgs e)
         {
-            new AdminForm(_userID).Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminForm(_userID));
         }
 
-        private void ViewQueueBtn_Click_1(object sender, EventArgs e)
+        private async void ViewQueueBtn_Click_1(object sender, EventArgs e)
         {
-            new AdminViewQueue(_userID).Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminViewQueue(_userID));
         }
 
-        private void GenerateReportBtn_Click(object sender, EventArgs e)
+        private async void GenerateReportBtn_Click(object sender, EventArgs e)
         {
             var repo = new UserRepository();
             int level = repo.GetAdminLevel(_userID);
@@ -236,18 +241,15 @@ namespace Trique.Forms
                 return;
             }
 
-            AdminGenerateReport reportForm = new AdminGenerateReport(_userID);
-            reportForm.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminGenerateReport(_userID));
         }
 
-        private void SettingsBtn_Click(object sender, EventArgs e)
+        private async void SettingsBtn_Click(object sender, EventArgs e)
         {
-            new AdminSettings(_userID).Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminSettings(_userID));
         }
 
-        private void ManageUsersBtn_Click(object sender, EventArgs e)
+        private async void ManageUsersBtn_Click(object sender, EventArgs e)
         {
             var repo = new UserRepository();
             int level = repo.GetAdminLevel(_userID);
@@ -263,17 +265,15 @@ namespace Trique.Forms
                 return;
             }
 
-            AdminManageUsers adminManageUsers = new AdminManageUsers(_userID);
-            adminManageUsers.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminManageUsers(_userID));
         }
 
-        private void LogoutBtn_Click(object sender, EventArgs e)
+        private async void LogoutBtn_Click(object sender, EventArgs e)
         {
             var authService = new AuthenticationService();
             authService.Logout(_userID);
-            new LoginForm().Show();
-            this.Hide();
+
+            await FormAnimator.SwitchAsync(this, new LoginForm());
         }
     }
 }

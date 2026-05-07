@@ -235,7 +235,7 @@ namespace TriQue.Forms
         // navigation
 
         // view queue navbar button
-        private void ViewQueueBtn_Click(object sender, EventArgs e)
+        private async void ViewQueueBtn_Click(object sender, EventArgs e)
         {
             if (_routeId == 0)
             {
@@ -244,25 +244,26 @@ namespace TriQue.Forms
             }
 
             DriverViewQueue viewQueue = new DriverViewQueue(_routeId, _userID);
-            viewQueue.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, viewQueue);
         }
 
         // settings navbar button
-        private void DriverSettingsBtn_Click(object sender, EventArgs e)
+        private async void DriverSettingsBtn_Click(object sender, EventArgs e)
         {
-            DriverSettings settings = new DriverSettings(_userID);
-            settings.Show();
-            this.Hide();
+            var settings = new DriverSettings(_userID);
+            settings.StartPosition = FormStartPosition.Manual;
+            settings.Location = this.Location;
+            settings.Size = this.Size;
+
+            await FormAnimator.SwitchAsync(this, settings);
         }
 
         // logout button
-        private void LogoutBtn_Click(object sender, EventArgs e)
+        private async void LogoutBtn_Click(object sender, EventArgs e)
         {
             var authService = new AuthenticationService();
             authService.Logout(_userID);
-            new LoginForm().Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new LoginForm());
         }
     }
 }
