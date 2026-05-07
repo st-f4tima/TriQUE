@@ -309,7 +309,7 @@ namespace Trique.Forms
             GenerateReportBtn.ShadowDecoration.CustomizableEdges = customizableEdges11;
             GenerateReportBtn.Size = new Size(82, 82);
             GenerateReportBtn.TabIndex = 4;
-            GenerateReportBtn.Click += GenerateReportBtn_Click_1;
+            GenerateReportBtn.Click += GenerateReportBtn_Click;
             // 
             // AdminManageUsers
             // 

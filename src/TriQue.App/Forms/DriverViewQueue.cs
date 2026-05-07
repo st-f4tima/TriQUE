@@ -253,9 +253,10 @@ namespace TriQue.Forms
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            LoginForm login = new LoginForm();
-            login.Show();
-            this.Close();
+            var authService = new AuthenticationService();
+            authService.Logout(_userID);
+            new LoginForm().Show();
+            this.Hide();
         }
     }
 }

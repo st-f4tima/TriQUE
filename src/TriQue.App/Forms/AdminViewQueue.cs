@@ -1,5 +1,6 @@
 using TriQue.Data.Repositories;
 using TriQue.Forms;
+using TriQue.Services;
 
 namespace Trique.Forms
 {
@@ -79,6 +80,19 @@ namespace Trique.Forms
 
         private void GenerateReportBtn_Click(object sender, EventArgs e)
         {
+            var repo = new UserRepository();
+            int level = repo.GetAdminLevel(_userID);
+
+            if (level != 1 && level != 2)
+            {
+                MessageBox.Show(
+                    "Access denied. Only SuperAdmins and Toda Officers can manage users.",
+                    "Access Denied",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
             AdminGenerateReport reportForm = new AdminGenerateReport(_userID);
             reportForm.Show();
             this.Hide();
@@ -93,8 +107,9 @@ namespace Trique.Forms
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            LoginForm adminForm = new LoginForm();
-            adminForm.Show();
+            var authService = new AuthenticationService();
+            authService.Logout(_userID);
+            new LoginForm().Show();
             this.Hide();
         }
     }
