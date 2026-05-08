@@ -211,7 +211,7 @@ namespace TriQue.Data.Repositories
             return list;
         }
 
-        public UserDetailItem? GetUserDetail(int userID)
+        public UserDetailDto? GetUserDetail(int userID)
         {
             string query = @"
                 SELECT
@@ -236,7 +236,7 @@ namespace TriQue.Data.Repositories
             using var reader = _dbHelper.ExecuteReader(query, param);
             if (!reader.Read()) return null;
 
-            return new UserDetailItem
+            return new UserDetailDto
             {
                 UserID = Convert.ToInt32(reader["UserID"]),
                 FirstName = reader["FirstName"].ToString() ?? "",
