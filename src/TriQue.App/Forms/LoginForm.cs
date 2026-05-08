@@ -1,4 +1,5 @@
-﻿using TriQue.Services;
+﻿using TriQue.Helpers.Animation;
+using TriQue.Services;
 
 namespace TriQue.Forms
 {

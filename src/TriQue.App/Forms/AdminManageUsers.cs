@@ -1,6 +1,7 @@
 ﻿using TriQue;
 using TriQue.Data.Repositories;
 using TriQue.Forms;
+using TriQue.Helpers.Animation;
 using TriQue.Services;
 
 namespace Trique.Forms
