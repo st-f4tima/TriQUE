@@ -9,10 +9,13 @@ namespace TriQue.Data.Database
     public class DatabaseInitializer
     {
         private readonly DatabaseHelper _dbHelper;
+        private readonly IConfiguration _config;
 
-        public DatabaseInitializer(DatabaseHelper db)
+
+        public DatabaseInitializer(DatabaseHelper db, IConfiguration config)
         {
             _dbHelper = db;
+            _config = config;
         }
         public void Initialize()
         {
@@ -22,7 +25,6 @@ namespace TriQue.Data.Database
             var cmd = conn.CreateCommand();
 
             // Uncomment this if AuthenticationServiceTests.cs keeps failing
-
             //cmd.CommandText =
             //@"
             //    PRAGMA foreign_keys = OFF;
@@ -79,7 +81,6 @@ namespace TriQue.Data.Database
                 FOREIGN KEY (AssignedGroup) REFERENCES DriverGroup(GroupID)
             );
 
-
             CREATE TABLE IF NOT EXISTS User (
                 UserID INTEGER PRIMARY KEY AUTOINCREMENT,
                 Username TEXT NOT NULL,
@@ -123,7 +124,6 @@ namespace TriQue.Data.Database
                 FOREIGN KEY (UserID) REFERENCES User(UserID),
                 FOREIGN KEY (LevelID) REFERENCES AdminLevel(LevelID)
             );
-
 
             CREATE TABLE IF NOT EXISTS Queue (
                 QueueID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -183,49 +183,6 @@ namespace TriQue.Data.Database
                 (2, 'OnTrip'),
                 (3, 'Finished');
 
-
-            INSERT OR IGNORE INTO User (UserID, Username, PasswordHash, FirstName, LastName, PhoneNumber, RoleID, IsTemporaryPassword) VALUES
-                -- ADMINS
-                (1, 'admin1', 'hash1', 'Juan', 'Dela Cruz', '09111111111', 2, 0),
-                (2, 'admin2', 'hash2', 'Luis', 'Torres', '09222222222', 2, 0),
-
-                -- DRIVERS (30)
-                (3, 'driver1', 'hash3', 'Mike', 'Wheeler', '09300000001', 1, 1),
-                (4, 'driver2', 'hash4', 'Driver2', 'Test', '09300000002', 1, 0),
-                (5, 'driver3', 'hash5', 'Driver3', 'Test', '09300000003', 1, 0),
-                (6, 'driver4', 'hash6', 'Driver4', 'Test', '09300000004', 1, 0),
-                (7, 'driver5', 'hash7', 'Driver5', 'Test', '09300000005', 1, 0),
-                (8, 'driver6', 'hash8', 'Driver6', 'Test', '09300000006', 1, 0),
-                (9, 'driver7', 'hash9', 'Driver7', 'Test', '09300000007', 1, 0),
-                (10, 'driver8', 'hash10', 'Driver8', 'Test', '09300000008', 1, 0),
-                (11, 'driver9', 'hash11', 'Driver9', 'Test', '09300000009', 1, 0),
-                (12, 'driver10', 'hash12', 'Driver10', 'Test', '09300000010', 1, 0),
-                (13, 'driver11', 'hash13', 'Driver11', 'Test', '09300000011', 1, 0),
-                (14, 'driver12', 'hash14', 'Driver12', 'Test', '09300000012', 1, 0),
-                (15, 'driver13', 'hash15', 'Driver13', 'Test', '09300000013', 1, 0),
-                (16, 'driver14', 'hash16', 'Driver14', 'Test', '09300000014', 1, 0),
-                (17, 'driver15', 'hash17', 'Driver15', 'Test', '09300000015', 1, 0),
-                (18, 'driver16', 'hash18', 'Driver16', 'Test', '09300000016', 1, 0),
-                (19, 'driver17', 'hash19', 'Driver17', 'Test', '09300000017', 1, 0),
-                (20, 'driver18', 'hash20', 'Driver18', 'Test', '09300000018', 1, 0),
-                (21, 'driver19', 'hash21', 'Driver19', 'Test', '09300000019', 1, 0),
-                (22, 'driver20', 'hash22', 'Driver20', 'Test', '09300000020', 1, 0),
-                (23, 'driver21', 'hash23', 'Driver21', 'Test', '09300000021', 1, 0),
-                (24, 'driver22', 'hash24', 'Driver22', 'Test', '09300000022', 1, 0),
-                (25, 'driver23', 'hash25', 'Driver23', 'Test', '09300000023', 1, 0),
-                (26, 'driver24', 'hash26', 'Driver24', 'Test', '09300000024', 1, 0),
-                (27, 'driver25', 'hash27', 'Driver25', 'Test', '09300000025', 1, 0),
-                (28, 'driver26', 'hash28', 'Driver26', 'Test', '09300000026', 1, 0),
-                (29, 'driver27', 'hash29', 'Driver27', 'Test', '09300000027', 1, 0),
-                (30, 'driver28', 'hash30', 'Driver28', 'Test', '09300000028', 1, 0),
-                (31, 'driver29', 'hash31', 'Driver29', 'Test', '09300000029', 1, 0),
-                (32, 'driver30', 'hash32', 'Driver30', 'Test', '09300000030', 1, 0);
-
-            INSERT OR IGNORE INTO Admin (AdminID, UserID, LevelID) VALUES
-                (1, 1, 1),
-                (2, 2, 2);
-
-
             INSERT OR IGNORE INTO DriverGroup (GroupID, GroupName, RotationDay) VALUES
                 (1, 'Group A', 1),
                 (2, 'Group B', 2),
@@ -234,50 +191,6 @@ namespace TriQue.Data.Database
                 (5, 'Group E', 5),
                 (6, 'Group F', 6);
 
-
-            INSERT OR IGNORE INTO Driver (DriverID, UserID, GroupID, StatusID, BodyNumber) VALUES
-
-                -- A
-                (1, 3, 1, 1, 'TN-001'),
-                (2, 4, 1, 1, 'TN-002'),
-                (3, 5, 1, 1, 'TN-003'),
-                (4, 6, 1, 1, 'TN-004'),
-                (5, 7, 1, 1, 'TN-005'),
-
-                -- B
-                (6, 8, 2, 1, 'TN-006'),
-                (7, 9, 2, 1, 'TN-007'),
-                (8, 10, 2, 1, 'TN-008'),
-                (9, 11, 2, 1, 'TN-009'),
-                (10, 12, 2, 1, 'TN-010'),
-
-                -- C
-                (11, 13, 3, 1, 'TN-011'),
-                (12, 14, 3, 1, 'TN-012'),
-                (13, 15, 3, 1, 'TN-013'),
-                (14, 16, 3, 1, 'TN-014'),
-                (15, 17, 3, 1, 'TN-015'),
-
-                -- D
-                (16, 18, 4, 1, 'TN-016'),
-                (17, 19, 4, 1, 'TN-017'),
-                (18, 20, 4, 1, 'TN-018'),
-                (19, 21, 4, 1, 'TN-019'),
-                (20, 22, 4, 1, 'TN-020'),
-
-                -- E
-                (21, 23, 5, 1, 'TN-021'),
-                (22, 24, 5, 1, 'TN-022'),
-                (23, 25, 5, 1, 'TN-023'),
-                (24, 26, 5, 1, 'TN-024'),
-                (25, 27, 5, 1, 'TN-025'),
-
-                -- F
-                (26, 28, 6, 1, 'TN-026'),
-                (27, 29, 6, 1, 'TN-027'),
-                (28, 30, 6, 1, 'TN-028'),
-                (29, 31, 6, 1, 'TN-029'),
-                (30, 32, 6, 1, 'TN-030');
 
             INSERT OR IGNORE INTO Route (RouteID, AssignedGroup, RouteName, StartLat, StartLng, EndLat, EndLng, DistanceKm) VALUES
                 (101, 1, 'Provincial Capitol',  13.79277, 121.07137, 13.76527, 121.06423, 4.8),
@@ -294,53 +207,148 @@ namespace TriQue.Data.Database
                 (4, 104),
                 (5, 105),
                 (6, 106);
-
-            INSERT OR IGNORE INTO Trip (TripID, DriverID, RouteID, StatusID, ActualEarnings, StartTime, EndTime) VALUES
-                (1, 1, 106, 3, 120, '2026-04-29 08:00:00', '2026-04-29 08:30:00'),
-                (5, 1, 106, 3, 180, '2026-04-23 10:00:00', '2026-04-23 10:40:00'),
-                (6, 1, 106, 3, 220, '2026-04-23 12:00:00', '2026-04-23 12:50:00'),
-                (7, 1, 106, 3, 0, '2026-04-23 14:00:00', NULL),
-
-                (2, 6, 102, 2, 150, '2026-04-23 08:10:00', '2026-04-23 08:45:00'),
-                (3, 11, 103, 1, 0, '2026-04-23 09:00:00', NULL),
-                (4, 16, 104, 3, 200, '2026-04-23 07:00:00', '2026-04-23 07:40:00');
-
-            INSERT OR IGNORE INTO AuthenticationLog (LogID, UserID, LoginTime, LogoutTime, AuthOutcome) VALUES
-                (1, 1, '2026-04-23 07:00:00', '2026-04-23 12:00:00', 'Success'),
-                (2, 3, '2026-04-23 07:10:00', '2026-04-23 08:00:00', 'Success'),
-                (3, 4, '2026-04-23 08:00:00', '2026-04-23 09:00:00', 'Success'),
-                (4, 5, '2026-04-23 08:30:00', '2026-04-23 09:30:00', 'Failed');
             ";
             cmd.ExecuteNonQuery();
-            HashPlainPasswords();
+
+            SeedUsers();
         }
 
-        // Hash the initialized password 
-        private void HashPlainPasswords()
+        // seeds user table
+        private void SeedUsers()
         {
-            string selectQuery = "SELECT UserID, PasswordHash FROM User";
-            using var reader = _dbHelper.ExecuteReader(selectQuery);
+            string adminDefault = _config["SeedPasswords:AdminDefault"];
 
-            var toUpdate = new List<(int id, string hash)>();
-
-            while (reader.Read())
+            if (string.IsNullOrEmpty(adminDefault))
             {
-                string stored = reader["PasswordHash"].ToString() ?? "";
-
-                if (!stored.StartsWith("$2"))
-                {
-                    string hashed = PasswordHelper.Hash(stored);
-                    toUpdate.Add((Convert.ToInt32(reader["UserID"]), hashed));
-                }
+                throw new Exception("AdminDefault seed password not set.");
             }
 
-            foreach (var (id, hash) in toUpdate)
+            string driverDefault = _config["SeedPasswords:DriverDefault"];
+
+            if (string.IsNullOrEmpty(driverDefault))
             {
-                _dbHelper.ExecuteNonQuery(
-                    "UPDATE User SET PasswordHash = @hash WHERE UserID = @id",
-                    new SqliteParameter("@hash", hash),
-                    new SqliteParameter("@id", id));
+                throw new Exception("DriverDefault seed password not set.");
             }
+
+            int userID = 1;
+            int adminID = 1;
+
+            // 3 SuperAdmins
+            for (int i = 1; i <= 3; i++, userID++, adminID++)
+            {
+                InsertUserIfNotExists(
+                    userID, 
+                    $"admin{userID}", 
+                    adminDefault, 
+                    $"SuperAdmin{i}", 
+                    "Test", 
+                    $"0911000{userID:D4}", 
+                    roleID: 2, 
+                    isTempPassword: false
+                );
+                InsertAdminIfNotExists(adminID, userID, levelID: 1);
+            }
+
+            // 7 TodaOfficers
+            for (int i = 1; i <= 7; i++, userID++, adminID++)
+            {
+                InsertUserIfNotExists(
+                    userID, 
+                    $"admin{userID}", 
+                    adminDefault, 
+                    $"TodaOfficer{i}", 
+                    "Test", 
+                    $"0912000{userID:D4}", 
+                    roleID: 2, 
+                    isTempPassword: false
+                );
+                InsertAdminIfNotExists(adminID, userID, levelID: 2);
+            }
+
+            // 10 Staff
+            for (int i = 1; i <= 10; i++, userID++, adminID++)
+            {
+                InsertUserIfNotExists(userID, 
+                    $"admin{userID}", 
+                    adminDefault, 
+                    $"Staff{i}", 
+                    "Test", 
+                    $"0913000{userID:D4}", 
+                    roleID: 2, 
+                    isTempPassword: 
+                    false
+                );
+                InsertAdminIfNotExists(adminID, userID, levelID: 3);
+            }
+
+            // 120 Drivers 
+            for (int i = 1; i <= 120; i++, userID++)
+            {
+                int groupID = ((i - 1) / 20) + 1;
+
+                InsertUserIfNotExists(
+                    userID, 
+                    $"driver{i}", 
+                    driverDefault, 
+                    $"Driver{i}", 
+                    "Test", 
+                    $"0930000{i:D4}", 
+                    roleID: 1, 
+                    isTempPassword: 
+                    false
+                );
+                InsertDriverIfNotExists(i, userID, groupID, statusID: 1, $"TN-{i:D3}");
+            }
+        }
+        private void InsertUserIfNotExists(int id, string username, string password, 
+            string first, string last, string phone, int roleID, bool isTempPassword)
+        {
+            var exists = (long)_dbHelper.ExecuteScalar("SELECT COUNT(*) FROM User WHERE UserID = @id",
+                new SqliteParameter("@id", id)) > 0;
+
+            if (exists) return;
+
+            _dbHelper.ExecuteNonQuery(@"
+                INSERT INTO User (UserID, Username, PasswordHash, FirstName, LastName, PhoneNumber, RoleID, IsTemporaryPassword)
+                VALUES (@id, @u, @p, @f, @l, @ph, @r, @tmp)",
+                new SqliteParameter("@id", id),
+                new SqliteParameter("@u", username),
+                new SqliteParameter("@p", PasswordHelper.Hash(password)),
+                new SqliteParameter("@f", first),
+                new SqliteParameter("@l", last),
+                new SqliteParameter("@ph", phone),
+                new SqliteParameter("@r", roleID),
+                new SqliteParameter("@tmp", isTempPassword ? 1 : 0));
+        }
+
+        private void InsertDriverIfNotExists(int driverID, int userID, int groupID, int statusID, string bodyNum)
+        {
+            var exists = (long)_dbHelper.ExecuteScalar("SELECT COUNT(*) FROM Driver WHERE DriverID = @id",
+                new SqliteParameter("@id", driverID)) > 0;
+
+            if (exists) return;
+
+            _dbHelper.ExecuteNonQuery(@"
+                INSERT INTO Driver (DriverID, UserID, GroupID, StatusID, BodyNumber)
+                VALUES (@did, @uid, @gid, @sid, @bn)",
+                new SqliteParameter("@did", driverID),
+                new SqliteParameter("@uid", userID),
+                new SqliteParameter("@gid", groupID),
+                new SqliteParameter("@sid", statusID),
+                new SqliteParameter("@bn", bodyNum));
+        }
+
+        private void InsertAdminIfNotExists(int adminID, int userID, int levelID)
+        {
+            var exists = (long)_dbHelper.ExecuteScalar("SELECT COUNT(*) FROM Admin WHERE AdminID = @id",
+                new SqliteParameter("@id", adminID)) > 0;
+            if (exists) return;
+
+            _dbHelper.ExecuteNonQuery(@"
+                INSERT INTO Admin (AdminID, UserID, LevelID) VALUES (@aid, @uid, @lid)",
+                new SqliteParameter("@aid", adminID),
+                new SqliteParameter("@uid", userID),
+                new SqliteParameter("@lid", levelID));
         }
     }
 }
