@@ -8,9 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TriQue;
+using TriQue.Data.Repositories;
 using TriQue.Forms;
 using TriQue.Services;
-using TriQue.Data.Repositories;
 namespace Trique.Forms
 {
     public partial class AdminForm : Form
@@ -155,41 +156,33 @@ namespace Trique.Forms
         }
 
         // navbar
-        private void LogoutBtn_Click(object sender, EventArgs e) 
+        private async void LogoutBtn_Click(object sender, EventArgs e)
         {
             var authService = new AuthenticationService();
             authService.Logout(_userID);
-            new LoginForm().Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new LoginForm());
         }
 
-        private void DashboardBtn_Click(object sender, EventArgs e)
+        private async void DashboardBtn_Click(object sender, EventArgs e)
         {
-            AdminForm adminForm = new AdminForm(_userID);
-            adminForm.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminForm(_userID));
         }
 
-        private void ViewQueue_Click(object sender, EventArgs e)
+        private async void ViewQueue_Click(object sender, EventArgs e)
         {
-            AdminViewQueue adminViewQueue = new AdminViewQueue(_userID);
-            adminViewQueue.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminViewQueue(_userID));
         }
 
-        private void SettingsBtn_Click(object sender, EventArgs e)
+        private async void SettingsBtn_Click(object sender, EventArgs e)
         {
-            AdminSettings adminSettings = new AdminSettings(_userID);
-            adminSettings.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminSettings(_userID));
         }
 
-        private void ManageUsersBtn_Click(object sender, EventArgs e)
+        private async void ManageUsersBtn_Click(object sender, EventArgs e)
         {
             var repo = new UserRepository();
             int level = repo.GetAdminLevel(_userID);
 
-            // SuperAdmin only
             if (level != 1)
             {
                 MessageBox.Show(
@@ -200,17 +193,14 @@ namespace Trique.Forms
                 return;
             }
 
-            AdminManageUsers adminManageUsers = new AdminManageUsers(_userID);
-            adminManageUsers.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminManageUsers(_userID));
         }
 
-        private void GenerateReportBtn_Click(object sender, EventArgs e)
+        private async void GenerateReportBtn_Click(object sender, EventArgs e)
         {
             var repo = new UserRepository();
             int level = repo.GetAdminLevel(_userID);
 
-            // SuperAdmin and Toda Officeronly
             if (level != 1 && level != 2)
             {
                 MessageBox.Show(
@@ -221,9 +211,7 @@ namespace Trique.Forms
                 return;
             }
 
-            AdminGenerateReport reportForm = new AdminGenerateReport(_userID);
-            reportForm.Show();
-            this.Hide();
+            await FormAnimator.SwitchAsync(this, new AdminGenerateReport(_userID));
         }
     }
 }

@@ -543,7 +543,7 @@
             MinimizeBox = false;
             Name = "AdminSettings";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TriQue";
+            Text = "TriQUE";
             NavBarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();
             guna2Panel2.ResumeLayout(false);

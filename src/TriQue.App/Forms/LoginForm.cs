@@ -25,7 +25,7 @@ namespace TriQue.Forms
             lockLabel.BringToFront();
         }
 
-        private void LoginBtn_Click_1(object sender, EventArgs e)
+        private async void LoginBtn_Click_1(object sender, EventArgs e)
         {
             string username = textBox1.Text.Trim();
             string password = textBoxPassword.Text.Trim();
@@ -35,6 +35,7 @@ namespace TriQue.Forms
             if (!success)
             {
                 int secondsLeft = _auth.GetLockSecondsRemaining(username);
+
                 if (message.Contains("locked"))
                     ShowWarning(message);
                 else
@@ -51,18 +52,19 @@ namespace TriQue.Forms
             var user = _auth.GetCurrentUser();
 
             var repo = new TriQue.Data.Repositories.UserRepository();
+
             if (repo.IsTemporaryPassword(user.UserID))
             {
                 var setPwdForm = new TriQue.Forms.SetPasswordModal(user.UserID);
                 var result = setPwdForm.ShowDialog();
 
                 if (result != System.Windows.Forms.DialogResult.OK)
-                    return; 
+                    return;
             }
 
             Form nextForm = user.GetView();
-            nextForm.Show();
-            this.Hide();
+
+            await FormAnimator.SwitchAsync(this, nextForm);
         }
 
         private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)

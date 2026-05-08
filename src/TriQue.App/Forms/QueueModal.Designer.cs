@@ -211,7 +211,7 @@
             MinimizeBox = false;
             Name = "QueueModal";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Route";
+            Text = "TriQUE - Route";
             guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DriverListDataGrid).EndInit();
             ResumeLayout(false);
