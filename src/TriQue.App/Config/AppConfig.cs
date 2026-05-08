@@ -12,6 +12,7 @@ public static class AppConfig
         Configuration = new ConfigurationBuilder()
             .SetBasePath(basePath)
             .AddJsonFile("appsettings.json", optional: false)
+            .AddJsonFile("appsettings.Development.json", optional: true) 
             .Build();
     }
 }
