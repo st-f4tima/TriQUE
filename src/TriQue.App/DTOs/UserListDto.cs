@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TriQue.DTOs
 {
-    public class UserListItem
+    public class UserListDto
     {
         public int UserID { get; set; }
         public string FullName { get; set; } = "";

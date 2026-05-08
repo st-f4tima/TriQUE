@@ -173,7 +173,7 @@ namespace TriQue.Data.Repositories
                 new SqliteParameter("@id", userID));
         }
 
-        public List<UserListItem> GetAllUsers(string search = "")
+        public List<UserListDto> GetAllUsers(string search = "")
         {
             string query = @"
                 SELECT
@@ -195,10 +195,10 @@ namespace TriQue.Data.Repositories
             var param = new[] { new SqliteParameter("@search", $"%{search}%") };
             using var reader = _dbHelper.ExecuteReader(query, param);
 
-            var list = new List<UserListItem>();
+            var list = new List<UserListDto>();
             while (reader.Read())
             {
-                list.Add(new UserListItem
+                list.Add(new UserListDto
                 {
                     UserID = Convert.ToInt32(reader["UserID"]),
                     FullName = reader["FullName"].ToString() ?? "",
