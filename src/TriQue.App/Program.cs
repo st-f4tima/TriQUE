@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using TriQue.Data.Database;
 using TriQue.Forms;
 using TriQue.Helpers;
@@ -14,7 +15,7 @@ namespace TriQue
         static void Main()
         {
             var databaseHelper = new DatabaseHelper();
-            var dbInitializer = new DatabaseInitializer(databaseHelper);
+            var dbInitializer = new DatabaseInitializer(databaseHelper, AppConfig.Configuration);
             dbInitializer.Initialize();
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
