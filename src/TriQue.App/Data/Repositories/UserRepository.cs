@@ -266,7 +266,7 @@ namespace TriQue.Data.Repositories
             return list;
         }
 
-        public CreatedUserDTO AddUser(string firstName, string lastName, string phone, int roleID, int routeID, int levelID = 3)
+        public CreatedUserDto AddUser(string firstName, string lastName, string phone, int roleID, int routeID, int levelID = 3)
         {
             string tempPassword = PasswordHelper.GenerateTempPassword();
             string hashedPassword = PasswordHelper.Hash(tempPassword);
@@ -318,7 +318,7 @@ namespace TriQue.Data.Repositories
                     new SqliteParameter("@lvl", levelID));
             }
 
-            return new CreatedUserDTO
+            return new CreatedUserDto
             {
                 Username = username,
                 TempPassword = tempPassword
