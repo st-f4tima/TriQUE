@@ -1,6 +1,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using TriQue.Data.Repositories;
+using TriQue.Helpers.Animation;
 using TriQue.Models;
 using TriQue.Services;
 

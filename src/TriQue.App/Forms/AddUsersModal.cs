@@ -62,7 +62,7 @@ namespace TriQue
 
             if (isDriver)
             {
-                if (cboAssignedRoute.SelectedItem is not RouteItem ri)
+                if (cboAssignedRoute.SelectedItem is not RouteDto ri)
                 {
                     MessageBox.Show("Please select a route.", "Validation",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);

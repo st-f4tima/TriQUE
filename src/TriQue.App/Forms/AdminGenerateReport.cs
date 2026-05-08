@@ -1,7 +1,7 @@
-﻿using TriQue;
-using TriQue.Data.Repositories;
+﻿using TriQue.Data.Repositories;
 using TriQue.DTOs;
 using TriQue.Forms;
+using TriQue.Helpers.Animation;
 using TriQue.Models;
 using TriQue.Services;
 

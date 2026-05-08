@@ -1,6 +1,7 @@
 ﻿using System.Security.Policy;
 using TriQue.Data.Repositories;
 using TriQue.Enums;
+using TriQue.Helpers.Animation;
 using TriQue.Services;
 
 namespace TriQue.Forms

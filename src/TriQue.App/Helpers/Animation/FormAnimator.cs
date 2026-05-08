@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TriQue
+namespace TriQue.Helpers.Animation
 {
     /// <summary>
     /// iOS-style form transition — clean, instant, no fluff.

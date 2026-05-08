@@ -173,7 +173,7 @@ namespace TriQue.Data.Repositories
                 new SqliteParameter("@id", userID));
         }
 
-        public List<UserListItem> GetAllUsers(string search = "")
+        public List<UserListDto> GetAllUsers(string search = "")
         {
             string query = @"
                 SELECT
@@ -195,10 +195,10 @@ namespace TriQue.Data.Repositories
             var param = new[] { new SqliteParameter("@search", $"%{search}%") };
             using var reader = _dbHelper.ExecuteReader(query, param);
 
-            var list = new List<UserListItem>();
+            var list = new List<UserListDto>();
             while (reader.Read())
             {
-                list.Add(new UserListItem
+                list.Add(new UserListDto
                 {
                     UserID = Convert.ToInt32(reader["UserID"]),
                     FullName = reader["FullName"].ToString() ?? "",
@@ -211,7 +211,7 @@ namespace TriQue.Data.Repositories
             return list;
         }
 
-        public UserDetailItem? GetUserDetail(int userID)
+        public UserDetailDto? GetUserDetail(int userID)
         {
             string query = @"
                 SELECT
@@ -236,7 +236,7 @@ namespace TriQue.Data.Repositories
             using var reader = _dbHelper.ExecuteReader(query, param);
             if (!reader.Read()) return null;
 
-            return new UserDetailItem
+            return new UserDetailDto
             {
                 UserID = Convert.ToInt32(reader["UserID"]),
                 FirstName = reader["FirstName"].ToString() ?? "",
@@ -252,13 +252,13 @@ namespace TriQue.Data.Repositories
             };
         }
 
-        public List<RouteItem> GetAllRoutes()
+        public List<RouteDto> GetAllRoutes()
         {
             string query = "SELECT RouteID, RouteName FROM Route ORDER BY RouteName";
             using var reader = _dbHelper.ExecuteReader(query);
-            var list = new List<RouteItem>();
+            var list = new List<RouteDto>();
             while (reader.Read())
-                list.Add(new RouteItem
+                list.Add(new RouteDto
                 {
                     RouteID = Convert.ToInt32(reader["RouteID"]),
                     RouteName = reader["RouteName"].ToString() ?? ""
@@ -266,7 +266,7 @@ namespace TriQue.Data.Repositories
             return list;
         }
 
-        public CreatedUserDTO AddUser(string firstName, string lastName, string phone, int roleID, int routeID, int levelID = 3)
+        public CreatedUserDto AddUser(string firstName, string lastName, string phone, int roleID, int routeID, int levelID = 3)
         {
             string tempPassword = PasswordHelper.GenerateTempPassword();
             string hashedPassword = PasswordHelper.Hash(tempPassword);
@@ -318,7 +318,7 @@ namespace TriQue.Data.Repositories
                     new SqliteParameter("@lvl", levelID));
             }
 
-            return new CreatedUserDTO
+            return new CreatedUserDto
             {
                 Username = username,
                 TempPassword = tempPassword
