@@ -252,13 +252,13 @@ namespace TriQue.Data.Repositories
             };
         }
 
-        public List<RouteItem> GetAllRoutes()
+        public List<RouteDto> GetAllRoutes()
         {
             string query = "SELECT RouteID, RouteName FROM Route ORDER BY RouteName";
             using var reader = _dbHelper.ExecuteReader(query);
-            var list = new List<RouteItem>();
+            var list = new List<RouteDto>();
             while (reader.Read())
-                list.Add(new RouteItem
+                list.Add(new RouteDto
                 {
                     RouteID = Convert.ToInt32(reader["RouteID"]),
                     RouteName = reader["RouteName"].ToString() ?? ""

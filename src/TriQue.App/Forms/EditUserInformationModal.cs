@@ -46,7 +46,7 @@ namespace TriQue
             txtPhoneNumber.Text = d.PhoneNumber;
             cboRole.SelectedIndex = d.RoleID == 2 ? 1 : 0;
 
-            foreach (RouteItem item in cboAssignedRoute.Items)
+            foreach (RouteDto item in cboAssignedRoute.Items)
                 if (item.RouteID == d.RouteID)
                 { cboAssignedRoute.SelectedItem = item; break; }
 
@@ -67,7 +67,7 @@ namespace TriQue
             string name = txtFullName.Text.Trim();
             string phone = txtPhoneNumber.Text.Trim();
             int roleID = cboRole.SelectedIndex == 0 ? 1 : 2;
-            int routeID = cboAssignedRoute.SelectedItem is RouteItem ri ? ri.RouteID : 0;
+            int routeID = cboAssignedRoute.SelectedItem is RouteDto ri ? ri.RouteID : 0;
             int levelID = cboAdminLevel.SelectedIndex + 1;
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(phone))

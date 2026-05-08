@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TriQue.DTOs
 {
-    public class RouteItem
+    public class RouteDto
     {
         public int RouteID { get; set; }
         public string RouteName { get; set; } = "";
