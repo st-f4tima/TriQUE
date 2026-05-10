@@ -1,5 +1,6 @@
 ﻿using TriQue.Data.Repositories;
 using TriQue.DTOs;
+using TriQue.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
@@ -19,10 +20,11 @@ namespace TriQue
 
         private void LoadRoutes()
         {
-            var routes = _repo.GetAllRoutes();
-            cboAssignedRoute.DataSource = routes;
-            cboAssignedRoute.DisplayMember = "RouteName";
-            cboAssignedRoute.ValueMember = "RouteID";
+            var driverRepo = new DriverRepository();
+            var groups = driverRepo.GetAllGroups();
+            cboAssignedGroup.DataSource = groups;
+            cboAssignedGroup.DisplayMember = "GroupName";
+            cboAssignedGroup.ValueMember = "GroupID";
 
             cboRole.Items.Clear();
             cboRole.Items.AddRange(new[] { "Driver", "Admin" });
@@ -36,7 +38,7 @@ namespace TriQue
         {
             bool isDriver = cboRole.SelectedIndex == 0;
             lblAssignedRoute.Visible = isDriver;
-            cboAssignedRoute.Visible = isDriver;
+            cboAssignedGroup.Visible = isDriver;
             lblAdminLevel.Visible = !isDriver;
             cboAdminLevel.Visible = !isDriver;
         }
@@ -57,18 +59,18 @@ namespace TriQue
                 return;
             }
 
-            int routeID = 0;
+            int groupID = 0;
             int levelID = 3;
 
             if (isDriver)
             {
-                if (cboAssignedRoute.SelectedItem is not RouteDto ri)
+                if (cboAssignedGroup.SelectedItem is not DriverGroup dg)
                 {
-                    MessageBox.Show("Please select a route.", "Validation",
+                    MessageBox.Show("Please select a group.", "Validation",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                routeID = ri.RouteID;
+                groupID = dg.GroupID; 
             }
             else
             {
@@ -77,7 +79,7 @@ namespace TriQue
 
             try
             {
-                var result = _repo.AddUser(fn, ln, phone, roleID, routeID, levelID);
+                var result = _repo.AddUser(fn, ln, phone, roleID, groupID, levelID);
 
                 MessageBox.Show(
                     "User added successfully!\n\n" +
@@ -88,6 +90,7 @@ namespace TriQue
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
+                DialogResult = DialogResult.OK;
                 Close();
             }
             catch (Exception ex)

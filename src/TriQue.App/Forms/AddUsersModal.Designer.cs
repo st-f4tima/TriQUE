@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUsersModal));
             lblUserFirstName = new Label();
             lblUserLastName = new Label();
@@ -50,7 +50,7 @@
             lblAssignedRoute = new Label();
             AddBtn = new Guna.UI2.WinForms.Guna2Button();
             cboRole = new Guna.UI2.WinForms.Guna2ComboBox();
-            cboAssignedRoute = new Guna.UI2.WinForms.Guna2ComboBox();
+            cboAssignedGroup = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             txtFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             txtLastName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -114,16 +114,16 @@
             lblAssignedRoute.ForeColor = Color.FromArgb(84, 84, 84);
             lblAssignedRoute.Location = new Point(18, 213);
             lblAssignedRoute.Name = "lblAssignedRoute";
-            lblAssignedRoute.Size = new Size(147, 20);
+            lblAssignedRoute.Size = new Size(149, 20);
             lblAssignedRoute.TabIndex = 5;
-            lblAssignedRoute.Text = "Assigned Route:";
+            lblAssignedRoute.Text = "Assigned Group:";
             lblAssignedRoute.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // AddBtn
             // 
             AddBtn.BackColor = Color.White;
             AddBtn.BorderRadius = 15;
-            AddBtn.CustomizableEdges = customizableEdges1;
+            AddBtn.CustomizableEdges = customizableEdges15;
             AddBtn.DisabledState.BorderColor = Color.DarkGray;
             AddBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             AddBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -133,7 +133,7 @@
             AddBtn.ForeColor = Color.White;
             AddBtn.Location = new Point(426, 313);
             AddBtn.Name = "AddBtn";
-            AddBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            AddBtn.ShadowDecoration.CustomizableEdges = customizableEdges16;
             AddBtn.Size = new Size(119, 43);
             AddBtn.TabIndex = 10;
             AddBtn.Text = "Add";
@@ -144,7 +144,7 @@
             cboRole.BackColor = Color.Transparent;
             cboRole.BorderColor = Color.DarkGray;
             cboRole.BorderRadius = 5;
-            cboRole.CustomizableEdges = customizableEdges3;
+            cboRole.CustomizableEdges = customizableEdges17;
             cboRole.DrawMode = DrawMode.OwnerDrawFixed;
             cboRole.DropDownStyle = ComboBoxStyle.DropDownList;
             cboRole.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -154,28 +154,28 @@
             cboRole.ItemHeight = 30;
             cboRole.Location = new Point(215, 154);
             cboRole.Name = "cboRole";
-            cboRole.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            cboRole.ShadowDecoration.CustomizableEdges = customizableEdges18;
             cboRole.Size = new Size(330, 36);
             cboRole.TabIndex = 11;
             // 
-            // cboAssignedRoute
+            // cboAssignedGroup
             // 
-            cboAssignedRoute.BackColor = Color.Transparent;
-            cboAssignedRoute.BorderColor = Color.DarkGray;
-            cboAssignedRoute.BorderRadius = 5;
-            cboAssignedRoute.CustomizableEdges = customizableEdges5;
-            cboAssignedRoute.DrawMode = DrawMode.OwnerDrawFixed;
-            cboAssignedRoute.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboAssignedRoute.FocusedColor = Color.FromArgb(94, 148, 255);
-            cboAssignedRoute.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cboAssignedRoute.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            cboAssignedRoute.ForeColor = Color.FromArgb(91, 91, 91);
-            cboAssignedRoute.ItemHeight = 30;
-            cboAssignedRoute.Location = new Point(215, 197);
-            cboAssignedRoute.Name = "cboAssignedRoute";
-            cboAssignedRoute.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            cboAssignedRoute.Size = new Size(330, 36);
-            cboAssignedRoute.TabIndex = 12;
+            cboAssignedGroup.BackColor = Color.Transparent;
+            cboAssignedGroup.BorderColor = Color.DarkGray;
+            cboAssignedGroup.BorderRadius = 5;
+            cboAssignedGroup.CustomizableEdges = customizableEdges19;
+            cboAssignedGroup.DrawMode = DrawMode.OwnerDrawFixed;
+            cboAssignedGroup.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboAssignedGroup.FocusedColor = Color.FromArgb(94, 148, 255);
+            cboAssignedGroup.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cboAssignedGroup.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            cboAssignedGroup.ForeColor = Color.FromArgb(91, 91, 91);
+            cboAssignedGroup.ItemHeight = 30;
+            cboAssignedGroup.Location = new Point(215, 197);
+            cboAssignedGroup.Name = "cboAssignedGroup";
+            cboAssignedGroup.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            cboAssignedGroup.Size = new Size(330, 36);
+            cboAssignedGroup.TabIndex = 12;
             // 
             // guna2ContextMenuStrip1
             // 
@@ -196,7 +196,7 @@
             // 
             txtFirstName.BorderColor = Color.DarkGray;
             txtFirstName.BorderRadius = 5;
-            txtFirstName.CustomizableEdges = customizableEdges7;
+            txtFirstName.CustomizableEdges = customizableEdges21;
             txtFirstName.DefaultText = "";
             txtFirstName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtFirstName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -207,11 +207,11 @@
             txtFirstName.ForeColor = Color.FromArgb(91, 91, 91);
             txtFirstName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtFirstName.Location = new Point(215, 30);
-            txtFirstName.Margin = new Padding(4, 4, 4, 4);
+            txtFirstName.Margin = new Padding(4);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.PlaceholderText = "";
             txtFirstName.SelectedText = "";
-            txtFirstName.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            txtFirstName.ShadowDecoration.CustomizableEdges = customizableEdges22;
             txtFirstName.Size = new Size(330, 33);
             txtFirstName.TabIndex = 14;
             // 
@@ -219,7 +219,7 @@
             // 
             txtLastName.BorderColor = Color.DarkGray;
             txtLastName.BorderRadius = 5;
-            txtLastName.CustomizableEdges = customizableEdges9;
+            txtLastName.CustomizableEdges = customizableEdges23;
             txtLastName.DefaultText = "";
             txtLastName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtLastName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -230,11 +230,11 @@
             txtLastName.ForeColor = Color.FromArgb(91, 91, 91);
             txtLastName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtLastName.Location = new Point(215, 71);
-            txtLastName.Margin = new Padding(4, 4, 4, 4);
+            txtLastName.Margin = new Padding(4);
             txtLastName.Name = "txtLastName";
             txtLastName.PlaceholderText = "";
             txtLastName.SelectedText = "";
-            txtLastName.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txtLastName.ShadowDecoration.CustomizableEdges = customizableEdges24;
             txtLastName.Size = new Size(330, 33);
             txtLastName.TabIndex = 15;
             // 
@@ -242,7 +242,7 @@
             // 
             txtPhoneNumber.BorderColor = Color.DarkGray;
             txtPhoneNumber.BorderRadius = 5;
-            txtPhoneNumber.CustomizableEdges = customizableEdges11;
+            txtPhoneNumber.CustomizableEdges = customizableEdges25;
             txtPhoneNumber.DefaultText = "";
             txtPhoneNumber.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtPhoneNumber.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -253,11 +253,11 @@
             txtPhoneNumber.ForeColor = Color.FromArgb(91, 91, 91);
             txtPhoneNumber.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtPhoneNumber.Location = new Point(215, 114);
-            txtPhoneNumber.Margin = new Padding(4, 4, 4, 4);
+            txtPhoneNumber.Margin = new Padding(4);
             txtPhoneNumber.Name = "txtPhoneNumber";
             txtPhoneNumber.PlaceholderText = "";
             txtPhoneNumber.SelectedText = "";
-            txtPhoneNumber.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            txtPhoneNumber.ShadowDecoration.CustomizableEdges = customizableEdges26;
             txtPhoneNumber.Size = new Size(330, 33);
             txtPhoneNumber.TabIndex = 16;
             // 
@@ -266,7 +266,7 @@
             cboAdminLevel.BackColor = Color.Transparent;
             cboAdminLevel.BorderColor = Color.DarkGray;
             cboAdminLevel.BorderRadius = 5;
-            cboAdminLevel.CustomizableEdges = customizableEdges13;
+            cboAdminLevel.CustomizableEdges = customizableEdges27;
             cboAdminLevel.DrawMode = DrawMode.OwnerDrawFixed;
             cboAdminLevel.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAdminLevel.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -276,7 +276,7 @@
             cboAdminLevel.ItemHeight = 30;
             cboAdminLevel.Location = new Point(215, 239);
             cboAdminLevel.Name = "cboAdminLevel";
-            cboAdminLevel.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            cboAdminLevel.ShadowDecoration.CustomizableEdges = customizableEdges28;
             cboAdminLevel.Size = new Size(330, 36);
             cboAdminLevel.TabIndex = 17;
             // 
@@ -302,7 +302,7 @@
             Controls.Add(txtPhoneNumber);
             Controls.Add(txtLastName);
             Controls.Add(txtFirstName);
-            Controls.Add(cboAssignedRoute);
+            Controls.Add(cboAssignedGroup);
             Controls.Add(cboRole);
             Controls.Add(AddBtn);
             Controls.Add(lblAssignedRoute);
@@ -332,7 +332,7 @@
         private Label lblAssignedRoute;
         private Guna.UI2.WinForms.Guna2Button AddBtn;
         private Guna.UI2.WinForms.Guna2ComboBox cboRole;
-        private Guna.UI2.WinForms.Guna2ComboBox cboAssignedRoute;
+        private Guna.UI2.WinForms.Guna2ComboBox cboAssignedGroup;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
         private Guna.UI2.WinForms.Guna2TextBox txtFirstName;
         private Guna.UI2.WinForms.Guna2TextBox txtLastName;
