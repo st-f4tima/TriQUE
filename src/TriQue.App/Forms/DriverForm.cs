@@ -19,6 +19,7 @@ namespace TriQue.Forms
         private int _userID;
         private int _routeId;
         private bool _mapLoaded = false;
+        private bool _goalMessageShown = false;
 
         public DriverForm(int userID)
         {
@@ -66,15 +67,7 @@ namespace TriQue.Forms
             lblEarningsGoal.Text = $"Goal: {_data.Driver.GoalEarnings.ToString("₱ 0")}";
 
             // progress bar
-            int goal = (int)_data.Driver.GoalEarnings;
-            int actual = (int)_data.ActualEarnings;
-
-            ProgressBar.Minimum = 0;
-            ProgressBar.Maximum = goal > 0 ? goal : 1;
-            ProgressBar.Value = Math.Min(actual, ProgressBar.Maximum);
-            int percent = goal > 0 ? (int)Math.Min((double)actual / goal * 100, 100) : 0;
-            ProgressBar.Maximum = 100;
-            ProgressBar.Value = percent;
+            UpdateProgressBar();
 
             // stats
             lblTotalTripsValue.Text = _data.CompletedTrips.ToString();
@@ -88,6 +81,54 @@ namespace TriQue.Forms
             lblTotalDistanceValue.Text = $"{_data.TotalDistance} km";
             LoadDataGrid();
 
+        }
+
+        private void UpdateProgressBar()
+        {
+            int goal = (int)_data.Driver.GoalEarnings;
+            int actual = (int)_data.ActualEarnings;
+            int percent = goal > 0 ? (int)Math.Min((double)actual / goal * 100, 100) : 0;
+
+            ProgressBar.Minimum = 0;
+            ProgressBar.Maximum = 100;
+            ProgressBar.Value = percent;
+
+            UpdateProgressBarColor(percent);
+        }
+
+        private void UpdateProgressBarColor(int percent)
+        {
+            if (percent >= 100)
+            {
+                ProgressBar.ProgressColorA = Color.FromArgb(34, 139, 34);
+                ProgressBar.ProgressColorB = Color.FromArgb(0, 200, 0);
+                ShowGoalReachedMessage();
+            }
+            else if (percent >= 60)
+            {
+                ProgressBar.ProgressColorA = Color.FromArgb(255, 140, 0);
+                ProgressBar.ProgressColorB = Color.FromArgb(255, 200, 0);
+                _goalMessageShown = false;
+            }
+            else
+            {
+                ProgressBar.ProgressColorA = Color.FromArgb(197, 34, 34);
+                ProgressBar.ProgressColorB = Color.FromArgb(255, 80, 80);
+                _goalMessageShown = false;
+            }
+        }
+
+        private void ShowGoalReachedMessage()
+        {
+            if (_goalMessageShown) return;
+
+            _goalMessageShown = true;
+            MessageBox.Show(
+                $"🎉 Congratulations, {_data.User.FirstName}!\nYou've reached your daily earnings goal!",
+                "Goal Reached!",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
 
         private void LoadDataGrid()
