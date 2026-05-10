@@ -16,6 +16,8 @@ namespace TriQue.DTOs
         public string BodyNumber { get; set; } = "";
         public string AssignedRoute { get; set; } = "—";
         public int RouteID { get; set; }
+        public int GroupID { get; set; } 
+        public string GroupName { get; set; } = "—";
         public string Status { get; set; } = "Active";
     }
 }

@@ -328,40 +328,38 @@ namespace TriQue.Data.Repositories
             };
         }
 
-        public void UpdateUser(int userID, string fullName, string phone, int roleID, int routeID)
+        public void UpdateUser(int userID, string fullName, string phone, int roleID, int groupID, int levelID)
         {
             string[] parts = fullName.Trim().Split(' ', 2);
             string firstName = parts[0];
             string lastName = parts.Length > 1 ? parts[1] : "";
 
-            string query = @"
+            _dbHelper.ExecuteNonQuery(@"
                 UPDATE User
                 SET FirstName = @fn, LastName = @ln, PhoneNumber = @phone, RoleID = @role
-                WHERE UserID = @id";
+                WHERE UserID = @id",
+                        new SqliteParameter("@fn", firstName),
+                        new SqliteParameter("@ln", lastName),
+                        new SqliteParameter("@phone", phone),
+                        new SqliteParameter("@role", roleID),
+                        new SqliteParameter("@id", userID));
 
-            _dbHelper.ExecuteNonQuery(query,
-                new SqliteParameter("@fn", firstName),
-                new SqliteParameter("@ln", lastName),
-                new SqliteParameter("@phone", phone),
-                new SqliteParameter("@role", roleID),
-                new SqliteParameter("@id", userID));
-
-            // update driver group if applicable
             if (roleID == 1)
             {
-                string groupQuery = "SELECT AssignedGroup FROM Route WHERE RouteID = @rid LIMIT 1";
-                
-                var groupID = Convert.ToInt32(_dbHelper.ExecuteScalar(groupQuery,
-                    new SqliteParameter("@rid", routeID)));
-
-                string driverQuery = @"
-                UPDATE Driver SET GroupID = @gid WHERE UserID = @uid";
-
-                _dbHelper.ExecuteNonQuery(driverQuery,
+                _dbHelper.ExecuteNonQuery(
+                    "UPDATE Driver SET GroupID = @gid WHERE UserID = @uid",
                     new SqliteParameter("@gid", groupID),
                     new SqliteParameter("@uid", userID));
             }
+            else if (roleID == 2)
+            {
+                _dbHelper.ExecuteNonQuery(
+                    "UPDATE Admin SET LevelID = @lid WHERE UserID = @uid",
+                    new SqliteParameter("@lid", levelID),
+                    new SqliteParameter("@uid", userID));
+            }
         }
+
 
         public void DeleteUser(int userID)
         {

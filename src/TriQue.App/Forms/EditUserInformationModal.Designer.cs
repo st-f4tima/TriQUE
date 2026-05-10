@@ -97,9 +97,9 @@
             lblAssignedRoute.ForeColor = Color.FromArgb(84, 84, 84);
             lblAssignedRoute.Location = new Point(21, 162);
             lblAssignedRoute.Name = "lblAssignedRoute";
-            lblAssignedRoute.Size = new Size(147, 20);
+            lblAssignedRoute.Size = new Size(149, 20);
             lblAssignedRoute.TabIndex = 3;
-            lblAssignedRoute.Text = "Assigned Route:";
+            lblAssignedRoute.Text = "Assigned Group:";
             // 
             // UpdateBtn
             // 
