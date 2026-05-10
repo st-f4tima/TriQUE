@@ -216,22 +216,22 @@ namespace TriQue.Data.Repositories
 
         public UserDetailDto? GetUserDetail(int userID)
         {
-            string query = @"
+           string query = @"
                 SELECT
-                u.UserID,
-                u.FirstName || ' ' || u.LastName AS FullName,
-                u.FirstName, u.LastName,
-                u.PhoneNumber,
-                r.RoleName,
-                u.RoleID,
-                d.BodyNumber,
-                ro.RouteName AS AssignedRoute,
-                ro.RouteID,
-                COALESCE(ds.StatusName, 'Active') AS Status
+                    u.UserID,
+                    u.FirstName || ' ' || u.LastName AS FullName,
+                    u.FirstName, u.LastName,
+                    u.PhoneNumber,
+                    r.RoleName,
+                    u.RoleID,
+                    d.BodyNumber,
+                    COALESCE(d.GroupID, 0) AS GroupID,
+                    COALESCE(dg.GroupName, '—') AS GroupName,
+                    COALESCE(ds.StatusName, 'Active') AS Status
                 FROM User u
                 JOIN UserRole r ON u.RoleID = r.RoleID
                 LEFT JOIN Driver d ON d.UserID = u.UserID
-                LEFT JOIN Route ro ON ro.AssignedGroup = d.GroupID
+                LEFT JOIN DriverGroup dg ON dg.GroupID = d.GroupID
                 LEFT JOIN DriverStatus ds ON ds.StatusID = d.StatusID
                 WHERE u.UserID = @id LIMIT 1";
 
@@ -249,8 +249,8 @@ namespace TriQue.Data.Repositories
                 RoleName = reader["RoleName"].ToString() ?? "",
                 RoleID = Convert.ToInt32(reader["RoleID"]),
                 BodyNumber = reader["BodyNumber"] == DBNull.Value ? "" : reader["BodyNumber"].ToString()!,
-                AssignedRoute = reader["AssignedRoute"] == DBNull.Value ? "—" : reader["AssignedRoute"].ToString()!,
-                RouteID = reader["RouteID"] == DBNull.Value ? 0 : Convert.ToInt32(reader["RouteID"]),
+                GroupID = Convert.ToInt32(reader["GroupID"]),  
+                GroupName = reader["GroupName"].ToString() ?? "—",
                 Status = reader["Status"].ToString() ?? "Active"
             };
         }
@@ -328,40 +328,38 @@ namespace TriQue.Data.Repositories
             };
         }
 
-        public void UpdateUser(int userID, string fullName, string phone, int roleID, int routeID)
+        public void UpdateUser(int userID, string fullName, string phone, int roleID, int groupID, int levelID)
         {
             string[] parts = fullName.Trim().Split(' ', 2);
             string firstName = parts[0];
             string lastName = parts.Length > 1 ? parts[1] : "";
 
-            string query = @"
+            _dbHelper.ExecuteNonQuery(@"
                 UPDATE User
                 SET FirstName = @fn, LastName = @ln, PhoneNumber = @phone, RoleID = @role
-                WHERE UserID = @id";
+                WHERE UserID = @id",
+                        new SqliteParameter("@fn", firstName),
+                        new SqliteParameter("@ln", lastName),
+                        new SqliteParameter("@phone", phone),
+                        new SqliteParameter("@role", roleID),
+                        new SqliteParameter("@id", userID));
 
-            _dbHelper.ExecuteNonQuery(query,
-                new SqliteParameter("@fn", firstName),
-                new SqliteParameter("@ln", lastName),
-                new SqliteParameter("@phone", phone),
-                new SqliteParameter("@role", roleID),
-                new SqliteParameter("@id", userID));
-
-            // update driver group if applicable
             if (roleID == 1)
             {
-                string groupQuery = "SELECT AssignedGroup FROM Route WHERE RouteID = @rid LIMIT 1";
-                
-                var groupID = Convert.ToInt32(_dbHelper.ExecuteScalar(groupQuery,
-                    new SqliteParameter("@rid", routeID)));
-
-                string driverQuery = @"
-                UPDATE Driver SET GroupID = @gid WHERE UserID = @uid";
-
-                _dbHelper.ExecuteNonQuery(driverQuery,
+                _dbHelper.ExecuteNonQuery(
+                    "UPDATE Driver SET GroupID = @gid WHERE UserID = @uid",
                     new SqliteParameter("@gid", groupID),
                     new SqliteParameter("@uid", userID));
             }
+            else if (roleID == 2)
+            {
+                _dbHelper.ExecuteNonQuery(
+                    "UPDATE Admin SET LevelID = @lid WHERE UserID = @uid",
+                    new SqliteParameter("@lid", levelID),
+                    new SqliteParameter("@uid", userID));
+            }
         }
+
 
         public void DeleteUser(int userID)
         {

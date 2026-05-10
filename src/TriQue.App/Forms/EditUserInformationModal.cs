@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using TriQue.Data.Repositories;
-using TriQue.DTOs;
+﻿using TriQue.Data.Repositories;
+using TriQue.Models;
 
 namespace TriQue
 {
@@ -31,10 +24,11 @@ namespace TriQue
             cboAdminLevel.Items.Clear();
             cboAdminLevel.Items.AddRange(new[] { "SuperAdmin", "TodaOfficer", "Staff" });
 
-            var routes = _repo.GetAllRoutes();
-            cboAssignedRoute.DataSource = routes;
-            cboAssignedRoute.DisplayMember = "RouteName";
-            cboAssignedRoute.ValueMember = "RouteID";
+            var driverRepo = new DriverRepository();
+            var groups = driverRepo.GetAllGroups();
+            cboAssignedRoute.DataSource = groups;
+            cboAssignedRoute.DisplayMember = "GroupName";
+            cboAssignedRoute.ValueMember = "GroupID";
         }
 
         private void LoadData()
@@ -46,11 +40,15 @@ namespace TriQue
             txtPhoneNumber.Text = d.PhoneNumber;
             cboRole.SelectedIndex = d.RoleID == 2 ? 1 : 0;
 
-            foreach (RouteDto item in cboAssignedRoute.Items)
-                if (item.RouteID == d.RouteID)
-                { cboAssignedRoute.SelectedItem = item; break; }
+            CboRole_Changed(null, EventArgs.Empty); 
 
-            CboRole_Changed(null, EventArgs.Empty);
+            cboAssignedRoute.SelectedValue = d.GroupID; 
+
+            if (d.RoleID == 2)
+            {
+                int adminLevel = _repo.GetAdminLevel(_userID);
+                cboAdminLevel.SelectedIndex = adminLevel - 1;
+            }
         }
 
         private void CboRole_Changed(object? sender, EventArgs e)
@@ -67,8 +65,9 @@ namespace TriQue
             string name = txtFullName.Text.Trim();
             string phone = txtPhoneNumber.Text.Trim();
             int roleID = cboRole.SelectedIndex == 0 ? 1 : 2;
-            int routeID = cboAssignedRoute.SelectedItem is RouteDto ri ? ri.RouteID : 0;
-            int levelID = cboAdminLevel.SelectedIndex + 1;
+            int groupID = cboAssignedRoute.SelectedItem is DriverGroup g ? g.GroupID : 0; 
+            int levelID = cboAdminLevel.SelectedIndex + 1; 
+
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(phone))
             {
@@ -79,7 +78,7 @@ namespace TriQue
 
             try
             {
-                _repo.UpdateUser(_userID, name, phone, roleID, routeID);
+                _repo.UpdateUser(_userID, name, phone, roleID, groupID, levelID);
                 MessageBox.Show("User updated successfully.", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
@@ -91,7 +90,6 @@ namespace TriQue
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             var confirm = MessageBox.Show(

@@ -39,5 +39,9 @@ public static class ModalAnimator
 
         modal.Location = new Point(finalX, finalY);
         modal.Opacity = 1;
+
+        var tcs = new TaskCompletionSource<bool>();
+        modal.FormClosed += (s, e) => tcs.SetResult(true);
+        await tcs.Task;
     }
 }
