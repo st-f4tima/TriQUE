@@ -11,12 +11,14 @@ namespace TriQue.Forms
     {
         private int _userID;
         private readonly DriverRepository _driverRepo;
+        private RotationService _rotationService;
 
         public DriverSettings(int userID)
         {
             InitializeComponent();
             _userID = userID;
             _driverRepo = new DriverRepository();
+            _rotationService = new RotationService();
 
             LoadDriverInfo();
         }
@@ -26,10 +28,15 @@ namespace TriQue.Forms
             var info = _driverRepo.GetDriverSettings(_userID);
             if (info == null) return;
 
+            var driver = _driverRepo.GetByUserID(_userID);
+            if (driver == null) return;
+
+            var todayRoute = _rotationService.GetTodayRoute(driver.GroupID);
+
             lblDriverName.Text = info.Value.FullName;
             lblBodyNumber.Text = "Body No. " + info.Value.BodyNumber;
             lblContactNumberValue.Text = info.Value.PhoneNumber;
-            lblAssignedRouteValue.Text = info.Value.RouteName;
+            lblAssignedRouteValue.Text = todayRoute?.RouteName ?? "No Route";
             lblGroupNameValue.Text = info.Value.GroupName;
             lblRoleValue.Text = "Driver";
             lblCurrentStatusValue.Text = info.Value.StatusName;

@@ -92,9 +92,6 @@ namespace TriQue.Forms
                     "Finished" => Color.FromArgb(0, 123, 255),
                     _ => Color.Gray
                 };
-
-
-
             }
 
             var group = _driverRepo.GetByUserID(_userID);
