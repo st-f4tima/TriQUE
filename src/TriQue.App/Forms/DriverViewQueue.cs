@@ -11,6 +11,7 @@ namespace TriQue.Forms
         private QueueRepository _queueRepo;
         private DriverRepository _driverRepo;
         private TripService _tripService;
+        private RotationService _rotationService;
 
         private int _routeId;
         private int _userID;
@@ -27,6 +28,7 @@ namespace TriQue.Forms
             _queueRepo = new QueueRepository();
             _driverRepo = new DriverRepository();
             _tripService = new TripService();
+            _rotationService = new RotationService();
 
             var driver = _driverRepo.GetByUserID(_userID);
             if (driver != null)
@@ -90,6 +92,21 @@ namespace TriQue.Forms
                     "Finished" => Color.FromArgb(0, 123, 255),
                     _ => Color.Gray
                 };
+            }
+
+            var group = _driverRepo.GetByUserID(_userID);
+
+            if (group != null)
+            {
+                var todayRoute = _rotationService.GetTodayRoute(group.GroupID);
+
+                if (todayRoute != null)
+                {
+                    lblRouteValue.Text = todayRoute.RouteName;
+                } else
+                {
+                    lblRouteValue.Text = "-";
+                }
             }
 
             DataGridQueueStatus.DataSource = _queueRepo.GetQueueDrivers(_queueId);

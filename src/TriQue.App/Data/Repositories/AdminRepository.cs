@@ -176,56 +176,6 @@ namespace TriQue.Data.Repositories
                 : AdminLevel.Staff; 
         }
 
-        public DataTable GetQueueByRouteID(int routeID)
-        {
-            string query = @"
-                SELECT 
-                CASE 
-                WHEN qe.Position IS NOT NULL THEN CAST(qe.Position AS TEXT)
-                ELSE '-'
-                END AS Ranking,
-                d.BodyNumber,
-                u.FirstName || ' ' || u.LastName AS DriverName,
-                ds.StatusName AS TripStatus,
-                d.DriverID
-                FROM Driver d
-                JOIN User u ON d.UserID = u.UserID
-                JOIN DriverStatus ds ON d.StatusID = ds.StatusID
-                JOIN DriverGroup dg ON d.GroupID = dg.GroupID
-                JOIN Route r ON r.AssignedGroup = dg.GroupID
-                LEFT JOIN Queue q ON q.RouteID = r.RouteID
-                LEFT JOIN QueueEntry qe ON qe.QueueID = q.QueueID 
-                AND qe.DriverID = d.DriverID
-                WHERE r.RouteID = @routeID
-                ORDER BY 
-                CASE WHEN qe.Position IS NULL THEN 1 ELSE 0 END,
-                qe.Position
-        ";
-
-            using var reader = _dbHelper.ExecuteReader(query,
-                new SqliteParameter("@routeID", routeID));
-
-            var table = new DataTable();
-            table.Columns.Add("Ranking", typeof(string));
-            table.Columns.Add("BodyNumber", typeof(string));
-            table.Columns.Add("DriverName", typeof(string));
-            table.Columns.Add("TripStatus", typeof(string));
-            table.Columns.Add("DriverID", typeof(int));
-
-            while (reader.Read())
-            {
-                table.Rows.Add(
-                    reader.GetString(0),
-                    reader.GetString(1),
-                    reader.GetString(2),
-                    reader.GetString(3),
-                    reader.GetInt32(4)
-                );
-            }
-
-            return table;
-        }
-
         public void UpdateDriverStatus(int driverID, int statusID)
         {
             string query = @"
@@ -316,6 +266,54 @@ namespace TriQue.Data.Repositories
             DataTable dt = new DataTable();
             dt.Load(cmd.ExecuteReader());
             return dt;
+        }
+
+        public DataTable GetQueueByGroupID(int groupID, int routeID)
+        {
+            string query = @"
+                SELECT 
+                    CASE 
+                        WHEN qe.Position IS NOT NULL THEN CAST(qe.Position AS TEXT)
+                        ELSE '-'
+                    END AS Ranking,
+                    d.BodyNumber,
+                    u.FirstName || ' ' || u.LastName AS DriverName,
+                    ds.StatusName AS TripStatus,
+                    d.DriverID
+                FROM Driver d
+                JOIN User u ON d.UserID = u.UserID
+                JOIN DriverStatus ds ON d.StatusID = ds.StatusID
+                LEFT JOIN Queue q ON q.RouteID = @routeID
+                LEFT JOIN QueueEntry qe ON qe.QueueID = q.QueueID 
+                    AND qe.DriverID = d.DriverID
+                WHERE d.GroupID = @groupID
+                ORDER BY 
+                    CASE WHEN qe.Position IS NULL THEN 1 ELSE 0 END,
+                    qe.Position";
+
+            using var reader = _dbHelper.ExecuteReader(query,
+                new SqliteParameter("@groupID", groupID),
+                new SqliteParameter("@routeID", routeID));
+
+            var table = new DataTable();
+            table.Columns.Add("Ranking", typeof(string));
+            table.Columns.Add("BodyNumber", typeof(string));
+            table.Columns.Add("DriverName", typeof(string));
+            table.Columns.Add("TripStatus", typeof(string));
+            table.Columns.Add("DriverID", typeof(int));
+
+            while (reader.Read())
+            {
+                table.Rows.Add(
+                    reader.GetString(0),
+                    reader.GetString(1),
+                    reader.GetString(2),
+                    reader.GetString(3),
+                    reader.GetInt32(4)
+                );
+            }
+
+            return table;
         }
     }
 }

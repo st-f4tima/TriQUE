@@ -177,16 +177,17 @@ namespace TriQue.Data.Repositories
         {
             string query = @"
                 SELECT
-                u.UserID,
-                u.FirstName || ' ' || u.LastName AS FullName,
-                u.PhoneNumber,
-                r.RoleName,
-                ro.RouteName AS AssignedRoute,
-                CASE WHEN ds.StatusName IS NULL THEN 'Active' ELSE ds.StatusName END AS Status
+                    u.UserID,
+                    u.FirstName || ' ' || u.LastName AS FullName,
+                    u.PhoneNumber,
+                    r.RoleName,
+                    COALESCE(d.GroupID, 0) AS GroupID,
+                    COALESCE(dg.GroupName, '—') AS GroupName,
+                    CASE WHEN ds.StatusName IS NULL THEN 'Active' ELSE ds.StatusName END AS Status
                 FROM User u
                 JOIN UserRole r ON u.RoleID = r.RoleID
                 LEFT JOIN Driver d ON d.UserID = u.UserID
-                LEFT JOIN Route ro ON ro.AssignedGroup = d.GroupID
+                LEFT JOIN DriverGroup dg ON dg.GroupID = d.GroupID
                 LEFT JOIN DriverStatus ds ON ds.StatusID = d.StatusID
                 WHERE (u.FirstName || ' ' || u.LastName) LIKE @search
                 OR u.Username LIKE @search
@@ -204,7 +205,9 @@ namespace TriQue.Data.Repositories
                     FullName = reader["FullName"].ToString() ?? "",
                     PhoneNumber = reader["PhoneNumber"].ToString() ?? "",
                     RoleName = reader["RoleName"].ToString() ?? "",
-                    AssignedRoute = reader["AssignedRoute"] == DBNull.Value ? "—" : reader["AssignedRoute"].ToString()!,
+                    GroupID = Convert.ToInt32(reader["GroupID"]),
+                    GroupName = reader["GroupName"].ToString() ?? "—",
+                    AssignedRoute = "",
                     Status = reader["Status"].ToString() ?? "Active"
                 });
             }

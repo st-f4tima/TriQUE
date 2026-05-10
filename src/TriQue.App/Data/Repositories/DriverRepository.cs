@@ -159,5 +159,25 @@ namespace TriQue.Data.Repositories
 
             return drivers;
         }
+
+        public List<DriverGroup> GetAllGroups()
+        {
+            string query = "SELECT GroupID, GroupName, RotationDay FROM DriverGroup";
+            var groups = new List<DriverGroup>();
+
+            using var reader = _dbHelper.ExecuteReader(query);
+
+            while (reader.Read())
+            {
+                groups.Add(new DriverGroup
+                {
+                    GroupID = Convert.ToInt32(reader["GroupID"]),
+                    GroupName = reader["GroupName"].ToString(),
+                    GroupRotationDay = (RotationDay)Convert.ToInt32(reader["RotationDay"])
+                });
+            }
+
+            return groups;
+        }
     }
 }
