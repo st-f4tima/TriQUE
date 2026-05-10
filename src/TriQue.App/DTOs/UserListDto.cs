@@ -10,7 +10,9 @@ namespace TriQue.DTOs
         public string FullName { get; set; } = "";
         public string PhoneNumber { get; set; } = "";
         public string RoleName { get; set; } = "";
+        public string GroupName { get; set; }
         public string AssignedRoute { get; set; } = "—";
         public string Status { get; set; } = "Active";
+        public int GroupID { get; set; }
     }
 }

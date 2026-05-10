@@ -10,6 +10,7 @@ namespace Trique.Forms
     {
         private int _userID;
         private readonly UserRepository _repo = new();
+        private readonly RotationService _rotationService = new();
 
         public AdminManageUsers(int userID)
         {
@@ -21,6 +22,7 @@ namespace Trique.Forms
 
         private void SetupGrid()
         {
+            UserListDataGrid.ReadOnly = true;
             UserListDataGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
             UserListDataGrid.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
@@ -43,8 +45,8 @@ namespace Trique.Forms
             {
                 Name = "PhoneNumber",
                 HeaderText = "Phone #",
-                Width = 160,
-                MinimumWidth = 160,
+                Width = 140,
+                MinimumWidth = 140,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.None
             });
 
@@ -52,8 +54,17 @@ namespace Trique.Forms
             {
                 Name = "RoleName",
                 HeaderText = "Role",
-                Width = 120,
-                MinimumWidth = 120,
+                Width = 80,
+                MinimumWidth = 80,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+            });
+
+            UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "GroupName",
+                HeaderText = "Group",
+                Width = 100,
+                MinimumWidth = 100,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.None
             });
 
@@ -61,18 +72,19 @@ namespace Trique.Forms
             UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "AssignedRoute",
-                HeaderText = "Assigned Route",
-                Width = 200,
-                MinimumWidth = 200,
+                HeaderText = "Today's Route",
+                Width = 180,
+                MinimumWidth = 180,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
+
 
             UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "Status",
                 HeaderText = "Status",
-                Width = 10,
-                MinimumWidth = 100,
+                Width = 80,
+                MinimumWidth = 80,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.None
             });
 
@@ -119,16 +131,26 @@ namespace Trique.Forms
         private void LoadUsers(string search = "")
         {
             var users = _repo.GetAllUsers(search);
+            var driverRepo = new DriverRepository();
             UserListDataGrid.Rows.Clear();
 
             foreach (var u in users)
             {
+                string assignedRoute = "—";
+
+                if (u.RoleName == "Driver" && u.GroupID > 0)
+                {
+                    var todayRoute = _rotationService.GetTodayRoute(u.GroupID);
+                    assignedRoute = todayRoute?.RouteName ?? "—";
+                }
+
                 int rowIndex = UserListDataGrid.Rows.Add(
                     u.UserID,
                     u.FullName,
                     u.PhoneNumber,
                     u.RoleName,
-                    u.AssignedRoute,
+                    u.GroupName,
+                    assignedRoute,
                     u.Status
                 );
 
