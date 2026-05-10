@@ -22,11 +22,16 @@ namespace Trique.Forms
             _routeID = routeID;
             _userID = userID;
             _groupID = groupID;
- 
+
+            // modal title
+            this.Text = routeName;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             CheckAdminLevel();
             SetupGrid();
             LoadQueue();
             SetupSearch();
+
         }
 
         private void CheckAdminLevel()
