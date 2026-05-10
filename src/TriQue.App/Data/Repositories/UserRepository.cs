@@ -255,25 +255,10 @@ namespace TriQue.Data.Repositories
             };
         }
 
-        public List<RouteDto> GetAllRoutes()
-        {
-            string query = "SELECT RouteID, RouteName FROM Route ORDER BY RouteName";
-            using var reader = _dbHelper.ExecuteReader(query);
-            var list = new List<RouteDto>();
-            while (reader.Read())
-                list.Add(new RouteDto
-                {
-                    RouteID = Convert.ToInt32(reader["RouteID"]),
-                    RouteName = reader["RouteName"].ToString() ?? ""
-                });
-            return list;
-        }
-
-        public CreatedUserDto AddUser(string firstName, string lastName, string phone, int roleID, int routeID, int levelID = 3)
+        public CreatedUserDto AddUser(string firstName, string lastName, string phone, int roleID, int groupID, int levelID = 3)
         {
             string tempPassword = PasswordHelper.GenerateTempPassword();
             string hashedPassword = PasswordHelper.Hash(tempPassword);
-
             string username = (firstName.ToLower() + phone[^4..]).Replace(" ", "");
 
             string insertUser = @"
@@ -289,34 +274,23 @@ namespace TriQue.Data.Repositories
                 new SqliteParameter("@phone", phone),
                 new SqliteParameter("@role", roleID)));
 
-
             if (roleID == 1) // Driver
             {
-                // find group from route
-                string groupQuery = "SELECT AssignedGroup FROM Route WHERE RouteID = @rid LIMIT 1";
-                var groupID = Convert.ToInt32(_dbHelper.ExecuteScalar(groupQuery,
-                    new SqliteParameter("@rid", routeID)));
-
-                // get next body number
                 string bodyQuery = "SELECT COUNT(*) FROM Driver";
                 int count = Convert.ToInt32(_dbHelper.ExecuteScalar(bodyQuery)) + 1;
                 string bodyNumber = $"TN-{count:D3}";
 
-                string insertDriver = @"
+                _dbHelper.ExecuteNonQuery(@"
                     INSERT INTO Driver (UserID, GroupID, StatusID, BodyNumber)
-                    VALUES (@uid, @gid, 1, @body)";
-
-                _dbHelper.ExecuteNonQuery(insertDriver,
+                    VALUES (@uid, @gid, 1, @body)",
                     new SqliteParameter("@uid", newUserID),
-                    new SqliteParameter("@gid", groupID),
+                    new SqliteParameter("@gid", groupID), 
                     new SqliteParameter("@body", bodyNumber));
             }
             else if (roleID == 2) // Admin
             {
-                string insertAdmin = @"
-                    INSERT INTO Admin (UserID, LevelID) VALUES (@uid, @lvl)";
-
-                _dbHelper.ExecuteNonQuery(insertAdmin,
+                _dbHelper.ExecuteNonQuery(@"
+                    INSERT INTO Admin (UserID, LevelID) VALUES (@uid, @lvl)",
                     new SqliteParameter("@uid", newUserID),
                     new SqliteParameter("@lvl", levelID));
             }
