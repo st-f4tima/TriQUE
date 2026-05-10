@@ -56,7 +56,8 @@ namespace TriQue.Data.Repositories
             string query = @"
                 SELECT IFNULL(SUM(ActualEarnings), 0)
                 FROM Trip
-                WHERE DriverID = @driverID";
+                WHERE DriverID = @driverID
+                AND DATE(StartTime) = DATE('now', '+8 hours')";
 
             using var reader = _dbHelper.ExecuteReader(
                 query,
