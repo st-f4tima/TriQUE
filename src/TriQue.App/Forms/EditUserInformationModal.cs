@@ -40,17 +40,15 @@ namespace TriQue
             txtPhoneNumber.Text = d.PhoneNumber;
             cboRole.SelectedIndex = d.RoleID == 2 ? 1 : 0;
 
-            foreach (DriverGroup item in cboAssignedRoute.Items)
-                if (item.GroupID == d.GroupID)
-                { cboAssignedRoute.SelectedItem = item; break; }
+            CboRole_Changed(null, EventArgs.Empty); 
+
+            cboAssignedRoute.SelectedValue = d.GroupID; 
 
             if (d.RoleID == 2)
             {
                 int adminLevel = _repo.GetAdminLevel(_userID);
                 cboAdminLevel.SelectedIndex = adminLevel - 1;
             }
-
-            CboRole_Changed(null, EventArgs.Empty);
         }
 
         private void CboRole_Changed(object? sender, EventArgs e)
@@ -67,13 +65,9 @@ namespace TriQue
             string name = txtFullName.Text.Trim();
             string phone = txtPhoneNumber.Text.Trim();
             int roleID = cboRole.SelectedIndex == 0 ? 1 : 2;
-            int groupID = 0;
+            int groupID = cboAssignedRoute.SelectedItem is DriverGroup g ? g.GroupID : 0; 
+            int levelID = cboAdminLevel.SelectedIndex + 1; 
 
-            if (cboAssignedRoute.SelectedItem is DriverGroup g)
-            {
-                groupID = g.GroupID;
-            }
-            int levelID = cboAdminLevel.SelectedIndex + 1;
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(phone))
             {
@@ -96,7 +90,6 @@ namespace TriQue
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             var confirm = MessageBox.Show(

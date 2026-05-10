@@ -223,11 +223,8 @@ namespace Trique.Forms
             if (colName == "EditCol")
             {
                 var modal = new EditUserInformationModal(userID);
-
                 await ModalAnimator.ShowModalAsync(this, modal);
-
-                if (modal.DialogResult == DialogResult.OK)
-                    LoadUsers();
+                LoadUsers();
             }
             else if (colName == "ViewCol")
             {

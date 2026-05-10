@@ -216,22 +216,22 @@ namespace TriQue.Data.Repositories
 
         public UserDetailDto? GetUserDetail(int userID)
         {
-            string query = @"
+           string query = @"
                 SELECT
-                u.UserID,
-                u.FirstName || ' ' || u.LastName AS FullName,
-                u.FirstName, u.LastName,
-                u.PhoneNumber,
-                r.RoleName,
-                u.RoleID,
-                d.BodyNumber,
-                ro.RouteName AS AssignedRoute,
-                ro.RouteID,
-                COALESCE(ds.StatusName, 'Active') AS Status
+                    u.UserID,
+                    u.FirstName || ' ' || u.LastName AS FullName,
+                    u.FirstName, u.LastName,
+                    u.PhoneNumber,
+                    r.RoleName,
+                    u.RoleID,
+                    d.BodyNumber,
+                    COALESCE(d.GroupID, 0) AS GroupID,
+                    COALESCE(dg.GroupName, '—') AS GroupName,
+                    COALESCE(ds.StatusName, 'Active') AS Status
                 FROM User u
                 JOIN UserRole r ON u.RoleID = r.RoleID
                 LEFT JOIN Driver d ON d.UserID = u.UserID
-                LEFT JOIN Route ro ON ro.AssignedGroup = d.GroupID
+                LEFT JOIN DriverGroup dg ON dg.GroupID = d.GroupID
                 LEFT JOIN DriverStatus ds ON ds.StatusID = d.StatusID
                 WHERE u.UserID = @id LIMIT 1";
 
@@ -249,8 +249,8 @@ namespace TriQue.Data.Repositories
                 RoleName = reader["RoleName"].ToString() ?? "",
                 RoleID = Convert.ToInt32(reader["RoleID"]),
                 BodyNumber = reader["BodyNumber"] == DBNull.Value ? "" : reader["BodyNumber"].ToString()!,
-                AssignedRoute = reader["AssignedRoute"] == DBNull.Value ? "—" : reader["AssignedRoute"].ToString()!,
-                RouteID = reader["RouteID"] == DBNull.Value ? 0 : Convert.ToInt32(reader["RouteID"]),
+                GroupID = Convert.ToInt32(reader["GroupID"]),  
+                GroupName = reader["GroupName"].ToString() ?? "—",
                 Status = reader["Status"].ToString() ?? "Active"
             };
         }
