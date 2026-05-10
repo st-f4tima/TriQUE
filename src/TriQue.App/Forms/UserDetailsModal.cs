@@ -1,10 +1,12 @@
 ﻿using TriQue.Data.Repositories;
+using TriQue.Services;
 
 namespace TriQue
 {
     public partial class UserDetailsModal : Form
     {
         private readonly UserRepository _repo = new();
+        private readonly RotationService _rotationService = new();
 
         public UserDetailsModal(int userID)
         {
@@ -22,15 +24,26 @@ namespace TriQue
             lblPhoneValue.Text = d.PhoneNumber;
             lblBodyValue.Text = string.IsNullOrEmpty(d.BodyNumber) ? "—" : d.BodyNumber;
             lblRoleValue.Text = d.RoleName;
-            lblRouteValue.Text = d.AssignedRoute;
-            lblStatusValue.Text = d.Status;
+            lblGroupNameValue.Text = string.IsNullOrEmpty(d.GroupName) ? "—" : d.GroupName;
+            lblDriverStatus.Text = d.Status;
 
-            lblStatusValue.FillColor = d.Status switch
+            if (d.RoleID == 1 && d.GroupID > 0)
             {
-                "OnTrip" => Color.FromArgb(25, 135, 84),
+                var todayRoute = _rotationService.GetTodayRoute(d.GroupID);
+                lblRouteValue.Text = todayRoute?.RouteName ?? "—";
+            }
+            else
+            {
+                lblRouteValue.Text = "—";
+            }
+
+
+            lblDriverStatus.ForeColor = d.Status switch
+            {
+                "OnTrip" => Color.FromArgb(40, 167, 69),
                 "Waiting" => Color.FromArgb(255, 193, 7),
-                "Finished" => Color.FromArgb(13, 110, 253),
-                _ => Color.FromArgb(108, 117, 125)
+                "Finished" => Color.FromArgb(0, 123, 255),
+                _ => Color.FromArgb(40, 167, 69),
             };
 
             lblDriverStatus.Text = d.Status switch
@@ -40,8 +53,11 @@ namespace TriQue
                 "Finished" => "Finished",
                 _ => "Active"
             };
+        }
 
-            lblStatusValue.ForeColor = Color.White;
+        private void GroupIcon_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

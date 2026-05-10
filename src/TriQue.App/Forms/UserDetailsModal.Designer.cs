@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDetailsModal));
             UserInformationPanel = new Guna.UI2.WinForms.Guna2Panel();
+            lblGroupNameValue = new Label();
+            label1 = new Label();
+            GroupIcon = new PictureBox();
+            lblDriverStatus = new Label();
             lblPhoneValue = new Label();
             lblBodyValue = new Label();
             lblRoleValue = new Label();
             lblRouteValue = new Label();
-            lblStatusValue = new Guna.UI2.WinForms.Guna2Panel();
-            lblDriverStatus = new Label();
             StatusIcon = new PictureBox();
             MapIcon = new PictureBox();
             RoleIcon = new PictureBox();
@@ -54,7 +54,7 @@
             lblUserRole = new Label();
             lblFullName = new Label();
             UserInformationPanel.SuspendLayout();
-            lblStatusValue.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)GroupIcon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)StatusIcon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MapIcon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RoleIcon).BeginInit();
@@ -68,11 +68,14 @@
             UserInformationPanel.BorderColor = Color.DarkGray;
             UserInformationPanel.BorderRadius = 15;
             UserInformationPanel.BorderThickness = 1;
+            UserInformationPanel.Controls.Add(lblGroupNameValue);
+            UserInformationPanel.Controls.Add(label1);
+            UserInformationPanel.Controls.Add(GroupIcon);
+            UserInformationPanel.Controls.Add(lblDriverStatus);
             UserInformationPanel.Controls.Add(lblPhoneValue);
             UserInformationPanel.Controls.Add(lblBodyValue);
             UserInformationPanel.Controls.Add(lblRoleValue);
             UserInformationPanel.Controls.Add(lblRouteValue);
-            UserInformationPanel.Controls.Add(lblStatusValue);
             UserInformationPanel.Controls.Add(StatusIcon);
             UserInformationPanel.Controls.Add(MapIcon);
             UserInformationPanel.Controls.Add(RoleIcon);
@@ -83,13 +86,58 @@
             UserInformationPanel.Controls.Add(lblRole);
             UserInformationPanel.Controls.Add(lblBodyNumber);
             UserInformationPanel.Controls.Add(lblPhoneNumber);
-            UserInformationPanel.CustomizableEdges = customizableEdges3;
+            UserInformationPanel.CustomizableEdges = customizableEdges1;
             UserInformationPanel.ForeColor = Color.FromArgb(91, 91, 91);
             UserInformationPanel.Location = new Point(24, 126);
             UserInformationPanel.Name = "UserInformationPanel";
-            UserInformationPanel.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            UserInformationPanel.Size = new Size(547, 270);
+            UserInformationPanel.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            UserInformationPanel.Size = new Size(624, 303);
             UserInformationPanel.TabIndex = 0;
+            // 
+            // lblGroupNameValue
+            // 
+            lblGroupNameValue.AutoSize = true;
+            lblGroupNameValue.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGroupNameValue.Location = new Point(390, 162);
+            lblGroupNameValue.Name = "lblGroupNameValue";
+            lblGroupNameValue.Size = new Size(84, 22);
+            lblGroupNameValue.TabIndex = 17;
+            lblGroupNameValue.Text = "Group A";
+            lblGroupNameValue.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(91, 91, 91);
+            label1.Location = new Point(53, 165);
+            label1.Name = "label1";
+            label1.Size = new Size(122, 22);
+            label1.TabIndex = 16;
+            label1.Text = "Group Name";
+            // 
+            // GroupIcon
+            // 
+            GroupIcon.Image = (Image)resources.GetObject("GroupIcon.Image");
+            GroupIcon.Location = new Point(18, 162);
+            GroupIcon.Name = "GroupIcon";
+            GroupIcon.Size = new Size(25, 25);
+            GroupIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            GroupIcon.TabIndex = 15;
+            GroupIcon.TabStop = false;
+            GroupIcon.Click += GroupIcon_Click;
+            // 
+            // lblDriverStatus
+            // 
+            lblDriverStatus.AutoSize = true;
+            lblDriverStatus.BackColor = Color.Transparent;
+            lblDriverStatus.ForeColor = Color.FromArgb(91, 91, 91);
+            lblDriverStatus.Location = new Point(394, 252);
+            lblDriverStatus.Name = "lblDriverStatus";
+            lblDriverStatus.Size = new Size(72, 20);
+            lblDriverStatus.TabIndex = 10;
+            lblDriverStatus.Text = "Waiting";
+            lblDriverStatus.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblPhoneValue
             // 
@@ -129,41 +177,17 @@
             // 
             lblRouteValue.AutoSize = true;
             lblRouteValue.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblRouteValue.Location = new Point(394, 168);
+            lblRouteValue.Location = new Point(394, 206);
             lblRouteValue.Name = "lblRouteValue";
             lblRouteValue.Size = new Size(50, 22);
             lblRouteValue.TabIndex = 11;
             lblRouteValue.Text = "BSU";
             lblRouteValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblStatusValue
-            // 
-            lblStatusValue.BorderColor = Color.Black;
-            lblStatusValue.BorderRadius = 15;
-            lblStatusValue.Controls.Add(lblDriverStatus);
-            lblStatusValue.CustomizableEdges = customizableEdges1;
-            lblStatusValue.FillColor = Color.FromArgb(255, 189, 89);
-            lblStatusValue.Location = new Point(394, 214);
-            lblStatusValue.Name = "lblStatusValue";
-            lblStatusValue.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            lblStatusValue.Size = new Size(118, 34);
-            lblStatusValue.TabIndex = 10;
-            // 
-            // lblDriverStatus
-            // 
-            lblDriverStatus.AutoSize = true;
-            lblDriverStatus.BackColor = Color.Transparent;
-            lblDriverStatus.ForeColor = Color.White;
-            lblDriverStatus.Location = new Point(25, 8);
-            lblDriverStatus.Name = "lblDriverStatus";
-            lblDriverStatus.Size = new Size(72, 20);
-            lblDriverStatus.TabIndex = 10;
-            lblDriverStatus.Text = "Waiting";
-            // 
             // StatusIcon
             // 
             StatusIcon.Image = (Image)resources.GetObject("StatusIcon.Image");
-            StatusIcon.Location = new Point(12, 214);
+            StatusIcon.Location = new Point(12, 252);
             StatusIcon.Name = "StatusIcon";
             StatusIcon.Size = new Size(35, 22);
             StatusIcon.SizeMode = PictureBoxSizeMode.Zoom;
@@ -173,7 +197,7 @@
             // MapIcon
             // 
             MapIcon.Image = (Image)resources.GetObject("MapIcon.Image");
-            MapIcon.Location = new Point(12, 168);
+            MapIcon.Location = new Point(12, 206);
             MapIcon.Name = "MapIcon";
             MapIcon.Size = new Size(35, 22);
             MapIcon.SizeMode = PictureBoxSizeMode.Zoom;
@@ -215,7 +239,7 @@
             lblCurrentStatus.AutoSize = true;
             lblCurrentStatus.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCurrentStatus.ForeColor = Color.FromArgb(91, 91, 91);
-            lblCurrentStatus.Location = new Point(53, 214);
+            lblCurrentStatus.Location = new Point(53, 252);
             lblCurrentStatus.Name = "lblCurrentStatus";
             lblCurrentStatus.Size = new Size(67, 22);
             lblCurrentStatus.TabIndex = 4;
@@ -226,7 +250,7 @@
             lblAssignedRoute.AutoSize = true;
             lblAssignedRoute.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAssignedRoute.ForeColor = Color.FromArgb(91, 91, 91);
-            lblAssignedRoute.Location = new Point(53, 168);
+            lblAssignedRoute.Location = new Point(53, 206);
             lblAssignedRoute.Name = "lblAssignedRoute";
             lblAssignedRoute.Size = new Size(151, 22);
             lblAssignedRoute.TabIndex = 3;
@@ -302,7 +326,7 @@
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(600, 420);
+            ClientSize = new Size(674, 455);
             Controls.Add(lblFullName);
             Controls.Add(lblUserRole);
             Controls.Add(UserIcon);
@@ -316,11 +340,10 @@
             MinimizeBox = false;
             Name = "UserDetailsModal";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = " TriQUE - User Details";
+            Text = "TriQUE - View User Detail";
             UserInformationPanel.ResumeLayout(false);
             UserInformationPanel.PerformLayout();
-            lblStatusValue.ResumeLayout(false);
-            lblStatusValue.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)GroupIcon).EndInit();
             ((System.ComponentModel.ISupportInitialize)StatusIcon).EndInit();
             ((System.ComponentModel.ISupportInitialize)MapIcon).EndInit();
             ((System.ComponentModel.ISupportInitialize)RoleIcon).EndInit();
@@ -350,8 +373,10 @@
         private Label lblBodyValue;
         private Label lblRoleValue;
         private Label lblRouteValue;
-        private Guna.UI2.WinForms.Guna2Panel lblStatusValue;
         private Label lblDriverStatus;
         private Label lblPhoneValue;
+        private PictureBox GroupIcon;
+        private Label lblGroupNameValue;
+        private Label label1;
     }
 }
