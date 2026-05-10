@@ -7,47 +7,81 @@ namespace Trique.Forms
 {
     public partial class AdminViewQueue : Form
     {
+        private readonly RotationService _rotationService;
+        private readonly DriverRepository _driverRepo;
         private readonly int _userID;
+
         public AdminViewQueue(int userID)
         {
             InitializeComponent();
+
+            _rotationService = new RotationService();
+            _driverRepo = new DriverRepository();
             _userID = userID;
         }
 
         private async void btnRouteA_Click(object sender, EventArgs e)
         {
-            QueueModal modal = new QueueModal("Provincial Capitol", 101, _userID);
-            await ModalAnimator.ShowModalAsync(this, modal);
+            int? groupID = _rotationService.GetGroupIDForRouteToday(101);
+            if (groupID == null) { 
+                MessageBox.Show("No group assigned to this route today."); 
+                return; 
+            }
+            await ModalAnimator.ShowModalAsync(this, new QueueModal("Provincial Capitol", 101, _userID, groupID.Value));
         }
 
         private async void btnRouteB_Click(object sender, EventArgs e)
         {
-            QueueModal modal = new QueueModal("Grand Terminal", 102, _userID);
-            await ModalAnimator.ShowModalAsync(this, modal);
+            int? groupID = _rotationService.GetGroupIDForRouteToday(102);
+            if (groupID == null)
+            {
+                MessageBox.Show("No group assigned to this route today.");
+                return;
+            }
+            await ModalAnimator.ShowModalAsync(this, new QueueModal("Grand Terminal", 102, _userID, groupID.Value));
         }
 
         private async void btnRouteC_Click(object sender, EventArgs e)
         {
-            QueueModal modal = new QueueModal("SM Batangas", 103, _userID);
-            await ModalAnimator.ShowModalAsync(this, modal);
+            int? groupID = _rotationService.GetGroupIDForRouteToday(103);
+            if (groupID == null)
+            {
+                MessageBox.Show("No group assigned to this route today.");
+                return;
+            }
+            await ModalAnimator.ShowModalAsync(this, new QueueModal("SM Batangas", 103, _userID, groupID.Value));
         }
 
         private async void btnRouteD_Click(object sender, EventArgs e)
         {
-            QueueModal modal = new QueueModal("WalterMart", 104, _userID);
-            await ModalAnimator.ShowModalAsync(this, modal);
+            int? groupID = _rotationService.GetGroupIDForRouteToday(104);
+            if(groupID == null) {
+                MessageBox.Show("No group assigned to this route today.");
+                return;
+            }
+            await ModalAnimator.ShowModalAsync(this, new QueueModal("WalterMart", 104, _userID, groupID.Value));
         }
 
         private async void btnRouteE_Click(object sender, EventArgs e)
         {
-            QueueModal modal = new QueueModal("Brgy. Tulo", 105, _userID);
-            await ModalAnimator.ShowModalAsync(this, modal);
+            int? groupID = _rotationService.GetGroupIDForRouteToday(105);
+            if (groupID == null)
+            {
+                MessageBox.Show("No group assigned to this route today.");
+                return;
+            }
+            await ModalAnimator.ShowModalAsync(this, new QueueModal("Brgy. Tulo", 105, _userID, groupID.Value));
         }
 
         private async void btnRouteF_Click(object sender, EventArgs e)
         {
-            QueueModal modal = new QueueModal("BSU Alangilan", 106, _userID);
-            await ModalAnimator.ShowModalAsync(this, modal);
+            int? groupID = _rotationService.GetGroupIDForRouteToday(106);
+            if (groupID == null)
+            {
+                MessageBox.Show("No group assigned to this route today.");
+                return;
+            }
+            await ModalAnimator.ShowModalAsync(this, new QueueModal("BSU Alangilan", 106, _userID, groupID.Value));
         }
 
         // navbar

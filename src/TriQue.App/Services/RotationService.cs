@@ -45,5 +45,19 @@ namespace TriQue.Services
 
 
         }
+
+        public int? GetGroupIDForRouteToday(int routeID)
+        {
+            var groups = _driverRepo.GetAllGroups();
+
+            foreach (var group in groups)
+            {
+                var todayRoute = GetTodayRoute(group.GroupID);
+                if (todayRoute?.RouteID == routeID)
+                    return group.GroupID;
+            }
+
+            return null;
+        }
     }
 }

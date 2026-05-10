@@ -9,20 +9,20 @@ namespace Trique.Forms
         private readonly string _routeName;
         private readonly int _routeID;
         private readonly int _userID;
+        private readonly int _groupID;
         private readonly AdminRepository _adminRepo = new();
         private DataTable _fullTable;
         private bool _isSuperAdmin;
 
-        public QueueModal(string routeName, int routeID, int userID)
+        public QueueModal(string routeName, int routeID, int userID, int groupID)
         {
             InitializeComponent();
 
             _routeName = routeName;
             _routeID = routeID;
             _userID = userID;
-            this.Text = routeName;
-            this.StartPosition = FormStartPosition.CenterScreen;
-
+            _groupID = groupID;
+ 
             CheckAdminLevel();
             SetupGrid();
             LoadQueue();
@@ -138,7 +138,7 @@ namespace Trique.Forms
 
         private void LoadQueue()
         {
-            _fullTable = _adminRepo.GetQueueByRouteID(_routeID);
+            _fullTable = _adminRepo.GetQueueByGroupID(_groupID, _routeID);
             DriverListDataGrid.DataSource = _fullTable;
 
             foreach (DataGridViewRow row in DriverListDataGrid.Rows)
