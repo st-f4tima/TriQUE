@@ -17,6 +17,7 @@ namespace Trique.Forms
     public partial class AdminForm : Form
     {
         private readonly TrafficService _trafficService = new();
+        private readonly TripRepository _tripRepo = new();
         private readonly AdminRepository _adminRepo = new();
         private System.Windows.Forms.Timer _refreshTimer;
         private int _userID;
@@ -74,7 +75,7 @@ namespace Trique.Forms
 
         private void LoadTripStats()
         {
-            var todayRoute = _adminRepo.GetTotalTripsTodayRoute();
+            var todayRoute = _tripRepo.GetTotalTrips().ToString();
             TotalTripsValue.Text = todayRoute;
 
             var (highRoute, highCount) = _adminRepo.GetHighestTripsRoute();

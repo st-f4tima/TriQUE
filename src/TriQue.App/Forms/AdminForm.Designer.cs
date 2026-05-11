@@ -332,10 +332,11 @@
             // PeakCongestionDurationValue
             // 
             PeakCongestionDurationValue.AutoSize = true;
+            PeakCongestionDurationValue.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PeakCongestionDurationValue.ForeColor = Color.FromArgb(84, 84, 84);
-            PeakCongestionDurationValue.Location = new Point(12, 69);
+            PeakCongestionDurationValue.Location = new Point(12, 72);
             PeakCongestionDurationValue.Name = "PeakCongestionDurationValue";
-            PeakCongestionDurationValue.Size = new Size(90, 20);
+            PeakCongestionDurationValue.Size = new Size(82, 18);
             PeakCongestionDurationValue.TabIndex = 10;
             PeakCongestionDurationValue.Text = "Loading...";
             PeakCongestionDurationValue.TextAlign = ContentAlignment.MiddleLeft;
@@ -349,7 +350,7 @@
             lblPeakCongestionDuration.Size = new Size(156, 40);
             lblPeakCongestionDuration.TabIndex = 2;
             lblPeakCongestionDuration.Text = "Peak Congestion \r\nDuration";
-            lblPeakCongestionDuration.TextAlign = ContentAlignment.MiddleCenter;
+            lblPeakCongestionDuration.TextAlign = ContentAlignment.BottomLeft;
             // 
             // pictureBox2
             // 
@@ -381,12 +382,13 @@
             // TotalTripsValue
             // 
             TotalTripsValue.AutoSize = true;
+            TotalTripsValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             TotalTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
             TotalTripsValue.Location = new Point(11, 68);
             TotalTripsValue.Name = "TotalTripsValue";
-            TotalTripsValue.Size = new Size(149, 20);
+            TotalTripsValue.Size = new Size(48, 32);
             TotalTripsValue.TabIndex = 10;
-            TotalTripsValue.Text = "BSU - Alangilan ";
+            TotalTripsValue.Text = "19";
             TotalTripsValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTotalTripsToday
@@ -481,7 +483,7 @@
             LowestTripsValue.AutoSize = true;
             LowestTripsValue.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
             LowestTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
-            LowestTripsValue.Location = new Point(12, 67);
+            LowestTripsValue.Location = new Point(12, 69);
             LowestTripsValue.Name = "LowestTripsValue";
             LowestTripsValue.Size = new Size(160, 20);
             LowestTripsValue.TabIndex = 12;

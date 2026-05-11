@@ -241,6 +241,17 @@ namespace TriQue.Data.Repositories
             dt.Load(cmd.ExecuteReader());
             return dt;
         }
+        public int GetTotalTrips()
+        {
+            string query = @"SELECT COUNT(*) FROM Trip";
+
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
+
+            using var cmd = new SqliteCommand(query, conn);
+
+            return Convert.ToInt32(cmd.ExecuteScalar());
+        }
 
         // panels in generating reports
         public (int totalTrips, double totalEarnings, string mostActive, string leastActive, double fastest, double slowest)
