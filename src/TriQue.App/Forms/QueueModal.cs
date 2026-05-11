@@ -1,22 +1,27 @@
 ﻿using System.Data;
 using TriQue.Data.Repositories;
 using TriQue.Enums;
+using TriQue.Models;
+using TriQue.Services;
 
 namespace Trique.Forms
 {
     public partial class QueueModal : Form
     {
+        private readonly AdminRepository _adminRepo = new();
+        private readonly TripRepository _tripRepo = new();
+        private TripService _tripService;
         private readonly string _routeName;
         private readonly int _routeID;
         private readonly int _userID;
         private readonly int _groupID;
-        private readonly AdminRepository _adminRepo = new();
         private DataTable _fullTable;
         private bool _isSuperAdmin;
 
         public QueueModal(string routeName, int routeID, int userID, int groupID)
         {
             InitializeComponent();
+            _tripService = new TripService();
 
             _routeName = routeName;
             _routeID = routeID;
@@ -207,18 +212,22 @@ namespace Trique.Forms
                 {
                     case "OnTrip":
                         statusID = 2;
+                        _tripService.StartTrip(driverID, _routeID);
+                        _adminRepo.UpdateDriverStatus(driverID, 2);
                         break;
 
                     case "Finished":
                         statusID = 3;
+                        _tripService.EndTrip(driverID, _routeID);
+                        _adminRepo.UpdateDriverStatus(driverID, statusID);
                         break;
 
                     default:
                         statusID = 1;
+                        _adminRepo.UpdateDriverStatus(driverID, statusID);
                         break;
                 }
 
-                _adminRepo.UpdateDriverStatus(driverID, statusID);
                 updated++;
             }
 
