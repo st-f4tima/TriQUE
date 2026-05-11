@@ -8,9 +8,10 @@ namespace TriQue.Services
     public class AuthenticationService
     {
         private readonly UserRepository _repo;
-        private User _currentUser;
         private const int MAX_ATTEMPTS = 3;
         private const int LOCK_MINUTES = 1;
+
+        private User _currentUser;
 
         public AuthenticationService()
         {
@@ -83,7 +84,12 @@ namespace TriQue.Services
 
         public void Logout(int userID)
         {
-            _repo.InsertLogoutLog(userID); 
+            var log = new AuthenticationLog
+            {
+                UserID = userID,
+                LogoutTime = DateTime.Now
+            };
+            _repo.InsertLogoutLog(log);
             _currentUser = null;
         }
     }
