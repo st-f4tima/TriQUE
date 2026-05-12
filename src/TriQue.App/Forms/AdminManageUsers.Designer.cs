@@ -1,6 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 
-namespace Trique.Forms
+namespace TriQue.Forms
 {
     partial class AdminManageUsers
     {

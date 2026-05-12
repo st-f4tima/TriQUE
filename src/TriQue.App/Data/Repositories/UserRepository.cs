@@ -63,11 +63,19 @@ namespace TriQue.Data.Repositories
             if (!reader.Read()) return null;
 
             int roleId = Convert.ToInt32(reader["RoleID"]);
-            User user = roleId == 2 ? new Admin() : new Driver();
+            UserRole role = (UserRole)roleId;
+
+            User user = role switch
+            {
+                UserRole.Admin => new Admin(),
+                UserRole.Driver => new Driver(),
+                _ => throw new Exception($"Invalid RoleID: {roleId}")
+            };
 
             user.UserID = Convert.ToInt32(reader["UserID"]);
             user.Username = reader["Username"].ToString() ?? "";
             user.PasswordHash = reader["PasswordHash"].ToString() ?? "";
+            user.Role = role;
 
             return user;
         }

@@ -20,6 +20,12 @@ namespace TriQue.Services
 
         public User GetCurrentUser() => _currentUser;
 
+        public bool CurrentUserNeedsPasswordReset()
+        {
+            if (_currentUser == null) return false;
+            return _repo.IsTemporaryPassword(_currentUser.UserID);
+        }
+
         public bool Login(string username, string password, out string message)
         {
             message = "";

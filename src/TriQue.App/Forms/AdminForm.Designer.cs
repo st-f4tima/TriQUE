@@ -1,4 +1,4 @@
-﻿namespace Trique.Forms
+﻿namespace TriQue.Forms
 {
     partial class AdminForm
     {

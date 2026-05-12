@@ -4,7 +4,7 @@ using TriQue.Forms;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
-namespace Trique.Forms
+namespace TriQue.Forms
 {
     public partial class AdminManageUsers : Form
     {
