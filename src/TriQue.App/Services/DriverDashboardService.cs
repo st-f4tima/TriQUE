@@ -1,31 +1,18 @@
 ﻿using System;
 using TriQue.Data.Repositories;
 using TriQue.DTOs;
+using TriQue.Enums;
 using TriQue.Models;
 
 namespace TriQue.Services
 {
     public class DriverDashboardService
     {
-        private readonly UserRepository _userRepo;
-        private readonly DriverRepository _driverRepo;
-        private readonly TripRepository _tripRepo;
-        private readonly QueueRepository _queueRepo;
-        private readonly RouteService _routeService;
-        private readonly RouteRepository _routeRepo;
-        private readonly RotationService _rotationService;
-
-        public DriverDashboardService()
-        {
-            _userRepo = new UserRepository();
-            _driverRepo = new DriverRepository();
-            _tripRepo = new TripRepository();
-            _queueRepo = new QueueRepository();
-            _routeRepo = new RouteRepository();
-            _routeService = new RouteService();
-            _rotationService = new RotationService();
-
-        }
+        private readonly UserRepository _userRepo = new();
+        private readonly DriverRepository _driverRepo = new();
+        private readonly QueueRepository _queueRepo = new();
+        private readonly TripService _tripService = new();
+        private readonly RotationService _rotationService = new();
 
         public Route? GetDriverRouteByDriverID(int driverID)
         {
@@ -42,31 +29,29 @@ namespace TriQue.Services
             return _driverRepo.GetByUserID(user.UserID);
         }
 
+        public void ResetDriverToWaiting(int driverID)
+        {
+             _driverRepo.UpdateStatus(driverID, (int)DriverStatus.Waiting);
+        }
+
         public DriverDashboardDto GetDashboard(int userID)
         {
             var user = _userRepo.GetById(userID);
             var driver = _driverRepo.GetByUserID(user.UserID);
             var route = _rotationService.GetTodayRoute(driver.GroupID);
-            var trips = _tripRepo.GetByDriverID(driver.DriverID);
-            var completedTrips = _tripRepo.GetCompletedTrips(driver.DriverID);
-            var todayTrips = _tripRepo.GetTodayTrips(driver.DriverID);
-            var actualEarnings = _tripRepo.GetEarningsProgress(driver.DriverID);
-
-            var stats = _tripRepo.GetTripSpeedStats(driver.DriverID);
-            var queueHistory = _queueRepo.GetQueueHistory(driver.DriverID);
-
+            var stats = _tripService.GetTripSpeedStats(driver.DriverID);
 
             return new DriverDashboardDto
             {
                 User = user,
                 Driver = driver,
-                Trips = trips,
-                CompletedTrips = completedTrips,
-                TodayTrips = todayTrips,
-                ActualEarnings = actualEarnings,
+                Trips = _tripService.GetDriverTrips(driver.DriverID),
+                CompletedTrips = _tripService.GetCompletedTrips(driver.DriverID),
+                TodayTrips = _tripService.GetTodayTrips(driver.DriverID),
+                ActualEarnings = _tripService.GetActualEarnings(driver.DriverID),
                 FastestTrip = stats.fastest,
                 SlowestTrip = stats.slowest,
-                QueueHistory = queueHistory,
+                QueueHistory = _queueRepo.GetQueueHistory(driver.DriverID),
                 RouteName = route?.RouteName ?? "No Route Today",
                 TotalDistance = route?.DistanceKm ?? 0
             };
