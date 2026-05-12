@@ -4,7 +4,7 @@ using TriQue.Enums;
 using TriQue.Models;
 using TriQue.Services;
 
-namespace Trique.Forms
+namespace TriQue.Forms
 {
     public partial class QueueModal : Form
     {

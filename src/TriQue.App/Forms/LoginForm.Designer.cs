@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             LoginPanel = new Panel();
             label2 = new Label();
             panel3 = new Panel();
             panel5 = new Panel();
-            textBoxPassword = new TextBox();
+            tbPassword = new TextBox();
             label1 = new Label();
             panel2 = new Panel();
             panel4 = new Panel();
-            textBox1 = new TextBox();
+            tbUsername = new TextBox();
             checkBoxShowPassword = new CheckBox();
             LoginBtn = new Guna.UI2.WinForms.Guna2Button();
             pictureBox1 = new PictureBox();
@@ -79,7 +79,7 @@
             // panel3
             // 
             panel3.Controls.Add(panel5);
-            panel3.Controls.Add(textBoxPassword);
+            panel3.Controls.Add(tbPassword);
             panel3.Location = new Point(75, 384);
             panel3.Name = "panel3";
             panel3.Size = new Size(329, 26);
@@ -94,16 +94,16 @@
             panel5.Size = new Size(329, 2);
             panel5.TabIndex = 7;
             // 
-            // textBoxPassword
+            // tbPassword
             // 
-            textBoxPassword.BorderStyle = BorderStyle.None;
-            textBoxPassword.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPassword.ForeColor = Color.FromArgb(91, 91, 91);
-            textBoxPassword.Location = new Point(0, 3);
-            textBoxPassword.Name = "textBoxPassword";
-            textBoxPassword.Size = new Size(326, 20);
-            textBoxPassword.TabIndex = 5;
-            textBoxPassword.UseSystemPasswordChar = true;
+            tbPassword.BorderStyle = BorderStyle.None;
+            tbPassword.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbPassword.ForeColor = Color.FromArgb(91, 91, 91);
+            tbPassword.Location = new Point(0, 3);
+            tbPassword.Name = "tbPassword";
+            tbPassword.Size = new Size(326, 20);
+            tbPassword.TabIndex = 5;
+            tbPassword.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -118,7 +118,7 @@
             // panel2
             // 
             panel2.Controls.Add(panel4);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(tbUsername);
             panel2.Location = new Point(75, 288);
             panel2.Name = "panel2";
             panel2.Size = new Size(329, 26);
@@ -133,15 +133,15 @@
             panel4.Size = new Size(329, 2);
             panel4.TabIndex = 7;
             // 
-            // textBox1
+            // tbUsername
             // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = Color.FromArgb(91, 91, 91);
-            textBox1.Location = new Point(3, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(323, 20);
-            textBox1.TabIndex = 5;
+            tbUsername.BorderStyle = BorderStyle.None;
+            tbUsername.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbUsername.ForeColor = Color.FromArgb(91, 91, 91);
+            tbUsername.Location = new Point(3, 3);
+            tbUsername.Name = "tbUsername";
+            tbUsername.Size = new Size(323, 20);
+            tbUsername.TabIndex = 5;
             // 
             // checkBoxShowPassword
             // 
@@ -159,7 +159,7 @@
             // LoginBtn
             // 
             LoginBtn.BorderRadius = 15;
-            LoginBtn.CustomizableEdges = customizableEdges1;
+            LoginBtn.CustomizableEdges = customizableEdges3;
             LoginBtn.DisabledState.BorderColor = Color.DarkGray;
             LoginBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             LoginBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -175,7 +175,7 @@
             LoginBtn.Location = new Point(75, 486);
             LoginBtn.Name = "LoginBtn";
             LoginBtn.PressedColor = Color.FromArgb(0, 50, 125);
-            LoginBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            LoginBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
             LoginBtn.Size = new Size(329, 56);
             LoginBtn.TabIndex = 1;
             LoginBtn.Text = "Login";
@@ -227,12 +227,12 @@
         private Guna.UI2.WinForms.Guna2Button LoginBtn;
         private Panel panel2;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox tbUsername;
         private Panel panel4;
         private Label label2;
         private Panel panel3;
         private Panel panel5;
-        private TextBox textBoxPassword;
+        private TextBox tbPassword;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
     }
 }

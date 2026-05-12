@@ -1,94 +1,100 @@
 ﻿using TriQue.Helpers.Animation;
 using TriQue.Services;
+using TriQue.Models;
+using TriQue.Enums;
 
 namespace TriQue.Forms
 {
     public partial class LoginForm : Form
     {
-        private AuthenticationService _auth = new AuthenticationService();
+        private readonly AuthenticationService _authService = new AuthenticationService();
+
         private Label lockLabel;
         private System.Windows.Forms.Timer _lockTimer;
 
         public LoginForm()
         {
             InitializeComponent();
+            InitializeLockLabel();
+        }
 
-            lockLabel = new Label();
-            lockLabel.AutoSize = true;
-            lockLabel.ForeColor = Color.FromArgb(220, 53, 69);
-            lockLabel.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
-            lockLabel.Location = new Point(70, 450);
-            lockLabel.Visible = false;
-            lockLabel.Text = "";
-            lockLabel.Size = new Size(0, 0);
-            lockLabel.MinimumSize = new Size(0, 0);
+        // creates the lock countdown label dynamically
+        private void InitializeLockLabel()
+        {
+            lockLabel = new Label
+            {
+                AutoSize = true,
+                ForeColor = Color.FromArgb(220, 53, 69),
+                Font = new Font("Segoe UI", 9f, FontStyle.Bold),
+                Location = new Point(70, 450),
+                Visible = false
+            };
             LoginPanel.Controls.Add(lockLabel);
             lockLabel.BringToFront();
         }
 
         private async void LoginBtn_Click_1(object sender, EventArgs e)
         {
-            string username = textBox1.Text.Trim();
-            string password = textBoxPassword.Text.Trim();
+            string username = tbUsername.Text.Trim();
+            string password = tbPassword.Text.Trim();
 
-            bool success = _auth.Login(username, password, out string message);
-
-            if (!success)
+            if (!_authService.Login(username, password, out string message))
             {
-                int secondsLeft = _auth.GetLockSecondsRemaining(username);
-
-                if (message.Contains("locked"))
-                    ShowWarning(message);
-                else
-                    ShowError(message);
-
-                if (secondsLeft > 0)
-                    StartLockUI(secondsLeft);
-
+                HandleFailure(username, message);
                 return;
+            }
+
+            var user = _authService.GetCurrentUser();
+
+            if (_authService.CurrentUserNeedsPasswordReset())
+            {
+                using var setPwdForm = new SetPasswordModal(user.UserID);
+                if (setPwdForm.ShowDialog() != DialogResult.OK) return;
             }
 
             ShowSuccess(message);
 
-            var user = _auth.GetCurrentUser();
-
-            var repo = new TriQue.Data.Repositories.UserRepository();
-
-            if (repo.IsTemporaryPassword(user.UserID))
-            {
-                var setPwdForm = new TriQue.Forms.SetPasswordModal(user.UserID);
-                var result = setPwdForm.ShowDialog();
-
-                if (result != System.Windows.Forms.DialogResult.OK)
-                    return;
-            }
-
-            Form nextForm = user.GetView();
-
-            await FormAnimator.SwitchAsync(this, nextForm);
+            await FormAnimator.SwitchAsync(this, GetTargetView(user));
         }
 
-        private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
+        private void HandleFailure(string username, string message)
         {
-            textBoxPassword.UseSystemPasswordChar = !checkBoxShowPassword.Checked;
+            int secondsLeft = _authService.GetLockSecondsRemaining(username);
+
+            if (message.Contains("locked") || secondsLeft > 0)
+            {
+                ShowWarning(message);
+                if (secondsLeft > 0) StartLockUI(secondsLeft);
+            }
+            else
+            {
+                ShowError(message);
+            }
         }
 
+        private Form GetTargetView(User user)
+        {
+            return user.Role switch
+            {
+                UserRole.Admin => new AdminForm(user.UserID),
+                UserRole.Driver => new DriverForm(user.UserID),
+
+                _ => throw new Exception(
+                    $"No dashboard defined for role: {user.Role}")
+            };
+        }
+
+        // ui countdown
         private void StartLockUI(int seconds)
         {
-            if (_lockTimer != null)
-            {
-                _lockTimer.Stop();
-                _lockTimer.Dispose();
-            }
+            _lockTimer?.Stop();
+            _lockTimer?.Dispose();
 
             int remaining = seconds;
             LoginBtn.Enabled = false;
             lockLabel.Visible = true;
-            lockLabel.Text = $"Account locked — {remaining}s remaining";
 
-            _lockTimer = new System.Windows.Forms.Timer();
-            _lockTimer.Interval = 1000;
-
+            _lockTimer = new System.Windows.Forms.Timer { Interval = 1000 };
             _lockTimer.Tick += (s, ev) =>
             {
                 remaining--;
@@ -97,32 +103,22 @@ namespace TriQue.Forms
                 if (remaining <= 0)
                 {
                     _lockTimer.Stop();
-                    _lockTimer.Dispose();
                     LoginBtn.Enabled = true;
                     lockLabel.Visible = false;
-                    lockLabel.Text = "";
                 }
             };
-
             _lockTimer.Start();
         }
 
-        private void ShowError(string msg)
+        private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(msg, "Login Failed",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            tbPassword.UseSystemPasswordChar = !checkBoxShowPassword.Checked;
         }
 
-        private void ShowWarning(string msg)
-        {
-            MessageBox.Show(msg, "Account Locked",
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void ShowSuccess(string msg)
-        {
-            MessageBox.Show(msg, "Login Successful",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        #region Notifications
+        private void ShowError(string msg) => MessageBox.Show(msg, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        private void ShowWarning(string msg) => MessageBox.Show(msg, "Account Locked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        private void ShowSuccess(string msg) => MessageBox.Show(msg, "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        #endregion
     }
 }
