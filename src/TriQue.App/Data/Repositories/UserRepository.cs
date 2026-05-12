@@ -350,17 +350,6 @@ namespace TriQue.Data.Repositories
             return null;
         }
 
-        public void InsertAuthLog(int userID, string outcome)
-        {
-            var log = new AuthenticationLog
-            {
-                UserID = userID,
-                LoginTime = DateTime.Now,
-                AuthOutcome = outcome
-            };
-            InsertAuthLog(log); // calls method below
-        }
-
         public void InsertAuthLog(AuthenticationLog log)
         {
             string query = @"
