@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using TriQue.Data.Repositories;
 using TriQue.Models;
 
@@ -39,6 +40,11 @@ namespace TriQue.Services
         public (double fastest, double slowest) GetTripSpeedStats(int driverID)
         {
             return _tripRepo.GetTripSpeedStats(driverID);
+        }
+
+        public DataTable GetTripHistory(int driverID)
+        {
+            return _tripRepo.GetTripHistory(driverID);
         }
 
         public void StartTrip(int driverID, int routeID)
