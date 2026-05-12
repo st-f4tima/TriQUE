@@ -230,6 +230,7 @@ namespace TriQue.Forms
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
+            LoadDashboard();
             UpdateJoinButtonState();
             RefreshQueueForms();
         }
@@ -284,18 +285,14 @@ namespace TriQue.Forms
 
         private async void LogoutBtn_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show(
-                "Are you sure you want to logout?",
+
+            if (MessageBox.Show("Are you sure you want to logout?",
                 "Confirm Logout",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (result != DialogResult.Yes) { }
+                MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
 
-            var authService = new AuthenticationService();
-            authService.Logout(_userID);
+            new AuthenticationService().Logout(_userID);
 
             await FormAnimator.SwitchAsync(this, new LoginForm());
         }

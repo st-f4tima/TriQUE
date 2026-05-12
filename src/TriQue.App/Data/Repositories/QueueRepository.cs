@@ -34,7 +34,7 @@ namespace TriQue.Data.Repositories
             return Convert.ToInt32(result);
         }
 
-        // driver view queue status (top)
+        // status, route, and rank
         public DataRow? GetQueueDriver(int queueId, int driverId)
         {
             string query = @"
@@ -153,32 +153,6 @@ namespace TriQue.Data.Repositories
             _dbHelper.ExecuteNonQuery(query,
                 new SqliteParameter("$driverID", driverID),
                 new SqliteParameter("$queueID", queueID));
-        }
-
-        // driver dashboard datagrid
-        public DataTable GetQueueHistory(int driverID)
-        {
-            string query = @"
-                SELECT 
-                    qe.Position AS Position,
-                    r.RouteName AS Route,
-                    qe.JoinedAt AS JoinedAt
-                FROM QueueEntry qe
-                JOIN Queue q ON qe.QueueID = q.QueueID
-                JOIN Route r ON q.RouteID = r.RouteID
-                WHERE qe.DriverID = $driverID
-                ORDER BY qe.JoinedAt DESC;
-                 ";
-
-            using var conn = _dbHelper.GetConnection();
-            conn.Open();
-            using var cmd = conn.CreateCommand();
-            cmd.CommandText = query;
-            cmd.Parameters.AddWithValue("$driverID", driverID);
-
-            DataTable dt = new DataTable();
-            dt.Load(cmd.ExecuteReader());
-            return dt;
         }
 
         // driver view queue status datagrid
