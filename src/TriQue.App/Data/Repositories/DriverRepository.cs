@@ -82,7 +82,7 @@ namespace TriQue.Data.Repositories
             );
         }
 
-        public (string FullName, string BodyNumber, string PhoneNumber, string RouteName, string GroupName, string StatusName)? GetDriverSettings(int userID)
+        public DriverSettingsDto? GetDriverSettings(int userID)
         {
             string query = @"
                 SELECT 
@@ -107,32 +107,14 @@ namespace TriQue.Data.Repositories
 
             if (!reader.Read()) return null;
 
-            return (
-                FullName: reader["FullName"].ToString() ?? "",
-                BodyNumber: reader["BodyNumber"].ToString() ?? "",
-                PhoneNumber: reader["PhoneNumber"].ToString() ?? "",
-                RouteName: reader["RouteName"].ToString() ?? "No Route Assigned",
-                GroupName: reader["GroupName"].ToString() ?? "",
-                StatusName: reader["StatusName"].ToString() ?? "Waiting"
-            );
-        }
-
-        public DriverGroup? GetGroupByID(int groupID)
-        {
-            string query = "SELECT GroupID, GroupName, RotationDay FROM DriverGroup WHERE GroupID = @groupID";
-
-            using var reader = _dbHelper.ExecuteReader(
-                query,
-                new SqliteParameter("@groupID", groupID)
-            );
-
-            if (!reader.Read()) return null;
-
-            return new DriverGroup
+            return new DriverSettingsDto
             {
-                GroupID = Convert.ToInt32(reader["GroupID"]),
-                GroupName = reader["GroupName"].ToString(),
-                GroupRotationDay = (RotationDay)Convert.ToInt32(reader["RotationDay"])
+                FullName = reader["FullName"].ToString() ?? "",
+                BodyNumber = reader["BodyNumber"].ToString() ?? "",
+                PhoneNumber = reader["PhoneNumber"].ToString() ?? "",
+                RouteName = reader["RouteName"].ToString() ?? "No Route Assigned",
+                GroupName = reader["GroupName"].ToString() ?? "",
+                StatusName = reader["StatusName"].ToString() ?? "Waiting"
             };
         }
 
@@ -158,6 +140,25 @@ namespace TriQue.Data.Repositories
             }
 
             return drivers;
+        }
+
+        public DriverGroup? GetGroupByID(int groupID)
+        {
+            string query = "SELECT GroupID, GroupName, RotationDay FROM DriverGroup WHERE GroupID = @groupID";
+
+            using var reader = _dbHelper.ExecuteReader(
+                query,
+                new SqliteParameter("@groupID", groupID)
+            );
+
+            if (!reader.Read()) return null;
+
+            return new DriverGroup
+            {
+                GroupID = Convert.ToInt32(reader["GroupID"]),
+                GroupName = reader["GroupName"].ToString(),
+                GroupRotationDay = (RotationDay)Convert.ToInt32(reader["RotationDay"])
+            };
         }
 
         public List<DriverGroup> GetAllGroups()

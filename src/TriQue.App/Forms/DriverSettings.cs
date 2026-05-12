@@ -9,57 +9,52 @@ namespace TriQue.Forms
 {
     public partial class DriverSettings : Form
     {
+        private readonly DriverService _driverService = new();
+        private readonly RotationService _rotationService = new();
+
         private int _userID;
-        private readonly DriverRepository _driverRepo;
-        private RotationService _rotationService;
 
         public DriverSettings(int userID)
         {
             InitializeComponent();
+
             _userID = userID;
-            _driverRepo = new DriverRepository();
-            _rotationService = new RotationService();
 
             LoadDriverInfo();
         }
 
         private void LoadDriverInfo()
         {
-            var info = _driverRepo.GetDriverSettings(_userID);
+            var info = _driverService.GetDriverSettings(_userID);
             if (info == null) return;
 
-            var driver = _driverRepo.GetByUserID(_userID);
+            var driver = _driverService.GetByUserId(_userID);
             if (driver == null) return;
 
             var todayRoute = _rotationService.GetTodayRoute(driver.GroupID);
 
-            lblDriverName.Text = info.Value.FullName;
-            lblBodyNumber.Text = "Body No. " + info.Value.BodyNumber;
-            lblContactNumberValue.Text = info.Value.PhoneNumber;
+            lblDriverName.Text = info.FullName;
+            lblBodyNumber.Text = "Body No. " + info.BodyNumber;
+            lblContactNumberValue.Text = info.PhoneNumber;
             lblAssignedRouteValue.Text = todayRoute?.RouteName ?? "No Route";
-            lblGroupNameValue.Text = info.Value.GroupName;
-            lblRoleValue.Text = "Driver";
-            lblCurrentStatusValue.Text = info.Value.StatusName;
+            lblGroupNameValue.Text = info.GroupName;
+            lblCurrentStatusValue.Text = info.StatusName;
 
-            switch (lblCurrentStatusValue.Text)
-            {
-                case "OnTrip":
-                    StatusPanel.FillColor = Color.FromArgb(40, 167, 69); 
-                    break;
-
-                case "Waiting":
-                    StatusPanel.FillColor = Color.FromArgb(255, 193, 7);
-                    break;
-
-                case "Finished":
-                    StatusPanel.FillColor = Color.FromArgb(0, 123, 255); 
-                    break;
-
-                default:
-                    StatusPanel.FillColor = Color.Gray; 
-                    break;
-            }
+            SetStatusColor(info.StatusName);
         }
+
+        private void SetStatusColor(string status)
+        {
+            StatusPanel.FillColor = status switch
+            {
+                "OnTrip" => Color.FromArgb(40, 167, 69),
+                "Waiting" => Color.FromArgb(255, 193, 7),
+                "Finished" => Color.FromArgb(0, 123, 255),
+                _ => Color.Gray
+            };
+        }
+
+        #region navigation
 
         private async void DashBtn_Click(object sender, EventArgs e)
         {
@@ -82,9 +77,17 @@ namespace TriQue.Forms
 
         private async void LogoutBtn_Click(object sender, EventArgs e)
         {
-            var authService = new AuthenticationService();
-            authService.Logout(_userID);
-            await FormAnimator.SwitchAsync(this, new LoginForm(), closeCurrentAfter: true);
+            if (MessageBox.Show("Are you sure you want to logout?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            new AuthenticationService().Logout(_userID);
+
+            await FormAnimator.SwitchAsync(this, new LoginForm());
         }
     }
+
+    #endregion
 }
