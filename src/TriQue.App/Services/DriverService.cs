@@ -1,5 +1,6 @@
 ﻿using System;
 using TriQue.Data.Repositories;
+using TriQue.DTOs;
 using TriQue.Enums;
 using TriQue.Models;
 
@@ -32,6 +33,11 @@ namespace TriQue.Services
         public void UpdateStatus(int driverID, DriverStatus status)
         {
             _driverRepo.UpdateStatus(driverID, (int)status);
+        }
+
+        public DriverSettingsDto? GetDriverSettings(int userID)
+        {
+            return _driverRepo.GetDriverSettings(userID);
         }
     }
 }
