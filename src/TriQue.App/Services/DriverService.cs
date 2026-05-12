@@ -8,14 +8,19 @@ namespace TriQue.Services
     {
         private readonly DriverRepository _driverRepo;
 
-        public DriverService()
+        public Driver? GetByUserId(int userId)
         {
-            _driverRepo = new DriverRepository();
+            return _driverRepo.GetByUserID(userId);
         }
 
-        public Driver GetDriverByUserID(int userID)
+        public int? GetDriverId(int userId)
         {
-            return _driverRepo.GetByUserID(userID);
+            return _driverRepo.GetByUserID(userId)?.DriverID;
+        }
+
+        public bool DriverExists(int userId)
+        {
+            return _driverRepo.GetByUserID(userId) != null;
         }
     }
 }
