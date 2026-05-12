@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DriverViewQueue));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             NavBarPanel = new Panel();
             LogoutBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             SettingsBtn = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -72,7 +72,7 @@
             DataGridQueueStatus = new Guna.UI2.WinForms.Guna2DataGridView();
             ScrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             RefreshBtn = new Guna.UI2.WinForms.Guna2Button();
-            StartTipBtn = new Guna.UI2.WinForms.Guna2Button();
+            StartTripBtn = new Guna.UI2.WinForms.Guna2Button();
             pictureBox1 = new PictureBox();
             lblViewQueueStatusTitle = new Label();
             lblQueueStatusTitle = new Label();
@@ -114,7 +114,7 @@
             LogoutBtn.Location = new Point(7, 537);
             LogoutBtn.Name = "LogoutBtn";
             LogoutBtn.PressedState.ImageSize = new Size(36, 36);
-            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            LogoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges18;
             LogoutBtn.Size = new Size(82, 82);
             LogoutBtn.TabIndex = 5;
             LogoutBtn.Click += LogoutBtn_Click;
@@ -130,7 +130,7 @@
             SettingsBtn.Location = new Point(7, 311);
             SettingsBtn.Name = "SettingsBtn";
             SettingsBtn.PressedState.ImageSize = new Size(36, 36);
-            SettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            SettingsBtn.ShadowDecoration.CustomizableEdges = customizableEdges19;
             SettingsBtn.Size = new Size(82, 82);
             SettingsBtn.TabIndex = 4;
             SettingsBtn.Click += SettingsBtn_Click;
@@ -146,7 +146,7 @@
             guna2ImageButton2.Location = new Point(7, 311);
             guna2ImageButton2.Name = "guna2ImageButton2";
             guna2ImageButton2.PressedState.ImageSize = new Size(64, 64);
-            guna2ImageButton2.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            guna2ImageButton2.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2ImageButton2.Size = new Size(82, 82);
             guna2ImageButton2.TabIndex = 3;
             // 
@@ -161,7 +161,7 @@
             ViewQueueBtn.Location = new Point(7, 223);
             ViewQueueBtn.Name = "ViewQueueBtn";
             ViewQueueBtn.PressedState.ImageSize = new Size(36, 36);
-            ViewQueueBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            ViewQueueBtn.ShadowDecoration.CustomizableEdges = customizableEdges21;
             ViewQueueBtn.Size = new Size(82, 82);
             ViewQueueBtn.TabIndex = 2;
             // 
@@ -176,7 +176,7 @@
             DashBtn.Location = new Point(7, 135);
             DashBtn.Name = "DashBtn";
             DashBtn.PressedState.ImageSize = new Size(36, 36);
-            DashBtn.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            DashBtn.ShadowDecoration.CustomizableEdges = customizableEdges22;
             DashBtn.Size = new Size(82, 82);
             DashBtn.TabIndex = 1;
             DashBtn.Click += DashBtn_Click;
@@ -200,10 +200,10 @@
             StatusPanel.Controls.Add(lblStatusValue);
             StatusPanel.Controls.Add(lblStatusTiltle);
             StatusPanel.Controls.Add(StatusIcon);
-            StatusPanel.CustomizableEdges = customizableEdges6;
+            StatusPanel.CustomizableEdges = customizableEdges23;
             StatusPanel.Location = new Point(140, 77);
             StatusPanel.Name = "StatusPanel";
-            StatusPanel.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            StatusPanel.ShadowDecoration.CustomizableEdges = customizableEdges24;
             StatusPanel.Size = new Size(315, 73);
             StatusPanel.TabIndex = 3;
             // 
@@ -249,10 +249,10 @@
             RoutePanel.Controls.Add(lblRouteValue);
             RoutePanel.Controls.Add(lblRouteTitle);
             RoutePanel.Controls.Add(RouteIcon);
-            RoutePanel.CustomizableEdges = customizableEdges8;
+            RoutePanel.CustomizableEdges = customizableEdges25;
             RoutePanel.Location = new Point(480, 77);
             RoutePanel.Name = "RoutePanel";
-            RoutePanel.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            RoutePanel.ShadowDecoration.CustomizableEdges = customizableEdges26;
             RoutePanel.Size = new Size(315, 73);
             RoutePanel.TabIndex = 4;
             // 
@@ -297,10 +297,10 @@
             RankingPanel.Controls.Add(lblRankingValue);
             RankingPanel.Controls.Add(lblRankingTitle);
             RankingPanel.Controls.Add(RankingIcon);
-            RankingPanel.CustomizableEdges = customizableEdges10;
+            RankingPanel.CustomizableEdges = customizableEdges27;
             RankingPanel.Location = new Point(824, 80);
             RankingPanel.Name = "RankingPanel";
-            RankingPanel.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            RankingPanel.ShadowDecoration.CustomizableEdges = customizableEdges28;
             RankingPanel.Size = new Size(315, 73);
             RankingPanel.TabIndex = 5;
             // 
@@ -346,10 +346,10 @@
             QueueStatusPanel.BorderThickness = 1;
             QueueStatusPanel.Controls.Add(DataGridQueueStatus);
             QueueStatusPanel.Controls.Add(ScrollBar);
-            QueueStatusPanel.CustomizableEdges = customizableEdges12;
+            QueueStatusPanel.CustomizableEdges = customizableEdges29;
             QueueStatusPanel.Location = new Point(140, 214);
             QueueStatusPanel.Name = "QueueStatusPanel";
-            QueueStatusPanel.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            QueueStatusPanel.ShadowDecoration.CustomizableEdges = customizableEdges30;
             QueueStatusPanel.Size = new Size(999, 347);
             QueueStatusPanel.TabIndex = 6;
             // 
@@ -359,26 +359,26 @@
             DataGridQueueStatus.AllowUserToDeleteRows = false;
             DataGridQueueStatus.AllowUserToResizeColumns = false;
             DataGridQueueStatus.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            DataGridQueueStatus.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(55, 91, 231);
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(55, 91, 231);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            DataGridQueueStatus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            DataGridQueueStatus.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(55, 91, 231);
+            dataGridViewCellStyle5.SelectionBackColor = Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(55, 91, 231);
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            DataGridQueueStatus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             DataGridQueueStatus.ColumnHeadersHeight = 30;
             DataGridQueueStatus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            DataGridQueueStatus.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            DataGridQueueStatus.DefaultCellStyle = dataGridViewCellStyle6;
             DataGridQueueStatus.GridColor = Color.White;
             DataGridQueueStatus.Location = new Point(17, 15);
             DataGridQueueStatus.Name = "DataGridQueueStatus";
@@ -424,7 +424,7 @@
             // RefreshBtn
             // 
             RefreshBtn.BorderRadius = 15;
-            RefreshBtn.CustomizableEdges = customizableEdges14;
+            RefreshBtn.CustomizableEdges = customizableEdges31;
             RefreshBtn.DisabledState.BorderColor = Color.DarkGray;
             RefreshBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             RefreshBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -434,30 +434,31 @@
             RefreshBtn.ForeColor = Color.White;
             RefreshBtn.Location = new Point(140, 576);
             RefreshBtn.Name = "RefreshBtn";
-            RefreshBtn.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            RefreshBtn.ShadowDecoration.CustomizableEdges = customizableEdges32;
             RefreshBtn.Size = new Size(191, 45);
             RefreshBtn.TabIndex = 7;
             RefreshBtn.Text = "Refresh Queue";
             RefreshBtn.TextAlign = HorizontalAlignment.Right;
+            RefreshBtn.Click += RefreshBtn_Click;
             // 
-            // StartTipBtn
+            // StartTripBtn
             // 
-            StartTipBtn.BorderRadius = 15;
-            StartTipBtn.CustomizableEdges = customizableEdges16;
-            StartTipBtn.DisabledState.BorderColor = Color.DarkGray;
-            StartTipBtn.DisabledState.CustomBorderColor = Color.DarkGray;
-            StartTipBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            StartTipBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            StartTipBtn.FillColor = Color.FromArgb(55, 91, 231);
-            StartTipBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            StartTipBtn.ForeColor = Color.White;
-            StartTipBtn.Location = new Point(337, 576);
-            StartTipBtn.Name = "StartTipBtn";
-            StartTipBtn.ShadowDecoration.CustomizableEdges = customizableEdges17;
-            StartTipBtn.Size = new Size(145, 45);
-            StartTipBtn.TabIndex = 8;
-            StartTipBtn.Text = "Start";
-            StartTipBtn.Click += guna2Button2_Click_1;
+            StartTripBtn.BorderRadius = 15;
+            StartTripBtn.CustomizableEdges = customizableEdges33;
+            StartTripBtn.DisabledState.BorderColor = Color.DarkGray;
+            StartTripBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            StartTripBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            StartTripBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            StartTripBtn.FillColor = Color.FromArgb(55, 91, 231);
+            StartTripBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            StartTripBtn.ForeColor = Color.White;
+            StartTripBtn.Location = new Point(337, 576);
+            StartTripBtn.Name = "StartTripBtn";
+            StartTripBtn.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            StartTripBtn.Size = new Size(145, 45);
+            StartTripBtn.TabIndex = 8;
+            StartTripBtn.Text = "Start";
+            StartTripBtn.Click += StartTripBtn_Click;
             // 
             // pictureBox1
             // 
@@ -501,7 +502,7 @@
             Controls.Add(lblQueueStatusTitle);
             Controls.Add(lblViewQueueStatusTitle);
             Controls.Add(pictureBox1);
-            Controls.Add(StartTipBtn);
+            Controls.Add(StartTripBtn);
             Controls.Add(RefreshBtn);
             Controls.Add(QueueStatusPanel);
             Controls.Add(RankingPanel);
@@ -551,7 +552,7 @@
         private Guna.UI2.WinForms.Guna2Panel QueueStatusPanel;
         private Guna.UI2.WinForms.Guna2VScrollBar ScrollBar;
         private Guna.UI2.WinForms.Guna2Button RefreshBtn;
-        private Guna.UI2.WinForms.Guna2Button StartTipBtn;
+        private Guna.UI2.WinForms.Guna2Button StartTripBtn;
         private PictureBox pictureBox1;
         private PictureBox StatusIcon;
         private PictureBox RouteIcon;

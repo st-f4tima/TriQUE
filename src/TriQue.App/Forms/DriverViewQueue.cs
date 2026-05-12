@@ -1,6 +1,4 @@
-﻿using System.Security.Policy;
-using TriQue.Data.Repositories;
-using TriQue.Enums;
+﻿using TriQue.Enums;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
@@ -8,108 +6,77 @@ namespace TriQue.Forms
 {
     public partial class DriverViewQueue : Form
     {
-        private QueueRepository _queueRepo;
-        private DriverRepository _driverRepo;
-        private TripService _tripService;
-        private RotationService _rotationService;
+        private readonly QueueService _queueService = new();
+        private readonly DriverService _driverService = new();
+        private readonly TripService _tripService = new();
+        private readonly RotationService _rotationService = new();
 
-        private int _routeId;
-        private int _userID;
+        private readonly int _routeID;
+        private readonly int _userID;
+
         private int _driverID;
-        private int _queueId;
+        private int _queueID;
 
-        public DriverViewQueue(int routeId, int userID)
+        public DriverViewQueue(int routeID, int userID)
         {
             InitializeComponent();
 
-            _routeId = routeId;
+            _routeID = routeID;
             _userID = userID;
+            _driverID = _driverService.GetDriverId(userID) ?? 0;
+            _queueID = _queueService.GetQueueIdByRouteId(routeID);
 
-            _queueRepo = new QueueRepository();
-            _driverRepo = new DriverRepository();
-            _tripService = new TripService();
-            _rotationService = new RotationService();
+            LoadView();
+        }
 
-            var driver = _driverRepo.GetByUserID(_userID);
-            if (driver != null)
-            {
-                _driverID = driver.DriverID;
-            }
+        #region load and data
 
-            _queueId = _queueRepo.GetQueueIdByRouteId(_routeId);
-
-            displayData();
+        private void LoadView()
+        {
+            DisplayData();
             UpdateStartButtonState();
         }
 
-        private void displayData()
+        private void DisplayData()
         {
-            var driver = _driverRepo.GetByUserID(_userID);
-            if (driver == null) return;
+            if (_driverID == 0) return;
 
-            var row = _queueRepo.GetQueueDriver(_queueId, driver.DriverID);
+            var row = _queueService.GetQueueDriver(_queueID, _driverID);
+            var driver = _driverService.GetByDriverId(_driverID);
 
             if (row != null)
             {
-                lblRankingValue.Text = row["Position"].ToString();
-
-                string status = row["Status"].ToString();
-
-                lblStatusValue.Text = status switch
-                {
-                    "OnTrip" => "On Trip",
-                    "Waiting" => "Waiting",
-                    "Finished" => "Finished",
-                    _ => status
-                };
-
-                lblStatusValue.ForeColor = status switch
-                {
-                    "Waiting" => Color.FromArgb(255, 193, 7),
-                    "OnTrip" => Color.FromArgb(40, 167, 69),
-                    "Finished" => Color.FromArgb(0, 123, 255),
-                    _ => Color.Gray
-                };
+                lblRankingValue.Text = row["Position"]?.ToString() ?? "—";
+                ApplyStatus(row["Status"]?.ToString() ?? "");
             }
             else
             {
                 lblRankingValue.Text = "—";
-
-                string fallbackStatus = driver.Status.ToString();
-
-                lblStatusValue.Text = fallbackStatus switch
-                {
-                    "OnTrip" => "On Trip",
-                    "Waiting" => "Waiting",
-                    "Finished" => "Finished",
-                    _ => fallbackStatus
-                };
-
-                lblStatusValue.ForeColor = fallbackStatus switch
-                {
-                    "Waiting" => Color.FromArgb(255, 193, 7),
-                    "OnTrip" => Color.FromArgb(40, 167, 69),
-                    "Finished" => Color.FromArgb(0, 123, 255),
-                    _ => Color.Gray
-                };
+                ApplyStatus(driver?.Status.ToString() ?? "Unknown");
             }
 
-            var group = _driverRepo.GetByUserID(_userID);
-
-            if (group != null)
+            if (driver != null)
             {
-                var todayRoute = _rotationService.GetTodayRoute(group.GroupID);
-
-                if (todayRoute != null)
-                {
-                    lblRouteValue.Text = todayRoute.RouteName;
-                } else
-                {
-                    lblRouteValue.Text = "-";
-                }
+                var todayRoute = _rotationService.GetTodayRoute(driver.GroupID);
+                lblRouteValue.Text = todayRoute?.RouteName ?? "-";
+            }
+            else
+            {
+                lblRouteValue.Text = "-";
             }
 
-            DataGridQueueStatus.DataSource = _queueRepo.GetQueueDrivers(_queueId);
+            DataGridQueueStatus.DataSource = _queueService.GetQueueDrivers(_queueID);
+            ApplyGridStyles();
+        }
+
+        #endregion
+
+        #region grid styles
+
+        private void ApplyGridStyles()
+        {
+            if (DataGridQueueStatus.Columns.Count == 0) return;
+
             if (DataGridQueueStatus.Columns.Contains("DriverName"))
                 DataGridQueueStatus.Columns["DriverName"].HeaderText = "Driver Name";
 
@@ -125,7 +92,9 @@ namespace TriQue.Forms
 
         private void DataGridQueueStatus_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (DataGridQueueStatus.Columns[e.ColumnIndex].Name == "Status" && e.Value != null)
+            if (e.RowIndex < 0 || e.Value == null) return;
+
+            if (DataGridQueueStatus.Columns[e.ColumnIndex].Name == "Status")
             {
                 string status = e.Value.ToString();
 
@@ -140,74 +109,113 @@ namespace TriQue.Forms
                 if (status == "OnTrip")
                 {
                     e.Value = "On Trip";
-                    e.FormattingApplied = true; 
+                    e.FormattingApplied = true;
                 }
 
                 e.CellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-                e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                 e.CellStyle.BackColor = Color.White;
-
                 e.CellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240);
                 e.CellStyle.SelectionForeColor = e.CellStyle.ForeColor;
             }
         }
 
-        // start/end trip button
-        private void guna2Button2_Click_1(object sender, EventArgs e)
+        #endregion
+
+        #region status UI
+
+        private void ApplyStatus(string status)
         {
-            var driver = _driverRepo.GetByDriverID(_driverID);
+            lblStatusValue.Text = FormatStatus(status);
+            lblStatusValue.ForeColor = GetStatusColor(status);
+        }
+
+        private string FormatStatus(string status)
+        {
+            return status switch
+            {
+                "OnTrip" => "On Trip",
+                "Waiting" => "Waiting",
+                "Finished" => "Finished",
+                _ => status
+            };
+        }
+
+        private Color GetStatusColor(string status)
+        {
+            return status switch
+            {
+                "Waiting" => Color.FromArgb(255, 193, 7),
+                "OnTrip" => Color.FromArgb(40, 167, 69),
+                "Finished" => Color.FromArgb(0, 123, 255),
+                _ => Color.Gray
+            };
+        }
+
+        #endregion
+
+        #region trip action
+
+        private void StartTripBtn_Click(object sender, EventArgs e)
+        {
+            var driver = _driverService.GetByDriverId(_driverID);
             if (driver == null) return;
 
-            // --- Start Trip ---
-            if (driver.Status == DriverStatus.Waiting && IsDriverInQueue())
+            bool inQueue = IsDriverInQueue();
+
+            // start trip
+            if (driver.Status == DriverStatus.Waiting && inQueue)
             {
                 var confirm = MessageBox.Show(
-                    "Start your trip now?", "Confirm",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    "Start your trip now?",
+                    "Confirm",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
                 if (confirm != DialogResult.Yes) return;
 
-                _driverRepo.UpdateStatus(_driverID, (int)DriverStatus.OnTrip);
-                _tripService.StartTrip(_driverID, _routeId);
+                _tripService.StartTrip(_driverID, _routeID);
+                _driverService.UpdateStatus(_driverID, DriverStatus.OnTrip);
 
-                System.Threading.Thread.Sleep(150);
-                displayData();
-                UpdateStartButtonState();
+                RefreshUI();
                 return;
             }
 
-            // --- End Trip ---
+               // end trip
             if (driver.Status == DriverStatus.OnTrip)
             {
                 var confirm = MessageBox.Show(
-                    "End your trip now?", "Confirm",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    "End your trip now?",
+                    "Confirm",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
                 if (confirm != DialogResult.Yes) return;
 
-                _tripService.EndTrip(_driverID, _routeId);
-                _driverRepo.UpdateStatus(_driverID, (int)DriverStatus.Finished);
-                _queueRepo.RemoveDriverFromQueue(_driverID, _queueId);
+                _tripService.EndTrip(_driverID, _routeID);
 
-                _queueRepo.ReorderQueuePositions(_queueId);
+                _driverService.UpdateStatus(_driverID, DriverStatus.Finished);
+                _queueService.RemoveDriverFromQueue(_driverID, _queueID);
+                _queueService.ReorderQueuePositions(_queueID);
 
-                System.Threading.Thread.Sleep(150);
-                displayData();
-                UpdateStartButtonState();
-
-                foreach (Form f in Application.OpenForms)
-                {
-                    if (f is DriverForm dashboard)
-                    {
-                        dashboard.RefreshJoinButton();
-                        break;
-                    }
-                }
+                RefreshUI();
+                NotifyDashboard();
                 return;
             }
         }
 
+        #endregion
+
+        #region UI state
+
+        private void RefreshUI()
+        {
+            DisplayData();
+            UpdateStartButtonState();
+        }
+
         public void UpdateStartButtonState()
         {
-            var driver = _driverRepo.GetByUserID(_userID);
+            var driver = _driverService.GetByDriverId(_driverID);
             if (driver == null) return;
 
             bool inQueue = IsDriverInQueue();
@@ -215,64 +223,77 @@ namespace TriQue.Forms
             switch (driver.Status)
             {
                 case DriverStatus.Waiting:
-                    if (inQueue)
-                    {
-                        StartTipBtn.Text = "Start Trip";
-                        StartTipBtn.FillColor = Color.FromArgb(55, 91, 231);
-                        StartTipBtn.Enabled = true;
-                    }
-                    else
-                    {
-                        StartTipBtn.Text = "Start Trip";
-                        StartTipBtn.FillColor = Color.Gray;
-                        StartTipBtn.Enabled = false;
-                    }
+                    StartTripBtn.Text = "Start Trip";
+                    StartTripBtn.FillColor = inQueue
+                        ? Color.FromArgb(55, 91, 231)
+                        : Color.Gray;
+                    StartTripBtn.Enabled = inQueue;
                     break;
 
                 case DriverStatus.OnTrip:
-                    StartTipBtn.Text = "End Trip";
-                    StartTipBtn.FillColor = Color.Red;
-                    StartTipBtn.Enabled = true;
+                    StartTripBtn.Text = "End Trip";
+                    StartTripBtn.FillColor = Color.Red;
+                    StartTripBtn.Enabled = true;
                     break;
 
                 case DriverStatus.Finished:
-                    StartTipBtn.Text = "Start Trip";
-                    StartTipBtn.FillColor = Color.Gray;
-                    StartTipBtn.Enabled = false;
+                    StartTripBtn.Text = "Start Trip";
+                    StartTripBtn.FillColor = Color.Gray;
+                    StartTripBtn.Enabled = false;
                     break;
             }
         }
 
         private bool IsDriverInQueue()
         {
-            return _queueRepo.IsDriverAlreadyInQueue(_queueId, _driverID);
+            return _queueService.IsDriverInQueue(_driverID, _routeID);
         }
 
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
-            displayData();
-            UpdateStartButtonState();
+            RefreshUI();
+        }
+
+        private void NotifyDashboard()
+        {
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f is DriverForm dash)
+                {
+                    dash.RefreshJoinButton();
+                    break;
+                }
+            }
         }
 
 
-        // navbar
+        #endregion
+
+        #region navigation
+
         private async void DashBtn_Click(object sender, EventArgs e)
         {
-            DriverForm dash = new DriverForm(_userID);
-            await FormAnimator.SwitchAsync(this, dash, closeCurrentAfter: true);
+            await FormAnimator.SwitchAsync(this, new DriverForm(_userID), true);
         }
 
         private async void SettingsBtn_Click(object sender, EventArgs e)
         {
-            DriverSettings settings = new DriverSettings(_userID);
-            await FormAnimator.SwitchAsync(this, settings, closeCurrentAfter: true);
+            await FormAnimator.SwitchAsync(this, new DriverSettings(_userID), true);
         }
 
         private async void LogoutBtn_Click(object sender, EventArgs e)
         {
-            var authService = new AuthenticationService();
-            authService.Logout(_userID);
-            await FormAnimator.SwitchAsync(this, new LoginForm(), closeCurrentAfter: true);
+            if (MessageBox.Show("Are you sure you want to logout?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            new AuthenticationService().Logout(_userID);
+
+            await FormAnimator.SwitchAsync(this, new LoginForm());
         }
+
+        #endregion
     }
 }

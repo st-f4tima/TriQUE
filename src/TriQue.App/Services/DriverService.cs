@@ -1,5 +1,6 @@
 ﻿using System;
 using TriQue.Data.Repositories;
+using TriQue.Enums;
 using TriQue.Models;
 
 namespace TriQue.Services
@@ -13,9 +14,24 @@ namespace TriQue.Services
             _driverRepo = new DriverRepository();
         }
 
-        public Driver GetDriverByUserID(int userID)
+        public Driver? GetByUserId(int userID)
         {
             return _driverRepo.GetByUserID(userID);
+        }
+
+        public Driver? GetByDriverId(int driverID)
+        {
+            return _driverRepo.GetByDriverID(driverID);
+        }
+
+        public int? GetDriverId(int userID)
+        {
+            return _driverRepo.GetByUserID(userID)?.DriverID;
+        }
+
+        public void UpdateStatus(int driverID, DriverStatus status)
+        {
+            _driverRepo.UpdateStatus(driverID, (int)status);
         }
     }
 }

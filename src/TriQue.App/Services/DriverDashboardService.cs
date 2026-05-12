@@ -51,7 +51,6 @@ namespace TriQue.Services
                 ActualEarnings = _tripService.GetActualEarnings(driver.DriverID),
                 FastestTrip = stats.fastest,
                 SlowestTrip = stats.slowest,
-                QueueHistory = _queueRepo.GetQueueHistory(driver.DriverID),
                 RouteName = route?.RouteName ?? "No Route Today",
                 TotalDistance = route?.DistanceKm ?? 0
             };
