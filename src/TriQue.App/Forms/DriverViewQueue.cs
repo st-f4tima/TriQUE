@@ -24,7 +24,7 @@ namespace TriQue.Forms
             _routeID = routeID;
             _userID = userID;
             _driverID = _driverService.GetDriverId(userID) ?? 0;
-            _queueID = _queueService.GetQueueIdByRouteId(routeID);
+            _queueID = _queueService.GetQueueIdByRouteId(routeID) ?? 0;
 
             LoadView();
         }

@@ -1,5 +1,4 @@
 using TriQue.Data.Repositories;
-using TriQue.Forms;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
@@ -8,7 +7,7 @@ namespace TriQue.Forms
     public partial class AdminViewQueue : Form
     {
         private readonly RotationService _rotationService;
-        private readonly DriverRepository _driverRepo;
+
         private readonly int _userID;
 
         public AdminViewQueue(int userID)
@@ -16,10 +15,12 @@ namespace TriQue.Forms
             InitializeComponent();
 
             _rotationService = new RotationService();
-            _driverRepo = new DriverRepository();
             _userID = userID;
         }
 
+        #region Route Buttons
+
+        // Provincial Capitol button
         private async void btnRouteA_Click(object sender, EventArgs e)
         {
             int? groupID = _rotationService.GetGroupIDForRouteToday(101);
@@ -30,6 +31,7 @@ namespace TriQue.Forms
             await ModalAnimator.ShowModalAsync(this, new QueueModal("Provincial Capitol", 101, _userID, groupID.Value));
         }
 
+        // Grand Terminal button
         private async void btnRouteB_Click(object sender, EventArgs e)
         {
             int? groupID = _rotationService.GetGroupIDForRouteToday(102);
@@ -41,6 +43,7 @@ namespace TriQue.Forms
             await ModalAnimator.ShowModalAsync(this, new QueueModal("Grand Terminal", 102, _userID, groupID.Value));
         }
 
+        // SM Batangas button
         private async void btnRouteC_Click(object sender, EventArgs e)
         {
             int? groupID = _rotationService.GetGroupIDForRouteToday(103);
@@ -52,6 +55,7 @@ namespace TriQue.Forms
             await ModalAnimator.ShowModalAsync(this, new QueueModal("SM Batangas", 103, _userID, groupID.Value));
         }
 
+        // Waltermart button
         private async void btnRouteD_Click(object sender, EventArgs e)
         {
             int? groupID = _rotationService.GetGroupIDForRouteToday(104);
@@ -62,6 +66,7 @@ namespace TriQue.Forms
             await ModalAnimator.ShowModalAsync(this, new QueueModal("WalterMart", 104, _userID, groupID.Value));
         }
 
+        // Brgy. Tulo button
         private async void btnRouteE_Click(object sender, EventArgs e)
         {
             int? groupID = _rotationService.GetGroupIDForRouteToday(105);
@@ -73,6 +78,7 @@ namespace TriQue.Forms
             await ModalAnimator.ShowModalAsync(this, new QueueModal("Brgy. Tulo", 105, _userID, groupID.Value));
         }
 
+        // BSU Alangilan button
         private async void btnRouteF_Click(object sender, EventArgs e)
         {
             int? groupID = _rotationService.GetGroupIDForRouteToday(106);
@@ -84,7 +90,10 @@ namespace TriQue.Forms
             await ModalAnimator.ShowModalAsync(this, new QueueModal("BSU Alangilan", 106, _userID, groupID.Value));
         }
 
-        // navbar
+        #endregion
+
+        #region navigation
+
         private async void DashBtn_Click(object sender, EventArgs e)
         {
             await FormAnimator.SwitchAsync(this, new AdminForm(_userID));
@@ -134,10 +143,17 @@ namespace TriQue.Forms
 
         private async void LogoutBtn_Click(object sender, EventArgs e)
         {
-            var authService = new AuthenticationService();
-            authService.Logout(_userID);
+            if (MessageBox.Show("Are you sure you want to logout?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            new AuthenticationService().Logout(_userID);
 
             await FormAnimator.SwitchAsync(this, new LoginForm());
         }
+
+        #endregion
     }
 }

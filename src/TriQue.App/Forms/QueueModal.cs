@@ -8,40 +8,43 @@ namespace TriQue.Forms
 {
     public partial class QueueModal : Form
     {
-        private readonly AdminRepository _adminRepo = new();
-        private readonly TripRepository _tripRepo = new();
-        private TripService _tripService;
-        private readonly string _routeName;
+        private readonly TripService _tripService = new();
+        private readonly AdminService _adminService = new();
+        private readonly QueueService _queueService = new();
+        private readonly DriverService _driverService = new();
+
         private readonly int _routeID;
         private readonly int _userID;
         private readonly int _groupID;
+
         private DataTable _fullTable;
         private bool _isSuperAdmin;
 
         public QueueModal(string routeName, int routeID, int userID, int groupID)
         {
             InitializeComponent();
-            _tripService = new TripService();
 
-            _routeName = routeName;
             _routeID = routeID;
             _userID = userID;
             _groupID = groupID;
 
-            // modal title
             this.Text = routeName;
             this.StartPosition = FormStartPosition.CenterScreen;
 
+            LoadQueueModal();
+        }
+
+        private void LoadQueueModal()
+        {
             CheckAdminLevel();
             SetupGrid();
             LoadQueue();
             SetupSearch();
-
         }
 
         private void CheckAdminLevel()
         {
-            var level = _adminRepo.GetAdminLevel(_userID);
+            var level = _adminService.GetAdminLevel(_userID);
             _isSuperAdmin = level == AdminLevel.SuperAdmin;
 
             if (!_isSuperAdmin)
@@ -114,41 +117,9 @@ namespace TriQue.Forms
             DriverListDataGrid.Columns.AddRange(chk, colRank, colBody, colName, colStatus, colAction);
         }
 
-        private void DgvQueue_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            var colName = DriverListDataGrid.Columns[e.ColumnIndex].Name;
-
-            // hide ranking for Finished drivers
-            if (colName == "colRanking")
-            {
-                var row = DriverListDataGrid.Rows[e.RowIndex];
-                var status = row.Cells["colStatus"].Value?.ToString();
-                if (status == "Finished")
-                    e.Value = "-";
-                return;
-            }
-
-            if (colName != "colStatus") return;
-
-            e.CellStyle.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
-            var value = e.Value?.ToString();
-
-            Color statusColor = value switch
-            {
-                "Waiting" => Color.Orange,
-                "OnTrip" => Color.FromArgb(0, 150, 0),
-                "Finished" => Color.FromArgb(0, 86, 179),
-                _ => Color.FromArgb(91, 91, 91)
-            };
-
-            e.CellStyle.ForeColor = statusColor;
-            e.CellStyle.SelectionForeColor = statusColor;
-            e.CellStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-        }
-
         private void LoadQueue()
         {
-            _fullTable = _adminRepo.GetQueueByGroupID(_groupID, _routeID);
+            _fullTable = _queueService.GetQueueByGroupID(_groupID, _routeID);
             DriverListDataGrid.DataSource = _fullTable;
 
             foreach (DataGridViewRow row in DriverListDataGrid.Rows)
@@ -194,6 +165,40 @@ namespace TriQue.Forms
             };
         }
 
+        private void DgvQueue_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var colName = DriverListDataGrid.Columns[e.ColumnIndex].Name;
+
+            // hide ranking for Finished drivers
+            if (colName == "colRanking")
+            {
+                var row = DriverListDataGrid.Rows[e.RowIndex];
+                var status = row.Cells["colStatus"].Value?.ToString();
+                if (status == "Finished")
+                    e.Value = "-";
+                return;
+            }
+
+            if (colName != "colStatus") return;
+
+            e.CellStyle.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
+            var value = e.Value?.ToString();
+
+            Color statusColor = value switch
+            {
+                "Waiting" => Color.Orange,
+                "OnTrip" => Color.FromArgb(0, 150, 0),
+                "Finished" => Color.FromArgb(0, 86, 179),
+                _ => Color.FromArgb(91, 91, 91)
+            };
+
+            e.CellStyle.ForeColor = statusColor;
+            e.CellStyle.SelectionForeColor = statusColor;
+            e.CellStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+        }
+
+        #region Queue actions
+
         private void UpdateStatusBtn_Click_1(object sender, EventArgs e)
         {
             int updated = 0;
@@ -206,25 +211,20 @@ namespace TriQue.Forms
                 var action = row.Cells["colAction"].Value?.ToString();
                 int driverID = Convert.ToInt32(_fullTable.Rows[row.Index]["DriverID"]);
 
-                int statusID;
-
                 switch (action)
                 {
                     case "OnTrip":
-                        statusID = 2;
                         _tripService.StartTrip(driverID, _routeID);
-                        _adminRepo.UpdateDriverStatus(driverID, 2);
+                        _driverService.UpdateStatus(driverID, DriverStatus.OnTrip);
                         break;
 
                     case "Finished":
-                        statusID = 3;
                         _tripService.EndTrip(driverID, _routeID);
-                        _adminRepo.UpdateDriverStatus(driverID, statusID);
+                        _driverService.UpdateStatus(driverID, DriverStatus.Finished);
                         break;
 
                     default:
-                        statusID = 1;
-                        _adminRepo.UpdateDriverStatus(driverID, statusID);
+                        _driverService.UpdateStatus(driverID, DriverStatus.Waiting);
                         break;
                 }
 
@@ -264,13 +264,15 @@ namespace TriQue.Forms
 
             if (confirm != DialogResult.Yes) return;
 
-            _adminRepo.ResetQueue(_routeID);
+            _queueService.ResetQueue(_routeID);
             MessageBox.Show("Queue has been reset.!",
                 "Success",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
             LoadQueue();
         }
+
+        #endregion
 
     }
 }
