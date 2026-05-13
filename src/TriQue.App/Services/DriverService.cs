@@ -39,5 +39,17 @@ namespace TriQue.Services
         {
             return _driverRepo.GetDriverSettings(userID);
         }
+
+        public Dictionary<string, int> GetDriverStatusDistribution()
+        {
+            return _driverRepo.GetDriverStatusDistribution();
+        }
+
+        public Dictionary<string, int> GetDriversPerRoute()
+        {
+            return _driverRepo.GetDriversPerRoute();
+        }
+
+
     }
 }
