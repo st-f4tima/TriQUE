@@ -17,16 +17,26 @@ namespace TriQue.Services
             _driverRepo = new DriverRepository();
         }
 
-        public int GetQueueIdByRouteId(int routeID)
+        public int? GetQueueIdByRouteId(int routeID)
         {
-            return _queueRepo.GetQueueIdByRouteId(routeID);
+            return _queueRepo.GetQueueByRouteId(routeID)?.QueueID;
+        }
+
+        public DataTable GetQueueByGroupID(int groupID, int routeID)
+        {
+            return _queueRepo.GetQueueByGroupID(groupID, routeID);
         }
 
         public bool IsDriverInQueue(int driverID, int routeID)
         {
-            int queueID = _queueRepo.GetQueueIdByRouteId(routeID);
-            return _queueRepo.IsDriverAlreadyInQueue(queueID, driverID);
+            var queue = _queueRepo.GetQueueByRouteId(routeID);
+
+            if (queue == null)
+                return false;
+
+            return _queueRepo.IsDriverAlreadyInQueue(queue.QueueID, driverID);
         }
+
 
         public DataRow? GetQueueDriver(int queueID, int driverID)
         {
@@ -48,16 +58,33 @@ namespace TriQue.Services
             _queueRepo.ReorderQueuePositions(queueID);
         }
 
+        public void ResetQueue(int routeID)
+        {
+            _queueRepo.ResetQueue(routeID);
+        }
+
         public string JoinQueue(int driverID, int routeID)
         {
-            int queueID = _queueRepo.GetQueueIdByRouteId(routeID);
+            var queue = _queueRepo.GetQueueByRouteId(routeID);
 
-            bool alreadyJoined = _queueRepo.IsDriverAlreadyInQueue(queueID, driverID);
+            if (queue == null)
+                return "Queue not found.";
+
+            bool alreadyJoined = _queueRepo.IsDriverAlreadyInQueue(queue.QueueID, driverID);
             if (alreadyJoined)
                 return "Already in queue.";
 
-            int position = _queueRepo.GetNextPosition(queueID);
-            _queueRepo.AddQueueEntry(queueID, driverID, position);
+            int position = _queueRepo.GetNextPosition(queue.QueueID);
+
+            var entry = new QueueEntry
+            {
+                QueueID = queue.QueueID,
+                DriverID = driverID,
+                QueuePosition = position,
+                JoinedAt = DateTime.Now
+            };
+
+            _queueRepo.AddQueueEntry(entry);
             _driverRepo.UpdateStatus(driverID, 1);
 
             return $"Joined queue. Position: #{position}";

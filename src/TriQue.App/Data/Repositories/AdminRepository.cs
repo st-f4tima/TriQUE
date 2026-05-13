@@ -55,48 +55,25 @@ namespace TriQue.Data.Repositories
                 : AdminLevel.Staff; 
         }
 
-        public void UpdateDriverStatus(int driverID, int statusID)
+        public DataTable GetAllAdmins()
         {
             string query = @"
-                UPDATE Driver SET StatusID = @statusID
-                WHERE DriverID = @driverID
-            ";
+                SELECT 
+                    u.FirstName || ' ' || u.LastName AS [Admin Name],
+                    al.LevelName AS [Authorization Level],
+                    u.PhoneNumber AS [Contact Number]
+                FROM Admin a
+                JOIN User u ON a.UserID = u.UserID
+                JOIN AdminLevel al ON a.LevelID = al.LevelID
+                ORDER BY a.LevelID ASC";
 
-            _dbHelper.ExecuteNonQuery(query,
-                new SqliteParameter("@statusID", statusID),
-                new SqliteParameter("@driverID", driverID)
-            );
-        }
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
 
-        public void ResetQueue(int routeID)
-        {
-
-            string updateStatus = @"
-                UPDATE Driver 
-                SET StatusID = 3
-                WHERE StatusID = 1
-                AND DriverID IN (
-                    SELECT qe.DriverID 
-                    FROM QueueEntry qe
-                    JOIN Queue q ON qe.QueueID = q.QueueID
-                    WHERE q.RouteID = @routeID
-                )
-                ";
-
-            _dbHelper.ExecuteNonQuery(updateStatus,
-                new SqliteParameter("@routeID", routeID)
-            );
-
-            string clearQueue = @"
-                DELETE FROM QueueEntry
-                WHERE QueueID = (
-                    SELECT QueueID FROM Queue WHERE RouteID = @routeID
-                )
-                ";
-
-            _dbHelper.ExecuteNonQuery(clearQueue,
-                new SqliteParameter("@routeID", routeID)
-            );
+            using var cmd = new SqliteCommand(query, conn);
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            return dt;
         }
 
         public (string FullName, string PhoneNumber, string LevelName)? GetAdminSettings(int userID)
@@ -124,75 +101,6 @@ namespace TriQue.Data.Repositories
                 PhoneNumber: reader["PhoneNumber"].ToString() ?? "",
                 LevelName: reader["LevelName"].ToString() ?? ""
             );
-        }
-
-        public DataTable GetAllAdmins()
-        {
-            string query = @"
-                SELECT 
-                    u.FirstName || ' ' || u.LastName AS [Admin Name],
-                    al.LevelName AS [Authorization Level],
-                    u.PhoneNumber AS [Contact Number]
-                FROM Admin a
-                JOIN User u ON a.UserID = u.UserID
-                JOIN AdminLevel al ON a.LevelID = al.LevelID
-                ORDER BY a.LevelID ASC";
-
-            using var conn = _dbHelper.GetConnection();
-            conn.Open();
-
-            using var cmd = new SqliteCommand(query, conn);
-            DataTable dt = new DataTable();
-            dt.Load(cmd.ExecuteReader());
-            return dt;
-        }
-
-        public DataTable GetQueueByGroupID(int groupID, int routeID)
-        {
-            string query = @"
-                SELECT 
-                    CASE 
-                        WHEN qe.Position IS NOT NULL THEN CAST(qe.Position AS TEXT)
-                        ELSE '-'
-                    END AS Ranking,
-                    d.BodyNumber,
-                    u.FirstName || ' ' || u.LastName AS DriverName,
-                    ds.StatusName AS TripStatus,
-                    d.DriverID
-                FROM Driver d
-                JOIN User u ON d.UserID = u.UserID
-                JOIN DriverStatus ds ON d.StatusID = ds.StatusID
-                LEFT JOIN Queue q ON q.RouteID = @routeID
-                LEFT JOIN QueueEntry qe ON qe.QueueID = q.QueueID 
-                    AND qe.DriverID = d.DriverID
-                WHERE d.GroupID = @groupID
-                ORDER BY 
-                    CASE WHEN qe.Position IS NULL THEN 1 ELSE 0 END,
-                    qe.Position";
-
-            using var reader = _dbHelper.ExecuteReader(query,
-                new SqliteParameter("@groupID", groupID),
-                new SqliteParameter("@routeID", routeID));
-
-            var table = new DataTable();
-            table.Columns.Add("Ranking", typeof(string));
-            table.Columns.Add("BodyNumber", typeof(string));
-            table.Columns.Add("DriverName", typeof(string));
-            table.Columns.Add("TripStatus", typeof(string));
-            table.Columns.Add("DriverID", typeof(int));
-
-            while (reader.Read())
-            {
-                table.Rows.Add(
-                    reader.GetString(0),
-                    reader.GetString(1),
-                    reader.GetString(2),
-                    reader.GetString(3),
-                    reader.GetInt32(4)
-                );
-            }
-
-            return table;
         }
     }
 }

@@ -8,16 +8,5 @@ namespace TriQue.Models
     {
         public int QueueID { get; set; }
         public int RouteID { get; set; }
-        public int CurrentSize { get; set; } = 0;
-
-        public void AddToQueue()
-        {
-            CurrentSize++;
-        }
-
-        public void RemoveToQueue()
-        {
-            if (CurrentSize > 0) CurrentSize--;
-        }
     }
 }
