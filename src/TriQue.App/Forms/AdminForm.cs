@@ -1,15 +1,6 @@
 using Guna.Charts.WinForms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using TriQue.Data.Repositories;
-using TriQue.Forms;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
@@ -18,17 +9,18 @@ namespace TriQue.Forms
     public partial class AdminForm : Form
     {
         private readonly TrafficService _trafficService = new();
-        private readonly TripRepository _tripRepo = new();
-        private readonly AdminRepository _adminRepo = new();
+        private readonly AdminService _adminService = new();
+        private readonly TripService _tripService = new();
+        private readonly DriverService _driverService = new();
+        
         private System.Windows.Forms.Timer _refreshTimer;
+        
         private int _userID;
 
         public AdminForm(int userID)
         {
-
             InitializeComponent();
             _userID = userID;
-
             SetupRefreshTimer();
             this.Load += AdminForm_Load;
         }
@@ -40,11 +32,11 @@ namespace TriQue.Forms
             await LoadTrafficData();
         }
 
-        private void LoadCharts()
+        private void LoadTripStats()
         {
-
-            LoadPieChart();
-            LoadBarChart();
+            TotalTripsValue.Text = _tripService.GetTotalTrips();
+            HighestTripsValue.Text = _tripService.GetHighestTripsRoute().route;
+            LowestTripsValue.Text = _tripService.GetLowestTripsRoute().route;
         }
 
         private async Task LoadTrafficData()
@@ -74,25 +66,19 @@ namespace TriQue.Forms
             }
         }
 
-        private void LoadTripStats()
+        #region Charts
+
+        private void LoadCharts()
         {
-            var todayRoute = _tripRepo.GetTotalTrips().ToString();
-            TotalTripsValue.Text = todayRoute;
-
-            var (highRoute, highCount) = _adminRepo.GetHighestTripsRoute();
-            HighestTripsValue.Text = highRoute;
-
-            var (lowRoute, lowCount) = _adminRepo.GetLowestTripsRoute();
-            LowestTripsValue.Text = lowRoute;
-
+            LoadPieChart();
+            LoadBarChart();
         }
 
         private void LoadPieChart()
         {
             PieChart.Datasets.Clear();
 
-            var status = _adminRepo.GetDriverStatusDistribution();
-
+            var status = _driverService.GetDriverStatusDistribution();
             var pieDataset = new GunaPieDataset();
 
             string[] order = { "Waiting", "OnTrip", "Finished" };
@@ -121,8 +107,7 @@ namespace TriQue.Forms
         {
             BarGraph.Datasets.Clear();
 
-            var routes = _adminRepo.GetDriversPerRoute();
-
+            var routes = _driverService.GetDriversPerRoute();
             var barDataset = new GunaBarDataset();
 
             Color[] colors = {
@@ -157,13 +142,9 @@ namespace TriQue.Forms
             _refreshTimer.Start();
         }
 
-        // navbar
-        private async void LogoutBtn_Click(object sender, EventArgs e)
-        {
-            var authService = new AuthenticationService();
-            authService.Logout(_userID);
-            await FormAnimator.SwitchAsync(this, new LoginForm());
-        }
+        #endregion
+
+        #region navigation
 
         private async void DashboardBtn_Click(object sender, EventArgs e)
         {
@@ -215,5 +196,20 @@ namespace TriQue.Forms
 
             await FormAnimator.SwitchAsync(this, new AdminGenerateReport(_userID));
         }
+
+        private async void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to logout?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            new AuthenticationService().Logout(_userID);
+
+            await FormAnimator.SwitchAsync(this, new LoginForm());
+        }
+
+        #endregion
     }
 }

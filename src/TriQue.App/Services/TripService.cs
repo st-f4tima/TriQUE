@@ -78,5 +78,20 @@ namespace TriQue.Services
 
             return 16 + succeedingFare;
         }
+
+        public string GetTotalTrips()
+        {
+            return _tripRepo.GetTotalTrips().ToString();
+        }
+
+        public (string route, int count) GetHighestTripsRoute()
+        {
+            return _tripRepo.GetHighestTripsRoute();
+        }
+
+        public (string route, int count) GetLowestTripsRoute()
+        {
+            return _tripRepo.GetLowestTripsRoute();
+        }
     }
 }

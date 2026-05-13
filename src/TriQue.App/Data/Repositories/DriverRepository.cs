@@ -16,6 +16,7 @@ namespace TriQue.Data.Repositories
             _dbHelper = new DatabaseHelper();
         }
 
+        #region Driver Retrieval
         public Driver? GetByUserID(int userID)
         {
             string query = @"
@@ -42,6 +43,7 @@ namespace TriQue.Data.Repositories
             };
         }
 
+
         public Driver? GetByDriverID(int driverID)
         {
             string query = @"
@@ -67,19 +69,28 @@ namespace TriQue.Data.Repositories
             };
         }
 
-        public void UpdateStatus(int driverId, int statusId)
+        public List<DriverDto> GetAllDrivers()
         {
-            string query = @"
-                UPDATE Driver
-                SET StatusID = $statusId
-                WHERE DriverID = $driverId;
-            ";
+            var drivers = new List<DriverDto>();
 
-            _dbHelper.ExecuteNonQuery(
-                query,
-                new SqliteParameter("$statusId", statusId),
-                new SqliteParameter("$driverId", driverId)
-            );
+            string query = @"
+                SELECT d.DriverID, u.FirstName || ' ' || u.LastName AS FullName
+                FROM Driver d
+                JOIN User u ON d.UserID = u.UserID
+                ORDER BY FullName";
+
+            using var reader = _dbHelper.ExecuteReader(query);
+
+            while (reader.Read())
+            {
+                drivers.Add(new DriverDto
+                {
+                    DriverID = Convert.ToInt32(reader["DriverID"]),
+                    FullName = reader["FullName"].ToString()
+                });
+            }
+
+            return drivers;
         }
 
         public DriverSettingsDto? GetDriverSettings(int userID)
@@ -118,29 +129,27 @@ namespace TriQue.Data.Repositories
             };
         }
 
-        public List<DriverDto> GetAllDrivers()
+        #endregion
+
+        #region Driver Actions
+        public void UpdateStatus(int driverId, int statusId)
         {
-            var drivers = new List<DriverDto>();
-
             string query = @"
-                SELECT d.DriverID, u.FirstName || ' ' || u.LastName AS FullName
-                FROM Driver d
-                JOIN User u ON d.UserID = u.UserID
-                ORDER BY FullName";
+                UPDATE Driver
+                SET StatusID = $statusId
+                WHERE DriverID = $driverId;
+            ";
 
-            using var reader = _dbHelper.ExecuteReader(query);
-
-            while (reader.Read())
-            {
-                drivers.Add(new DriverDto
-                {
-                    DriverID = Convert.ToInt32(reader["DriverID"]),
-                    FullName = reader["FullName"].ToString()
-                });
-            }
-
-            return drivers;
+            _dbHelper.ExecuteNonQuery(
+                query,
+                new SqliteParameter("$statusId", statusId),
+                new SqliteParameter("$driverId", driverId)
+            );
         }
+
+        #endregion
+
+        #region Group Queries
 
         public DriverGroup? GetGroupByID(int groupID)
         {
@@ -180,5 +189,65 @@ namespace TriQue.Data.Repositories
 
             return groups;
         }
+
+        #endregion
+
+        #region Chart Data
+
+        // pie graph
+        public Dictionary<string, int> GetDriverStatusDistribution()
+        {
+            string query = @"
+                SELECT ds.StatusName, COUNT(d.DriverID) as Total
+                FROM Driver d
+                JOIN DriverStatus ds ON d.StatusID = ds.StatusID
+                GROUP BY d.StatusID
+            ";
+
+            var result = new Dictionary<string, int>();
+
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
+
+            using var cmd = new SqliteCommand(query, conn);
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                result[reader.GetString(0)] = reader.GetInt32(1);
+            }
+
+            return result;
+        }
+
+        // bar graph
+        public Dictionary<string, int> GetDriversPerRoute()
+        {
+            string query = @"
+                SELECT r.RouteName, COUNT(d.DriverID) as Total
+                FROM Driver d
+                JOIN DriverGroup dg ON d.GroupID = dg.GroupID
+                JOIN Route r ON r.AssignedGroup = dg.GroupID
+                GROUP BY r.RouteID
+                ORDER BY r.RouteID
+            ";
+
+            var result = new Dictionary<string, int>();
+
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
+
+            using var cmd = new SqliteCommand(query, conn);
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                result[reader.GetString(0)] = reader.GetInt32(1);
+            }
+
+            return result;
+        }
+
+        #endregion
     }
 }
