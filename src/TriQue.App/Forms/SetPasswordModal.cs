@@ -1,20 +1,27 @@
-﻿using TriQue.Data.Repositories;
+﻿using TriQue.Services;
 
 namespace TriQue.Forms
 {
     public partial class SetPasswordModal : Form
     {
+        private readonly UserService _userService = new();
         private readonly int _userID;
-        private readonly UserRepository _repo = new();
-
         public SetPasswordModal(int userID)
         {
             InitializeComponent();
+            
             _userID = userID;
 
+            InitializePasswordFields();
+        }
+
+        private void InitializePasswordFields()
+        {
             txtNewPassword.UseSystemPasswordChar = true;
             txtConfirmPassword.UseSystemPasswordChar = true;
         }
+
+        #region Toggle Visibility
 
         private void chkShowNew_CheckedChanged_1(object sender, EventArgs e)
         {
@@ -26,30 +33,58 @@ namespace TriQue.Forms
             txtConfirmPassword.UseSystemPasswordChar = !chkShowConfirm.Checked;
         }
 
+        #endregion
+
+        #region Actions
+
         private void ConfirmBtn_Click(object sender, EventArgs e)
         {
-            string np = txtNewPassword.Text.Trim();
-            string cp = txtConfirmPassword.Text.Trim();
+            string newPassword = txtNewPassword.Text.Trim();
+            string confirmPassword = txtConfirmPassword.Text.Trim();
 
-            if (np.Length < 6)
-            {
-                lblError.Text = "Password must be at least 6 characters.";
-                lblError.Visible = true;
+            if (!IsPasswordValid(newPassword, confirmPassword))
                 return;
-            }
-            if (np != cp)
-            {
-                lblError.Text = "Passwords do not match.";
-                lblError.Visible = true;
-                return;
-            }
 
-            _repo.SetNewPassword(_userID, np);
-            MessageBox.Show("Password set successfully!", "Done",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            _userService.SetNewPassword(_userID, newPassword);
+
+            MessageBox.Show(
+                "Password set successfully!",
+                "Done",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+
             DialogResult = DialogResult.OK;
             Close();
-
         }
+
+        #endregion
+
+        #region Validation
+        private bool IsPasswordValid(string newPassword, string confirmPassword)
+        {
+            if (newPassword.Length < 6)
+            {
+                ShowError("Password must be at least 6 characters.");
+                return false;
+            }
+
+            if (newPassword != confirmPassword)
+            {
+                ShowError("Passwords do not match.");
+                return false;
+            }
+
+            lblError.Visible = false;
+            return true;
+        }
+
+        private void ShowError(string message)
+        {
+            lblError.Text = message;
+            lblError.Visible = true;
+        }
+
+        #endregion
     }
 }

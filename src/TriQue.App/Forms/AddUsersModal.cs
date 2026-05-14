@@ -1,5 +1,4 @@
-﻿using TriQue.Data.Repositories;
-using TriQue.Models;
+﻿using TriQue.Models;
 using TriQue.Services;
 
 namespace TriQue
@@ -16,7 +15,6 @@ namespace TriQue
             cboRole.SelectedIndexChanged += CboRole_Changed;
 
             LoadFormDefaults();
-
         }
 
         #region Load Methods

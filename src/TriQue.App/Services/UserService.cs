@@ -32,6 +32,11 @@ namespace TriQue.Services
         {
             return _userRepo.AddUser(firstName, lastName, phone, roleID, groupID, levelID);
         }
+
+        public void SetNewPassword(int userID, string newPassword)
+        {
+            _userRepo.SetNewPassword(userID, newPassword);
+        }
         public void UpdateUser(int userID, string fullName, string phoneNumber, int roleID, int groupID, int adminLevelID)
         {
             _userRepo.UpdateUser(userID, fullName, phoneNumber, roleID, groupID, adminLevelID);

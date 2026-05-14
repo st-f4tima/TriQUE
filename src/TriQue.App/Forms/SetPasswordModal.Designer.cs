@@ -142,7 +142,7 @@
             // 
             // ConfirmBtn
             // 
-            ConfirmBtn.BorderRadius = 15;
+            ConfirmBtn.BorderRadius = 10;
             ConfirmBtn.CustomizableEdges = customizableEdges5;
             ConfirmBtn.DisabledState.BorderColor = Color.DarkGray;
             ConfirmBtn.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -156,11 +156,11 @@
             ConfirmBtn.HoverState.FillColor = Color.FromArgb(0, 50, 125);
             ConfirmBtn.HoverState.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ConfirmBtn.HoverState.ForeColor = Color.White;
-            ConfirmBtn.Location = new Point(286, 283);
+            ConfirmBtn.Location = new Point(36, 296);
             ConfirmBtn.Name = "ConfirmBtn";
             ConfirmBtn.PressedColor = Color.FromArgb(0, 50, 125);
             ConfirmBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            ConfirmBtn.Size = new Size(161, 44);
+            ConfirmBtn.Size = new Size(411, 44);
             ConfirmBtn.TabIndex = 11;
             ConfirmBtn.Text = "Confirm";
             ConfirmBtn.Click += ConfirmBtn_Click;
@@ -170,7 +170,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label2.ForeColor = Color.FromArgb(220, 53, 69);
-            label2.Location = new Point(29, 291);
+            label2.Location = new Point(36, 265);
             label2.Name = "label2";
             label2.Size = new Size(0, 18);
             label2.TabIndex = 12;
@@ -180,7 +180,7 @@
             lblError.AutoSize = true;
             lblError.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             lblError.ForeColor = Color.FromArgb(220, 53, 69);
-            lblError.Location = new Point(29, 291);
+            lblError.Location = new Point(36, 265);
             lblError.Name = "lblError";
             lblError.Size = new Size(0, 18);
             lblError.TabIndex = 13;
@@ -190,7 +190,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(493, 341);
+            ClientSize = new Size(493, 356);
             Controls.Add(lblError);
             Controls.Add(label2);
             Controls.Add(ConfirmBtn);
