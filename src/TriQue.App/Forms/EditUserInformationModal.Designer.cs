@@ -184,7 +184,6 @@
             txtPhoneNumber.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtPhoneNumber.Size = new Size(286, 34);
             txtPhoneNumber.TabIndex = 9;
-            txtPhoneNumber.TextChanged += txtPhoneNumber_TextChanged;
             // 
             // cboRole
             // 

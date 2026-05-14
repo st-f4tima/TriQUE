@@ -1,44 +1,70 @@
-﻿using TriQue.Data.Repositories;
-using TriQue.Services;
+﻿using TriQue.Services;
 
 namespace TriQue
 {
     public partial class UserDetailsModal : Form
     {
-        private readonly UserRepository _repo = new();
+        private readonly UserService _userService = new();
         private readonly RotationService _rotationService = new();
 
         public UserDetailsModal(int userID)
         {
             InitializeComponent();
-            LoadData(userID);
+
+            LoadUserDetails(userID);
         }
 
-        private void LoadData(int userID)
+        #region Load Methods
+
+        private void LoadUserDetails(int userID)
         {
-            var d = _repo.GetUserDetail(userID);
-            if (d == null) return;
+            var user = _userService.GetUserDetail(userID);
 
-            lblFullName.Text = d.FullName;
-            lblRole.Text = d.RoleName;
-            lblPhoneValue.Text = d.PhoneNumber;
-            lblBodyValue.Text = string.IsNullOrEmpty(d.BodyNumber) ? "—" : d.BodyNumber;
-            lblRoleValue.Text = d.RoleName;
-            lblGroupNameValue.Text = string.IsNullOrEmpty(d.GroupName) ? "—" : d.GroupName;
-            lblDriverStatus.Text = d.Status;
+            if (user == null)
+                return;
 
-            if (d.RoleID == 1 && d.GroupID > 0)
-            {
-                var todayRoute = _rotationService.GetTodayRoute(d.GroupID);
-                lblRouteValue.Text = todayRoute?.RouteName ?? "—";
-            }
-            else
+            DisplayBasicInformation(user);
+            DisplayRouteInformation(user);
+            DisplayDriverStatus(user.Status);
+        }
+        private void DisplayBasicInformation(dynamic user)
+        {
+            lblFullName.Text = user.FullName;
+
+            lblRole.Text = user.RoleName;
+            lblRoleValue.Text = user.RoleName;
+
+            lblPhoneValue.Text = user.PhoneNumber;
+
+            lblBodyValue.Text = string.IsNullOrWhiteSpace(user.BodyNumber)
+                ? "—"
+                : user.BodyNumber;
+
+            lblGroupNameValue.Text = string.IsNullOrWhiteSpace(user.GroupName)
+                ? "—"
+                : user.GroupName;
+        }
+
+        private void DisplayRouteInformation(dynamic user)
+        {
+            bool isDriverWithGroup =
+                user.RoleID == 1 &&
+                user.GroupID > 0;
+
+            if (!isDriverWithGroup)
             {
                 lblRouteValue.Text = "—";
+                return;
             }
 
+            var route = _rotationService.GetTodayRoute(user.GroupID);
 
-            lblDriverStatus.ForeColor = d.Status switch
+            lblRouteValue.Text = route?.RouteName ?? "—";
+        }
+
+        private void DisplayDriverStatus(string status)
+        {
+            lblDriverStatus.ForeColor = status switch
             {
                 "OnTrip" => Color.FromArgb(40, 167, 69),
                 "Waiting" => Color.FromArgb(255, 193, 7),
@@ -46,7 +72,7 @@ namespace TriQue
                 _ => Color.FromArgb(40, 167, 69),
             };
 
-            lblDriverStatus.Text = d.Status switch
+            lblDriverStatus.Text = status switch
             {
                 "OnTrip" => "On Trip",
                 "Waiting" => "Waiting",
@@ -55,9 +81,6 @@ namespace TriQue
             };
         }
 
-        private void GroupIcon_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

@@ -49,5 +49,10 @@ namespace TriQue.Services
         {
             return _driverRepo.GetDriversPerRoute();
         }
+
+        public List<DriverGroup> GetAllGroups()
+        {
+            return _driverRepo.GetAllGroups();
+        }
     }
 }

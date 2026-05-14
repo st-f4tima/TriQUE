@@ -125,7 +125,6 @@
             GroupIcon.SizeMode = PictureBoxSizeMode.Zoom;
             GroupIcon.TabIndex = 15;
             GroupIcon.TabStop = false;
-            GroupIcon.Click += GroupIcon_Click;
             // 
             // lblDriverStatus
             // 
