@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
+using System.Data;
 using TriQue.DTOs;
 using TriQue.Enums;
 using TriQue.Helpers;
@@ -246,6 +247,124 @@ namespace TriQue.Data.Repositories
             }
 
             return result;
+        }
+
+        #endregion
+
+        #region report
+
+        public DataTable GetDriverPerformance(DateTime? from, DateTime? to)
+        {
+            string query = @"
+                SELECT
+                    u.FirstName || ' ' || u.LastName AS Driver,
+                    d.BodyNumber AS [Body No.],
+                    dg.GroupName AS [Group],
+                    COUNT(t.TripID) AS [Total Trips],
+                    SUM(CASE WHEN t.StatusID = 3 THEN 1 ELSE 0 END) AS [Completed],
+                    '₱ ' || ROUND(IFNULL(SUM(CASE WHEN t.StatusID = 3 THEN t.ActualEarnings ELSE 0 END), 0), 2) AS [Total Earnings],
+                    ROUND(IFNULL(AVG(CASE WHEN t.EndTime IS NOT NULL 
+                        THEN (julianday(t.EndTime) - julianday(t.StartTime)) * 1440 
+                        ELSE NULL END), 0), 1) || ' min' AS [Avg Duration],
+                    ROUND(IFNULL(MIN(CASE WHEN t.EndTime IS NOT NULL 
+                        THEN (julianday(t.EndTime) - julianday(t.StartTime)) * 1440 
+                        ELSE NULL END), 0), 1) || ' min' AS [Fastest],
+                    ROUND(IFNULL(MAX(CASE WHEN t.EndTime IS NOT NULL 
+                        THEN (julianday(t.EndTime) - julianday(t.StartTime)) * 1440 
+                        ELSE NULL END), 0), 1) || ' min' AS [Slowest]
+                FROM Driver d
+                JOIN User u ON d.UserID = u.UserID
+                JOIN DriverGroup dg ON d.GroupID = dg.GroupID
+                LEFT JOIN Trip t ON t.DriverID = d.DriverID
+                    AND (@from IS NULL OR DATE(t.StartTime) >= @from)
+                    AND (@to IS NULL OR DATE(t.StartTime) <= @to)
+                GROUP BY d.DriverID
+                ORDER BY [Completed] DESC";
+
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
+            using var cmd = new SqliteCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@from", from == null ? DBNull.Value : from.Value.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@to", to == null ? DBNull.Value : to.Value.ToString("yyyy-MM-dd"));
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            return dt;
+        }
+
+        public (string topEarner, double topEarnings, string mostTrips, int tripCount, double avgDuration)
+         GetDriverPerformanceStats(DateTime? from, DateTime? to)
+        {
+            string fromStr = from?.ToString("yyyy-MM-dd");
+            string toStr = to?.ToString("yyyy-MM-dd");
+
+            using var conn = _dbHelper.GetConnection();
+            conn.Open();
+
+            // Top earner
+            string earnerQuery = @"
+                SELECT u.FirstName || ' ' || u.LastName, IFNULL(SUM(t.ActualEarnings), 0) AS Total
+                FROM Driver d
+                JOIN User u ON d.UserID = u.UserID
+                LEFT JOIN Trip t ON t.DriverID = d.DriverID AND t.StatusID = 3
+                    AND (@from IS NULL OR DATE(t.StartTime) >= @from)
+                    AND (@to IS NULL OR DATE(t.StartTime) <= @to)
+                GROUP BY d.DriverID
+                ORDER BY Total DESC LIMIT 1";
+
+            string topEarner = "-";
+            double topEarnings = 0;
+
+            using (var cmd = new SqliteCommand(earnerQuery, conn))
+            {
+                cmd.Parameters.AddWithValue("@from", fromStr ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@to", toStr ?? (object)DBNull.Value);
+                using var r = cmd.ExecuteReader();
+                if (r.Read()) { topEarner = r[0].ToString()!; topEarnings = Convert.ToDouble(r[1]); }
+            }
+
+            // Most trips
+            string tripsQuery = @"
+                SELECT u.FirstName || ' ' || u.LastName, COUNT(t.TripID) AS Total
+                FROM Driver d
+                JOIN User u ON d.UserID = u.UserID
+                LEFT JOIN Trip t ON t.DriverID = d.DriverID AND t.StatusID = 3
+                    AND (@from IS NULL OR DATE(t.StartTime) >= @from)
+                    AND (@to IS NULL OR DATE(t.StartTime) <= @to)
+                GROUP BY d.DriverID
+                ORDER BY Total DESC LIMIT 1";
+
+            string mostTrips = "-";
+            int tripCount = 0;
+
+            using (var cmd = new SqliteCommand(tripsQuery, conn))
+            {
+                cmd.Parameters.AddWithValue("@from", fromStr ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@to", toStr ?? (object)DBNull.Value);
+                using var r = cmd.ExecuteReader();
+                if (r.Read()) { mostTrips = r[0].ToString()!; tripCount = Convert.ToInt32(r[1]); }
+            }
+
+            // Avg duration across all drivers
+            string avgQuery = @"
+                SELECT ROUND(IFNULL(AVG((julianday(EndTime) - julianday(StartTime)) * 1440), 0), 1)
+                FROM Trip
+                WHERE EndTime IS NOT NULL AND StatusID = 3
+                AND (@from IS NULL OR DATE(StartTime) >= @from)
+                AND (@to IS NULL OR DATE(StartTime) <= @to)";
+
+            double avgDuration = 0;
+
+            using (var cmd = new SqliteCommand(avgQuery, conn))
+            {
+                cmd.Parameters.AddWithValue("@from", fromStr ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@to", toStr ?? (object)DBNull.Value);
+                var result = cmd.ExecuteScalar();
+                avgDuration = result == null || result == DBNull.Value ? 0 : Convert.ToDouble(result);
+            }
+
+            return (topEarner, topEarnings, mostTrips, tripCount, avgDuration);
         }
 
         #endregion
