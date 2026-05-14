@@ -1,6 +1,5 @@
 ﻿using TriQue.Data.Repositories;
 using TriQue.DTOs;
-using TriQue.Forms;
 using TriQue.Helpers.Animation;
 using TriQue.Models;
 using TriQue.Services;
@@ -9,38 +8,62 @@ namespace TriQue.Forms
 {
     public partial class AdminGenerateReport : Form
     {
-        private ReportService _reportService;
-        private TripRepository _tripRepo;
-        private RouteRepository _routeRepo;
-        private DriverRepository _driverRepo;
-        private int _userID;
+        private readonly ReportService _reportService = new();
+        private readonly TripRepository _tripRepo = new();
+        private readonly RouteRepository _routeRepo = new();
+        private readonly DriverRepository _driverRepo = new();
+        private readonly UserRepository _userRepo = new();
+
+        private readonly int _userID;
 
         public AdminGenerateReport(int userID)
         {
             InitializeComponent();
+
             _userID = userID;
-            _reportService = new ReportService();
-            _tripRepo = new TripRepository();
-            _routeRepo = new RouteRepository();
-            _driverRepo = new DriverRepository();
 
-            LoadRouteDropdown();
-            LoadDriverDropdown();
+            InitializeFilters();
+            LoadDropdowns();
+            LoadDefaultStats();
+        }
 
+        private void InitializeFilters()
+        {
             dtpFrom.Value = DateTime.Today.AddMonths(-1);
             dtpTo.Value = DateTime.Today;
 
-            LoadStats(null, null, null, null);
+            LoadReportTypeDropdown();
+        }
+
+        #region Dropdowns
+        private void LoadDropdowns()
+        {
+            LoadRouteDropdown();
+            LoadDriverDropdown();
+        }
+
+        private void LoadReportTypeDropdown()
+        {
+            cmbReportType.Items.Clear();
+
+            cmbReportType.Items.Add("Trip Summary");
+            cmbReportType.Items.Add("Driver Performance");
+
+            cmbReportType.SelectedIndex = 0;
         }
 
         private void LoadRouteDropdown()
         {
             cmbRoute.Items.Clear();
-            cmbRoute.Items.Add(new Route { RouteID = 0, RouteName = "All Routes" });
 
-            var routes = _routeRepo.GetAllRoutes();
-            foreach (var r in routes)
-                cmbRoute.Items.Add(r);
+            cmbRoute.Items.Add(new Route
+            {
+                RouteID = 0,
+                RouteName = "All Routes"
+            });
+
+            foreach (var route in _routeRepo.GetAllRoutes())
+                cmbRoute.Items.Add(route);
 
             cmbRoute.DisplayMember = "RouteName";
             cmbRoute.SelectedIndex = 0;
@@ -51,14 +74,23 @@ namespace TriQue.Forms
             cmbDriver.Items.Clear();
             cmbDriver.Items.Add(new { DriverID = 0, FullName = "All Drivers" });
 
-            var drivers = _driverRepo.GetAllDrivers(); 
+            var drivers = _driverRepo.GetAllDrivers();
             foreach (var d in drivers)
+            {
                 cmbDriver.Items.Add(d);
+            }
 
             cmbDriver.DisplayMember = "FullName";
             cmbDriver.SelectedIndex = 0;
-            cmbDriver.DropDownHeight = 150; 
+            cmbDriver.DropDownHeight = 150;
             cmbDriver.MaxDropDownItems = 5;
+        }
+
+        #endregion
+
+        private void LoadDefaultStats()
+        {
+            LoadStats(null, null, null, null);
         }
 
         private void LoadStats(DateTime? from, DateTime? to, int? routeID, int? driverID)
@@ -74,22 +106,54 @@ namespace TriQue.Forms
 
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
-            DateTime? from = dtpFrom.Value.Date;
-            DateTime? to = dtpTo.Value.Date;
-            int? routeID = cmbRoute.SelectedItem is Route r && r.RouteID != 0 ? r.RouteID : null;
-            int? driverID = cmbDriver.SelectedItem is DriverDto d && d.DriverID != 0 ? d.DriverID : null;
+            DateTime from = dtpFrom.Value.Date;
+            DateTime to = dtpTo.Value.Date;
 
+            int? routeID = null;
+            int? driverID = null;
 
+            // Get selected route
+            if (cmbRoute.SelectedItem is Route route && route.RouteID != 0)
+            {
+                routeID = route.RouteID;
+            }
+
+            // Get selected driver
+            if (cmbDriver.SelectedItem is DriverDto driver && driver.DriverID != 0)
+            {
+                driverID = driver.DriverID;
+            }
+
+            // Get report type
+            string reportType = cmbReportType.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(reportType))
+            {
+                MessageBox.Show("Please select a report type.");
+                return;
+            }
+            // Update dashboard stats
             LoadStats(from, to, routeID, driverID);
-            
-            // generate report
+
             try
             {
-                string path = _reportService.GenerateTripSummaryPdf(
-                    from, to, routeID, driverID,
-                    generatedBy: "Admin"
-                );
+                string path = "";
 
+                // Choose which report to generate
+                if (reportType == "Driver Performance")
+                {
+                    path = _reportService.GenerateDriverPerformancePdf(
+                        from, to, routeID, driverID, "Admin"
+                    );
+                }
+                else
+                {
+                    path = _reportService.GenerateTripSummaryPdf(
+                        from, to, routeID, driverID, "Admin"
+                    );
+                }
+
+                // Open the file
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                 {
                     FileName = path,
@@ -97,7 +161,7 @@ namespace TriQue.Forms
                 });
 
                 MessageBox.Show(
-                    $"Report saved to:\n{path}",
+                    "Report saved to:\n" + path,
                     "Report Generated",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
@@ -106,7 +170,7 @@ namespace TriQue.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    $"Failed to generate report:\n{ex.Message}",
+                    "Failed to generate report:\n" + ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -114,7 +178,8 @@ namespace TriQue.Forms
             }
         }
 
-        // navbar
+
+        #region navigation
         private async void ViewQueueBtn_Click(object sender, EventArgs e)
         {
             await FormAnimator.SwitchAsync(this, new AdminViewQueue(_userID));
@@ -169,10 +234,17 @@ namespace TriQue.Forms
 
         private async void LogoutBtn_Click(object sender, EventArgs e)
         {
-            var authService = new AuthenticationService();
-            authService.Logout(_userID);
+            if (MessageBox.Show("Are you sure you want to logout?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            new AuthenticationService().Logout(_userID);
 
             await FormAnimator.SwitchAsync(this, new LoginForm());
         }
+
+        #endregion
     }
 }

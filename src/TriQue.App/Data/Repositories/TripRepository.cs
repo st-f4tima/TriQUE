@@ -219,7 +219,7 @@ namespace TriQue.Data.Repositories
             return dt;
         }
 
-         // for generating reports
+        // for generating reports
         public DataTable GetTripSummary(DateTime? from, DateTime? to, int? routeID, int? driverID)
         {
             string query = @"
@@ -263,7 +263,6 @@ namespace TriQue.Data.Repositories
             dt.Load(cmd.ExecuteReader());
             return dt;
         }
-
 
         // panels in generating reports
         public (int totalTrips, double totalEarnings, string mostActive, string leastActive, double fastest, double slowest)
@@ -443,6 +442,5 @@ namespace TriQue.Data.Repositories
         }
 
         #endregion
-
     }
 }
