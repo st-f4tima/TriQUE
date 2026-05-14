@@ -39,24 +39,30 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             NavBarPanel = new Guna.UI2.WinForms.Guna2Panel();
             SettingsBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             GenerateReportBtn = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -70,16 +76,17 @@
             label3 = new Label();
             pictureBox3 = new PictureBox();
             ReportPanel = new Guna.UI2.WinForms.Guna2Panel();
+            cmbReportType = new Guna.UI2.WinForms.Guna2ComboBox();
+            label7 = new Label();
+            dtpTo = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            dtpFrom = new Guna.UI2.WinForms.Guna2DateTimePicker();
             btnGenerateReport = new Guna.UI2.WinForms.Guna2Button();
             cmbRoute = new Guna.UI2.WinForms.Guna2ComboBox();
             cmbDriver = new Guna.UI2.WinForms.Guna2ComboBox();
             label8 = new Label();
             label6 = new Label();
-            dtpTo = new ReaLTaiizor.Controls.PoisonDateTime();
-            dtpFrom = new ReaLTaiizor.Controls.PoisonDateTime();
             label5 = new Label();
             label4 = new Label();
-            label7 = new Label();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             lblMostActive = new Label();
             label2 = new Label();
@@ -289,26 +296,100 @@
             ReportPanel.BorderColor = Color.DarkGray;
             ReportPanel.BorderRadius = 15;
             ReportPanel.BorderThickness = 1;
+            ReportPanel.Controls.Add(cmbReportType);
+            ReportPanel.Controls.Add(label7);
+            ReportPanel.Controls.Add(dtpTo);
+            ReportPanel.Controls.Add(dtpFrom);
             ReportPanel.Controls.Add(btnGenerateReport);
             ReportPanel.Controls.Add(cmbRoute);
             ReportPanel.Controls.Add(cmbDriver);
             ReportPanel.Controls.Add(label8);
             ReportPanel.Controls.Add(label6);
-            ReportPanel.Controls.Add(dtpTo);
-            ReportPanel.Controls.Add(dtpFrom);
             ReportPanel.Controls.Add(label5);
             ReportPanel.Controls.Add(label4);
-            ReportPanel.CustomizableEdges = customizableEdges17;
-            ReportPanel.Location = new Point(147, 306);
+            ReportPanel.CustomizableEdges = customizableEdges23;
+            ReportPanel.Location = new Point(147, 281);
             ReportPanel.Name = "ReportPanel";
-            ReportPanel.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            ReportPanel.Size = new Size(984, 278);
+            ReportPanel.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            ReportPanel.Size = new Size(984, 340);
             ReportPanel.TabIndex = 8;
+            // 
+            // cmbReportType
+            // 
+            cmbReportType.BackColor = Color.Transparent;
+            cmbReportType.BorderColor = Color.DarkGray;
+            cmbReportType.BorderRadius = 5;
+            cmbReportType.CustomizableEdges = customizableEdges11;
+            cmbReportType.DrawMode = DrawMode.OwnerDrawFixed;
+            cmbReportType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbReportType.FocusedColor = Color.FromArgb(94, 148, 255);
+            cmbReportType.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cmbReportType.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            cmbReportType.ForeColor = Color.FromArgb(91, 91, 91);
+            cmbReportType.ItemHeight = 30;
+            cmbReportType.Location = new Point(34, 43);
+            cmbReportType.Name = "cmbReportType";
+            cmbReportType.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            cmbReportType.Size = new Size(519, 36);
+            cmbReportType.TabIndex = 27;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.White;
+            label7.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(91, 91, 91);
+            label7.Location = new Point(34, 15);
+            label7.Name = "label7";
+            label7.Size = new Size(111, 20);
+            label7.TabIndex = 26;
+            label7.Text = "Report Type";
+            label7.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // dtpTo
+            // 
+            dtpTo.BorderColor = Color.DarkGray;
+            dtpTo.BorderRadius = 5;
+            dtpTo.BorderThickness = 1;
+            dtpTo.Checked = true;
+            dtpTo.CustomizableEdges = customizableEdges13;
+            dtpTo.FillColor = Color.White;
+            dtpTo.Font = new Font("Segoe UI", 9F);
+            dtpTo.ForeColor = Color.FromArgb(91, 91, 91);
+            dtpTo.Format = DateTimePickerFormat.Long;
+            dtpTo.Location = new Point(338, 121);
+            dtpTo.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            dtpTo.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            dtpTo.Name = "dtpTo";
+            dtpTo.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            dtpTo.Size = new Size(215, 36);
+            dtpTo.TabIndex = 25;
+            dtpTo.Value = new DateTime(2026, 5, 15, 0, 58, 18, 44);
+            // 
+            // dtpFrom
+            // 
+            dtpFrom.BorderColor = Color.DarkGray;
+            dtpFrom.BorderRadius = 5;
+            dtpFrom.BorderThickness = 1;
+            dtpFrom.Checked = true;
+            dtpFrom.CustomizableEdges = customizableEdges15;
+            dtpFrom.FillColor = Color.White;
+            dtpFrom.Font = new Font("Segoe UI", 9F);
+            dtpFrom.ForeColor = Color.FromArgb(91, 91, 91);
+            dtpFrom.Format = DateTimePickerFormat.Long;
+            dtpFrom.Location = new Point(34, 121);
+            dtpFrom.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            dtpFrom.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            dtpFrom.Name = "dtpFrom";
+            dtpFrom.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            dtpFrom.Size = new Size(215, 36);
+            dtpFrom.TabIndex = 24;
+            dtpFrom.Value = new DateTime(2026, 5, 15, 0, 58, 18, 44);
             // 
             // btnGenerateReport
             // 
             btnGenerateReport.BorderRadius = 15;
-            btnGenerateReport.CustomizableEdges = customizableEdges11;
+            btnGenerateReport.CustomizableEdges = customizableEdges17;
             btnGenerateReport.DisabledState.BorderColor = Color.DarkGray;
             btnGenerateReport.DisabledState.CustomBorderColor = Color.DarkGray;
             btnGenerateReport.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -316,10 +397,10 @@
             btnGenerateReport.FillColor = Color.FromArgb(55, 91, 231);
             btnGenerateReport.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGenerateReport.ForeColor = Color.White;
-            btnGenerateReport.Location = new Point(34, 210);
+            btnGenerateReport.Location = new Point(34, 276);
             btnGenerateReport.Margin = new Padding(4, 3, 4, 3);
             btnGenerateReport.Name = "btnGenerateReport";
-            btnGenerateReport.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnGenerateReport.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnGenerateReport.Size = new Size(200, 47);
             btnGenerateReport.TabIndex = 23;
             btnGenerateReport.Text = "Generate Report";
@@ -330,7 +411,7 @@
             cmbRoute.BackColor = Color.Transparent;
             cmbRoute.BorderColor = Color.DarkGray;
             cmbRoute.BorderRadius = 5;
-            cmbRoute.CustomizableEdges = customizableEdges13;
+            cmbRoute.CustomizableEdges = customizableEdges19;
             cmbRoute.DrawMode = DrawMode.OwnerDrawFixed;
             cmbRoute.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbRoute.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -338,9 +419,9 @@
             cmbRoute.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             cmbRoute.ForeColor = Color.FromArgb(91, 91, 91);
             cmbRoute.ItemHeight = 30;
-            cmbRoute.Location = new Point(34, 134);
+            cmbRoute.Location = new Point(34, 200);
             cmbRoute.Name = "cmbRoute";
-            cmbRoute.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            cmbRoute.ShadowDecoration.CustomizableEdges = customizableEdges20;
             cmbRoute.Size = new Size(215, 36);
             cmbRoute.TabIndex = 22;
             // 
@@ -349,7 +430,7 @@
             cmbDriver.BackColor = Color.Transparent;
             cmbDriver.BorderColor = Color.DarkGray;
             cmbDriver.BorderRadius = 5;
-            cmbDriver.CustomizableEdges = customizableEdges15;
+            cmbDriver.CustomizableEdges = customizableEdges21;
             cmbDriver.DrawMode = DrawMode.OwnerDrawFixed;
             cmbDriver.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDriver.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -357,10 +438,10 @@
             cmbDriver.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             cmbDriver.ForeColor = Color.FromArgb(91, 91, 91);
             cmbDriver.ItemHeight = 30;
-            cmbDriver.Location = new Point(338, 134);
+            cmbDriver.Location = new Point(338, 200);
             cmbDriver.Name = "cmbDriver";
-            cmbDriver.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            cmbDriver.Size = new Size(200, 36);
+            cmbDriver.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            cmbDriver.Size = new Size(215, 36);
             cmbDriver.TabIndex = 21;
             // 
             // label8
@@ -368,7 +449,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(91, 91, 91);
-            label8.Location = new Point(338, 111);
+            label8.Location = new Point(338, 177);
             label8.Name = "label8";
             label8.Size = new Size(115, 20);
             label8.TabIndex = 20;
@@ -380,41 +461,19 @@
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.FromArgb(91, 91, 91);
-            label6.Location = new Point(34, 111);
+            label6.Location = new Point(34, 177);
             label6.Name = "label6";
             label6.Size = new Size(58, 20);
             label6.TabIndex = 19;
             label6.Text = "Route";
             label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // dtpTo
-            // 
-            dtpTo.CalendarForeColor = Color.FromArgb(91, 91, 91);
-            dtpTo.CalendarTitleForeColor = Color.FromArgb(91, 91, 91);
-            dtpTo.FontSize = ReaLTaiizor.Extension.Poison.PoisonDateTimeSize.Medium;
-            dtpTo.Location = new Point(338, 49);
-            dtpTo.MinimumSize = new Size(0, 30);
-            dtpTo.Name = "dtpTo";
-            dtpTo.Size = new Size(200, 30);
-            dtpTo.TabIndex = 18;
-            // 
-            // dtpFrom
-            // 
-            dtpFrom.CalendarForeColor = Color.FromArgb(91, 91, 91);
-            dtpFrom.CalendarTitleForeColor = Color.FromArgb(91, 91, 91);
-            dtpFrom.FontSize = ReaLTaiizor.Extension.Poison.PoisonDateTimeSize.Medium;
-            dtpFrom.Location = new Point(34, 49);
-            dtpFrom.MinimumSize = new Size(0, 30);
-            dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(210, 30);
-            dtpFrom.TabIndex = 17;
-            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(91, 91, 91);
-            label5.Location = new Point(334, 26);
+            label5.Location = new Point(338, 98);
             label5.Name = "label5";
             label5.Size = new Size(30, 20);
             label5.TabIndex = 16;
@@ -426,24 +485,12 @@
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(91, 91, 91);
-            label4.Location = new Point(34, 26);
+            label4.Location = new Point(34, 98);
             label4.Name = "label4";
             label4.Size = new Size(52, 20);
             label4.TabIndex = 14;
             label4.Text = "From";
             label4.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.FromArgb(91, 91, 91);
-            label7.Location = new Point(147, 271);
-            label7.Name = "label7";
-            label7.Size = new Size(216, 25);
-            label7.TabIndex = 14;
-            label7.Text = "Trip Summary Report";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // guna2Panel3
             // 
@@ -453,10 +500,10 @@
             guna2Panel3.Controls.Add(lblMostActive);
             guna2Panel3.Controls.Add(label2);
             guna2Panel3.Controls.Add(pictureBox10);
-            guna2Panel3.CustomizableEdges = customizableEdges19;
+            guna2Panel3.CustomizableEdges = customizableEdges25;
             guna2Panel3.Location = new Point(348, 114);
             guna2Panel3.Name = "guna2Panel3";
-            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges26;
             guna2Panel3.Size = new Size(180, 125);
             guna2Panel3.TabIndex = 9;
             // 
@@ -502,10 +549,10 @@
             guna2Panel4.Controls.Add(lblLeastActive);
             guna2Panel4.Controls.Add(label1);
             guna2Panel4.Controls.Add(GrayCircle);
-            guna2Panel4.CustomizableEdges = customizableEdges23;
+            guna2Panel4.CustomizableEdges = customizableEdges29;
             guna2Panel4.Location = new Point(553, 114);
             guna2Panel4.Name = "guna2Panel4";
-            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges30;
             guna2Panel4.Size = new Size(180, 125);
             guna2Panel4.TabIndex = 5;
             // 
@@ -535,12 +582,12 @@
             // 
             // GrayCircle
             // 
-            GrayCircle.CustomizableEdges = customizableEdges21;
+            GrayCircle.CustomizableEdges = customizableEdges27;
             GrayCircle.Image = (Image)resources.GetObject("GrayCircle.Image");
             GrayCircle.ImageRotate = 0F;
             GrayCircle.Location = new Point(13, 11);
             GrayCircle.Name = "GrayCircle";
-            GrayCircle.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            GrayCircle.ShadowDecoration.CustomizableEdges = customizableEdges28;
             GrayCircle.Size = new Size(22, 23);
             GrayCircle.TabIndex = 0;
             GrayCircle.TabStop = false;
@@ -553,10 +600,10 @@
             guna2Panel5.Controls.Add(lblFastestTrip);
             guna2Panel5.Controls.Add(lblFastestTripLabel);
             guna2Panel5.Controls.Add(pictureBox5);
-            guna2Panel5.CustomizableEdges = customizableEdges25;
+            guna2Panel5.CustomizableEdges = customizableEdges31;
             guna2Panel5.Location = new Point(751, 114);
             guna2Panel5.Name = "guna2Panel5";
-            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            guna2Panel5.ShadowDecoration.CustomizableEdges = customizableEdges32;
             guna2Panel5.Size = new Size(180, 125);
             guna2Panel5.TabIndex = 5;
             // 
@@ -602,10 +649,10 @@
             guna2Panel6.Controls.Add(lblSlowestTrip);
             guna2Panel6.Controls.Add(lblLowestTripLabel);
             guna2Panel6.Controls.Add(pictureBox6);
-            guna2Panel6.CustomizableEdges = customizableEdges27;
+            guna2Panel6.CustomizableEdges = customizableEdges33;
             guna2Panel6.Location = new Point(951, 114);
             guna2Panel6.Name = "guna2Panel6";
-            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            guna2Panel6.ShadowDecoration.CustomizableEdges = customizableEdges34;
             guna2Panel6.Size = new Size(180, 125);
             guna2Panel6.TabIndex = 5;
             // 
@@ -668,7 +715,6 @@
             Controls.Add(ReportPanel);
             Controls.Add(guna2Panel2);
             Controls.Add(NavBarPanel);
-            Controls.Add(label7);
             Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -731,12 +777,10 @@
         private Label lblTotalTrips;
         private Label lblMostActive;
         private Label lblLeastActive;
-        private Label label7;
         private Label lblFastestTrip;
         private Label lblSlowestTrip;
         private Label label4;
         private Label label5;
-        private ReaLTaiizor.Controls.PoisonDateTime dtpTo;
         private Guna.UI2.WinForms.Guna2ComboBox cmbRoute;
         private Guna.UI2.WinForms.Guna2ComboBox cmbDriver;
         private Label label8;
@@ -744,6 +788,9 @@
         private Guna.UI2.WinForms.Guna2Button btnGenerateReport;
         private Guna.UI2.WinForms.Guna2ImageButton GenerateReportBtn;
         private Guna.UI2.WinForms.Guna2ImageButton SettingsBtn;
-        private ReaLTaiizor.Controls.PoisonDateTime dtpFrom;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpFrom;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbReportType;
+        private Label label7;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpTo;
     }
 }
