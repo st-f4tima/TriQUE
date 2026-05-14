@@ -1,9 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using TriQue.Data.Repositories;
-using TriQue.Forms;
+﻿using TriQue.Data.Repositories;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
@@ -11,88 +6,110 @@ namespace TriQue.Forms
 {
     public partial class AdminSettings : Form
     {
+        private AdminRepository _adminRepo = new();
         private int _userID;
-        private AdminRepository _adminRepo;
 
         public AdminSettings(int userID)
         {
             InitializeComponent();
+            
             _userID = userID;
-            _adminRepo = new AdminRepository();
+
             LoadSettings();
         }
 
+        #region Load Methods
+
         private void LoadSettings()
         {
+            LoadAdminProfile();
+            LoadAdminList();
+        }
+
+        private void LoadAdminProfile()
+        {
             var settings = _adminRepo.GetAdminSettings(_userID);
+
             if (settings != null)
             {
                 lblFullName.Text = settings.Value.FullName;
                 lblPhoneNumber.Text = settings.Value.PhoneNumber;
                 lblAdminLevel.Text = settings.Value.LevelName.ToUpper();
             }
+        }
 
+        private void LoadAdminList()
+        {
             SystemAdDataGrid.DataSource = _adminRepo.GetAllAdmins();
-            SystemAdDataGrid.DataBindingComplete += (s, e) =>
+
+            SystemAdDataGrid.DataBindingComplete += SystemAdDataGrid_DataBindingComplete;
+            SystemAdDataGrid.CellFormatting += SystemAdDataGrid_CellFormatting;
+        }
+
+        #endregion
+
+        #region DataGrid Styling
+
+        private void SystemAdDataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (SystemAdDataGrid.Columns.Count < 3) return;
+
+            SystemAdDataGrid.Columns[0].Width = 300;
+            SystemAdDataGrid.Columns[1].Width = 250;
+            SystemAdDataGrid.Columns[2].Width = 200;
+
+            foreach (DataGridViewRow row in SystemAdDataGrid.Rows)
             {
-                if (SystemAdDataGrid.Columns.Count < 3) return;
+                ApplyRoleStyle(row);
+            }
+        }
 
-                SystemAdDataGrid.Columns[0].Width = 300;
-                SystemAdDataGrid.Columns[1].Width = 250;
-                SystemAdDataGrid.Columns[2].Width = 200;
+        private void SystemAdDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex != 1 || e.RowIndex < 0) return;
 
-                // color Authorization Level column text
-                foreach (DataGridViewRow row in SystemAdDataGrid.Rows)
-                {
-                    string level = row.Cells[1].Value?.ToString() ?? "";
+            string level = SystemAdDataGrid.Rows[e.RowIndex].Cells[1].Value?.ToString() ?? "";
 
-                    if (level == "SuperAdmin")
-                    {
-                        row.Cells[1].Style.ForeColor = Color.FromArgb(34, 197, 94); // green
-                        row.Cells[1].Style.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
-                    }
-                    else if (level == "TodaOfficer")
-                    {
-                        row.Cells[1].Style.ForeColor = Color.FromArgb(100, 88, 255); // purple
-                        row.Cells[1].Style.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
-                    }
-                    else
-                    {
-                        row.Cells[1].Style.ForeColor = Color.FromArgb(156, 163, 175); // gray
-                        row.Cells[1].Style.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
-                    }
-                }
+            e.CellStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
 
-                // selected row text color keeps changing...
-                SystemAdDataGrid.CellFormatting += (s, e) =>
-                {
-                    if (e.ColumnIndex != 1 || e.RowIndex < 0) return;
+            switch (level)
+            {
+                case "SuperAdmin":
+                    e.CellStyle.ForeColor = Color.FromArgb(34, 197, 94);
+                    break;
 
-                    string level = SystemAdDataGrid.Rows[e.RowIndex].Cells[1].Value?.ToString() ?? "";
+                case "TodaOfficer":
+                    e.CellStyle.ForeColor = Color.FromArgb(100, 88, 255);
+                    break;
 
-                    if (level == "SuperAdmin")
-                    {
-                        e.CellStyle.ForeColor = Color.FromArgb(34, 197, 94);
-                        e.CellStyle.SelectionForeColor = Color.FromArgb(34, 197, 94);
-                        e.CellStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-                    }
-                    else if (level == "TodaOfficer")
-                    {
-                        e.CellStyle.ForeColor = Color.FromArgb(100, 88, 255);
-                        e.CellStyle.SelectionForeColor = Color.FromArgb(100, 88, 255);
-                        e.CellStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-                    }
-                    else
-                    {
-                        e.CellStyle.ForeColor = Color.FromArgb(156, 163, 175);
-                        e.CellStyle.SelectionForeColor = Color.FromArgb(156, 163, 175);
-                        e.CellStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-                    }
+                default:
+                    e.CellStyle.ForeColor = Color.FromArgb(156, 163, 175);
+                    break;
+            }
 
-                    e.FormattingApplied = true;
-                };
+            e.CellStyle.SelectionForeColor = e.CellStyle.ForeColor;
+            e.FormattingApplied = true;
+        }
+
+        private static void ApplyRoleStyle(DataGridViewRow row)
+        {
+            string level = row.Cells[1].Value?.ToString() ?? "";
+
+            var font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold);
+
+            row.Cells[1].Style.Font = font;
+
+            row.Cells[1].Style.ForeColor = level switch
+            {
+                "SuperAdmin" => Color.FromArgb(34, 197, 94),
+                "TodaOfficer" => Color.FromArgb(100, 88, 255),
+                _ => Color.FromArgb(156, 163, 175)
             };
         }
+
+        #endregion
+
+        #region Navigation
 
         //navbar
         private async void GenerateReportBtn_Click(object sender, EventArgs e)
@@ -145,10 +162,16 @@ namespace TriQue.Forms
 
         private async void LogoutBtn_Click(object sender, EventArgs e)
         {
-            var authService = new AuthenticationService();
-            authService.Logout(_userID);
+            if (MessageBox.Show("Are you sure you want to logout?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            new AuthenticationService().Logout(_userID);
 
             await FormAnimator.SwitchAsync(this, new LoginForm());
         }
     }
+        #endregion
 }
