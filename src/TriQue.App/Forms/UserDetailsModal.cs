@@ -54,10 +54,5 @@ namespace TriQue
                 _ => "Active"
             };
         }
-
-        private void GroupIcon_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

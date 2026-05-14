@@ -12,10 +12,29 @@ namespace TriQue.Services
             _userRepo = new UserRepository();
         }
 
+        public UserDetailDto? GetUserDetail(int userID)
+        {
+            return _userRepo.GetUserDetail(userID);
+        }
+
+        public int GetAdminLevel(int userID)
+        {
+            return _userRepo.GetAdminLevel(userID);
+        }
+
         public List<UserListDto> GetAllUsers(string search = "")
         {
              return _userRepo.GetAllUsers(search);
         }
-           
+
+        public void UpdateUser(int userID, string fullName, string phoneNumber, int roleID, int groupID, int adminLevelID)
+        {
+            _userRepo.UpdateUser(userID, fullName, phoneNumber, roleID, groupID, adminLevelID);
+        }
+
+        public void DeleteUser(int userID)
+        {
+            _userRepo.DeleteUser(userID);
+        }
     }
 }

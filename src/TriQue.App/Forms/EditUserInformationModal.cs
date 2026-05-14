@@ -1,55 +1,82 @@
-﻿using TriQue.Data.Repositories;
-using TriQue.Models;
+﻿using TriQue.Models;
+using TriQue.Services;
 
 namespace TriQue
 {
     public partial class EditUserInformationModal : Form
     {
+        private readonly UserService _userService = new();
+        private readonly DriverService _driverService = new();
+
         private readonly int _userID;
-        private readonly UserRepository _repo = new();
+
         public EditUserInformationModal(int userID)
         {
             InitializeComponent();
+
             _userID = userID;
-            LoadRoutes();
+
             cboRole.SelectedIndexChanged += CboRole_Changed;
-            LoadData();
+
+            LoadRoleOptions();
+            LoadUserData();
         }
 
-        private void LoadRoutes()
+        #region Load Methods
+
+        private void LoadRoleOptions()
+        {
+            LoadRoles();
+            LoadAdminLevels();
+            LoadDriverGroups();
+        }
+
+        private void LoadRoles()
         {
             cboRole.Items.Clear();
             cboRole.Items.AddRange(new[] { "Driver", "Admin" });
+        }
 
+        private void LoadAdminLevels()
+        {
             cboAdminLevel.Items.Clear();
             cboAdminLevel.Items.AddRange(new[] { "SuperAdmin", "TodaOfficer", "Staff" });
+        }
 
-            var driverRepo = new DriverRepository();
-            var groups = driverRepo.GetAllGroups();
+        private void LoadDriverGroups()
+        {
+            var groups = _driverService.GetAllGroups();
+
             cboAssignedRoute.DataSource = groups;
             cboAssignedRoute.DisplayMember = "GroupName";
             cboAssignedRoute.ValueMember = "GroupID";
         }
 
-        private void LoadData()
+        private void LoadUserData()
         {
-            var d = _repo.GetUserDetail(_userID);
-            if (d == null) return;
+            var user = _userService.GetUserDetail(_userID);
+            
+            if (user == null)
+            {
+                return;
+            }
 
-            txtFullName.Text = d.FullName;
-            txtPhoneNumber.Text = d.PhoneNumber;
-            cboRole.SelectedIndex = d.RoleID == 2 ? 1 : 0;
+            txtFullName.Text = user.FullName;
+            txtPhoneNumber.Text = user.PhoneNumber;
+            cboRole.SelectedIndex = user.RoleID == 2 ? 1 : 0;
 
             CboRole_Changed(null, EventArgs.Empty); 
 
-            cboAssignedRoute.SelectedValue = d.GroupID; 
+            cboAssignedRoute.SelectedValue = user.GroupID; 
 
-            if (d.RoleID == 2)
+            if (user.RoleID == 2)
             {
-                int adminLevel = _repo.GetAdminLevel(_userID);
+                int adminLevel = _userService.GetAdminLevel(_userID);
                 cboAdminLevel.SelectedIndex = adminLevel - 1;
             }
         }
+
+        #endregion
 
         private void CboRole_Changed(object? sender, EventArgs e)
         {
@@ -60,6 +87,7 @@ namespace TriQue
             cboAdminLevel.Visible = !isDriver;
         }
 
+        #region actions
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
             string name = txtFullName.Text.Trim();
@@ -78,7 +106,7 @@ namespace TriQue
 
             try
             {
-                _repo.UpdateUser(_userID, name, phone, roleID, groupID, levelID);
+                _userService.UpdateUser(_userID, name, phone, roleID, groupID, levelID);
                 MessageBox.Show("User updated successfully.", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
@@ -100,7 +128,7 @@ namespace TriQue
 
             try
             {
-                _repo.DeleteUser(_userID);
+                _userService.DeleteUser(_userID);
                 MessageBox.Show("User deleted.", "Deleted",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
@@ -113,9 +141,6 @@ namespace TriQue
             }
         }
 
-        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
+        #endregion
 }
