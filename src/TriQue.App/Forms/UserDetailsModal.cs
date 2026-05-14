@@ -1,5 +1,4 @@
-﻿using TriQue.Data.Repositories;
-using TriQue.Services;
+﻿using TriQue.Services;
 
 namespace TriQue
 {

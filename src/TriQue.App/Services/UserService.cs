@@ -1,5 +1,6 @@
 ﻿using TriQue.Data.Repositories;
 using TriQue.DTOs;
+using TriQue.Helpers;
 
 namespace TriQue.Services
 {
@@ -27,6 +28,10 @@ namespace TriQue.Services
              return _userRepo.GetAllUsers(search);
         }
 
+        public CreatedUserDto AddUser(string firstName, string lastName, string phone, int roleID, int groupID, int levelID = 3)
+        {
+            return _userRepo.AddUser(firstName, lastName, phone, roleID, groupID, levelID);
+        }
         public void UpdateUser(int userID, string fullName, string phoneNumber, int roleID, int groupID, int adminLevelID)
         {
             _userRepo.UpdateUser(userID, fullName, phoneNumber, roleID, groupID, adminLevelID);
