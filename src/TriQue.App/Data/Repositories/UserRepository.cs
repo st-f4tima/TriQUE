@@ -230,29 +230,74 @@ namespace TriQue.Data.Repositories
             string firstName = parts[0];
             string lastName = parts.Length > 1 ? parts[1] : "";
 
+            // get current role
+            var currentRoleResult = _dbHelper.ExecuteScalar(
+                "SELECT RoleID FROM User WHERE UserID = @id",
+                new SqliteParameter("@id", userID));
+
+            int currentRoleID = Convert.ToInt32(currentRoleResult);
+
+            // update user table
             _dbHelper.ExecuteNonQuery(@"
                 UPDATE User
                 SET FirstName = @fn, LastName = @ln, PhoneNumber = @phone, RoleID = @role
                 WHERE UserID = @id",
-                        new SqliteParameter("@fn", firstName),
-                        new SqliteParameter("@ln", lastName),
-                        new SqliteParameter("@phone", phone),
-                        new SqliteParameter("@role", roleID),
-                        new SqliteParameter("@id", userID));
+                new SqliteParameter("@fn", firstName),
+                new SqliteParameter("@ln", lastName),
+                new SqliteParameter("@phone", phone),
+                new SqliteParameter("@role", roleID),
+                new SqliteParameter("@id", userID));
 
-            if (roleID == 1)
+            // handle role change
+            if (currentRoleID != roleID)
             {
-                _dbHelper.ExecuteNonQuery(
-                    "UPDATE Driver SET GroupID = @gid WHERE UserID = @uid",
-                    new SqliteParameter("@gid", groupID),
-                    new SqliteParameter("@uid", userID));
+                // remove from old role table
+                if (currentRoleID == 1)
+                {
+                    _dbHelper.ExecuteNonQuery("DELETE FROM Driver WHERE UserID = @uid",
+                        new SqliteParameter("@uid", userID));
+                } else if (currentRoleID == 2)
+                {
+                    _dbHelper.ExecuteNonQuery("DELETE FROM Admin WHERE UserID = @uid",
+                        new SqliteParameter("@uid", userID));
+                }
+
+
+                // Insert into new role table
+                if (roleID == 1) // now a Driver
+                {
+                    string bodyQuery = "SELECT COUNT(*) FROM Driver";
+                    int count = Convert.ToInt32(_dbHelper.ExecuteScalar(bodyQuery)) + 1;
+                    string bodyNumber = $"TN-{count:D3}";
+
+                    _dbHelper.ExecuteNonQuery(@"
+                INSERT INTO Driver (UserID, GroupID, StatusID, BodyNumber)
+                VALUES (@uid, @gid, 1, @body)",
+                        new SqliteParameter("@uid", userID),
+                        new SqliteParameter("@gid", groupID),
+                        new SqliteParameter("@body", bodyNumber));
+                }
+                else if (roleID == 2) // now an Admin
+                {
+                    _dbHelper.ExecuteNonQuery(@"
+                INSERT INTO Admin (UserID, LevelID) VALUES (@uid, @lvl)",
+                        new SqliteParameter("@uid", userID),
+                        new SqliteParameter("@lvl", levelID));
+                }
             }
-            else if (roleID == 2)
+            else
             {
-                _dbHelper.ExecuteNonQuery(
-                    "UPDATE Admin SET LevelID = @lid WHERE UserID = @uid",
-                    new SqliteParameter("@lid", levelID),
-                    new SqliteParameter("@uid", userID));
+                // same role — just update the relevant table
+                if (roleID == 1)
+                    _dbHelper.ExecuteNonQuery(
+                        "UPDATE Driver SET GroupID = @gid WHERE UserID = @uid",
+                        new SqliteParameter("@gid", groupID),
+                        new SqliteParameter("@uid", userID));
+                else if (roleID == 2)
+                    _dbHelper.ExecuteNonQuery(
+                        "UPDATE Admin SET LevelID = @lid WHERE UserID = @uid",
+                        new SqliteParameter("@lid", levelID),
+                        new SqliteParameter("@uid", userID));
             }
         }
 
