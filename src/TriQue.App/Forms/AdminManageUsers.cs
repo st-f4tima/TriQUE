@@ -1,6 +1,6 @@
-﻿using TriQue;
+﻿using System.Linq.Expressions;
+using TriQue;
 using TriQue.Data.Repositories;
-using TriQue.Forms;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
@@ -8,130 +8,86 @@ namespace TriQue.Forms
 {
     public partial class AdminManageUsers : Form
     {
-        private int _userID;
-        private readonly UserRepository _repo = new();
+        private readonly UserService _userService = new();
         private readonly RotationService _rotationService = new();
+
+        private int _userID;
 
         public AdminManageUsers(int userID)
         {
             InitializeComponent();
+
             _userID = userID;
+
             SetupGrid();
             LoadUsers();
         }
 
+        #region Grid Setup
         private void SetupGrid()
         {
             UserListDataGrid.ReadOnly = true;
             UserListDataGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
             UserListDataGrid.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "UserID",
-                Visible = false
-            });
 
+            AddTextColumn("UserID", visible: false);
+            AddTextColumn("FullName", "Name", 180);
+            AddTextColumn("PhoneNumber", "Phone #", 140);
+            AddTextColumn("RoleName", "Role", 80);
+            AddTextColumn("GroupName", "Group", 100);
+            AddTextColumn("AssignedRoute", "Today's Route", 180, fill: true);
+            AddTextColumn("Status", "Status", 80);
 
-            UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "FullName",
-                HeaderText = "Name",
-                Width = 180,
-                MinimumWidth = 180,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-            });
-
-            UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "PhoneNumber",
-                HeaderText = "Phone #",
-                Width = 140,
-                MinimumWidth = 140,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-            });
-
-            UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "RoleName",
-                HeaderText = "Role",
-                Width = 80,
-                MinimumWidth = 80,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-            });
-
-            UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "GroupName",
-                HeaderText = "Group",
-                Width = 100,
-                MinimumWidth = 100,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-            });
-
-
-            UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "AssignedRoute",
-                HeaderText = "Today's Route",
-                Width = 180,
-                MinimumWidth = 180,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            });
-
-
-            UserListDataGrid.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "Status",
-                HeaderText = "Status",
-                Width = 80,
-                MinimumWidth = 80,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-            });
-
-
-            var editCol = new DataGridViewButtonColumn
-            {
-                Name = "EditCol",
-                HeaderText = "Actions",
-                Text = "✏ Edit",
-                UseColumnTextForButtonValue = true,
-                Width = 100,
-                MinimumWidth = 100,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
-                FlatStyle = FlatStyle.Flat
-            };
-            editCol.DefaultCellStyle.BackColor = Color.FromArgb(220, 53, 69);
-            editCol.DefaultCellStyle.ForeColor = Color.White;
-            editCol.DefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            editCol.DefaultCellStyle.SelectionBackColor = Color.FromArgb(220, 53, 69);
-            editCol.DefaultCellStyle.SelectionForeColor = Color.White;
-            editCol.DefaultCellStyle.BackColor = Color.FromArgb(220, 53, 69);
-            UserListDataGrid.Columns.Add(editCol);
-
-
-            var viewCol = new DataGridViewButtonColumn
-            {
-                Name = "ViewCol",
-                HeaderText = "",
-                Text = "👁 View",
-                UseColumnTextForButtonValue = true,
-                Width = 100,
-                MinimumWidth = 100,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
-                FlatStyle = FlatStyle.Flat
-            };
-            viewCol.DefaultCellStyle.BackColor = Color.FromArgb(13, 110, 253);
-            viewCol.DefaultCellStyle.ForeColor = Color.White;
-            viewCol.DefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            viewCol.DefaultCellStyle.SelectionBackColor = Color.FromArgb(13, 110, 253);
-            viewCol.DefaultCellStyle.SelectionForeColor = Color.White;
-            UserListDataGrid.Columns.Add(viewCol);
+            UserListDataGrid.Columns.Add(MakeButtonColumn("EditCol", "✏ Edit", Color.FromArgb(220, 53, 69)));
+            UserListDataGrid.Columns.Add(MakeButtonColumn("ViewCol", "👁 View", Color.FromArgb(13, 110, 253)));
         }
+
+        private void AddTextColumn(string name, string header = "", int width = 0, bool fill = false, bool visible = true)
+        {
+            var col = new DataGridViewTextBoxColumn
+            {
+                Name = name,
+                Visible = visible,
+                AutoSizeMode = fill
+                    ? DataGridViewAutoSizeColumnMode.Fill
+                    : DataGridViewAutoSizeColumnMode.None
+            };
+
+            if (!string.IsNullOrEmpty(header)) col.HeaderText = header;
+            if (width > 0) col.Width = width;
+            if (width > 0) col.MinimumWidth = width;
+
+            UserListDataGrid.Columns.Add(col);
+        }
+
+        private static DataGridViewButtonColumn MakeButtonColumn(string name, string text, Color backColor)
+        {
+            var col = new DataGridViewButtonColumn
+            {
+                Name = name,
+                HeaderText = name == "EditCol" ? "Actions" : "",
+                Text = text,
+                UseColumnTextForButtonValue = true,
+                Width = 100,
+                MinimumWidth = 100,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
+                FlatStyle = FlatStyle.Flat
+            };
+
+            col.DefaultCellStyle.BackColor = backColor;
+            col.DefaultCellStyle.ForeColor = Color.White;
+            col.DefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            col.DefaultCellStyle.SelectionBackColor = backColor;
+            col.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            return col;
+        }
+
+        #endregion
 
         private void LoadUsers(string search = "")
         {
-            var users = _repo.GetAllUsers(search);
-            var driverRepo = new DriverRepository();
+            var users = _userService.GetAllUsers(search);
             UserListDataGrid.Rows.Clear();
 
             foreach (var u in users)
@@ -139,10 +95,7 @@ namespace TriQue.Forms
                 string assignedRoute = "—";
 
                 if (u.RoleName == "Driver" && u.GroupID > 0)
-                {
-                    var todayRoute = _rotationService.GetTodayRoute(u.GroupID);
-                    assignedRoute = todayRoute?.RouteName ?? "—";
-                }
+                    assignedRoute = _rotationService.GetTodayRoute(u.GroupID)?.RouteName ?? "—";
 
                 int rowIndex = UserListDataGrid.Rows.Add(
                     u.UserID,
@@ -154,43 +107,45 @@ namespace TriQue.Forms
                     u.Status
                 );
 
-                var row = UserListDataGrid.Rows[rowIndex];
-
-                var statusCell = row.Cells["Status"];
-                statusCell.Style.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
-                statusCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                statusCell.Style.BackColor = Color.White;
-                statusCell.Style.SelectionBackColor = Color.White;
-
-                statusCell.Style.ForeColor = u.Status switch
-                {
-                    "Waiting" => Color.FromArgb(255, 193, 7),   // yellow
-                    "OnTrip" => Color.FromArgb(40, 167, 69),   // green
-                    "Finished" => Color.FromArgb(0, 123, 255),   // blue
-                    "Active" => Color.FromArgb(40, 167, 69),   // green
-                    _ => Color.Gray
-                };
-
-                statusCell.Style.SelectionForeColor = statusCell.Style.ForeColor;
-
-                var editCell = row.Cells["EditCol"];
-                editCell.Style.BackColor = Color.FromArgb(220, 53, 69);
-                editCell.Style.ForeColor = Color.White;
-                editCell.Style.SelectionBackColor = Color.FromArgb(220, 53, 69);
-                editCell.Style.SelectionForeColor = Color.White;
-                editCell.Style.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
-                editCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-                var viewCell = row.Cells["ViewCol"];
-                viewCell.Style.BackColor = Color.FromArgb(13, 110, 253);
-                viewCell.Style.ForeColor = Color.White;
-                viewCell.Style.SelectionBackColor = Color.FromArgb(13, 110, 253);
-                viewCell.Style.SelectionForeColor = Color.White;
-                viewCell.Style.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
-                viewCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                StyleRow(UserListDataGrid.Rows[rowIndex], u.Status);
             }
         }
-        
+
+        #region Row / Cell Styling
+
+        private static void StyleRow(DataGridViewRow row, string status)
+        {
+            // Status cell
+            var statusCell = row.Cells["Status"];
+            statusCell.Style.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
+            statusCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            statusCell.Style.BackColor = Color.White;
+            statusCell.Style.SelectionBackColor = Color.White;
+            statusCell.Style.ForeColor = status switch
+            {
+                "Waiting" => Color.FromArgb(255, 193, 7),
+                "OnTrip" => Color.FromArgb(40, 167, 69),
+                "Finished" => Color.FromArgb(0, 123, 255),
+                "Active" => Color.FromArgb(40, 167, 69),
+                _ => Color.Gray
+            };
+            statusCell.Style.SelectionForeColor = statusCell.Style.ForeColor;
+
+            StyleButtonCell(row.Cells["EditCol"], Color.FromArgb(220, 53, 69));
+            StyleButtonCell(row.Cells["ViewCol"], Color.FromArgb(13, 110, 253));
+        }
+
+        private static void StyleButtonCell(DataGridViewCell cell, Color backColor)
+        {
+            cell.Style.BackColor = backColor;
+            cell.Style.ForeColor = Color.White;
+            cell.Style.SelectionBackColor = backColor;
+            cell.Style.SelectionForeColor = Color.White;
+            cell.Style.Font = new Font("Segoe UI", 9f, FontStyle.Bold);
+            cell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+
+        #endregion
 
         private void SearchBar_TextChanged(object sender, EventArgs e)
         {
@@ -207,7 +162,6 @@ namespace TriQue.Forms
                 LoadUsers();
         }
 
-        // action buttons
         private async void UserListDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -234,7 +188,8 @@ namespace TriQue.Forms
             }
         }
 
-        // navbar
+
+        #region navigation
         private async void DashboardBtn_Click(object sender, EventArgs e)
         {
             await FormAnimator.SwitchAsync(this, new AdminForm(_userID));
@@ -290,10 +245,17 @@ namespace TriQue.Forms
 
         private async void LogoutBtn_Click(object sender, EventArgs e)
         {
-            var authService = new AuthenticationService();
-            authService.Logout(_userID);
+            if (MessageBox.Show("Are you sure you want to logout?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            new AuthenticationService().Logout(_userID);
 
             await FormAnimator.SwitchAsync(this, new LoginForm());
         }
+
+        #endregion
     }
 }
