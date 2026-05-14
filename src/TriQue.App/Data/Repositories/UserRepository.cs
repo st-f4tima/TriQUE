@@ -1,7 +1,4 @@
 ﻿using Microsoft.Data.Sqlite;
-using Microsoft.VisualBasic.Logging;
-using System;
-using System.Data;
 using TriQue.DTOs;
 using TriQue.Enums;
 using TriQue.Helpers;
