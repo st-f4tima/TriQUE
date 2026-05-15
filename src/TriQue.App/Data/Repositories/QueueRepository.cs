@@ -50,19 +50,23 @@ namespace TriQue.Data.Repositories
         {
             string query = @"
                 SELECT 
-                    ranked.Position,
+                    CASE 
+                        WHEN ds.StatusName = 'OnTrip' THEN '-'
+                        ELSE CAST(ranked.Position AS TEXT)
+                    END AS Position,
                     r.RouteName,
                     ds.StatusName AS Status
                 FROM (
-                SELECT 
-                    qe.DriverID,
-                    ROW_NUMBER() OVER (ORDER BY qe.Position ASC) AS Position,
-                    q.RouteID
-                FROM QueueEntry qe
-                INNER JOIN Queue q ON qe.QueueID = q.QueueID
-                INNER JOIN Driver d ON qe.DriverID = d.DriverID
-                WHERE qe.QueueID = $queueId
-                AND d.StatusID != 3
+                    SELECT 
+                        qe.DriverID,
+                        ROW_NUMBER() OVER (ORDER BY qe.Position ASC) AS Position,
+                        q.RouteID
+                    FROM QueueEntry qe
+                    INNER JOIN Queue q ON qe.QueueID = q.QueueID
+                    INNER JOIN Driver d ON qe.DriverID = d.DriverID
+                    WHERE qe.QueueID = $queueId
+                    AND d.StatusID != 3        -- excludes Finished
+                    AND d.StatusID != 2        -- ✅ excludes OnTrip from rank count
                 ) ranked
                 INNER JOIN Route r ON ranked.RouteID = r.RouteID
                 INNER JOIN Driver d ON ranked.DriverID = d.DriverID
@@ -88,7 +92,13 @@ namespace TriQue.Data.Repositories
         {
             string query = @"
                 SELECT 
-                    ROW_NUMBER() OVER (ORDER BY qe.Position ASC) AS Position,
+                    CASE 
+                        WHEN ds.StatusName = 'OnTrip' THEN '-'
+                        ELSE CAST(ROW_NUMBER() OVER (
+                            PARTITION BY CASE WHEN ds.StatusName = 'OnTrip' THEN 1 ELSE 0 END
+                            ORDER BY qe.Position ASC
+                        ) AS TEXT)
+                    END AS Position,
                     u.FirstName || ' ' || u.LastName AS DriverName,
                     d.BodyNumber AS BodyNumber,
                     ds.StatusName AS Status
@@ -98,7 +108,9 @@ namespace TriQue.Data.Repositories
                 INNER JOIN DriverStatus ds ON d.StatusID = ds.StatusID
                 WHERE qe.QueueID = $queueId
                 AND d.StatusID != 3
-                ORDER BY qe.Position ASC;
+                ORDER BY 
+                    CASE WHEN ds.StatusName = 'OnTrip' THEN 1 ELSE 0 END ASC,
+                    qe.Position ASC;
             ";
 
             using var conn = _dbHelper.GetConnection();
@@ -117,8 +129,12 @@ namespace TriQue.Data.Repositories
             string query = @"
                 SELECT 
                     CASE 
-                        WHEN qe.Position IS NOT NULL THEN CAST(qe.Position AS TEXT)
-                        ELSE '-'
+                        WHEN qe.Position IS NULL THEN '-'
+                        WHEN ds.StatusName IN ('OnTrip', 'Finished') THEN '-'
+                        ELSE CAST(ROW_NUMBER() OVER (
+                            PARTITION BY CASE WHEN ds.StatusName = 'Waiting' AND qe.Position IS NOT NULL THEN 0 ELSE 1 END
+                            ORDER BY qe.Position ASC
+                        ) AS TEXT)
                     END AS Ranking,
                     d.BodyNumber,
                     u.FirstName || ' ' || u.LastName AS DriverName,
@@ -132,8 +148,9 @@ namespace TriQue.Data.Repositories
                     AND qe.DriverID = d.DriverID
                 WHERE d.GroupID = @groupID
                 ORDER BY 
-                    CASE WHEN qe.Position IS NULL THEN 1 ELSE 0 END,
-                    qe.Position";
+                    CASE WHEN ds.StatusName = 'Waiting' AND qe.Position IS NOT NULL THEN 0 ELSE 1 END ASC,
+                    CASE WHEN qe.Position IS NULL THEN 1 ELSE 0 END ASC,
+                    qe.Position ASC";
 
             using var reader = _dbHelper.ExecuteReader(query,
                 new SqliteParameter("@groupID", groupID),
@@ -191,37 +208,40 @@ namespace TriQue.Data.Repositories
                 new SqliteParameter("$queueID", queueID));
         }
 
-        public void ResetQueue(int routeID)
+        // pass groupID directly instead of routeID
+        public void ResetQueue(int routeID, int groupID)
         {
+            string endTrips = @"
+        UPDATE Trip
+        SET EndTime = CURRENT_TIMESTAMP
+        WHERE EndTime IS NULL
+        AND DriverID IN (
+            SELECT DriverID FROM Driver WHERE GroupID = @groupID
+        )";
+
+            _dbHelper.ExecuteNonQuery(endTrips,
+                new SqliteParameter("@groupID", groupID)
+            );
 
             string updateStatus = @"
-                UPDATE Driver 
-                SET StatusID = 3
-                WHERE StatusID = 1
-                AND DriverID IN (
-                    SELECT qe.DriverID 
-                    FROM QueueEntry qe
-                    JOIN Queue q ON qe.QueueID = q.QueueID
-                    WHERE q.RouteID = @routeID
-                )
-                ";
+        UPDATE Driver 
+        SET StatusID = 1
+        WHERE GroupID = @groupID";
 
             _dbHelper.ExecuteNonQuery(updateStatus,
-                new SqliteParameter("@routeID", routeID)
+                new SqliteParameter("@groupID", groupID)
             );
 
             string clearQueue = @"
-                DELETE FROM QueueEntry
-                WHERE QueueID = (
-                    SELECT QueueID FROM Queue WHERE RouteID = @routeID
-                )
-                ";
+        DELETE FROM QueueEntry
+        WHERE QueueID = (
+            SELECT QueueID FROM Queue WHERE RouteID = @routeID
+        )";
 
             _dbHelper.ExecuteNonQuery(clearQueue,
                 new SqliteParameter("@routeID", routeID)
             );
         }
-
         #endregion
 
         public int GetNextPosition(int queueId)

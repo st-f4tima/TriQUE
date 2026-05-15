@@ -162,7 +162,8 @@ namespace TriQue.Data.Repositories
                     MAX((julianday(EndTime)-julianday(StartTime))*1440) AS Slowest
                 FROM Trip
                 WHERE DriverID = @driverID
-                AND EndTime IS NOT NULL";
+                AND EndTime IS NOT NULL
+                AND (julianday(EndTime)-julianday(StartTime))*1440 > 0"; 
 
             using var reader = _dbHelper.ExecuteReader(
                 query,
@@ -350,7 +351,8 @@ namespace TriQue.Data.Repositories
                 AND (@from IS NULL OR DATE(t.StartTime) >= @from)
                 AND (@to IS NULL OR DATE(t.StartTime) <= @to)
                 AND (@routeID IS NULL OR t.RouteID = @routeID)
-                AND (@driverID IS NULL OR t.DriverID = @driverID)";
+                AND (@driverID IS NULL OR t.DriverID = @driverID)
+                AND (julianday(EndTime)-julianday(StartTime))*1440 > 0";
 
             double fastest = 0;
             double slowest = 0;

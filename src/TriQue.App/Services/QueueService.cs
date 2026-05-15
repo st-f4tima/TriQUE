@@ -58,9 +58,9 @@ namespace TriQue.Services
             _queueRepo.ReorderQueuePositions(queueID);
         }
 
-        public void ResetQueue(int routeID)
+        public void ResetQueue(int routeID, int groupID)
         {
-            _queueRepo.ResetQueue(routeID);
+            _queueRepo.ResetQueue(routeID, groupID);
         }
 
         public string JoinQueue(int driverID, int routeID)
@@ -87,7 +87,10 @@ namespace TriQue.Services
             _queueRepo.AddQueueEntry(entry);
             _driverRepo.UpdateStatus(driverID, 1);
 
-            return $"Joined queue. Position: #{position}";
+            var row = _queueRepo.GetQueueDriver(queue.QueueID, driverID);
+            int visibleRank = int.TryParse(row?["Position"]?.ToString(), out int r) ? r : position;
+
+            return $"Joined queue. Position: #{visibleRank}";
         }
     }
 
