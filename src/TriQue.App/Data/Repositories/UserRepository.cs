@@ -300,9 +300,31 @@ namespace TriQue.Data.Repositories
 
         public void DeleteUser(int userID)
         {
-            _dbHelper.ExecuteNonQuery("DELETE FROM Driver WHERE UserID = @id", new SqliteParameter("@id", userID));
-            _dbHelper.ExecuteNonQuery("DELETE FROM Admin  WHERE UserID = @id", new SqliteParameter("@id", userID));
-            _dbHelper.ExecuteNonQuery("DELETE FROM User   WHERE UserID = @id", new SqliteParameter("@id", userID));
+            var driverID = _dbHelper.ExecuteScalar(
+                "SELECT DriverID FROM Driver WHERE UserID = @id",
+                new SqliteParameter("@id", userID));
+
+            if (driverID != null)
+            {
+                int dID = Convert.ToInt32(driverID);
+                _dbHelper.ExecuteNonQuery("DELETE FROM QueueEntry WHERE DriverID = @id",
+                    new SqliteParameter("@id", dID));
+
+                _dbHelper.ExecuteNonQuery("DELETE FROM Trip WHERE DriverID = @id",
+                    new SqliteParameter("@id", dID));
+
+                _dbHelper.ExecuteNonQuery("DELETE FROM Driver WHERE DriverID = @id",
+                    new SqliteParameter("@id", dID));
+            }
+
+            _dbHelper.ExecuteNonQuery("DELETE FROM Admin WHERE UserID = @id",
+                new SqliteParameter("@id", userID));
+
+            _dbHelper.ExecuteNonQuery("DELETE FROM AuthenticationLog WHERE UserID = @id",
+                new SqliteParameter("@id", userID));
+
+            _dbHelper.ExecuteNonQuery("DELETE FROM User WHERE UserID = @id",
+                new SqliteParameter("@id", userID));
         }
 
         #endregion
