@@ -68,6 +68,7 @@
             SearchBar.Location = new Point(75, 12);
             SearchBar.Margin = new Padding(4);
             SearchBar.Name = "SearchBar";
+            SearchBar.PlaceholderForeColor = Color.Gray;
             SearchBar.PlaceholderText = "Search a driver";
             SearchBar.SelectedText = "";
             SearchBar.ShadowDecoration.CustomizableEdges = customizableEdges2;

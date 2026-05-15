@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using TriQue;
 using TriQue.Data.Repositories;
+using TriQue.Helpers;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
@@ -16,6 +17,7 @@ namespace TriQue.Forms
         public AdminManageUsers(int userID)
         {
             InitializeComponent();
+            ApplyFonts();
 
             _userID = userID;
 
@@ -81,6 +83,19 @@ namespace TriQue.Forms
             col.DefaultCellStyle.SelectionForeColor = Color.White;
 
             return col;
+        }
+
+        private void ApplyFonts()
+        {
+            this.Font = FontHelper.RobotoRegular;
+
+            lblTitle.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+            SearchBar.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            AddUserBtn.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            UserListDataGrid.Font = FontHelper.RobotoRegular;
+            UserListDataGrid.ColumnHeadersDefaultCellStyle.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            UserListDataGrid.DefaultCellStyle.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
         }
 
         #endregion

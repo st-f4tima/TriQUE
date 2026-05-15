@@ -312,6 +312,8 @@ namespace TriQue.Forms
             lblTotalTripsLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
             lblTotalTripsValue.Font = FontHelper.GetRoboto(16f, FontStyle.Bold);
 
+            lblFastestTripLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblLowestTripLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
             lblFastestTripValue.Font = FontHelper.GetRoboto(17f, FontStyle.Bold);
             lblLowestTripValue.Font = FontHelper.GetRoboto(17f, FontStyle.Bold);
             lblTotalDistanceValue.Font = FontHelper.GetRoboto(17f, FontStyle.Bold);

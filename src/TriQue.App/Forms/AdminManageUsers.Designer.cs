@@ -49,7 +49,7 @@ namespace TriQue.Forms
             UserListDataGrid = new Guna2DataGridView();
             AddUserBtn = new Guna2ImageButton();
             SearchBar = new Guna2TextBox();
-            lblManageUsersTitle = new Label();
+            lblTitle = new Label();
             NavbarPanel = new Panel();
             ManageUserBtn = new Guna2ImageButton();
             LogoutBtn = new Guna2ImageButton();
@@ -169,6 +169,7 @@ namespace TriQue.Forms
             SearchBar.Location = new Point(21, 21);
             SearchBar.Margin = new Padding(4);
             SearchBar.Name = "SearchBar";
+            SearchBar.PlaceholderForeColor = Color.Gray;
             SearchBar.PlaceholderText = "Search a driver";
             SearchBar.SelectedText = "";
             SearchBar.ShadowDecoration.CustomizableEdges = customizableEdges3;
@@ -176,18 +177,18 @@ namespace TriQue.Forms
             SearchBar.TabIndex = 4;
             SearchBar.TextChanged += SearchBar_TextChanged;
             // 
-            // lblManageUsersTitle
+            // lblTitle
             // 
-            lblManageUsersTitle.AutoSize = true;
-            lblManageUsersTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblManageUsersTitle.ForeColor = Color.FromArgb(55, 91, 231);
-            lblManageUsersTitle.Location = new Point(131, 38);
-            lblManageUsersTitle.Margin = new Padding(4, 0, 4, 0);
-            lblManageUsersTitle.Name = "lblManageUsersTitle";
-            lblManageUsersTitle.Size = new Size(152, 25);
-            lblManageUsersTitle.TabIndex = 4;
-            lblManageUsersTitle.Text = "Manage Users";
-            lblManageUsersTitle.TextAlign = ContentAlignment.MiddleLeft;
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.FromArgb(55, 91, 231);
+            lblTitle.Location = new Point(131, 38);
+            lblTitle.Margin = new Padding(4, 0, 4, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(152, 25);
+            lblTitle.TabIndex = 4;
+            lblTitle.Text = "Manage Users";
+            lblTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // NavbarPanel
             // 
@@ -318,7 +319,7 @@ namespace TriQue.Forms
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
             Controls.Add(NavbarPanel);
-            Controls.Add(lblManageUsersTitle);
+            Controls.Add(lblTitle);
             Controls.Add(UserListPanel);
             Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -340,7 +341,7 @@ namespace TriQue.Forms
 
         #endregion
         private Guna.UI2.WinForms.Guna2Panel UserListPanel;
-        private Label lblManageUsersTitle;
+        private Label lblTitle;
         private Panel NavbarPanel;
         private Guna.UI2.WinForms.Guna2ImageButton LogoutBtn;
         private Guna.UI2.WinForms.Guna2ImageButton ViewQueueBtn;

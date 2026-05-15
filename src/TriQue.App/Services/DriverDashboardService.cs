@@ -37,7 +37,11 @@ namespace TriQue.Services
         public DriverDashboardDto GetDashboard(int userID)
         {
             var user = _userRepo.GetById(userID);
+            if (user == null) return null;
+
             var driver = _driverRepo.GetByUserID(user.UserID);
+            if (driver == null) return null;
+
             var route = _rotationService.GetTodayRoute(driver.GroupID);
             var stats = _tripService.GetTripSpeedStats(driver.DriverID);
 

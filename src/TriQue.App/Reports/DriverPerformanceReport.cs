@@ -12,15 +12,20 @@ namespace TriQue.Reports
 
         private readonly DateTime? _from;
         private readonly DateTime? _to;
+        private readonly int? _routeID;
+        private readonly int? _driverID;
 
-        public DriverPerformanceReport(DateTime? from, DateTime? to, string generatedBy) : base(generatedBy)
+        public DriverPerformanceReport(DateTime? from, DateTime? to, int? routeID, int? driverID, string generatedBy) : base(generatedBy)
         {
             _from = from;
             _to = to;
+            _routeID = routeID;
+            _driverID = driverID;
         }
+
         public override string GeneratePdf()
         {
-            var data = _driverRepo.GetDriverPerformance(_from, _to);
+            var data = _driverRepo.GetDriverPerformance(_from, _to, _routeID, _driverID);
             var stats = _driverRepo.GetDriverPerformanceStats(_from, _to);
 
             string dateRange = FormatDateLabel(_from, _to);
@@ -34,7 +39,6 @@ namespace TriQue.Reports
                     page.Margin(30);
                     page.DefaultTextStyle(x => x.FontSize(10));
 
-                    // HEADER
                     page.Header().Column(col =>
                     {
                         col.Item().Text("TriQue - Driver Performance Report")
@@ -58,7 +62,6 @@ namespace TriQue.Reports
                         col.Item().PaddingTop(8).LineHorizontal(1).LineColor("#e5e7eb");
                     });
 
-                    // TABLE
                     page.Content().PaddingTop(10).Table(table =>
                     {
                         table.ColumnsDefinition(cols =>
@@ -76,10 +79,10 @@ namespace TriQue.Reports
 
                         string[] headers =
                         {
-                            "Driver", "Body No", "Group",
-                            "Total Trips", "Completed", "Earnings",
-                            "Avg Duration", "Fastest", "Slowest"
-                        };
+                        "Driver", "Body No", "Group",
+                        "Total Trips", "Completed", "Earnings",
+                        "Avg Duration", "Fastest", "Slowest"
+                    };
 
                         foreach (var h in headers)
                         {
@@ -89,28 +92,26 @@ namespace TriQue.Reports
 
                         bool alternate = false;
 
-                        foreach (DataRow row in data.Rows)
+                        foreach (var driver in data)
                         {
                             string bg = alternate ? "#f9fafb" : "#ffffff";
                             alternate = !alternate;
 
                             string[] cols =
                             {
-                                "Driver",
-                                "Body No.",
-                                "Group",
-                                "Total Trips",
-                                "Completed",
-                                "Total Earnings",
-                                "Avg Duration",
-                                "Fastest",
-                                "Slowest"
-                            };
+                            driver.FullName,
+                            driver.BodyNumber,
+                            driver.GroupName,
+                            driver.TotalTrips.ToString(),
+                            driver.CompletedTrips.ToString(),
+                            $"₱ {driver.TotalEarnings:N2}",
+                            $"{driver.AvgDuration:0.0} min",
+                            $"{driver.FastestTrip:0.0} min",
+                            $"{driver.SlowestTrip:0.0} min"
+                        };
 
-                            foreach (var col in cols)
+                            foreach (var val in cols)
                             {
-                                string val = row[col]?.ToString() ?? "-";
-
                                 table.Cell()
                                     .Background(bg)
                                     .Padding(5)
@@ -120,7 +121,6 @@ namespace TriQue.Reports
                         }
                     });
 
-                    // FOOTER
                     page.Footer().AlignCenter().Text(x =>
                     {
                         x.Span("Page ").FontSize(9).FontColor("#9ca3af");

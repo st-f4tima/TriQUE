@@ -87,8 +87,8 @@
             guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             RouteFPic = new PictureBox();
             btnRouteF = new Guna.UI2.WinForms.Guna2Button();
-            lblViewQueueDescription = new Label();
-            lblViewQueueTitle = new Label();
+            lblSubtitle = new Label();
+            lblTitle = new Label();
             NavBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             guna2Panel3.SuspendLayout();
@@ -502,28 +502,28 @@
             btnRouteF.Text = "BSU Alangilan";
             btnRouteF.Click += btnRouteF_Click;
             // 
-            // lblViewQueueDescription
+            // lblSubtitle
             // 
-            lblViewQueueDescription.AutoSize = true;
-            lblViewQueueDescription.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblViewQueueDescription.ForeColor = Color.FromArgb(91, 91, 91);
-            lblViewQueueDescription.Location = new Point(131, 91);
-            lblViewQueueDescription.Name = "lblViewQueueDescription";
-            lblViewQueueDescription.Size = new Size(1024, 18);
-            lblViewQueueDescription.TabIndex = 9;
-            lblViewQueueDescription.Text = "View all drivers’ queue positions and trip statuses for each route. Manage status updates and reset queues with Super Admin privileges.";
+            lblSubtitle.AutoSize = true;
+            lblSubtitle.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSubtitle.ForeColor = Color.FromArgb(91, 91, 91);
+            lblSubtitle.Location = new Point(131, 91);
+            lblSubtitle.Name = "lblSubtitle";
+            lblSubtitle.Size = new Size(1024, 18);
+            lblSubtitle.TabIndex = 9;
+            lblSubtitle.Text = "View all drivers’ queue positions and trip statuses for each route. Manage status updates and reset queues with Super Admin privileges.";
             // 
-            // lblViewQueueTitle
+            // lblTitle
             // 
-            lblViewQueueTitle.AutoSize = true;
-            lblViewQueueTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblViewQueueTitle.ForeColor = Color.FromArgb(55, 91, 231);
-            lblViewQueueTitle.Location = new Point(131, 51);
-            lblViewQueueTitle.Name = "lblViewQueueTitle";
-            lblViewQueueTitle.Size = new Size(130, 25);
-            lblViewQueueTitle.TabIndex = 10;
-            lblViewQueueTitle.Text = "View Queue";
-            lblViewQueueTitle.TextAlign = ContentAlignment.MiddleLeft;
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.FromArgb(55, 91, 231);
+            lblTitle.Location = new Point(131, 49);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(130, 25);
+            lblTitle.TabIndex = 10;
+            lblTitle.Text = "View Queue";
+            lblTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // AdminViewQueue
             // 
@@ -531,8 +531,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
-            Controls.Add(lblViewQueueTitle);
-            Controls.Add(lblViewQueueDescription);
+            Controls.Add(lblTitle);
+            Controls.Add(lblSubtitle);
             Controls.Add(guna2Panel7);
             Controls.Add(guna2Panel6);
             Controls.Add(guna2Panel5);
@@ -595,8 +595,8 @@
         private PictureBox RouteEPic;
         private PictureBox RouteCPic;
         private PictureBox RouteFPic;
-        private Label lblViewQueueDescription;
-        private Label lblViewQueueTitle;
+        private Label lblSubtitle;
+        private Label lblTitle;
         private Guna.UI2.WinForms.Guna2ImageButton ManageUserBtn;
     }
 }

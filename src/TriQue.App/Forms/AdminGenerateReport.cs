@@ -1,5 +1,6 @@
 ﻿using TriQue.Data.Repositories;
 using TriQue.DTOs;
+using TriQue.Helpers;
 using TriQue.Helpers.Animation;
 using TriQue.Models;
 using TriQue.Services;
@@ -12,13 +13,13 @@ namespace TriQue.Forms
         private readonly TripRepository _tripRepo = new();
         private readonly RouteRepository _routeRepo = new();
         private readonly DriverRepository _driverRepo = new();
-        private readonly UserRepository _userRepo = new();
 
         private readonly int _userID;
 
         public AdminGenerateReport(int userID)
         {
             InitializeComponent();
+            ApplyFonts();
 
             _userID = userID;
 
@@ -178,6 +179,46 @@ namespace TriQue.Forms
             }
         }
 
+        #region additional style
+
+        private void ApplyFonts()
+        {
+  
+            this.Font = FontHelper.RobotoRegular;
+
+            lblReportTitle.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+            lblFilterHeading.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+
+            lblFromDate.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblToDate.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            dtpFrom.Font = FontHelper.GetRoboto(9f, FontStyle.Bold);
+            dtpTo.Font = FontHelper.GetRoboto(9f, FontStyle.Bold);
+
+            cmbReportType.Font = FontHelper.GetRoboto(9f, FontStyle.Bold);
+
+            lblRoute.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            cmbRoute.Font = FontHelper.GetRoboto(9f, FontStyle.Bold);
+
+            lblDriver.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            cmbDriver.Font = FontHelper.GetRoboto(9f, FontStyle.Bold);
+
+            lblTotalTrips.Font = FontHelper.GetRoboto(18f, FontStyle.Bold);
+            lblMostActive.Font = FontHelper.GetRoboto(11f, FontStyle.Bold);
+            lblLeastActive.Font = FontHelper.GetRoboto(11f, FontStyle.Bold);
+            lblFastestTrip.Font = FontHelper.GetRoboto(18f, FontStyle.Bold);
+            lblSlowestTrip.Font = FontHelper.GetRoboto(18f, FontStyle.Bold);
+
+            lblTotalTripsLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblMostActiveLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblLeastActiveLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblFastestTripLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblSlowestTripLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            btnGenerateReport.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+        }
+
+        #endregion
+
 
         #region navigation
         private async void ViewQueueBtn_Click(object sender, EventArgs e)
@@ -229,7 +270,7 @@ namespace TriQue.Forms
 
         private async void DashBtn_Click(object sender, EventArgs e)
         {
-            await FormAnimator.SwitchAsync(this, new AdminViewQueue(_userID));
+            await FormAnimator.SwitchAsync(this, new AdminForm(_userID));
         }
 
         private async void LogoutBtn_Click(object sender, EventArgs e)

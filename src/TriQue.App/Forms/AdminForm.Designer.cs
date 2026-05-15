@@ -87,7 +87,7 @@
             SettingsBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             Logo = new PictureBox();
             GenerateReportBtn = new Guna.UI2.WinForms.Guna2ImageButton();
-            lblWelcomeMessage = new TextBox();
+            lblGreeting = new TextBox();
             TrafficRoutePanel = new Guna.UI2.WinForms.Guna2Panel();
             TrafficProneRouteValue = new Label();
             lblTrafficProneRoute = new Label();
@@ -112,9 +112,9 @@
             PieChart = new Guna.Charts.WinForms.GunaChart();
             BarGraphPanel = new Guna.UI2.WinForms.Guna2Panel();
             BarGraph = new Guna.Charts.WinForms.GunaChart();
-            label1 = new Label();
-            label2 = new Label();
-            greeting = new Label();
+            lblPieChartTitle = new Label();
+            lblBarChartTitle = new Label();
+            lblDesc = new Label();
             NavbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             TrafficRoutePanel.SuspendLayout();
@@ -253,16 +253,16 @@
             GenerateReportBtn.TabIndex = 4;
             GenerateReportBtn.Click += GenerateReportBtn_Click;
             // 
-            // lblWelcomeMessage
+            // lblGreeting
             // 
-            lblWelcomeMessage.BorderStyle = BorderStyle.None;
-            lblWelcomeMessage.Font = new Font("Bahnschrift", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblWelcomeMessage.ForeColor = Color.FromArgb(91, 91, 91);
-            lblWelcomeMessage.Location = new Point(132, 49);
-            lblWelcomeMessage.Name = "lblWelcomeMessage";
-            lblWelcomeMessage.Size = new Size(339, 40);
-            lblWelcomeMessage.TabIndex = 1;
-            lblWelcomeMessage.Text = "Welcome Back, Juan!";
+            lblGreeting.BorderStyle = BorderStyle.None;
+            lblGreeting.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblGreeting.ForeColor = Color.FromArgb(91, 91, 91);
+            lblGreeting.Location = new Point(134, 54);
+            lblGreeting.Name = "lblGreeting";
+            lblGreeting.Size = new Size(339, 21);
+            lblGreeting.TabIndex = 1;
+            lblGreeting.Text = "Good Mornig, Juan!";
             // 
             // TrafficRoutePanel
             // 
@@ -295,7 +295,7 @@
             // 
             lblTrafficProneRoute.AutoSize = true;
             lblTrafficProneRoute.ForeColor = Color.FromArgb(55, 91, 231);
-            lblTrafficProneRoute.Location = new Point(7, 109);
+            lblTrafficProneRoute.Location = new Point(13, 109);
             lblTrafficProneRoute.Name = "lblTrafficProneRoute";
             lblTrafficProneRoute.Size = new Size(175, 20);
             lblTrafficProneRoute.TabIndex = 1;
@@ -306,9 +306,9 @@
             // 
             pictureBox1.BackColor = Color.White;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(13, 6);
+            pictureBox1.Location = new Point(13, 9);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(38, 36);
+            pictureBox1.Size = new Size(30, 30);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -356,9 +356,9 @@
             // 
             pictureBox2.BackColor = Color.White;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(12, 6);
+            pictureBox2.Location = new Point(12, 9);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(32, 36);
+            pictureBox2.Size = new Size(30, 30);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -384,7 +384,7 @@
             TotalTripsValue.AutoSize = true;
             TotalTripsValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             TotalTripsValue.ForeColor = Color.FromArgb(84, 84, 84);
-            TotalTripsValue.Location = new Point(11, 68);
+            TotalTripsValue.Location = new Point(11, 59);
             TotalTripsValue.Name = "TotalTripsValue";
             TotalTripsValue.Size = new Size(48, 32);
             TotalTripsValue.TabIndex = 10;
@@ -406,9 +406,9 @@
             // 
             pictureBox3.BackColor = Color.White;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(11, 1);
+            pictureBox3.Location = new Point(11, 9);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(30, 43);
+            pictureBox3.Size = new Size(30, 30);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 2;
             pictureBox3.TabStop = false;
@@ -455,9 +455,9 @@
             // 
             pictureBox4.BackColor = Color.White;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(13, 4);
+            pictureBox4.Location = new Point(13, 8);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(30, 41);
+            pictureBox4.Size = new Size(30, 30);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 2;
             pictureBox4.TabStop = false;
@@ -507,7 +507,7 @@
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(12, 8);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(30, 36);
+            pictureBox5.Size = new Size(30, 30);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 10;
             pictureBox5.TabStop = false;
@@ -606,38 +606,38 @@
             tick6.Font = chartFont16;
             BarGraph.ZAxes.Ticks = tick6;
             // 
-            // label1
+            // lblPieChartTitle
             // 
-            label1.AutoSize = true;
-            label1.ForeColor = Color.FromArgb(91, 91, 91);
-            label1.Location = new Point(134, 324);
-            label1.Name = "label1";
-            label1.Size = new Size(315, 20);
-            label1.TabIndex = 3;
-            label1.Text = "Driver Status Distribution For Today";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            lblPieChartTitle.AutoSize = true;
+            lblPieChartTitle.ForeColor = Color.FromArgb(91, 91, 91);
+            lblPieChartTitle.Location = new Point(134, 324);
+            lblPieChartTitle.Name = "lblPieChartTitle";
+            lblPieChartTitle.Size = new Size(315, 20);
+            lblPieChartTitle.TabIndex = 3;
+            lblPieChartTitle.Text = "Driver Status Distribution For Today";
+            lblPieChartTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblBarChartTitle
             // 
-            label2.AutoSize = true;
-            label2.ForeColor = Color.FromArgb(91, 91, 91);
-            label2.Location = new Point(599, 324);
-            label2.Name = "label2";
-            label2.Size = new Size(215, 20);
-            label2.TabIndex = 10;
-            label2.Text = " Total Drivers Per Route";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            lblBarChartTitle.AutoSize = true;
+            lblBarChartTitle.ForeColor = Color.FromArgb(91, 91, 91);
+            lblBarChartTitle.Location = new Point(599, 324);
+            lblBarChartTitle.Name = "lblBarChartTitle";
+            lblBarChartTitle.Size = new Size(215, 20);
+            lblBarChartTitle.TabIndex = 10;
+            lblBarChartTitle.Text = " Total Drivers Per Route";
+            lblBarChartTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // greeting
+            // lblDesc
             // 
-            greeting.AutoSize = true;
-            greeting.Font = new Font("Arial Rounded MT Bold", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            greeting.ForeColor = Color.FromArgb(55, 91, 231);
-            greeting.Location = new Point(132, 104);
-            greeting.Name = "greeting";
-            greeting.Size = new Size(185, 20);
-            greeting.TabIndex = 19;
-            greeting.Text = "Ready to get started?";
+            lblDesc.AutoSize = true;
+            lblDesc.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDesc.ForeColor = Color.FromArgb(55, 91, 231);
+            lblDesc.Location = new Point(132, 87);
+            lblDesc.Name = "lblDesc";
+            lblDesc.Size = new Size(309, 32);
+            lblDesc.TabIndex = 19;
+            lblDesc.Text = "Ready to get started?";
             // 
             // AdminForm
             // 
@@ -645,9 +645,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
-            Controls.Add(greeting);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblDesc);
+            Controls.Add(lblBarChartTitle);
+            Controls.Add(lblPieChartTitle);
             Controls.Add(BarGraphPanel);
             Controls.Add(PieChartPanel);
             Controls.Add(LowestTripsPanel);
@@ -655,7 +655,7 @@
             Controls.Add(TotalTripsTodayPanel);
             Controls.Add(CongestionDurationPanel);
             Controls.Add(TrafficRoutePanel);
-            Controls.Add(lblWelcomeMessage);
+            Controls.Add(lblGreeting);
             Controls.Add(NavbarPanel);
             Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -700,7 +700,7 @@
         private Guna.UI2.WinForms.Guna2ImageButton GenerateReportBtn;
         private Guna.UI2.WinForms.Guna2ImageButton SettingsBtn;
         private Guna.UI2.WinForms.Guna2ImageButton LogoutBtn;
-        private TextBox lblWelcomeMessage;
+        private TextBox lblGreeting;
         private Guna.UI2.WinForms.Guna2Panel TrafficRoutePanel;
         private Guna.UI2.WinForms.Guna2Panel CongestionDurationPanel;
         private Guna.UI2.WinForms.Guna2Panel TotalTripsTodayPanel;
@@ -725,9 +725,9 @@
         private Label TotalTripsValue;
         private Label HighestTripsValue;
         private Label LowestTripsValue;
-        private Label label1;
-        private Label label2;
+        private Label lblPieChartTitle;
+        private Label lblBarChartTitle;
         private Guna.UI2.WinForms.Guna2ImageButton ManageUserBtn;
-        private Label greeting;
+        private Label lblDesc;
     }
 }

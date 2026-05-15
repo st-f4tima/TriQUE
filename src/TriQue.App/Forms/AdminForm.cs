@@ -1,6 +1,7 @@
 using Guna.Charts.WinForms;
 using System.Data;
 using TriQue.Data.Repositories;
+using TriQue.Helpers;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
@@ -12,6 +13,7 @@ namespace TriQue.Forms
         private readonly AdminService _adminService = new();
         private readonly TripService _tripService = new();
         private readonly DriverService _driverService = new();
+        private readonly UserRepository _userRepo = new();
         
         private System.Windows.Forms.Timer _refreshTimer;
         
@@ -20,8 +22,12 @@ namespace TriQue.Forms
         public AdminForm(int userID)
         {
             InitializeComponent();
+            ApplyFonts();
+
             _userID = userID;
+
             SetupRefreshTimer();
+            LoadGreeting();
             this.Load += AdminForm_Load;
         }
 
@@ -30,6 +36,31 @@ namespace TriQue.Forms
             LoadCharts();
             LoadTripStats();
             await LoadTrafficData();
+        }
+
+        private void LoadGreeting()
+        {
+            var user = _userRepo.GetById(_userID);
+            lblGreeting.Text = $"{GetTimeBasedGreeting()}, {user.FirstName}!";
+        }
+
+        private string GetTimeBasedGreeting()
+        {
+            int hour = DateTime.Now.Hour;
+
+            if (hour >= 5 && hour < 12)
+            {
+                return "Good Morning";
+            }
+            else if (hour >= 12 && hour < 18)
+            {
+                return "Good Afternoon";
+            }
+            else
+            {
+                // covers 6:00 PM to 4:59 AM
+                return "Good Evening";
+            }
         }
 
         private void LoadTripStats()
@@ -140,6 +171,36 @@ namespace TriQue.Forms
             _refreshTimer.Interval = 30 * 60 * 1000;
             _refreshTimer.Tick += async (s, e) => await LoadTrafficData();
             _refreshTimer.Start();
+        }
+
+        #endregion
+
+        #region additional style
+
+        private void ApplyFonts()
+        {
+            this.Font = FontHelper.RobotoRegular;
+            lblGreeting.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+
+            lblDesc.Font = FontHelper.GetRoboto(16f, FontStyle.Bold);
+
+            lblTotalTripsToday.Font = FontHelper.GetRoboto(10, FontStyle.Bold);
+            TotalTripsValue.Font = FontHelper.GetRoboto(20f, FontStyle.Bold);
+
+            lblHighestTrips.Font = FontHelper.GetRoboto(10, FontStyle.Bold);
+            HighestTripsValue.Font = FontHelper.GetRoboto(11f, FontStyle.Bold);
+
+            lblLowestTrips.Font = FontHelper.GetRoboto(10, FontStyle.Bold);
+            LowestTripsValue.Font = FontHelper.GetRoboto(11f, FontStyle.Bold);
+
+            lblTrafficProneRoute.Font = FontHelper.GetRoboto(10, FontStyle.Bold);
+            TrafficProneRouteValue.Font = FontHelper.GetRoboto(11f, FontStyle.Bold);
+
+            lblPeakCongestionDuration.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            PeakCongestionDurationValue.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            lblPieChartTitle.Font = FontHelper.GetRoboto(11f, FontStyle.Bold);
+            lblBarChartTitle.Font = FontHelper.GetRoboto(11f, FontStyle.Bold);
         }
 
         #endregion

@@ -73,27 +73,27 @@
             Logo = new PictureBox();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             lblTotalTrips = new Label();
-            label3 = new Label();
+            lblTotalTripsLabel = new Label();
             pictureBox3 = new PictureBox();
             ReportPanel = new Guna.UI2.WinForms.Guna2Panel();
             cmbReportType = new Guna.UI2.WinForms.Guna2ComboBox();
-            label7 = new Label();
+            lblFilterHeading = new Label();
             dtpTo = new Guna.UI2.WinForms.Guna2DateTimePicker();
             dtpFrom = new Guna.UI2.WinForms.Guna2DateTimePicker();
             btnGenerateReport = new Guna.UI2.WinForms.Guna2Button();
             cmbRoute = new Guna.UI2.WinForms.Guna2ComboBox();
             cmbDriver = new Guna.UI2.WinForms.Guna2ComboBox();
-            label8 = new Label();
-            label6 = new Label();
-            label5 = new Label();
-            label4 = new Label();
+            lblDriver = new Label();
+            lblRoute = new Label();
+            lblToDate = new Label();
+            lblFromDate = new Label();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             lblMostActive = new Label();
-            label2 = new Label();
+            lblMostActiveLabel = new Label();
             pictureBox10 = new PictureBox();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             lblLeastActive = new Label();
-            label1 = new Label();
+            lblLeastActiveLabel = new Label();
             GrayCircle = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             lblFastestTrip = new Label();
@@ -101,9 +101,9 @@
             pictureBox5 = new PictureBox();
             guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             lblSlowestTrip = new Label();
-            lblLowestTripLabel = new Label();
+            lblSlowestTripLabel = new Label();
             pictureBox6 = new PictureBox();
-            lblGenerateReportTitle = new Label();
+            lblReportTitle = new Label();
             NavBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
             guna2Panel2.SuspendLayout();
@@ -248,7 +248,7 @@
             guna2Panel2.BorderRadius = 15;
             guna2Panel2.BorderThickness = 1;
             guna2Panel2.Controls.Add(lblTotalTrips);
-            guna2Panel2.Controls.Add(label3);
+            guna2Panel2.Controls.Add(lblTotalTripsLabel);
             guna2Panel2.Controls.Add(pictureBox3);
             guna2Panel2.CustomizableEdges = customizableEdges9;
             guna2Panel2.Location = new Point(147, 114);
@@ -262,31 +262,31 @@
             lblTotalTrips.AutoSize = true;
             lblTotalTrips.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalTrips.ForeColor = Color.FromArgb(91, 91, 91);
-            lblTotalTrips.Location = new Point(14, 52);
+            lblTotalTrips.Location = new Point(14, 50);
             lblTotalTrips.Name = "lblTotalTrips";
             lblTotalTrips.Size = new Size(65, 32);
             lblTotalTrips.TabIndex = 13;
             lblTotalTrips.Text = "178";
             lblTotalTrips.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lblTotalTripsLabel
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(55, 91, 231);
-            label3.Location = new Point(14, 96);
-            label3.Name = "label3";
-            label3.Size = new Size(89, 18);
-            label3.TabIndex = 12;
-            label3.Text = "Total Trips";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
+            lblTotalTripsLabel.AutoSize = true;
+            lblTotalTripsLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalTripsLabel.ForeColor = Color.FromArgb(55, 91, 231);
+            lblTotalTripsLabel.Location = new Point(14, 96);
+            lblTotalTripsLabel.Name = "lblTotalTripsLabel";
+            lblTotalTripsLabel.Size = new Size(89, 18);
+            lblTotalTripsLabel.TabIndex = 12;
+            lblTotalTripsLabel.Text = "Total Trips";
+            lblTotalTripsLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(14, 8);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(33, 33);
+            pictureBox3.Size = new Size(25, 25);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
@@ -297,21 +297,21 @@
             ReportPanel.BorderRadius = 15;
             ReportPanel.BorderThickness = 1;
             ReportPanel.Controls.Add(cmbReportType);
-            ReportPanel.Controls.Add(label7);
+            ReportPanel.Controls.Add(lblFilterHeading);
             ReportPanel.Controls.Add(dtpTo);
             ReportPanel.Controls.Add(dtpFrom);
             ReportPanel.Controls.Add(btnGenerateReport);
             ReportPanel.Controls.Add(cmbRoute);
             ReportPanel.Controls.Add(cmbDriver);
-            ReportPanel.Controls.Add(label8);
-            ReportPanel.Controls.Add(label6);
-            ReportPanel.Controls.Add(label5);
-            ReportPanel.Controls.Add(label4);
+            ReportPanel.Controls.Add(lblDriver);
+            ReportPanel.Controls.Add(lblRoute);
+            ReportPanel.Controls.Add(lblToDate);
+            ReportPanel.Controls.Add(lblFromDate);
             ReportPanel.CustomizableEdges = customizableEdges23;
-            ReportPanel.Location = new Point(147, 281);
+            ReportPanel.Location = new Point(147, 268);
             ReportPanel.Name = "ReportPanel";
             ReportPanel.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            ReportPanel.Size = new Size(984, 340);
+            ReportPanel.Size = new Size(984, 353);
             ReportPanel.TabIndex = 8;
             // 
             // cmbReportType
@@ -327,24 +327,24 @@
             cmbReportType.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             cmbReportType.ForeColor = Color.FromArgb(91, 91, 91);
             cmbReportType.ItemHeight = 30;
-            cmbReportType.Location = new Point(34, 43);
+            cmbReportType.Location = new Point(34, 50);
             cmbReportType.Name = "cmbReportType";
             cmbReportType.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            cmbReportType.Size = new Size(519, 36);
+            cmbReportType.Size = new Size(579, 36);
             cmbReportType.TabIndex = 27;
             // 
-            // label7
+            // lblFilterHeading
             // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.White;
-            label7.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.FromArgb(91, 91, 91);
-            label7.Location = new Point(34, 15);
-            label7.Name = "label7";
-            label7.Size = new Size(111, 20);
-            label7.TabIndex = 26;
-            label7.Text = "Report Type";
-            label7.TextAlign = ContentAlignment.MiddleLeft;
+            lblFilterHeading.AutoSize = true;
+            lblFilterHeading.BackColor = Color.White;
+            lblFilterHeading.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFilterHeading.ForeColor = Color.FromArgb(91, 91, 91);
+            lblFilterHeading.Location = new Point(34, 15);
+            lblFilterHeading.Name = "lblFilterHeading";
+            lblFilterHeading.Size = new Size(111, 20);
+            lblFilterHeading.TabIndex = 26;
+            lblFilterHeading.Text = "Report Type";
+            lblFilterHeading.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // dtpTo
             // 
@@ -357,12 +357,12 @@
             dtpTo.Font = new Font("Segoe UI", 9F);
             dtpTo.ForeColor = Color.FromArgb(91, 91, 91);
             dtpTo.Format = DateTimePickerFormat.Long;
-            dtpTo.Location = new Point(338, 121);
+            dtpTo.Location = new Point(353, 133);
             dtpTo.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpTo.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpTo.Name = "dtpTo";
             dtpTo.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            dtpTo.Size = new Size(215, 36);
+            dtpTo.Size = new Size(260, 36);
             dtpTo.TabIndex = 25;
             dtpTo.Value = new DateTime(2026, 5, 15, 0, 58, 18, 44);
             // 
@@ -377,12 +377,12 @@
             dtpFrom.Font = new Font("Segoe UI", 9F);
             dtpFrom.ForeColor = Color.FromArgb(91, 91, 91);
             dtpFrom.Format = DateTimePickerFormat.Long;
-            dtpFrom.Location = new Point(34, 121);
+            dtpFrom.Location = new Point(34, 133);
             dtpFrom.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpFrom.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpFrom.Name = "dtpFrom";
             dtpFrom.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            dtpFrom.Size = new Size(215, 36);
+            dtpFrom.Size = new Size(278, 36);
             dtpFrom.TabIndex = 24;
             dtpFrom.Value = new DateTime(2026, 5, 15, 0, 58, 18, 44);
             // 
@@ -397,7 +397,7 @@
             btnGenerateReport.FillColor = Color.FromArgb(55, 91, 231);
             btnGenerateReport.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGenerateReport.ForeColor = Color.White;
-            btnGenerateReport.Location = new Point(34, 276);
+            btnGenerateReport.Location = new Point(34, 287);
             btnGenerateReport.Margin = new Padding(4, 3, 4, 3);
             btnGenerateReport.Name = "btnGenerateReport";
             btnGenerateReport.ShadowDecoration.CustomizableEdges = customizableEdges18;
@@ -419,10 +419,10 @@
             cmbRoute.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             cmbRoute.ForeColor = Color.FromArgb(91, 91, 91);
             cmbRoute.ItemHeight = 30;
-            cmbRoute.Location = new Point(34, 200);
+            cmbRoute.Location = new Point(34, 218);
             cmbRoute.Name = "cmbRoute";
             cmbRoute.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            cmbRoute.Size = new Size(215, 36);
+            cmbRoute.Size = new Size(278, 36);
             cmbRoute.TabIndex = 22;
             // 
             // cmbDriver
@@ -438,59 +438,59 @@
             cmbDriver.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             cmbDriver.ForeColor = Color.FromArgb(91, 91, 91);
             cmbDriver.ItemHeight = 30;
-            cmbDriver.Location = new Point(338, 200);
+            cmbDriver.Location = new Point(353, 218);
             cmbDriver.Name = "cmbDriver";
             cmbDriver.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            cmbDriver.Size = new Size(215, 36);
+            cmbDriver.Size = new Size(260, 36);
             cmbDriver.TabIndex = 21;
             // 
-            // label8
+            // lblDriver
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.FromArgb(91, 91, 91);
-            label8.Location = new Point(338, 177);
-            label8.Name = "label8";
-            label8.Size = new Size(115, 20);
-            label8.TabIndex = 20;
-            label8.Text = "Driver Name";
-            label8.TextAlign = ContentAlignment.MiddleLeft;
+            lblDriver.AutoSize = true;
+            lblDriver.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDriver.ForeColor = Color.FromArgb(91, 91, 91);
+            lblDriver.Location = new Point(353, 186);
+            lblDriver.Name = "lblDriver";
+            lblDriver.Size = new Size(115, 20);
+            lblDriver.TabIndex = 20;
+            lblDriver.Text = "Driver Name";
+            lblDriver.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // lblRoute
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.FromArgb(91, 91, 91);
-            label6.Location = new Point(34, 177);
-            label6.Name = "label6";
-            label6.Size = new Size(58, 20);
-            label6.TabIndex = 19;
-            label6.Text = "Route";
-            label6.TextAlign = ContentAlignment.MiddleLeft;
+            lblRoute.AutoSize = true;
+            lblRoute.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblRoute.ForeColor = Color.FromArgb(91, 91, 91);
+            lblRoute.Location = new Point(34, 186);
+            lblRoute.Name = "lblRoute";
+            lblRoute.Size = new Size(58, 20);
+            lblRoute.TabIndex = 19;
+            lblRoute.Text = "Route";
+            lblRoute.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label5
+            // lblToDate
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.FromArgb(91, 91, 91);
-            label5.Location = new Point(338, 98);
-            label5.Name = "label5";
-            label5.Size = new Size(30, 20);
-            label5.TabIndex = 16;
-            label5.Text = "To";
-            label5.TextAlign = ContentAlignment.MiddleLeft;
+            lblToDate.AutoSize = true;
+            lblToDate.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblToDate.ForeColor = Color.FromArgb(91, 91, 91);
+            lblToDate.Location = new Point(353, 100);
+            lblToDate.Name = "lblToDate";
+            lblToDate.Size = new Size(30, 20);
+            lblToDate.TabIndex = 16;
+            lblToDate.Text = "To";
+            lblToDate.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // lblFromDate
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.FromArgb(91, 91, 91);
-            label4.Location = new Point(34, 98);
-            label4.Name = "label4";
-            label4.Size = new Size(52, 20);
-            label4.TabIndex = 14;
-            label4.Text = "From";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
+            lblFromDate.AutoSize = true;
+            lblFromDate.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFromDate.ForeColor = Color.FromArgb(91, 91, 91);
+            lblFromDate.Location = new Point(34, 98);
+            lblFromDate.Name = "lblFromDate";
+            lblFromDate.Size = new Size(52, 20);
+            lblFromDate.TabIndex = 14;
+            lblFromDate.Text = "From";
+            lblFromDate.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // guna2Panel3
             // 
@@ -498,7 +498,7 @@
             guna2Panel3.BorderRadius = 15;
             guna2Panel3.BorderThickness = 1;
             guna2Panel3.Controls.Add(lblMostActive);
-            guna2Panel3.Controls.Add(label2);
+            guna2Panel3.Controls.Add(lblMostActiveLabel);
             guna2Panel3.Controls.Add(pictureBox10);
             guna2Panel3.CustomizableEdges = customizableEdges25;
             guna2Panel3.Location = new Point(348, 114);
@@ -512,24 +512,24 @@
             lblMostActive.AutoSize = true;
             lblMostActive.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblMostActive.ForeColor = Color.FromArgb(91, 91, 91);
-            lblMostActive.Location = new Point(15, 62);
+            lblMostActive.Location = new Point(14, 61);
             lblMostActive.Name = "lblMostActive";
             lblMostActive.Size = new Size(147, 20);
             lblMostActive.TabIndex = 14;
             lblMostActive.Text = "Rimuru Tempest";
             lblMostActive.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lblMostActiveLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(55, 91, 231);
-            label2.Location = new Point(16, 96);
-            label2.Name = "label2";
-            label2.Size = new Size(146, 18);
-            label2.TabIndex = 10;
-            label2.Text = "Most Active Driver";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            lblMostActiveLabel.AutoSize = true;
+            lblMostActiveLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMostActiveLabel.ForeColor = Color.FromArgb(55, 91, 231);
+            lblMostActiveLabel.Location = new Point(15, 96);
+            lblMostActiveLabel.Name = "lblMostActiveLabel";
+            lblMostActiveLabel.Size = new Size(146, 18);
+            lblMostActiveLabel.TabIndex = 10;
+            lblMostActiveLabel.Text = "Most Active Driver";
+            lblMostActiveLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox10
             // 
@@ -547,7 +547,7 @@
             guna2Panel4.BorderRadius = 15;
             guna2Panel4.BorderThickness = 1;
             guna2Panel4.Controls.Add(lblLeastActive);
-            guna2Panel4.Controls.Add(label1);
+            guna2Panel4.Controls.Add(lblLeastActiveLabel);
             guna2Panel4.Controls.Add(GrayCircle);
             guna2Panel4.CustomizableEdges = customizableEdges29;
             guna2Panel4.Location = new Point(553, 114);
@@ -561,24 +561,24 @@
             lblLeastActive.AutoSize = true;
             lblLeastActive.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblLeastActive.ForeColor = Color.FromArgb(91, 91, 91);
-            lblLeastActive.Location = new Point(13, 63);
+            lblLeastActive.Location = new Point(13, 61);
             lblLeastActive.Name = "lblLeastActive";
             lblLeastActive.Size = new Size(147, 20);
             lblLeastActive.TabIndex = 15;
             lblLeastActive.Text = "Rimuru Tempest";
             lblLeastActive.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // lblLeastActiveLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(55, 91, 231);
-            label1.Location = new Point(13, 96);
-            label1.Name = "label1";
-            label1.Size = new Size(149, 18);
-            label1.TabIndex = 9;
-            label1.Text = "Least Active Driver";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            lblLeastActiveLabel.AutoSize = true;
+            lblLeastActiveLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLeastActiveLabel.ForeColor = Color.FromArgb(55, 91, 231);
+            lblLeastActiveLabel.Location = new Point(13, 96);
+            lblLeastActiveLabel.Name = "lblLeastActiveLabel";
+            lblLeastActiveLabel.Size = new Size(149, 18);
+            lblLeastActiveLabel.TabIndex = 9;
+            lblLeastActiveLabel.Text = "Least Active Driver";
+            lblLeastActiveLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // GrayCircle
             // 
@@ -612,7 +612,7 @@
             lblFastestTrip.AutoSize = true;
             lblFastestTrip.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFastestTrip.ForeColor = Color.FromArgb(91, 91, 91);
-            lblFastestTrip.Location = new Point(14, 62);
+            lblFastestTrip.Location = new Point(14, 50);
             lblFastestTrip.Name = "lblFastestTrip";
             lblFastestTrip.Size = new Size(88, 32);
             lblFastestTrip.TabIndex = 9;
@@ -636,7 +636,7 @@
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(14, 11);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(33, 33);
+            pictureBox5.Size = new Size(25, 25);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 2;
             pictureBox5.TabStop = false;
@@ -647,7 +647,7 @@
             guna2Panel6.BorderRadius = 15;
             guna2Panel6.BorderThickness = 1;
             guna2Panel6.Controls.Add(lblSlowestTrip);
-            guna2Panel6.Controls.Add(lblLowestTripLabel);
+            guna2Panel6.Controls.Add(lblSlowestTripLabel);
             guna2Panel6.Controls.Add(pictureBox6);
             guna2Panel6.CustomizableEdges = customizableEdges33;
             guna2Panel6.Location = new Point(951, 114);
@@ -661,45 +661,45 @@
             lblSlowestTrip.AutoSize = true;
             lblSlowestTrip.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSlowestTrip.ForeColor = Color.FromArgb(91, 91, 91);
-            lblSlowestTrip.Location = new Point(13, 61);
+            lblSlowestTrip.Location = new Point(13, 50);
             lblSlowestTrip.Name = "lblSlowestTrip";
             lblSlowestTrip.Size = new Size(88, 32);
             lblSlowestTrip.TabIndex = 10;
             lblSlowestTrip.Text = "2 min";
             lblSlowestTrip.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblLowestTripLabel
+            // lblSlowestTripLabel
             // 
-            lblLowestTripLabel.AutoSize = true;
-            lblLowestTripLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblLowestTripLabel.ForeColor = Color.FromArgb(55, 91, 231);
-            lblLowestTripLabel.Location = new Point(13, 96);
-            lblLowestTripLabel.Name = "lblLowestTripLabel";
-            lblLowestTripLabel.Size = new Size(102, 18);
-            lblLowestTripLabel.TabIndex = 9;
-            lblLowestTripLabel.Text = "Slowest Trip";
-            lblLowestTripLabel.TextAlign = ContentAlignment.MiddleCenter;
+            lblSlowestTripLabel.AutoSize = true;
+            lblSlowestTripLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSlowestTripLabel.ForeColor = Color.FromArgb(55, 91, 231);
+            lblSlowestTripLabel.Location = new Point(13, 96);
+            lblSlowestTripLabel.Name = "lblSlowestTripLabel";
+            lblSlowestTripLabel.Size = new Size(102, 18);
+            lblSlowestTripLabel.TabIndex = 9;
+            lblSlowestTripLabel.Text = "Slowest Trip";
+            lblSlowestTripLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox6
             // 
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
             pictureBox6.Location = new Point(13, 11);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(30, 30);
+            pictureBox6.Size = new Size(25, 25);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 3;
             pictureBox6.TabStop = false;
             // 
-            // lblGenerateReportTitle
+            // lblReportTitle
             // 
-            lblGenerateReportTitle.AutoSize = true;
-            lblGenerateReportTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblGenerateReportTitle.ForeColor = Color.FromArgb(55, 91, 231);
-            lblGenerateReportTitle.Location = new Point(147, 63);
-            lblGenerateReportTitle.Name = "lblGenerateReportTitle";
-            lblGenerateReportTitle.Size = new Size(170, 25);
-            lblGenerateReportTitle.TabIndex = 10;
-            lblGenerateReportTitle.Text = "Generate Report";
+            lblReportTitle.AutoSize = true;
+            lblReportTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblReportTitle.ForeColor = Color.FromArgb(55, 91, 231);
+            lblReportTitle.Location = new Point(147, 63);
+            lblReportTitle.Name = "lblReportTitle";
+            lblReportTitle.Size = new Size(170, 25);
+            lblReportTitle.TabIndex = 10;
+            lblReportTitle.Text = "Generate Report";
             // 
             // AdminGenerateReport
             // 
@@ -707,7 +707,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
-            Controls.Add(lblGenerateReportTitle);
+            Controls.Add(lblReportTitle);
             Controls.Add(guna2Panel6);
             Controls.Add(guna2Panel5);
             Controls.Add(guna2Panel4);
@@ -763,34 +763,34 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
-        private Label lblGenerateReportTitle;
+        private Label lblReportTitle;
         private PictureBox pictureBox3;
         private PictureBox pictureBox10;
         private Guna.UI2.WinForms.Guna2PictureBox GrayCircle;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
         private Label lblFastestTripLabel;
-        private Label lblLowestTripLabel;
-        private Label label3;
-        private Label label2;
-        private Label label1;
+        private Label lblSlowestTripLabel;
+        private Label lblTotalTripsLabel;
+        private Label lblMostActiveLabel;
+        private Label lblLeastActiveLabel;
         private Label lblTotalTrips;
         private Label lblMostActive;
         private Label lblLeastActive;
         private Label lblFastestTrip;
         private Label lblSlowestTrip;
-        private Label label4;
-        private Label label5;
+        private Label lblFromDate;
+        private Label lblToDate;
         private Guna.UI2.WinForms.Guna2ComboBox cmbRoute;
         private Guna.UI2.WinForms.Guna2ComboBox cmbDriver;
-        private Label label8;
-        private Label label6;
+        private Label lblDriver;
+        private Label lblRoute;
         private Guna.UI2.WinForms.Guna2Button btnGenerateReport;
         private Guna.UI2.WinForms.Guna2ImageButton GenerateReportBtn;
         private Guna.UI2.WinForms.Guna2ImageButton SettingsBtn;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFrom;
         private Guna.UI2.WinForms.Guna2ComboBox cmbReportType;
-        private Label label7;
+        private Label lblFilterHeading;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpTo;
     }
 }

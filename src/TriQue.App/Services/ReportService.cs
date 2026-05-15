@@ -17,16 +17,15 @@ namespace TriQue.Services
             return report.GeneratePdf();
         }
 
-        // Convenience factories so callers don't need to know the concrete types
         public string GenerateTripSummaryPdf(DateTime? from, DateTime? to, int? routeID, int? driverID, string generatedBy)
         {
             return Generate(new TripSummaryReport(from, to, routeID, driverID, generatedBy));
         }
 
-
         public string GenerateDriverPerformancePdf(DateTime? from, DateTime? to, int? routeID, int? driverID, string generatedBy)
         {
-            return Generate(new DriverPerformanceReport(from, to, generatedBy));
+            var report = new DriverPerformanceReport(from, to, routeID, driverID, generatedBy);
+            return report.GeneratePdf();
         }
     }
 }
