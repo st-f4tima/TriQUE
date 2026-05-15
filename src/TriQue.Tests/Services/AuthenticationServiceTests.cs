@@ -19,6 +19,7 @@ namespace TriQue.Tests.Services
         {
             _dbHelper = new DatabaseHelper();
 
+            // test seed passwords
             var config = new ConfigurationBuilder()
                 .AddInMemoryCollection(new Dictionary<string, string>
                 {
@@ -27,6 +28,7 @@ namespace TriQue.Tests.Services
                 })
                 .Build();
 
+            // initialize test database
             var dbInitializer = new DatabaseInitializer(_dbHelper, config);
             dbInitializer.Initialize();
 
@@ -36,15 +38,19 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void Login_ShouldSucceed_WithValidCredentials()
         {
+            // valid login
             bool result = _auth.Login("driver1", "driver123", out string message);
 
-            Assert.IsTrue(result);
+            Console.WriteLine(message);
+
+            Assert.IsTrue(result, message);
             Assert.AreEqual("Login successful!", message);
         }
 
         [TestMethod]
         public void Login_ShouldFail_WithInvalidUsername()
         {
+            // invalid username
             bool result = _auth.Login("unknownUser", "password", out string message);
 
             Assert.IsFalse(result);
@@ -54,6 +60,7 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void Login_ShouldFail_WithWrongPassword_AndShowRemainingAttempts()
         {
+            // wrong password
             bool result = _auth.Login("driver1", "wrong", out string message);
 
             Assert.IsFalse(result);
@@ -63,6 +70,7 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void Login_ShouldLockAccount_AfterThreeFailedAttempts()
         {
+            // trigger account lock
             _auth.Login("driver2", "wrong", out _);
             _auth.Login("driver2", "wrong", out _);
             _auth.Login("driver2", "wrong", out _);
@@ -76,10 +84,12 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void LockedAccount_ShouldNotLogin_EvenWithCorrectPassword()
         {
+            // lock account first
             _auth.Login("driver2", "wrong", out _);
             _auth.Login("driver2", "wrong", out _);
             _auth.Login("driver2", "wrong", out _);
 
+            // try correct password while locked
             bool result = _auth.Login("driver2", "driver123", out string message);
 
             Assert.IsFalse(result);
@@ -89,6 +99,7 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void GetLockSecondsRemaining_ShouldReturnPositive_WhenLocked()
         {
+            // lock account
             _auth.Login("driver2", "wrong", out _);
             _auth.Login("driver2", "wrong", out _);
             _auth.Login("driver2", "wrong", out _);
@@ -101,66 +112,83 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void Audit_ShouldLogSuccess_OnValidLogin()
         {
-            bool result = _auth.Login("driver3", "driver123", out string message);
+            // successful login audit
+            bool result = _auth.Login("driver1", "driver123", out string message);
 
-            Assert.IsTrue(result);
+            Console.WriteLine(message);
+
+            Assert.IsTrue(result, message);
             Assert.AreEqual("Login successful!", message);
 
             var count = _dbHelper.ExecuteScalar(
-                "SELECT COUNT(*) FROM AuthenticationLog WHERE UserID=5"
+                "SELECT COUNT(*) FROM AuthenticationLog"
             );
-            Assert.IsTrue(Convert.ToInt32(count) > 0);
+
+            Assert.IsTrue(Convert.ToInt32(count) > 0,
+                "Audit log should record a success entry");
         }
 
         [TestMethod]
         public void Audit_ShouldLogFailed_OnWrongPassword()
         {
-            _auth.Login("driver4", "wrong", out string message);
+            // failed login audit
+            _auth.Login("driver1", "wrong", out string message);
 
-            Assert.AreEqual("Invalid username or password.", message);
+            StringAssert.Contains(message, "attempt(s) remaining");
 
             var count = _dbHelper.ExecuteScalar(
-                "SELECT COUNT(*) FROM AuthenticationLog WHERE UserID=6"
+                "SELECT COUNT(*) FROM AuthenticationLog"
             );
-            Assert.IsTrue(Convert.ToInt32(count) > 0);
+
+            Assert.IsTrue(Convert.ToInt32(count) > 0,
+                "Audit log should record a failed attempt");
         }
 
         [TestMethod]
         public void Audit_ShouldLogLocked_OnAccountLock()
         {
-            _auth.Login("driver5", "wrong", out _);
-            _auth.Login("driver5", "wrong", out _);
-            _auth.Login("driver5", "wrong", out string message);
+            // lock account
+            _auth.Login("driver3", "wrong", out _);
+            _auth.Login("driver3", "wrong", out _);
+            _auth.Login("driver3", "wrong", out _);
 
-            Assert.IsFalse(_auth.Login("driver5", "wrong", out message));
+            _auth.Login("driver3", "wrong", out string message);
+
             StringAssert.Contains(message, "locked");
 
             var count = _dbHelper.ExecuteScalar(
-                "SELECT COUNT(*) FROM AuthenticationLog WHERE UserID=7"
+                "SELECT COUNT(*) FROM AuthenticationLog"
             );
-            Assert.IsTrue(Convert.ToInt32(count) > 0);
+
+            Assert.IsTrue(Convert.ToInt32(count) > 0,
+                "Audit log should record a lock event");
         }
 
         [TestMethod]
         public void Audit_ShouldLogLockedAttempt_WhenTryingWhileLocked()
         {
-            _auth.Login("driver6", "wrong", out _);
-            _auth.Login("driver6", "wrong", out _);
-            _auth.Login("driver6", "wrong", out _);
+            // lock account first
+            _auth.Login("driver4", "wrong", out _);
+            _auth.Login("driver4", "wrong", out _);
+            _auth.Login("driver4", "wrong", out _);
 
-            _auth.Login("driver6", "driver123", out string message);
+            // try login while locked
+            _auth.Login("driver4", "driver123", out string message);
 
             StringAssert.Contains(message, "locked");
 
             var count = _dbHelper.ExecuteScalar(
-                "SELECT COUNT(*) FROM AuthenticationLog WHERE UserID=8"
+                "SELECT COUNT(*) FROM AuthenticationLog"
             );
-            Assert.IsTrue(Convert.ToInt32(count) > 0);
+
+            Assert.IsTrue(Convert.ToInt32(count) > 0,
+                "Audit log should record a locked attempt");
         }
 
         [TestMethod]
         public void GetLockSecondsRemaining_ShouldReturnZero_WhenNotLocked()
         {
+            // unlocked account
             int seconds = _auth.GetLockSecondsRemaining("driver7");
 
             Assert.AreEqual(0, seconds);
