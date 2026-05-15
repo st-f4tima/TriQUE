@@ -240,14 +240,13 @@ namespace TriQue.Forms
 
                     case "Finished":
                         _tripService.EndTrip(driverID, _routeID);
-                        _driverService.UpdateStatus(driverID, DriverStatus.Waiting); // ← Waiting
+                        _driverService.UpdateStatus(driverID, DriverStatus.Finished); 
                         int queueID1 = _queueService.GetQueueIdByRouteId(_routeID) ?? 0;
                         _queueService.RemoveDriverFromQueue(driverID, queueID1);
                         _queueService.ReorderQueuePositions(queueID1);
                         break;
 
                     default: 
-                        _tripService.EndTrip(driverID, _routeID);
                         _driverService.UpdateStatus(driverID, DriverStatus.Waiting);
                         int queueID2 = _queueService.GetQueueIdByRouteId(_routeID) ?? 0;
                         _queueService.RemoveDriverFromQueue(driverID, queueID2);
