@@ -208,35 +208,49 @@ namespace TriQue.Data.Repositories
                 new SqliteParameter("$queueID", queueID));
         }
 
-        // pass groupID directly instead of routeID
+
         public void ResetQueue(int routeID, int groupID)
         {
+            // end open trips
             string endTrips = @"
-        UPDATE Trip
-        SET EndTime = CURRENT_TIMESTAMP
-        WHERE EndTime IS NULL
-        AND DriverID IN (
-            SELECT DriverID FROM Driver WHERE GroupID = @groupID
-        )";
+                UPDATE Trip 
+                SET EndTime = CURRENT_TIMESTAMP
+                WHERE EndTime IS NULL
+                AND DriverID IN (
+                    SELECT DriverID FROM Driver WHERE GroupID = @groupID
+                )";
 
             _dbHelper.ExecuteNonQuery(endTrips,
                 new SqliteParameter("@groupID", groupID)
             );
 
+            string finishOnTrip = @"
+                UPDATE Driver
+                SET StatusID = 3
+                WHERE GroupID = @groupID
+                AND StatusID = 2";
+
+            _dbHelper.ExecuteNonQuery(finishOnTrip,
+                new SqliteParameter("@groupID", groupID)
+            );
+
+
             string updateStatus = @"
-        UPDATE Driver 
-        SET StatusID = 1
-        WHERE GroupID = @groupID";
+                UPDATE Driver
+                SET StatusID = 1
+                WHERE GroupID = @groupID
+                AND StatusID != 3";
 
             _dbHelper.ExecuteNonQuery(updateStatus,
                 new SqliteParameter("@groupID", groupID)
             );
 
+            // clear queue
             string clearQueue = @"
-        DELETE FROM QueueEntry
-        WHERE QueueID = (
-            SELECT QueueID FROM Queue WHERE RouteID = @routeID
-        )";
+                DELETE FROM QueueEntry
+                WHERE QueueID = (
+                    SELECT QueueID FROM Queue WHERE RouteID = @routeID
+                )";
 
             _dbHelper.ExecuteNonQuery(clearQueue,
                 new SqliteParameter("@routeID", routeID)
