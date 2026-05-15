@@ -11,9 +11,5 @@ namespace TriQue.Models
         public string BodyNumber { get; set; } = string.Empty;
         public double GoalEarnings { get; set; }
         public DriverStatus Status { get; set; } = DriverStatus.Waiting;
-        public override Form GetView()
-        {
-            return new DriverForm(UserID);
-        }
     }
 }

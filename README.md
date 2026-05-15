@@ -1,9 +1,12 @@
 <p align="center">
-  <img src="docs/logo.png" width="250">
+  <img src="docs/logo.png" width="350">
 </p>
 
 <p align="center">
-  <i align="center">TriQue is a modern solution for TODA organizations seeking faster dispatching, cleaner workflows, and smarter queue management.</i>
+  <i>
+    TriQue is a modern solution for TODA organizations seeking faster dispatching,<br>
+    cleaner workflows, and smarter queue management.
+  </i>
 </p>
 
 <div align="center">
@@ -47,7 +50,25 @@ Built with **C# WinForms** and an **Object-Oriented architecture**, TriQue organ
 
 # 🗂️ UML Diagram
 
-<i>Will implement soon.</i>
+<details>
+  <summary>Show Model Class Diagram</summary>
+   <br>
+      <div align="center">
+            <img src="docs/uml1.jpg" alt="Model Class Diagram" style="width:100%; max-width:800px; cursor:zoom-in;">
+         </a>
+      </div>
+</details>
+   <br>
+
+<details>
+  <summary>Report Module Class Diagram</summary>
+   <br>
+      <div align="center">
+            <img src="docs/uml2.jpg" alt="Report Module Class Diagram" style="width:100%; max-width:800px; cursor:zoom-in;">
+         </a>
+      </div>
+</details>
+   <br>
 
 **Architecture Pattern:**
 ```
@@ -87,7 +108,6 @@ From the queue to the road — here's everything TriQue can do:
 4. If using a temporary password, user is forced to set a new one before continuing.
 5. User is redirected to their role-specific dashboard.
 
----
 
 ### 🛺 Driver
 
@@ -107,7 +127,6 @@ From the queue to the road — here's everything TriQue can do:
 **Settings**
 1. Driver updates personal account information and preferences.
 
----
 
 ### 🛡️ Admin
 
@@ -132,6 +151,7 @@ From the queue to the road — here's everything TriQue can do:
 1. Admin updates account details and system preferences.
 
 <br>
+
 
 # 🚀 How to Run the Application
  
@@ -190,7 +210,7 @@ Press F5 or click ▶ Start
 <br>
 
 # 👥 Developers
-From concept to code — meet the people who made TriQue possible.uilt with late nights, strong coffee, and a genuine desire to make terminal management better.
+From concept to code — meet the people who made TriQue possible.
 
 | | Name | Role |
 |:---:|:---|:---|
@@ -209,6 +229,6 @@ We sincerely thank our instructor, **Ms. Darlene Opeña**, for sharing her knowl
 
 Most of all, we are grateful to every member of the TriQue group for the effort, patience, and teamwork that brought this project to completion.
 
-  — *Group 13 💙*
+  — *TriQUE Group 💙*
 
 
