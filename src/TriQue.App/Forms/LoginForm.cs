@@ -1,7 +1,8 @@
-﻿using TriQue.Helpers.Animation;
-using TriQue.Services;
+﻿using TriQue.Enums;
+using TriQue.Helpers;
+using TriQue.Helpers.Animation;
 using TriQue.Models;
-using TriQue.Enums;
+using TriQue.Services;
 
 namespace TriQue.Forms
 {
@@ -16,27 +17,47 @@ namespace TriQue.Forms
         {
             InitializeComponent();
             InitializeLockLabel();
+            InitializePasswordField();
+            ApplyFonts();
         }
 
-        // creates the lock countdown label dynamically
+        private void ApplyFonts()
+        {
+            this.Font = FontHelper.RobotoRegular;
+            lblGreeting.Font = FontHelper.GetRoboto(24f, FontStyle.Bold);
+            lblLoginDesc.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblPass.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblUsername.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            checkBox1.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            tbUsername.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            tbPassword1.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+        }
+
         private void InitializeLockLabel()
         {
             lockLabel = new Label
             {
                 AutoSize = true,
-                ForeColor = Color.FromArgb(220, 53, 69),
+                ForeColor = Color.Gray,
                 Font = new Font("Segoe UI", 9f, FontStyle.Bold),
-                Location = new Point(70, 450),
+                Location = new Point(412, 534),
                 Visible = false
             };
-            LoginPanel.Controls.Add(lockLabel);
+            this.Controls.Add(lockLabel);
             lockLabel.BringToFront();
+        }
+
+
+        private void InitializePasswordField()
+        {
+            tbPassword1.UseSystemPasswordChar = true;
         }
 
         private async void LoginBtn_Click_1(object sender, EventArgs e)
         {
             string username = tbUsername.Text.Trim();
-            string password = tbPassword.Text.Trim();
+            string password = tbPassword1.Text.Trim();
 
             if (!_authService.Login(username, password, out string message))
             {
@@ -110,9 +131,9 @@ namespace TriQue.Forms
             _lockTimer.Start();
         }
 
-        private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            tbPassword.UseSystemPasswordChar = !checkBoxShowPassword.Checked;
+            tbPassword1.UseSystemPasswordChar = !checkBox1.Checked;
         }
 
         #region Notifications
@@ -120,5 +141,22 @@ namespace TriQue.Forms
         private void ShowWarning(string msg) => MessageBox.Show(msg, "Account Locked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         private void ShowSuccess(string msg) => MessageBox.Show(msg, "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         #endregion
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPassword1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
