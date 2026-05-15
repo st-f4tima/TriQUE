@@ -15,7 +15,5 @@ namespace TriQue.Models
         public int FailedAttempts { get; set; } = 0;
         public DateTime? LockoutUntil { get; set; }
         public bool IsTemporaryPassword { get; set; }
-        public string FullName => $"{FirstName} {LastName}";
-        public abstract Form GetView();
     }
 }

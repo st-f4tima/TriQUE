@@ -8,10 +8,6 @@ namespace TriQue.Models
     {
         public int AdminID { get; set; }
         public AdminLevel Level { get; set; }
-        public override Form GetView()
-        {
-            return new AdminForm(UserID);
-        }
 
     }
 }
