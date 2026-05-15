@@ -17,6 +17,8 @@ namespace TriQue.Data.Database
             _dbHelper = db;
             _config = config;
         }
+
+        #region Database Initialization
         public void Initialize()
         {
             using var conn = _dbHelper.GetConnection();
@@ -213,6 +215,9 @@ namespace TriQue.Data.Database
             SeedUsers();
         }
 
+        #endregion
+
+        #region Seed Users
         // seeds user table
         private void SeedUsers()
         {
@@ -298,8 +303,50 @@ namespace TriQue.Data.Database
                     false
                 );
                 InsertDriverIfNotExists(i, userID, groupID, statusID: 1, $"TN-{i:D3}");
+
+                // Test Account (Admin)
+                InsertUserIfNotExists(
+                    999,
+                    "testuser",
+                    "Test123!",
+                    "Test",
+                    "Account",
+                    "09999999999",
+                    roleID: 2,
+                    isTempPassword: false
+                );
+
+                InsertAdminIfNotExists(
+                    adminID: 999,
+                    userID: 999,
+                    levelID: 1
+                );
+
+                // Test Account (Driver)
+                InsertUserIfNotExists(
+                    1000,
+                    "testdriver",
+                    "Driver123!",
+                    "Test",
+                    "Driver",
+                    "09888888888",
+                    roleID: 1,
+                    isTempPassword: false
+                );
+
+                InsertDriverIfNotExists(
+                    driverID: 1000,
+                    userID: 1000,
+                    groupID: 1,
+                    statusID: 1,
+                    bodyNum: "TN-999"
+                );
             }
         }
+
+        #endregion
+
+        #region Insert Methods
         private void InsertUserIfNotExists(int id, string username, string password, 
             string first, string last, string phone, int roleID, bool isTempPassword)
         {
@@ -350,5 +397,7 @@ namespace TriQue.Data.Database
                 new SqliteParameter("@uid", userID),
                 new SqliteParameter("@lid", levelID));
         }
+
+        #endregion
     }
 }
