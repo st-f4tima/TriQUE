@@ -1,4 +1,5 @@
 ﻿using TriQue.Enums;
+using TriQue.Helpers;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
@@ -20,6 +21,7 @@ namespace TriQue.Forms
         public DriverViewQueue(int routeID, int userID)
         {
             InitializeComponent();
+            ApplyFonts();
 
             _routeID = routeID;
             _userID = userID;
@@ -266,6 +268,33 @@ namespace TriQue.Forms
             }
         }
 
+
+        #endregion
+
+        #region additional style
+        private void ApplyFonts()
+        {
+            this.Font = FontHelper.RobotoRegular;
+
+            lblTitle.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+            lblQueueStatusTitle.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+
+            lblStatusTiltle.Font = FontHelper.GetRoboto(10f, FontStyle.Regular);
+            lblStatusValue.Font = FontHelper.GetRoboto(14f, FontStyle.Bold);
+
+            lblRankingTitle.Font = FontHelper.GetRoboto(10f, FontStyle.Regular);
+            lblRankingValue.Font = FontHelper.GetRoboto(14f, FontStyle.Bold);
+
+            lblRouteTitle.Font = FontHelper.GetRoboto(10f, FontStyle.Regular);
+            lblRouteValue.Font = FontHelper.GetRoboto(14f, FontStyle.Bold);
+
+            DataGridQueueStatus.Font = FontHelper.RobotoRegular;
+            DataGridQueueStatus.ColumnHeadersDefaultCellStyle.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            DataGridQueueStatus.DefaultCellStyle.Font = FontHelper.GetRoboto(10f, FontStyle.Regular);
+
+            StartTripBtn.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            RefreshBtn.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+        }
 
         #endregion
 

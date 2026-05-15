@@ -1,4 +1,5 @@
-﻿using TriQue.Models;
+﻿using TriQue.Helpers;
+using TriQue.Models;
 using TriQue.Services;
 
 namespace TriQue
@@ -13,6 +14,7 @@ namespace TriQue
         public EditUserInformationModal(int userID)
         {
             InitializeComponent();
+            ApplyFonts();
 
             _userID = userID;
 
@@ -85,6 +87,26 @@ namespace TriQue
             cboAssignedRoute.Visible = isDriver;
             lblAdminLevel.Visible = !isDriver;
             cboAdminLevel.Visible = !isDriver;
+        }
+
+        private void ApplyFonts()
+        {
+            this.Font = FontHelper.RobotoRegular;
+
+            lbFullName.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblPhoneNumber.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblRole.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblAdminLevel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblAssignedRoute.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            txtFullName.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            txtPhoneNumber.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            cboRole.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            cboAdminLevel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            cboAssignedRoute.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            UpdateBtn.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            DeleteBtn.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
         }
 
         #region actions

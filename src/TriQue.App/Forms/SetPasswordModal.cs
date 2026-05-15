@@ -1,4 +1,5 @@
-﻿using TriQue.Services;
+﻿using TriQue.Helpers;
+using TriQue.Services;
 
 namespace TriQue.Forms
 {
@@ -9,6 +10,7 @@ namespace TriQue.Forms
         public SetPasswordModal(int userID)
         {
             InitializeComponent();
+            ApplyFonts();
             
             _userID = userID;
 
@@ -34,6 +36,24 @@ namespace TriQue.Forms
         }
 
         #endregion
+
+        private void ApplyFonts()
+        {
+            this.Font = FontHelper.RobotoRegular;
+
+            lblNewPassword.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblConfirmPassword.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            txtNewPassword.Font = FontHelper.GetRoboto(10, FontStyle.Bold);
+            txtConfirmPassword.Font = FontHelper.GetRoboto(10, FontStyle.Bold);
+
+            chkShowNew.Font = FontHelper.GetRoboto(8f, FontStyle.Bold);
+            chkShowConfirm.Font = FontHelper.GetRoboto(8f, FontStyle.Bold);
+
+            lblError.Font = FontHelper.GetRoboto(9f, FontStyle.Bold);
+
+            ConfirmBtn.Font = FontHelper.GetRoboto(11f, FontStyle.Bold);
+        }
 
         #region Actions
 

@@ -1,4 +1,5 @@
 using TriQue.Data.Repositories;
+using TriQue.Helpers;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
@@ -13,6 +14,7 @@ namespace TriQue.Forms
         public AdminViewQueue(int userID)
         {
             InitializeComponent();
+            ApplyFonts();
 
             _rotationService = new RotationService();
             _userID = userID;
@@ -91,6 +93,25 @@ namespace TriQue.Forms
         }
 
         #endregion
+
+        #region additional style
+        private void ApplyFonts()
+        {
+            this.Font = FontHelper.RobotoRegular;
+
+            lblTitle.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+            lblSubtitle.Font = FontHelper.GetRoboto(9f, FontStyle.Bold);
+
+            btnRouteA.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            btnRouteB.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            btnRouteC.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            btnRouteD.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            btnRouteE.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            btnRouteF.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+        }
+
+        #endregion
+
 
         #region navigation
 

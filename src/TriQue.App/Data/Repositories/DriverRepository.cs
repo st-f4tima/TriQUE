@@ -253,44 +253,68 @@ namespace TriQue.Data.Repositories
 
         #region report
 
-        public DataTable GetDriverPerformance(DateTime? from, DateTime? to)
+        public List<DriverPerformanceDto> GetDriverPerformance(DateTime? from, DateTime? to, int? routeID, int? driverID)
         {
+            var result = new List<DriverPerformanceDto>();
+
             string query = @"
                 SELECT
+                    d.DriverID,
                     u.FirstName || ' ' || u.LastName AS Driver,
                     d.BodyNumber AS [Body No.],
                     dg.GroupName AS [Group],
                     COUNT(t.TripID) AS [Total Trips],
                     SUM(CASE WHEN t.StatusID = 3 THEN 1 ELSE 0 END) AS [Completed],
-                    '₱ ' || ROUND(IFNULL(SUM(CASE WHEN t.StatusID = 3 THEN t.ActualEarnings ELSE 0 END), 0), 2) AS [Total Earnings],
-                    ROUND(IFNULL(AVG(CASE WHEN t.EndTime IS NOT NULL 
+                    IFNULL(SUM(CASE WHEN t.StatusID = 3 THEN t.ActualEarnings ELSE 0 END), 0) AS [Total Earnings],
+                    IFNULL(AVG(CASE WHEN t.EndTime IS NOT NULL 
                         THEN (julianday(t.EndTime) - julianday(t.StartTime)) * 1440 
-                        ELSE NULL END), 0), 1) || ' min' AS [Avg Duration],
-                    ROUND(IFNULL(MIN(CASE WHEN t.EndTime IS NOT NULL 
+                        ELSE NULL END), 0) AS [Avg Duration],
+                    IFNULL(MIN(CASE WHEN t.EndTime IS NOT NULL 
                         THEN (julianday(t.EndTime) - julianday(t.StartTime)) * 1440 
-                        ELSE NULL END), 0), 1) || ' min' AS [Fastest],
-                    ROUND(IFNULL(MAX(CASE WHEN t.EndTime IS NOT NULL 
+                        ELSE NULL END), 0) AS [Fastest],
+                    IFNULL(MAX(CASE WHEN t.EndTime IS NOT NULL 
                         THEN (julianday(t.EndTime) - julianday(t.StartTime)) * 1440 
-                        ELSE NULL END), 0), 1) || ' min' AS [Slowest]
+                        ELSE NULL END), 0) AS [Slowest]
                 FROM Driver d
                 JOIN User u ON d.UserID = u.UserID
                 JOIN DriverGroup dg ON d.GroupID = dg.GroupID
                 LEFT JOIN Trip t ON t.DriverID = d.DriverID
                     AND (@from IS NULL OR DATE(t.StartTime) >= @from)
                     AND (@to IS NULL OR DATE(t.StartTime) <= @to)
+                    AND (@routeID IS NULL OR t.RouteID = @routeID)  -- ← moved here
+                WHERE (@driverID IS NULL OR d.DriverID = @driverID) -- ← only driver filter here
                 GROUP BY d.DriverID
                 ORDER BY [Completed] DESC";
 
             using var conn = _dbHelper.GetConnection();
             conn.Open();
-            using var cmd = new SqliteCommand(query, conn);
 
+            using var cmd = new SqliteCommand(query, conn);
             cmd.Parameters.AddWithValue("@from", from == null ? DBNull.Value : from.Value.ToString("yyyy-MM-dd"));
             cmd.Parameters.AddWithValue("@to", to == null ? DBNull.Value : to.Value.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@routeID", routeID == null ? DBNull.Value : routeID);
+            cmd.Parameters.AddWithValue("@driverID", driverID == null ? DBNull.Value : driverID);
 
-            DataTable dt = new DataTable();
-            dt.Load(cmd.ExecuteReader());
-            return dt;
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                result.Add(new DriverPerformanceDto
+                {
+                    DriverID = Convert.ToInt32(reader["DriverID"]),
+                    FullName = reader["Driver"].ToString() ?? "",
+                    BodyNumber = reader["Body No."].ToString() ?? "",
+                    GroupName = reader["Group"].ToString() ?? "",
+                    TotalTrips = Convert.ToInt32(reader["Total Trips"]),
+                    CompletedTrips = Convert.ToInt32(reader["Completed"]),
+                    TotalEarnings = Convert.ToDouble(reader["Total Earnings"]),
+                    AvgDuration = Convert.ToDouble(reader["Avg Duration"]),
+                    FastestTrip = Convert.ToDouble(reader["Fastest"]),
+                    SlowestTrip = Convert.ToDouble(reader["Slowest"])
+                });
+            }
+
+            return result;
         }
 
         public (string topEarner, double topEarnings, string mostTrips, int tripCount, double avgDuration)

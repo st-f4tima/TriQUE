@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using TriQue.Data.Repositories;
 using TriQue.Enums;
+using TriQue.Helpers;
 using TriQue.Models;
 using TriQue.Services;
 
@@ -23,6 +24,7 @@ namespace TriQue.Forms
         public QueueModal(string routeName, int routeID, int userID, int groupID)
         {
             InitializeComponent();
+            ApplyFonts();
 
             _routeID = routeID;
             _userID = userID;
@@ -195,6 +197,24 @@ namespace TriQue.Forms
             e.CellStyle.ForeColor = statusColor;
             e.CellStyle.SelectionForeColor = statusColor;
             e.CellStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+        }
+
+        private void ApplyFonts()
+        {
+            this.Font = FontHelper.RobotoRegular;
+
+            SearchBar.Font = FontHelper.GetRoboto(9f, FontStyle.Bold);
+            UpdateStatusBtn.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            ResetQueueBtn.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            DriverListDataGrid.Font = FontHelper.RobotoRegular;
+            DriverListDataGrid.ColumnHeadersDefaultCellStyle.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            DriverListDataGrid.DefaultCellStyle.Font = FontHelper.GetRoboto(8f, FontStyle.Bold);
+
+            if (DriverListDataGrid.Columns.Contains("colAction"))
+            {
+                DriverListDataGrid.Columns["colAction"].DefaultCellStyle.Font = FontHelper.GetRoboto(8f, FontStyle.Bold);
+            }
         }
 
         #region Queue actions

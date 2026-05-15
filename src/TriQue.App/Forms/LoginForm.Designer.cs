@@ -1,4 +1,6 @@
-﻿namespace TriQue.Forms
+﻿using TriQue.Helpers;
+
+namespace TriQue.Forms
 {
     partial class LoginForm
     {
@@ -29,137 +31,159 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            LoginPanel = new Panel();
-            label2 = new Label();
-            panel3 = new Panel();
-            panel5 = new Panel();
-            tbPassword = new TextBox();
-            label1 = new Label();
-            panel2 = new Panel();
-            panel4 = new Panel();
-            tbUsername = new TextBox();
-            checkBoxShowPassword = new CheckBox();
-            LoginBtn = new Guna.UI2.WinForms.Guna2Button();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            lblPass = new Label();
+            lblUsername = new Label();
             pictureBox1 = new PictureBox();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
-            LoginPanel.SuspendLayout();
-            panel3.SuspendLayout();
-            panel2.SuspendLayout();
+            lblGreeting = new Label();
+            lblLoginDesc = new Label();
+            guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            tbUsername = new Guna.UI2.WinForms.Guna2TextBox();
+            checkBox1 = new CheckBox();
+            tbPassword1 = new Guna.UI2.WinForms.Guna2TextBox();
+            LoginBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // LoginPanel
+            // lblPass
             // 
-            LoginPanel.BackColor = Color.White;
-            LoginPanel.Controls.Add(label2);
-            LoginPanel.Controls.Add(panel3);
-            LoginPanel.Controls.Add(label1);
-            LoginPanel.Controls.Add(panel2);
-            LoginPanel.Controls.Add(checkBoxShowPassword);
-            LoginPanel.Controls.Add(LoginBtn);
-            LoginPanel.Controls.Add(pictureBox1);
-            LoginPanel.Location = new Point(364, -1);
-            LoginPanel.Name = "LoginPanel";
-            LoginPanel.Size = new Size(431, 652);
-            LoginPanel.TabIndex = 0;
+            lblPass.AutoSize = true;
+            lblPass.ForeColor = Color.FromArgb(91, 91, 91);
+            lblPass.Location = new Point(406, 344);
+            lblPass.Name = "lblPass";
+            lblPass.Size = new Size(91, 20);
+            lblPass.TabIndex = 6;
+            lblPass.Text = "Password";
             // 
-            // label2
+            // lblUsername
             // 
-            label2.AutoSize = true;
-            label2.ForeColor = Color.FromArgb(91, 91, 91);
-            label2.Location = new Point(75, 363);
-            label2.Name = "label2";
-            label2.Size = new Size(91, 20);
-            label2.TabIndex = 6;
-            label2.Text = "Password";
+            lblUsername.AutoSize = true;
+            lblUsername.ForeColor = Color.FromArgb(91, 91, 91);
+            lblUsername.Location = new Point(403, 248);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(94, 20);
+            lblUsername.TabIndex = 4;
+            lblUsername.Text = "Username";
             // 
-            // panel3
+            // pictureBox1
             // 
-            panel3.Controls.Add(panel5);
-            panel3.Controls.Add(tbPassword);
-            panel3.Location = new Point(75, 384);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(329, 26);
-            panel3.TabIndex = 5;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(527, 80);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(124, 56);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
-            // panel5
+            // lblGreeting
             // 
-            panel5.BackColor = Color.FromArgb(91, 91, 91);
-            panel5.Dock = DockStyle.Bottom;
-            panel5.Location = new Point(0, 24);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(329, 2);
-            panel5.TabIndex = 7;
+            lblGreeting.AutoSize = true;
+            lblGreeting.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGreeting.ForeColor = Color.FromArgb(64, 64, 64);
+            lblGreeting.Location = new Point(450, 139);
+            lblGreeting.Name = "lblGreeting";
+            lblGreeting.Size = new Size(301, 46);
+            lblGreeting.TabIndex = 1;
+            lblGreeting.Text = "Welcome Back";
             // 
-            // tbPassword
+            // lblLoginDesc
             // 
-            tbPassword.BorderStyle = BorderStyle.None;
-            tbPassword.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbPassword.ForeColor = Color.FromArgb(91, 91, 91);
-            tbPassword.Location = new Point(0, 3);
-            tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(326, 20);
-            tbPassword.TabIndex = 5;
-            tbPassword.UseSystemPasswordChar = true;
+            lblLoginDesc.AutoSize = true;
+            lblLoginDesc.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLoginDesc.ForeColor = Color.Gray;
+            lblLoginDesc.Location = new Point(479, 198);
+            lblLoginDesc.Name = "lblLoginDesc";
+            lblLoginDesc.Size = new Size(238, 20);
+            lblLoginDesc.TabIndex = 2;
+            lblLoginDesc.Text = "Login to you account below";
             // 
-            // label1
+            // guna2ContextMenuStrip1
             // 
-            label1.AutoSize = true;
-            label1.ForeColor = Color.FromArgb(91, 91, 91);
-            label1.Location = new Point(75, 267);
-            label1.Name = "label1";
-            label1.Size = new Size(94, 20);
-            label1.TabIndex = 4;
-            label1.Text = "Username";
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(panel4);
-            panel2.Controls.Add(tbUsername);
-            panel2.Location = new Point(75, 288);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(329, 26);
-            panel2.TabIndex = 3;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(91, 91, 91);
-            panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(0, 24);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(329, 2);
-            panel4.TabIndex = 7;
+            guna2ContextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
+            guna2ContextMenuStrip1.RenderStyle.ArrowColor = Color.FromArgb(151, 143, 255);
+            guna2ContextMenuStrip1.RenderStyle.BorderColor = Color.Gainsboro;
+            guna2ContextMenuStrip1.RenderStyle.ColorTable = null;
+            guna2ContextMenuStrip1.RenderStyle.RoundedEdges = true;
+            guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = Color.White;
+            guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = Color.FromArgb(100, 88, 255);
+            guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = Color.White;
+            guna2ContextMenuStrip1.RenderStyle.SeparatorColor = Color.Gainsboro;
+            guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            guna2ContextMenuStrip1.Size = new Size(61, 4);
             // 
             // tbUsername
             // 
-            tbUsername.BorderStyle = BorderStyle.None;
-            tbUsername.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbUsername.ForeColor = Color.FromArgb(91, 91, 91);
-            tbUsername.Location = new Point(3, 3);
+            tbUsername.BorderColor = Color.Silver;
+            tbUsername.BorderRadius = 5;
+            tbUsername.CustomizableEdges = customizableEdges1;
+            tbUsername.DefaultText = "";
+            tbUsername.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbUsername.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbUsername.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbUsername.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbUsername.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbUsername.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            tbUsername.ForeColor = Color.DimGray;
+            tbUsername.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbUsername.Location = new Point(403, 275);
+            tbUsername.Margin = new Padding(4);
             tbUsername.Name = "tbUsername";
-            tbUsername.Size = new Size(323, 20);
-            tbUsername.TabIndex = 5;
+            tbUsername.PlaceholderForeColor = Color.DarkGray;
+            tbUsername.PlaceholderText = "Enter username";
+            tbUsername.SelectedText = "";
+            tbUsername.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            tbUsername.Size = new Size(388, 45);
+            tbUsername.TabIndex = 15;
             // 
-            // checkBoxShowPassword
+            // checkBox1
             // 
-            checkBoxShowPassword.AutoSize = true;
-            checkBoxShowPassword.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            checkBoxShowPassword.ForeColor = Color.FromArgb(91, 91, 91);
-            checkBoxShowPassword.Location = new Point(78, 418);
-            checkBoxShowPassword.Name = "checkBoxShowPassword";
-            checkBoxShowPassword.Size = new Size(138, 20);
-            checkBoxShowPassword.TabIndex = 2;
-            checkBoxShowPassword.Text = "Show Password";
-            checkBoxShowPassword.UseVisualStyleBackColor = true;
-            checkBoxShowPassword.CheckedChanged += checkBoxShowPassword_CheckedChanged;
+            checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBox1.ForeColor = Color.FromArgb(91, 91, 91);
+            checkBox1.Location = new Point(403, 420);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(138, 20);
+            checkBox1.TabIndex = 6;
+            checkBox1.Text = "Show Password";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // tbPassword1
+            // 
+            tbPassword1.BorderColor = Color.Silver;
+            tbPassword1.BorderRadius = 5;
+            tbPassword1.CustomizableEdges = customizableEdges3;
+            tbPassword1.DefaultText = "";
+            tbPassword1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbPassword1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbPassword1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbPassword1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbPassword1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbPassword1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            tbPassword1.ForeColor = Color.DimGray;
+            tbPassword1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbPassword1.Location = new Point(403, 368);
+            tbPassword1.Margin = new Padding(4);
+            tbPassword1.Name = "tbPassword1";
+            tbPassword1.PlaceholderForeColor = Color.DarkGray;
+            tbPassword1.PlaceholderText = "Enter password";
+            tbPassword1.SelectedText = "";
+            tbPassword1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            tbPassword1.Size = new Size(388, 45);
+            tbPassword1.TabIndex = 16;
             // 
             // LoginBtn
             // 
-            LoginBtn.BorderRadius = 15;
-            LoginBtn.CustomizableEdges = customizableEdges3;
+            LoginBtn.BorderRadius = 10;
+            LoginBtn.CustomizableEdges = customizableEdges5;
             LoginBtn.DisabledState.BorderColor = Color.DarkGray;
             LoginBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             LoginBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -167,29 +191,13 @@
             LoginBtn.FillColor = Color.FromArgb(55, 91, 231);
             LoginBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LoginBtn.ForeColor = Color.White;
-            LoginBtn.HoverState.BorderColor = Color.FromArgb(0, 50, 125);
-            LoginBtn.HoverState.CustomBorderColor = Color.FromArgb(0, 50, 125);
-            LoginBtn.HoverState.FillColor = Color.FromArgb(0, 50, 125);
-            LoginBtn.HoverState.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LoginBtn.HoverState.ForeColor = Color.White;
-            LoginBtn.Location = new Point(75, 486);
+            LoginBtn.Location = new Point(403, 460);
             LoginBtn.Name = "LoginBtn";
-            LoginBtn.PressedColor = Color.FromArgb(0, 50, 125);
-            LoginBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            LoginBtn.Size = new Size(329, 56);
-            LoginBtn.TabIndex = 1;
+            LoginBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            LoginBtn.Size = new Size(385, 56);
+            LoginBtn.TabIndex = 17;
             LoginBtn.Text = "Login";
             LoginBtn.Click += LoginBtn_Click_1;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(117, 132);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(227, 104);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
@@ -197,7 +205,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
-            Controls.Add(LoginPanel);
+            Controls.Add(LoginBtn);
+            Controls.Add(tbPassword1);
+            Controls.Add(checkBox1);
+            Controls.Add(tbUsername);
+            Controls.Add(lblPass);
+            Controls.Add(lblLoginDesc);
+            Controls.Add(lblGreeting);
+            Controls.Add(lblUsername);
+            Controls.Add(pictureBox1);
             Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(91, 91, 91);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -206,33 +222,30 @@
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
+            MinimumSize = new Size(1200, 700);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TriQUE";
-            LoginPanel.ResumeLayout(false);
-            LoginPanel.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Panel LoginPanel;
         private PictureBox pictureBox1;
         private CheckBox checkBoxShowPassword;
-        private Guna.UI2.WinForms.Guna2Button LoginBtn;
-        private Panel panel2;
-        private Label label1;
-        private TextBox tbUsername;
-        private Panel panel4;
-        private Label label2;
+        private Label lblUsername;
+        private Label lblPass;
         private Panel panel3;
         private Panel panel5;
         private TextBox tbPassword;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
+        private Label lblGreeting;
+        private Label lblLoginDesc;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
+        private Guna.UI2.WinForms.Guna2TextBox tbUsername;
+        private CheckBox checkBox1;
+        private Guna.UI2.WinForms.Guna2TextBox tbPassword1;
+        private Guna.UI2.WinForms.Guna2Button LoginBtn;
     }
 }

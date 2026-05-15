@@ -1,4 +1,5 @@
 ﻿using TriQue.Data.Repositories;
+using TriQue.Helpers;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
@@ -12,6 +13,7 @@ namespace TriQue.Forms
         public AdminSettings(int userID)
         {
             InitializeComponent();
+            ApplyFonts();
             
             _userID = userID;
 
@@ -107,6 +109,26 @@ namespace TriQue.Forms
             };
         }
 
+        private void ApplyFonts()
+        {
+            this.Font = FontHelper.RobotoRegular;
+
+            lblTitle.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+            lblAdminInformationTItle.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+            lblFullName.Font = FontHelper.GetRoboto(20f, FontStyle.Bold);
+            lblContactNumber.Font = FontHelper.GetRoboto(10f, FontStyle.Regular);
+            lblUserRole.Font = FontHelper.GetRoboto(10f, FontStyle.Regular); 
+
+            lblPhoneNumber.Font = FontHelper.GetRoboto(14f, FontStyle.Bold); 
+            lblAdminLevel.Font = FontHelper.GetRoboto(14f, FontStyle.Bold);
+
+            lblSystemAdministratorTitle.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+
+            SystemAdDataGrid.Font = FontHelper.RobotoRegular;
+            SystemAdDataGrid.ColumnHeadersDefaultCellStyle.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            SystemAdDataGrid.DefaultCellStyle.Font = FontHelper.GetRoboto(9f, FontStyle.Bold);
+        }
+
         #endregion
 
         #region Navigation
@@ -157,7 +179,7 @@ namespace TriQue.Forms
 
         private async void DashBtn_Click(object sender, EventArgs e)
         {
-            await FormAnimator.SwitchAsync(this, new AdminViewQueue(_userID));
+            await FormAnimator.SwitchAsync(this, new AdminForm(_userID));
         }
 
         private async void LogoutBtn_Click(object sender, EventArgs e)

@@ -122,8 +122,8 @@ namespace TriQue.Forms
             lblTotalDistanceValue = new Label();
             pictureBox9 = new PictureBox();
             timer1 = new System.Windows.Forms.Timer(components);
-            lblWelcomeMessage = new Label();
-            greeting = new Label();
+            lblGreeting = new Label();
+            lblDesc = new Label();
             NavbarPanel.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             RoutePanel.SuspendLayout();
@@ -365,7 +365,7 @@ namespace TriQue.Forms
             lblTodayEarningsTitle.AutoSize = true;
             lblTodayEarningsTitle.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTodayEarningsTitle.ForeColor = Color.FromArgb(91, 91, 91);
-            lblTodayEarningsTitle.Location = new Point(51, 13);
+            lblTodayEarningsTitle.Location = new Point(43, 18);
             lblTodayEarningsTitle.Name = "lblTodayEarningsTitle";
             lblTodayEarningsTitle.Size = new Size(154, 20);
             lblTodayEarningsTitle.TabIndex = 3;
@@ -376,7 +376,7 @@ namespace TriQue.Forms
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(12, 13);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(33, 31);
+            pictureBox2.Size = new Size(25, 25);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
@@ -402,11 +402,11 @@ namespace TriQue.Forms
             lblTotalTripsLabel.AutoSize = true;
             lblTotalTripsLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTotalTripsLabel.ForeColor = Color.FromArgb(55, 91, 231);
-            lblTotalTripsLabel.Location = new Point(4, 84);
+            lblTotalTripsLabel.Location = new Point(13, 84);
             lblTotalTripsLabel.Name = "lblTotalTripsLabel";
-            lblTotalTripsLabel.Size = new Size(175, 18);
+            lblTotalTripsLabel.Size = new Size(89, 18);
             lblTotalTripsLabel.TabIndex = 6;
-            lblTotalTripsLabel.Text = "Total Trips Completed";
+            lblTotalTripsLabel.Text = "Total Trips";
             lblTotalTripsLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblTotalTripsValue
@@ -425,7 +425,7 @@ namespace TriQue.Forms
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(13, 12);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(33, 33);
+            pictureBox3.Size = new Size(25, 25);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
@@ -474,7 +474,7 @@ namespace TriQue.Forms
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(14, 12);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(30, 30);
+            pictureBox4.Size = new Size(25, 25);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
@@ -601,7 +601,7 @@ namespace TriQue.Forms
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(13, 12);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(33, 33);
+            pictureBox5.Size = new Size(25, 25);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 1;
             pictureBox5.TabStop = false;
@@ -650,7 +650,7 @@ namespace TriQue.Forms
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
             pictureBox6.Location = new Point(14, 12);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(30, 30);
+            pictureBox6.Size = new Size(25, 25);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 2;
             pictureBox6.TabStop = false;
@@ -725,7 +725,7 @@ namespace TriQue.Forms
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
             pictureBox7.Location = new Point(14, 12);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(30, 30);
+            pictureBox7.Size = new Size(25, 25);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 2;
             pictureBox7.TabStop = false;
@@ -750,7 +750,7 @@ namespace TriQue.Forms
             // 
             lblTotalDurationValue.AutoSize = true;
             lblTotalDurationValue.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalDurationValue.Location = new Point(16, 60);
+            lblTotalDurationValue.Location = new Point(15, 60);
             lblTotalDurationValue.Name = "lblTotalDurationValue";
             lblTotalDurationValue.Size = new Size(151, 32);
             lblTotalDurationValue.TabIndex = 20;
@@ -774,7 +774,7 @@ namespace TriQue.Forms
             pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
             pictureBox8.Location = new Point(16, 13);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(30, 30);
+            pictureBox8.Size = new Size(25, 25);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox8.TabIndex = 2;
             pictureBox8.TabStop = false;
@@ -823,33 +823,33 @@ namespace TriQue.Forms
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
             pictureBox9.Location = new Point(15, 11);
             pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(30, 30);
+            pictureBox9.Size = new Size(25, 25);
             pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox9.TabIndex = 2;
             pictureBox9.TabStop = false;
             // 
-            // lblWelcomeMessage
+            // lblGreeting
             // 
-            lblWelcomeMessage.AutoSize = true;
-            lblWelcomeMessage.Font = new Font("Bahnschrift", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblWelcomeMessage.ForeColor = Color.FromArgb(91, 91, 91);
-            lblWelcomeMessage.Location = new Point(125, 9);
-            lblWelcomeMessage.Name = "lblWelcomeMessage";
-            lblWelcomeMessage.Size = new Size(299, 36);
-            lblWelcomeMessage.TabIndex = 17;
-            lblWelcomeMessage.Text = "Welcome Back, Juan!";
-            lblWelcomeMessage.TextAlign = ContentAlignment.MiddleLeft;
+            lblGreeting.AutoSize = true;
+            lblGreeting.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblGreeting.ForeColor = Color.FromArgb(91, 91, 91);
+            lblGreeting.Location = new Point(125, 20);
+            lblGreeting.Name = "lblGreeting";
+            lblGreeting.Size = new Size(194, 21);
+            lblGreeting.TabIndex = 17;
+            lblGreeting.Text = "Good Morning, Juan!";
+            lblGreeting.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // greeting
+            // lblDesc
             // 
-            greeting.AutoSize = true;
-            greeting.Font = new Font("Arial Rounded MT Bold", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            greeting.ForeColor = Color.FromArgb(55, 91, 231);
-            greeting.Location = new Point(125, 57);
-            greeting.Name = "greeting";
-            greeting.Size = new Size(185, 20);
-            greeting.TabIndex = 18;
-            greeting.Text = "Ready to get started?";
+            lblDesc.AutoSize = true;
+            lblDesc.Font = new Font("Arial Rounded MT Bold", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDesc.ForeColor = Color.FromArgb(55, 91, 231);
+            lblDesc.Location = new Point(125, 46);
+            lblDesc.Name = "lblDesc";
+            lblDesc.Size = new Size(309, 32);
+            lblDesc.TabIndex = 18;
+            lblDesc.Text = "Ready to get started?";
             // 
             // DriverForm
             // 
@@ -857,8 +857,8 @@ namespace TriQue.Forms
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
-            Controls.Add(greeting);
-            Controls.Add(lblWelcomeMessage);
+            Controls.Add(lblDesc);
+            Controls.Add(lblGreeting);
             Controls.Add(TotalDistancePanel);
             Controls.Add(TotalDurationPanel);
             Controls.Add(TrafficConditionPanel);
@@ -957,7 +957,7 @@ namespace TriQue.Forms
         private Guna.UI2.WinForms.Guna2DataGridView DataGridTripHistory;
         private Label lblTodayEarningsTitle;
         private Label lblRouteStatus;
-        private Label lblWelcomeMessage;
+        private Label lblGreeting;
         private Label lblTodayEarningValue;
         private Label lblEarningsGoal;
         private Label lblTotalTripsValue;
@@ -976,6 +976,6 @@ namespace TriQue.Forms
         private Label lblTotalDistanceLabel;
         private Label lblTotalDistanceValue;
         private ReaLTaiizor.Controls.DungeonProgressBar ProgressBar;
-        private Label greeting;
+        private Label lblDesc;
     }
 }

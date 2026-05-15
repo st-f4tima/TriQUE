@@ -1,3 +1,4 @@
+using TriQue.Helpers;
 using TriQue.Helpers.Animation;
 using TriQue.Services;
 
@@ -13,6 +14,7 @@ namespace TriQue.Forms
         public DriverSettings(int userID)
         {
             InitializeComponent();
+            ApplyFonts();
 
             _userID = userID;
 
@@ -41,7 +43,7 @@ namespace TriQue.Forms
 
         private void SetStatusColor(string status)
         {
-            StatusPanel.FillColor = status switch
+            lblCurrentStatusValue.ForeColor = status switch
             {
                 "OnTrip" => Color.FromArgb(40, 167, 69),
                 "Waiting" => Color.FromArgb(255, 193, 7),
@@ -49,6 +51,31 @@ namespace TriQue.Forms
                 _ => Color.Gray
             };
         }
+
+        #region additional style
+        private void ApplyFonts()
+        {
+
+            this.Font = FontHelper.RobotoRegular;
+            lblSettingsTitle.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+            lblDriverInfoTitle.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+
+            lblDriverName.Font = FontHelper.GetRoboto(20f, FontStyle.Bold);
+            lblBodyNumber.Font = FontHelper.GetRoboto(10f, FontStyle.Regular);
+
+            lblCurrentStatusTitle.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblContactLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Regular);
+            lblRouteLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Regular);
+            lblGroupLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Regular);
+            lblStatusLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Regular);
+
+            lblContactNumberValue.Font = FontHelper.GetRoboto(14f, FontStyle.Bold);
+            lblAssignedRouteValue.Font = FontHelper.GetRoboto(14f, FontStyle.Bold);
+            lblGroupNameValue.Font = FontHelper.GetRoboto(14f, FontStyle.Bold);
+            lblCurrentStatusValue.Font = FontHelper.GetRoboto(12f, FontStyle.Bold);
+        }
+
+        #endregion
 
         #region navigation
 

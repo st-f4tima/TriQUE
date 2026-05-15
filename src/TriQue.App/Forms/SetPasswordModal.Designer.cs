@@ -35,27 +35,27 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetPasswordModal));
-            usernamelb = new Label();
+            lblNewPassword = new Label();
             txtNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            label1 = new Label();
+            lblConfirmPassword = new Label();
             chkShowNew = new CheckBox();
             txtConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
             chkShowConfirm = new CheckBox();
-            ConfirmBtn = new Guna.UI2.WinForms.Guna2Button();
             label2 = new Label();
             lblError = new Label();
+            ConfirmBtn = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
             // 
-            // usernamelb
+            // lblNewPassword
             // 
-            usernamelb.AutoSize = true;
-            usernamelb.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            usernamelb.ForeColor = Color.FromArgb(91, 91, 91);
-            usernamelb.Location = new Point(36, 42);
-            usernamelb.Name = "usernamelb";
-            usernamelb.Size = new Size(133, 20);
-            usernamelb.TabIndex = 5;
-            usernamelb.Text = "New Password";
+            lblNewPassword.AutoSize = true;
+            lblNewPassword.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNewPassword.ForeColor = Color.FromArgb(91, 91, 91);
+            lblNewPassword.Location = new Point(36, 42);
+            lblNewPassword.Name = "lblNewPassword";
+            lblNewPassword.Size = new Size(133, 20);
+            lblNewPassword.TabIndex = 5;
+            lblNewPassword.Text = "New Password";
             // 
             // txtNewPassword
             // 
@@ -74,22 +74,23 @@
             txtNewPassword.Location = new Point(36, 70);
             txtNewPassword.Margin = new Padding(4);
             txtNewPassword.Name = "txtNewPassword";
+            txtNewPassword.PlaceholderForeColor = Color.Gray;
             txtNewPassword.PlaceholderText = "Enter new password";
             txtNewPassword.SelectedText = "";
             txtNewPassword.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtNewPassword.Size = new Size(411, 35);
             txtNewPassword.TabIndex = 6;
             // 
-            // label1
+            // lblConfirmPassword
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(91, 91, 91);
-            label1.Location = new Point(36, 167);
-            label1.Name = "label1";
-            label1.Size = new Size(163, 20);
-            label1.TabIndex = 7;
-            label1.Text = "Confirm Password";
+            lblConfirmPassword.AutoSize = true;
+            lblConfirmPassword.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblConfirmPassword.ForeColor = Color.FromArgb(91, 91, 91);
+            lblConfirmPassword.Location = new Point(36, 167);
+            lblConfirmPassword.Name = "lblConfirmPassword";
+            lblConfirmPassword.Size = new Size(163, 20);
+            lblConfirmPassword.TabIndex = 7;
+            lblConfirmPassword.Text = "Confirm Password";
             // 
             // chkShowNew
             // 
@@ -121,6 +122,7 @@
             txtConfirmPassword.Location = new Point(36, 191);
             txtConfirmPassword.Margin = new Padding(4);
             txtConfirmPassword.Name = "txtConfirmPassword";
+            txtConfirmPassword.PlaceholderForeColor = Color.Gray;
             txtConfirmPassword.PlaceholderText = "Re-enter new password";
             txtConfirmPassword.SelectedText = "";
             txtConfirmPassword.ShadowDecoration.CustomizableEdges = customizableEdges4;
@@ -140,6 +142,28 @@
             chkShowConfirm.UseVisualStyleBackColor = true;
             chkShowConfirm.CheckedChanged += chkShowConfirm_CheckedChanged_1;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            label2.ForeColor = Color.Gray;
+            label2.Location = new Point(36, 265);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 18);
+            label2.TabIndex = 12;
+            // 
+            // lblError
+            // 
+            lblError.AutoSize = true;
+            lblError.BackColor = Color.White;
+            lblError.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            lblError.ForeColor = Color.Gray;
+            lblError.Location = new Point(36, 265);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(0, 18);
+            lblError.TabIndex = 13;
+            // 
             // ConfirmBtn
             // 
             ConfirmBtn.BorderRadius = 10;
@@ -151,39 +175,13 @@
             ConfirmBtn.FillColor = Color.FromArgb(55, 91, 231);
             ConfirmBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ConfirmBtn.ForeColor = Color.White;
-            ConfirmBtn.HoverState.BorderColor = Color.FromArgb(0, 50, 125);
-            ConfirmBtn.HoverState.CustomBorderColor = Color.FromArgb(0, 50, 125);
-            ConfirmBtn.HoverState.FillColor = Color.FromArgb(0, 50, 125);
-            ConfirmBtn.HoverState.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ConfirmBtn.HoverState.ForeColor = Color.White;
             ConfirmBtn.Location = new Point(36, 296);
             ConfirmBtn.Name = "ConfirmBtn";
-            ConfirmBtn.PressedColor = Color.FromArgb(0, 50, 125);
             ConfirmBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            ConfirmBtn.Size = new Size(411, 44);
-            ConfirmBtn.TabIndex = 11;
+            ConfirmBtn.Size = new Size(411, 48);
+            ConfirmBtn.TabIndex = 18;
             ConfirmBtn.Text = "Confirm";
             ConfirmBtn.Click += ConfirmBtn_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            label2.ForeColor = Color.FromArgb(220, 53, 69);
-            label2.Location = new Point(36, 265);
-            label2.Name = "label2";
-            label2.Size = new Size(0, 18);
-            label2.TabIndex = 12;
-            // 
-            // lblError
-            // 
-            lblError.AutoSize = true;
-            lblError.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            lblError.ForeColor = Color.FromArgb(220, 53, 69);
-            lblError.Location = new Point(36, 265);
-            lblError.Name = "lblError";
-            lblError.Size = new Size(0, 18);
-            lblError.TabIndex = 13;
             // 
             // SetPasswordModal
             // 
@@ -191,15 +189,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(493, 356);
+            Controls.Add(ConfirmBtn);
             Controls.Add(lblError);
             Controls.Add(label2);
-            Controls.Add(ConfirmBtn);
             Controls.Add(chkShowConfirm);
             Controls.Add(txtConfirmPassword);
             Controls.Add(chkShowNew);
-            Controls.Add(label1);
+            Controls.Add(lblConfirmPassword);
             Controls.Add(txtNewPassword);
-            Controls.Add(usernamelb);
+            Controls.Add(lblNewPassword);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
@@ -213,14 +211,14 @@
 
         #endregion
 
-        private Label usernamelb;
+        private Label lblNewPassword;
         private Guna.UI2.WinForms.Guna2TextBox txtNewPassword;
-        private Label label1;
+        private Label lblConfirmPassword;
         private CheckBox chkShowNew;
         private Guna.UI2.WinForms.Guna2TextBox txtConfirmPassword;
         private CheckBox chkShowConfirm;
-        private Guna.UI2.WinForms.Guna2Button ConfirmBtn;
         private Label label2;
         private Label lblError;
+        private Guna.UI2.WinForms.Guna2Button ConfirmBtn;
     }
 }

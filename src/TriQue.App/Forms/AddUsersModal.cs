@@ -1,4 +1,5 @@
-﻿using TriQue.Models;
+﻿using TriQue.Helpers;
+using TriQue.Models;
 using TriQue.Services;
 
 namespace TriQue
@@ -11,6 +12,7 @@ namespace TriQue
         public AddUsersModal()
         {
             InitializeComponent();
+            ApplyFonts();
 
             cboRole.SelectedIndexChanged += CboRole_Changed;
 
@@ -51,6 +53,27 @@ namespace TriQue
         }
 
         #endregion
+
+        private void ApplyFonts()
+        {
+            this.Font = FontHelper.RobotoRegular;
+
+            lblUserFirstName.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblUserLastName.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblPhoneNumber.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblRole.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblAdminLevel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblAssignedRoute.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            txtFirstName.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            txtLastName.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            txtPhoneNumber.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            cboRole.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            cboAdminLevel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            cboAssignedGroup.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            AddBtn.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+        }
 
         #region Events
 
