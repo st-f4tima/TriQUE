@@ -25,12 +25,13 @@ namespace TriQue.Forms
         {
             this.Font = FontHelper.RobotoRegular;
             lblGreeting.Font = FontHelper.GetRoboto(24f, FontStyle.Bold);
-            lblLoginDesc.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblLoginDesc.Font = FontHelper.GetRoboto(10f, FontStyle.Regular);
             lblPass.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
             lblUsername.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
             checkBox1.Font = FontHelper.GetRoboto(9f, FontStyle.Bold);
             tbUsername.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
             tbPassword1.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            LoginBtn.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
 
         }
 

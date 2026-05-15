@@ -73,8 +73,7 @@
             ScrollBar = new Guna.UI2.WinForms.Guna2VScrollBar();
             RefreshBtn = new Guna.UI2.WinForms.Guna2Button();
             StartTripBtn = new Guna.UI2.WinForms.Guna2Button();
-            pictureBox1 = new PictureBox();
-            lblViewQueueStatusTitle = new Label();
+            lblTitle = new Label();
             lblQueueStatusTitle = new Label();
             NavBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).BeginInit();
@@ -86,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)RankingIcon).BeginInit();
             QueueStatusPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DataGridQueueStatus).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // NavBarPanel
@@ -201,7 +199,7 @@
             StatusPanel.Controls.Add(lblStatusTiltle);
             StatusPanel.Controls.Add(StatusIcon);
             StatusPanel.CustomizableEdges = customizableEdges23;
-            StatusPanel.Location = new Point(140, 77);
+            StatusPanel.Location = new Point(140, 89);
             StatusPanel.Name = "StatusPanel";
             StatusPanel.ShadowDecoration.CustomizableEdges = customizableEdges24;
             StatusPanel.Size = new Size(315, 73);
@@ -250,7 +248,7 @@
             RoutePanel.Controls.Add(lblRouteTitle);
             RoutePanel.Controls.Add(RouteIcon);
             RoutePanel.CustomizableEdges = customizableEdges25;
-            RoutePanel.Location = new Point(480, 77);
+            RoutePanel.Location = new Point(480, 89);
             RoutePanel.Name = "RoutePanel";
             RoutePanel.ShadowDecoration.CustomizableEdges = customizableEdges26;
             RoutePanel.Size = new Size(315, 73);
@@ -298,7 +296,7 @@
             RankingPanel.Controls.Add(lblRankingTitle);
             RankingPanel.Controls.Add(RankingIcon);
             RankingPanel.CustomizableEdges = customizableEdges27;
-            RankingPanel.Location = new Point(824, 80);
+            RankingPanel.Location = new Point(824, 89);
             RankingPanel.Name = "RankingPanel";
             RankingPanel.ShadowDecoration.CustomizableEdges = customizableEdges28;
             RankingPanel.Size = new Size(315, 73);
@@ -438,7 +436,6 @@
             RefreshBtn.Size = new Size(191, 45);
             RefreshBtn.TabIndex = 7;
             RefreshBtn.Text = "Refresh Queue";
-            RefreshBtn.TextAlign = HorizontalAlignment.Right;
             RefreshBtn.Click += RefreshBtn_Click;
             // 
             // StartTripBtn
@@ -460,27 +457,16 @@
             StartTripBtn.Text = "Start";
             StartTripBtn.Click += StartTripBtn_Click;
             // 
-            // pictureBox1
+            // lblTitle
             // 
-            pictureBox1.BackColor = Color.FromArgb(55, 91, 231);
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(157, 588);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(22, 22);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
-            // 
-            // lblViewQueueStatusTitle
-            // 
-            lblViewQueueStatusTitle.AutoSize = true;
-            lblViewQueueStatusTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblViewQueueStatusTitle.ForeColor = Color.FromArgb(55, 91, 231);
-            lblViewQueueStatusTitle.Location = new Point(140, 38);
-            lblViewQueueStatusTitle.Name = "lblViewQueueStatusTitle";
-            lblViewQueueStatusTitle.Size = new Size(198, 25);
-            lblViewQueueStatusTitle.TabIndex = 11;
-            lblViewQueueStatusTitle.Text = "View Queue Status";
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.FromArgb(55, 91, 231);
+            lblTitle.Location = new Point(133, 38);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(198, 25);
+            lblTitle.TabIndex = 11;
+            lblTitle.Text = "View Queue Status";
             // 
             // lblQueueStatusTitle
             // 
@@ -500,8 +486,7 @@
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
             Controls.Add(lblQueueStatusTitle);
-            Controls.Add(lblViewQueueStatusTitle);
-            Controls.Add(pictureBox1);
+            Controls.Add(lblTitle);
             Controls.Add(StartTripBtn);
             Controls.Add(RefreshBtn);
             Controls.Add(QueueStatusPanel);
@@ -532,7 +517,6 @@
             ((System.ComponentModel.ISupportInitialize)RankingIcon).EndInit();
             QueueStatusPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)DataGridQueueStatus).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -553,12 +537,11 @@
         private Guna.UI2.WinForms.Guna2VScrollBar ScrollBar;
         private Guna.UI2.WinForms.Guna2Button RefreshBtn;
         private Guna.UI2.WinForms.Guna2Button StartTripBtn;
-        private PictureBox pictureBox1;
         private PictureBox StatusIcon;
         private PictureBox RouteIcon;
         private PictureBox RankingIcon;
         private Guna.UI2.WinForms.Guna2DataGridView DataGridQueueStatus;
-        private Label lblViewQueueStatusTitle;
+        private Label lblTitle;
         private Label lblStatusTiltle;
         private Label lblRouteTitle;
         private Label lblRankingTitle;

@@ -330,6 +330,7 @@ namespace TriQue.Forms
             lblTotalDistanceLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
 
             DataGridTripHistory.DefaultCellStyle.Font = FontHelper.GetRoboto(8f, FontStyle.Bold);
+            btnJoinQueue.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
         }
 
         #endregion

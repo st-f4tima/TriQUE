@@ -31,16 +31,15 @@ namespace TriQue.Forms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lblPass = new Label();
             lblUsername = new Label();
-            LoginBtn = new Guna.UI2.WinForms.Guna2Button();
             pictureBox1 = new PictureBox();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             lblGreeting = new Label();
@@ -49,6 +48,7 @@ namespace TriQue.Forms
             tbUsername = new Guna.UI2.WinForms.Guna2TextBox();
             checkBox1 = new CheckBox();
             tbPassword1 = new Guna.UI2.WinForms.Guna2TextBox();
+            LoginBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -71,31 +71,6 @@ namespace TriQue.Forms
             lblUsername.Size = new Size(94, 20);
             lblUsername.TabIndex = 4;
             lblUsername.Text = "Username";
-            // 
-            // LoginBtn
-            // 
-            LoginBtn.BorderRadius = 10;
-            LoginBtn.CustomizableEdges = customizableEdges1;
-            LoginBtn.DisabledState.BorderColor = Color.DarkGray;
-            LoginBtn.DisabledState.CustomBorderColor = Color.DarkGray;
-            LoginBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            LoginBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            LoginBtn.FillColor = Color.FromArgb(55, 91, 231);
-            LoginBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LoginBtn.ForeColor = Color.White;
-            LoginBtn.HoverState.BorderColor = Color.FromArgb(0, 50, 125);
-            LoginBtn.HoverState.CustomBorderColor = Color.FromArgb(0, 50, 125);
-            LoginBtn.HoverState.FillColor = Color.FromArgb(0, 50, 125);
-            LoginBtn.HoverState.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LoginBtn.HoverState.ForeColor = Color.White;
-            LoginBtn.Location = new Point(406, 464);
-            LoginBtn.Name = "LoginBtn";
-            LoginBtn.PressedColor = Color.FromArgb(0, 50, 125);
-            LoginBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            LoginBtn.Size = new Size(385, 56);
-            LoginBtn.TabIndex = 1;
-            LoginBtn.Text = "Login";
-            LoginBtn.Click += LoginBtn_Click_1;
             // 
             // pictureBox1
             // 
@@ -146,9 +121,9 @@ namespace TriQue.Forms
             // 
             // tbUsername
             // 
-            tbUsername.BorderColor = Color.DarkGray;
+            tbUsername.BorderColor = Color.Silver;
             tbUsername.BorderRadius = 5;
-            tbUsername.CustomizableEdges = customizableEdges3;
+            tbUsername.CustomizableEdges = customizableEdges1;
             tbUsername.DefaultText = "";
             tbUsername.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbUsername.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -156,14 +131,15 @@ namespace TriQue.Forms
             tbUsername.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             tbUsername.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             tbUsername.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            tbUsername.ForeColor = Color.FromArgb(91, 91, 91);
+            tbUsername.ForeColor = Color.DimGray;
             tbUsername.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbUsername.Location = new Point(403, 275);
             tbUsername.Margin = new Padding(4);
             tbUsername.Name = "tbUsername";
-            tbUsername.PlaceholderText = "";
+            tbUsername.PlaceholderForeColor = Color.DarkGray;
+            tbUsername.PlaceholderText = "Enter username";
             tbUsername.SelectedText = "";
-            tbUsername.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            tbUsername.ShadowDecoration.CustomizableEdges = customizableEdges2;
             tbUsername.Size = new Size(388, 45);
             tbUsername.TabIndex = 15;
             // 
@@ -182,9 +158,9 @@ namespace TriQue.Forms
             // 
             // tbPassword1
             // 
-            tbPassword1.BorderColor = Color.DarkGray;
+            tbPassword1.BorderColor = Color.Silver;
             tbPassword1.BorderRadius = 5;
-            tbPassword1.CustomizableEdges = customizableEdges5;
+            tbPassword1.CustomizableEdges = customizableEdges3;
             tbPassword1.DefaultText = "";
             tbPassword1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbPassword1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -192,16 +168,36 @@ namespace TriQue.Forms
             tbPassword1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             tbPassword1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             tbPassword1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            tbPassword1.ForeColor = Color.FromArgb(91, 91, 91);
+            tbPassword1.ForeColor = Color.DimGray;
             tbPassword1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbPassword1.Location = new Point(403, 368);
             tbPassword1.Margin = new Padding(4);
             tbPassword1.Name = "tbPassword1";
-            tbPassword1.PlaceholderText = "";
+            tbPassword1.PlaceholderForeColor = Color.DarkGray;
+            tbPassword1.PlaceholderText = "Enter password";
             tbPassword1.SelectedText = "";
-            tbPassword1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            tbPassword1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             tbPassword1.Size = new Size(388, 45);
             tbPassword1.TabIndex = 16;
+            // 
+            // LoginBtn
+            // 
+            LoginBtn.BorderRadius = 10;
+            LoginBtn.CustomizableEdges = customizableEdges5;
+            LoginBtn.DisabledState.BorderColor = Color.DarkGray;
+            LoginBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            LoginBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            LoginBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            LoginBtn.FillColor = Color.FromArgb(55, 91, 231);
+            LoginBtn.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LoginBtn.ForeColor = Color.White;
+            LoginBtn.Location = new Point(403, 460);
+            LoginBtn.Name = "LoginBtn";
+            LoginBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            LoginBtn.Size = new Size(385, 56);
+            LoginBtn.TabIndex = 17;
+            LoginBtn.Text = "Login";
+            LoginBtn.Click += LoginBtn_Click_1;
             // 
             // LoginForm
             // 
@@ -209,10 +205,10 @@ namespace TriQue.Forms
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1182, 653);
+            Controls.Add(LoginBtn);
             Controls.Add(tbPassword1);
             Controls.Add(checkBox1);
             Controls.Add(tbUsername);
-            Controls.Add(LoginBtn);
             Controls.Add(lblPass);
             Controls.Add(lblLoginDesc);
             Controls.Add(lblGreeting);
@@ -238,7 +234,6 @@ namespace TriQue.Forms
         #endregion
         private PictureBox pictureBox1;
         private CheckBox checkBoxShowPassword;
-        private Guna.UI2.WinForms.Guna2Button LoginBtn;
         private Label lblUsername;
         private Label lblPass;
         private Panel panel3;
@@ -251,5 +246,6 @@ namespace TriQue.Forms
         private Guna.UI2.WinForms.Guna2TextBox tbUsername;
         private CheckBox checkBox1;
         private Guna.UI2.WinForms.Guna2TextBox tbPassword1;
+        private Guna.UI2.WinForms.Guna2Button LoginBtn;
     }
 }
