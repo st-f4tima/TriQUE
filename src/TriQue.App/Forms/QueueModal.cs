@@ -240,11 +240,18 @@ namespace TriQue.Forms
 
                     case "Finished":
                         _tripService.EndTrip(driverID, _routeID);
-                        _driverService.UpdateStatus(driverID, DriverStatus.Finished);
+                        _driverService.UpdateStatus(driverID, DriverStatus.Waiting); // ← Waiting
+                        int queueID1 = _queueService.GetQueueIdByRouteId(_routeID) ?? 0;
+                        _queueService.RemoveDriverFromQueue(driverID, queueID1);
+                        _queueService.ReorderQueuePositions(queueID1);
                         break;
 
-                    default:
+                    default: 
+                        _tripService.EndTrip(driverID, _routeID);
                         _driverService.UpdateStatus(driverID, DriverStatus.Waiting);
+                        int queueID2 = _queueService.GetQueueIdByRouteId(_routeID) ?? 0;
+                        _queueService.RemoveDriverFromQueue(driverID, queueID2);
+                        _queueService.ReorderQueuePositions(queueID2);
                         break;
                 }
 
@@ -284,8 +291,8 @@ namespace TriQue.Forms
 
             if (confirm != DialogResult.Yes) return;
 
-            _queueService.ResetQueue(_routeID);
-            MessageBox.Show("Queue has been reset.!",
+            _queueService.ResetQueue(_routeID, _groupID);
+            MessageBox.Show("Queue has been reset",
                 "Success",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
