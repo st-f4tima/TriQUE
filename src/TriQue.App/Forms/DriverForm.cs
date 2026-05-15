@@ -1,5 +1,6 @@
 using TriQue.DTOs;
 using TriQue.Enums;
+using TriQue.Helpers;
 using TriQue.Helpers.Animation;
 using TriQue.Models;
 using TriQue.Services;
@@ -25,6 +26,9 @@ namespace TriQue.Forms
         public DriverForm(int userID)
         {
             InitializeComponent();
+            DataGridTripHistory.ReadOnly = true;
+
+            ApplyFonts();
 
             _userID = userID;
 
@@ -56,7 +60,7 @@ namespace TriQue.Forms
                 return;
             }
 
-            lblWelcomeMessage.Text = $"Welcome Back, {_dashboardData.User.FirstName}!";
+            lblGreeting.Text = $"{GetTimeBasedGreeting()}, {_dashboardData.User.FirstName}!";
             lblTodayEarningValue.Text = _dashboardData.ActualEarnings.ToString("₱ #,##0.00");
             lblEarningsGoal.Text = $"Goal: {_dashboardData.Driver.GoalEarnings:₱ 0}";
             lblTotalTripsValue.Text = _dashboardData.CompletedTrips.ToString();
@@ -67,6 +71,25 @@ namespace TriQue.Forms
             lblTotalDistanceValue.Text = $"{_dashboardData.TotalDistance} km";
 
             UpdateProgressBar();
+        }
+
+        private string GetTimeBasedGreeting()
+        {
+            int hour = DateTime.Now.Hour;
+
+            if (hour >= 5 && hour < 12)
+            {
+                return "Good Morning";
+            }
+            else if (hour >= 12 && hour < 18)
+            {
+                return "Good Afternoon";
+            }
+            else
+            {
+                // covers 6:00 PM to 4:59 AM
+                return "Good Evening";
+            }
         }
 
         private void UpdateProgressBar()
@@ -134,7 +157,7 @@ namespace TriQue.Forms
             if (_driver == null)
                 return;
 
-            DataGridTripHistory.DataSource =_tripService.GetTripHistory(_driver.DriverID);
+            DataGridTripHistory.DataSource = _tripService.GetTripHistory(_driver.DriverID);
             DataGridTripHistory.DataBindingComplete += (s, e) =>
             {
                 if (DataGridTripHistory.Columns.Count >= 3)
@@ -269,6 +292,48 @@ namespace TriQue.Forms
             }
         }
 
+        #region additional styles
+        private void ApplyFonts()
+        {
+            this.Font = FontHelper.RobotoRegular;
+            lblGreeting.Font = FontHelper.GetRoboto(11f, FontStyle.Bold);
+            lblGreeting.ForeColor = Color.DimGray;
+
+            lblDesc.Text = "Ready to get started?";
+            lblDesc.Font = FontHelper.GetRoboto(16f, FontStyle.Bold);
+
+            lblTodayEarningsTitle.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblTodayEarningValue.Font = FontHelper.GetRoboto(19f, FontStyle.Bold);
+            lblEarningsGoal.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            lblTripsTodayLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblTripsTodayValue.Font = FontHelper.GetRoboto(16f, FontStyle.Bold);
+
+            lblTotalTripsLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblTotalTripsValue.Font = FontHelper.GetRoboto(16f, FontStyle.Bold);
+
+            lblFastestTripValue.Font = FontHelper.GetRoboto(17f, FontStyle.Bold);
+            lblLowestTripValue.Font = FontHelper.GetRoboto(17f, FontStyle.Bold);
+            lblTotalDistanceValue.Font = FontHelper.GetRoboto(17f, FontStyle.Bold);
+
+            lblRouteStatus.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            lblTripHistoryTitle.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            DataGridTripHistory.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            lblTrafficStatus.Font = FontHelper.GetRoboto(16f, FontStyle.Bold);
+            lblTotalDurationValue.Font = FontHelper.GetRoboto(16f, FontStyle.Bold);
+            lblTotalDistanceValue.Font = FontHelper.GetRoboto(16f, FontStyle.Bold);
+
+            lblTrafficLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblTotalDurationLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            lblTotalDistanceLabel.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+
+            DataGridTripHistory.DefaultCellStyle.Font = FontHelper.GetRoboto(8f, FontStyle.Bold);
+        }
+
+        #endregion
+
         #region navigation
 
         private async void ViewQueueBtn_Click(object sender, EventArgs e)
@@ -298,5 +363,6 @@ namespace TriQue.Forms
         }
 
         #endregion
+
     }
 }
