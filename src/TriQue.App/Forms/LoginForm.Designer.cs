@@ -166,14 +166,13 @@ namespace TriQue.Forms
             tbUsername.ShadowDecoration.CustomizableEdges = customizableEdges4;
             tbUsername.Size = new Size(388, 45);
             tbUsername.TabIndex = 15;
-            tbUsername.TextChanged += txtFirstName_TextChanged;
             // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
             checkBox1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             checkBox1.ForeColor = Color.FromArgb(91, 91, 91);
-            checkBox1.Location = new Point(406, 428);
+            checkBox1.Location = new Point(403, 420);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(138, 20);
             checkBox1.TabIndex = 6;
@@ -203,7 +202,6 @@ namespace TriQue.Forms
             tbPassword1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             tbPassword1.Size = new Size(388, 45);
             tbPassword1.TabIndex = 16;
-            tbPassword1.TextChanged += tbPassword1_TextChanged;
             // 
             // LoginForm
             // 
@@ -232,7 +230,6 @@ namespace TriQue.Forms
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TriQUE";
-            Load += LoginForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

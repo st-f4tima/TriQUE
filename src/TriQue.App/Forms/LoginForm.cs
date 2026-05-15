@@ -28,7 +28,7 @@ namespace TriQue.Forms
             lblLoginDesc.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
             lblPass.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
             lblUsername.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
-            checkBox1.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
+            checkBox1.Font = FontHelper.GetRoboto(9f, FontStyle.Bold);
             tbUsername.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
             tbPassword1.Font = FontHelper.GetRoboto(10f, FontStyle.Bold);
 
@@ -141,22 +141,6 @@ namespace TriQue.Forms
         private void ShowWarning(string msg) => MessageBox.Show(msg, "Account Locked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         private void ShowSuccess(string msg) => MessageBox.Show(msg, "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         #endregion
-
-        private void txtFirstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbPassword1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
     }
 }
