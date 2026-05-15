@@ -13,7 +13,7 @@ namespace TriQue.Tests.Services
         private QueueService _queueService;
         private QueueRepository _queueRepo;
 
-        // Using seeded driver1 (DriverID=1) and route 101 (QueueID=1)
+        // seeded test data
         private const int TestDriverID = 1;
         private const int TestRouteID = 101;
         private const int TestQueueID = 1;
@@ -28,7 +28,7 @@ namespace TriQue.Tests.Services
             _queueService = new QueueService();
             _queueRepo = new QueueRepository();
 
-            // Clean queue before each test for isolation
+            // clear queue entries
             _dbHelper.ExecuteNonQuery(
                 "DELETE FROM QueueEntry WHERE QueueID = @queueID",
                 new Microsoft.Data.Sqlite.SqliteParameter("@queueID", TestQueueID)
@@ -38,30 +38,26 @@ namespace TriQue.Tests.Services
         [TestCleanup]
         public void Cleanup()
         {
-            // Clean up after each test
+            // remove test entries
             _dbHelper.ExecuteNonQuery(
                 "DELETE FROM QueueEntry WHERE QueueID = @queueID",
                 new Microsoft.Data.Sqlite.SqliteParameter("@queueID", TestQueueID)
             );
 
-            // Reset driver status back to Waiting
+            // reset driver status
             _dbHelper.ExecuteNonQuery(
                 "UPDATE Driver SET StatusID = 1 WHERE DriverID = @driverID",
                 new Microsoft.Data.Sqlite.SqliteParameter("@driverID", TestDriverID)
             );
         }
 
-        // =============================================
-        // JoinQueue() TESTS
-        // =============================================
-
         [TestMethod]
         public void JoinQueue_ShouldReturnAlreadyInQueue_WhenDriverIsAlreadyInQueue()
         {
-            // Join once successfully
+            // first join
             _queueService.JoinQueue(TestDriverID, TestRouteID);
 
-            // Try to join again
+            // second join attempt
             string result = _queueService.JoinQueue(TestDriverID, TestRouteID);
 
             Assert.AreEqual("Already in queue.", result);
@@ -70,18 +66,19 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void JoinQueue_ShouldReturnCorrectPositionString_WhenSuccessfullyJoined()
         {
+            // join queue
             string result = _queueService.JoinQueue(TestDriverID, TestRouteID);
 
-            // First driver to join should be position 1
             Assert.AreEqual("Joined queue. Position: #1", result);
         }
 
         [TestMethod]
         public void JoinQueue_ShouldUpdateDriverStatus_ToWaiting_AfterJoining()
         {
+            // join queue
             _queueService.JoinQueue(TestDriverID, TestRouteID);
 
-            // Check that StatusID was set to 1 (Waiting)
+            // verify status update
             var result = _dbHelper.ExecuteScalar(
                 "SELECT StatusID FROM Driver WHERE DriverID = @driverID",
                 new Microsoft.Data.Sqlite.SqliteParameter("@driverID", TestDriverID)
@@ -93,13 +90,13 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void JoinQueue_ShouldIncrementPosition_ForEachNewEntry()
         {
-            // Driver 1 joins first
+            // first driver joins
             string first = _queueService.JoinQueue(1, TestRouteID);
 
-            // Driver 2 joins second
+            // second driver joins
             string second = _queueService.JoinQueue(2, TestRouteID);
 
-            // Clean up driver 2 after
+            // remove test entry
             _dbHelper.ExecuteNonQuery(
                 "DELETE FROM QueueEntry WHERE QueueID = @queueID AND DriverID = @driverID",
                 new Microsoft.Data.Sqlite.SqliteParameter("@queueID", TestQueueID),
@@ -113,8 +110,10 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void JoinQueue_ShouldAddEntryToDatabase_AfterJoining()
         {
+            // join queue
             _queueService.JoinQueue(TestDriverID, TestRouteID);
 
+            // verify database entry
             var count = _dbHelper.ExecuteScalar(
                 "SELECT COUNT(*) FROM QueueEntry WHERE QueueID = @queueID AND DriverID = @driverID",
                 new Microsoft.Data.Sqlite.SqliteParameter("@queueID", TestQueueID),
@@ -124,14 +123,12 @@ namespace TriQue.Tests.Services
             Assert.AreEqual(1L, count, "One queue entry should exist after joining");
         }
 
-        // =============================================
-        // IsDriverInQueue() TESTS
-        // =============================================
+        // IsDriverInQueue() tests
 
         [TestMethod]
         public void IsDriverInQueue_ShouldReturnTrue_WhenDriverIsInQueue()
         {
-            // Join queue first
+            // join queue
             _queueService.JoinQueue(TestDriverID, TestRouteID);
 
             bool result = _queueService.IsDriverInQueue(TestDriverID, TestRouteID);
@@ -142,7 +139,7 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void IsDriverInQueue_ShouldReturnFalse_WhenDriverIsNotInQueue()
         {
-            // Queue is empty (cleaned in TestInitialize)
+            // empty queue
             bool result = _queueService.IsDriverInQueue(TestDriverID, TestRouteID);
 
             Assert.IsFalse(result);
@@ -151,10 +148,10 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void IsDriverInQueue_ShouldReturnFalse_AfterDriverIsRemoved()
         {
-            // Join queue
+            // join queue
             _queueService.JoinQueue(TestDriverID, TestRouteID);
 
-            // Remove from queue
+            // remove driver
             _queueRepo.RemoveDriverFromQueue(TestDriverID, TestQueueID);
 
             bool result = _queueService.IsDriverInQueue(TestDriverID, TestRouteID);
@@ -162,15 +159,12 @@ namespace TriQue.Tests.Services
             Assert.IsFalse(result);
         }
 
-        // =============================================
-        // EDGE CASES
-        // =============================================
-
         [TestMethod]
         public void JoinQueue_ShouldNotCreateDuplicateEntries_WhenJoinedTwice()
         {
+            // duplicate join attempt
             _queueService.JoinQueue(TestDriverID, TestRouteID);
-            _queueService.JoinQueue(TestDriverID, TestRouteID); // second attempt
+            _queueService.JoinQueue(TestDriverID, TestRouteID);
 
             var count = _dbHelper.ExecuteScalar(
                 "SELECT COUNT(*) FROM QueueEntry WHERE QueueID = @queueID AND DriverID = @driverID",
@@ -184,6 +178,7 @@ namespace TriQue.Tests.Services
         [TestMethod]
         public void JoinQueue_PositionShouldStartAtOne_WhenQueueIsEmpty()
         {
+            // get initial position
             int nextPosition = _queueRepo.GetNextPosition(TestQueueID);
 
             Assert.AreEqual(1, nextPosition, "First position in an empty queue should be 1");
