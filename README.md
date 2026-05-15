@@ -16,7 +16,7 @@
 ![Course](https://img.shields.io/badge/Course-Advanced%20OOP-e07b00?style=flat-square)
 ![Platform](https://img.shields.io/badge/Platform-Windows-0057b8?style=flat-square&logo=windows&logoColor=white)
 ![Contributors](https://img.shields.io/badge/Contributors-4-7b2fbe?style=flat-square&logo=github&logoColor=white)
-![Year](https://img.shields.io/badge/Year-2026-0a9fa8?style=flat-square)
+
 
 </div>
 <div align="center">
@@ -25,7 +25,9 @@
 
 </div>
 
-## 📖 Project Description and Purpose
+<br>
+
+# 📖 Project Description and Purpose
 
 **TriQue** is an automated terminal management solution that modernizes the operations of **Tricycle Operators and Drivers Associations (TODA)** in the Philippines. It replaces error-prone manual paper logs with a digital **First-In, First-Out (FIFO)** queuing system and an automated **Route Rotation** module.
 
@@ -40,9 +42,10 @@ Built with **C# WinForms** and an **Object-Oriented architecture**, TriQue organ
 | 🔄 | **Route Systematization** | Automates rotation of driver groups across destinations, ensuring high-traffic routes are shared equitably |
 | 🔍 | **Transparency & Accountability** | Maintains a verifiable digital trail of all activities — trip durations, earnings, and terminal traffic |
 | ⚡ | **Terminal Efficiency** | Reduces manual record-keeping for TODA officers so they can focus on order and safety |
+<br>
 
 
-## 🗂️ UML Diagram
+# 🗂️ UML Diagram
 
 <i>Will implement soon.</i>
 
@@ -51,53 +54,30 @@ Built with **C# WinForms** and an **Object-Oriented architecture**, TriQue organ
 🖥️ Forms  →  ⚙️ Services  →  🗄️ Repositories  →  💾 Database
 ```
 
-## ✨ Features and Functionalities
+# ✨ Features and Functionalities
 
-###  Driver
+From the queue to the road — here's everything TriQue can do:
 
-| | Feature | Description |
-|---|---|---|
-| 📊 | **Driver Dashboard** | Displays daily earnings, completed trips, fastest and slowest trip stats, and a color-coded earnings goal progress bar that updates in real time. |
-| 🎯 | **Earnings Goal Tracker** | Visual progress bar shifts from 🔴 red to 🟠 orange to 🟢 green as the driver approaches their daily goal. A congratulatory alert fires upon completion. |
-| 🔢 | **Queue Management** | Drivers can join the queue for their assigned route. The system displays their current position and live status within the queue. |
-| 🚦 | **Trip Control** | Drivers start and end trips directly from the queue view. The system automatically calculates the fare using the LTFRB tricycle fare formula. |
-| 🗺️ | **Live Route Map** | TomTom-powered interactive map renders the driver's assigned route with real-time traffic status — Light, Moderate, or Heavy. |
-| 📜 | **Trip History** | Displays the last 10 completed trips including route name, actual earnings, and trip date in a sortable data grid. |
+| | Feature | For | Description |
+|---|---|---|---|
+| 📊 | **Dashboard** | Driver | Your day at a glance — earnings, trips, and how close you are to your goal. |
+| 🎯 | **Earnings Goal** | Driver | Watch your progress bar go 🔴→🟠→🟢. Hit your target and the app celebrates with you. |
+| 🔢 | **Queue** | Driver | Know exactly where you stand — join the queue and track your position live. |
+| 🚦 | **Trip Control** | Driver | Tap to start, tap to end. Fare is calculated for you — no math needed. |
+| 🗺️ | **Route Map** | Driver | See your route and know the traffic before you even leave the terminal. |
+| 📜 | **Trip History** | Driver | A running record of your last 10 trips — where you went, what you earned. |
+| 📈 | **Dashboard** | Admin | The whole terminal in one screen — who's moving, who's idle, and what's busy. |
+| 🚦 | **Traffic Monitor** | Admin | Always knows which route is suffering and when — so you don't have to guess. |
+| 👁️ | **Queue Viewer** | Admin | Every driver, every route, every position — live and always up to date. |
+| 👥 | **User Management** | Admin | Full control over who's in the system and what they can do. *(SuperAdmin only)* |
+| 📄 | **Reports** | Admin | Turn raw trip data into clean, exportable PDFs in seconds. |
+| 🔒 | **Account Lockout** | System | Too many wrong attempts? The system locks the door and starts a countdown. |
+| 🔑 | **Temporary Password** | System | First login, new password — no exceptions. |
+| 📋 | **Auth Log** | System | Every entry and exit from the system, logged and timestamped. |
 
----
+<br>
 
-### 🛡️ Admin
-
-| | Feature | Description |
-|---|---|---|
-| 📈 | **Admin Dashboard** | Centralized overview showing total trips, highest and lowest trip routes, driver status distribution via pie chart, and drivers per route via bar graph. |
-| 🚦 | **Traffic Monitor** | Identifies the most traffic-prone route and its peak congestion window using the TomTom API. Data auto-refreshes every 30 minutes. |
-| 👁️ | **Queue Viewer** | Real-time view of all drivers currently in queue per route, including position, body number, and status. |
-| 👥 | **User Management** | SuperAdmin-exclusive module for creating, editing, and managing driver and admin accounts across the system. |
-| 📄 | **Report Generation** | Accessible by SuperAdmins and Toda Officers. Generates operational reports based on trip data and terminal activity. |
-
----
-
-### 🔐 Authentication
-
-| | Feature | Description |
-|---|---|---|
-| 🔒 | **Account Lockout** | Automatically locks an account after 3 consecutive failed login attempts, with a 1-minute cooldown before retry is allowed. |
-| ⏱️ | **Live Countdown Timer** | During lockout, a real-time countdown is displayed on the login screen so the driver knows exactly when they can try again. |
-| 🔑 | **Temporary Password** | New accounts are issued a temporary password. The system forces a mandatory password change on the very first login. |
-| 📋 | **Auth Activity Log** | Every authentication event — successful login, failed attempt, lockout trigger, and logout — is recorded with a timestamp for accountability. |
-
----
-
-### 👤 Access Levels
-
-| | Role | Access Scope |
-|---|---|---|
-| 👑 | **SuperAdmin** | Full system access — user management, reports, queue view, and all admin features. |
-| 📋 | **Toda Officer** | Access to report generation and queue monitoring. Cannot manage user accounts. |
-| 🎛️ | **Staff** | Queue view only. Monitors driver status and route activity without administrative privileges. |
-
-## ⚙️ How the Program Works
+# ⚙️ How the Program Works
 
 ### 🔐 Authentication
 
@@ -151,17 +131,17 @@ Built with **C# WinForms** and an **Object-Oriented architecture**, TriQue organ
 **Settings**
 1. Admin updates account details and system preferences.
 
+<br>
 
-## 🚀 How to Run the Application
- 
+# 🚀 How to Run the Application
  
 ### 📋 Requirements
 - 🪟 Windows 10 or later
 - ⚙️ .NET 8.0 SDK or later
 - 🛠️ Visual Studio 2022 (recommended)
-- 🗺️ TomTom API Key — [get one free here](https://developer.tomtom.com)
----
- 
+- 🗺️ TomTom API Key — [get one free here](https://developer.tomtom.com) <br><br>
+
+
 ### 🛠️ Setup Steps
  
 **1️⃣ Clone the repository**
@@ -206,11 +186,11 @@ Press F5 or click ▶ Start
 ```
  
 > ✅ The SQLite database is created automatically on first run — no additional setup needed.
- 
-> ⚠️ All default accounts use temporary passwords — a mandatory password change is required on first login.
- 
 
-## 👥 Developers
+<br>
+
+# 👥 Developers
+From concept to code — meet the people who made TriQue possible.uilt with late nights, strong coffee, and a genuine desire to make terminal management better.
 
 | | Name | Role |
 |:---:|:---|:---|
@@ -219,14 +199,16 @@ Press F5 or click ▶ Start
 | [<img src="https://avatars.githubusercontent.com/u/191230027?v=4" width="45" height="45" style="border-radius:50%">](https://github.com/philip696969) | *Philip Joshua D. Vinluan* | *Logic Developer* |
 | [<img src="https://avatars.githubusercontent.com/u/191589293?v=4" width="45" height="45" style="border-radius:50%">](https://github.com/JamesMendozaRiniya) | *James Gabriel S. Mendoza* | *Quality Assurance / Tester* |
 
-<h1 align="center">🌸 Acknowledgment 🌸</h1>
+<br>
+
+# 🌸 Acknowledgment
 
 Building TriQue was a challenging but meaningful experience for our group, made possible through the guidance and support of the people who helped us throughout the process.
 
 We sincerely thank our instructor, **Ms. Darlene Opeña**, for sharing her knowledge, guiding us through every stage of development, and pushing us beyond our limits with her feedback and encouragement.
 
 Most of all, we are grateful to every member of the TriQue group for the effort, patience, and teamwork that brought this project to completion.
- 
+
   — *Group 13 💙*
 
 
