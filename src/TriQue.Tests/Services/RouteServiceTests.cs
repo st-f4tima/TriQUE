@@ -14,49 +14,38 @@ namespace TriQue.Tests.Services
         [TestInitialize]
         public void Setup()
         {
-            DotNetEnv.Env.Load(); // reads .env and sets environment variables
+            DotNetEnv.Env.Load(); //reads .env
             _routeService = new RouteService();
         }
 
-        // =========================
-        // API + VALID INPUT TEST
-        // =========================
+        // VALID INPUT TEST
         [TestMethod]
         public async Task GetTrafficAndDuration_ShouldReturnValidData_WhenCoordinatesAreValid()
         {
-            double startLat = 14.083;
-            double startLng = 121.146;
-            double endLat = 14.084;
-            double endLng = 121.147;
-
             var (durationMin, delaySec, condition) =
-                await _routeService.GetTrafficAndDuration(startLat, startLng, endLat, endLng);
+                await _routeService.GetTrafficAndDuration(14.083, 121.146, 14.084, 121.147);
 
-            Assert.IsTrue(durationMin > 0, "Duration should be greater than 0");
-            Assert.IsTrue(delaySec >= 0, "Delay should not be negative");
-            Assert.IsFalse(string.IsNullOrEmpty(condition), "Condition should not be empty");
+            Assert.IsTrue(durationMin > 0);
+            Assert.IsTrue(delaySec >= 0);
+            Assert.IsFalse(string.IsNullOrEmpty(condition));
         }
 
-        // =========================
         // INVALID INPUT TEST
-        // =========================
         [TestMethod]
         public async Task GetTrafficAndDuration_ShouldHandleInvalidCoordinates()
         {
             try
             {
                 await _routeService.GetTrafficAndDuration(999, 999, 999, 999);
-                Assert.Fail("Expected exception was not thrown.");
+                Assert.Fail();
             }
             catch
             {
-                //Invalid coordinates detected -> test passes
+                Assert.IsTrue(true);
             }
         }
 
-        // =========================
-        // API KEY ERROR TEST
-        // =========================
+        // API KEY MISSING TEST
         [TestMethod]
         public async Task GetTrafficAndDuration_ShouldThrow_WhenApiKeyIsMissing()
         {
@@ -64,19 +53,17 @@ namespace TriQue.Tests.Services
 
             try
             {
-                var serviceWithoutKey = new RouteService();
-                await serviceWithoutKey.GetTrafficAndDuration(14.083, 121.146, 14.084, 121.147);
-                Assert.Fail("Expected exception was not thrown.");
+                var service = new RouteService();
+                await service.GetTrafficAndDuration(14.083, 121.146, 14.084, 121.147);
+                Assert.Fail();
             }
-            catch (Exception)
+            catch
             {
-                // Test passes
+                Assert.IsTrue(true);
             }
         }
 
-        // =========================
         // RAW API RESPONSE TEST
-        // =========================
         [TestMethod]
         public async Task GetRouteRaw_ShouldReturnJsonString()
         {
@@ -94,12 +81,9 @@ namespace TriQue.Tests.Services
             Assert.IsTrue(json.Contains("routes"));
         }
 
-        // =========================
-        // TRAFFIC LOGIC TESTS
-        // =========================
-
+        // TRAFFIC CONDITIONS TEST
         [TestMethod]
-        public void TrafficCondition_ShouldBeLight_WhenDelayIsLessOrEqual2()
+        public void TrafficCondition_ShouldBeLight_WhenDelayIsLow()
         {
             int delay = 2;
 
@@ -111,7 +95,7 @@ namespace TriQue.Tests.Services
         }
 
         [TestMethod]
-        public void TrafficCondition_ShouldBeModerate_WhenDelayIsGreaterThan2()
+        public void TrafficCondition_ShouldBeModerate_WhenDelayIsMedium()
         {
             int delay = 5;
 
@@ -123,7 +107,7 @@ namespace TriQue.Tests.Services
         }
 
         [TestMethod]
-        public void TrafficCondition_ShouldBeHigh_WhenDelayIsGreaterThan10()
+        public void TrafficCondition_ShouldBeHigh_WhenDelayIsHigh()
         {
             int delay = 15;
 
@@ -134,14 +118,11 @@ namespace TriQue.Tests.Services
             Assert.AreEqual("High", condition);
         }
 
-        // =========================
-        //  DURATION CONVERSION TEST
-        // =========================
+        // DURATION CONVERSION TEST
         [TestMethod]
         public void Duration_ShouldConvertSecondsToMinutesCorrectly()
         {
             int seconds = 120;
-
             double minutes = seconds / 60.0;
 
             Assert.AreEqual(2, minutes);
